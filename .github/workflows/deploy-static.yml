@@ -40,6 +40,9 @@ jobs:
       - name: Build application
         run: npm run build
 
+      - name: Start Node.js server
+        run: nohup npm start &
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
