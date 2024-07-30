@@ -1,12 +1,14 @@
 {
   "name": "thedatashrink.github.io",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "The Data Shrink: Transforming complex data into actionable insights",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Building the project...\"",
+    "start": "node server.js"
   },
-  "keywords": [],
+  "keywords": ["Data Analysis", "Data Visualization", "Data Cleaning", "Data Mining", "Optimization"],
   "author": "",
   "license": "ISC",
   "dependencies": {
