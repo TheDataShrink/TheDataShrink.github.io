@@ -1,7 +1,7 @@
 ```markdown
 # 🌟 The Data Shrink 🌟
 
-![The Data Shrink Logo](logo.png)
+[The Data Shrink Logo](logo.png)
 
 ## 🚀 Transforming Complex Data into Actionable Insights
 
