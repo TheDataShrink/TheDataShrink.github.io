@@ -1,1 +1,4 @@
-/node_modules
+/.quarto/
+/.vscode/
+/_site/
+.Rproj.user
