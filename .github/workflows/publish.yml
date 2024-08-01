@@ -1,39 +1,32 @@
-on:
-  workflow_dispatch:
-  push:
-    branches: main
-  pull_request:
-    branches: main
-
 name: Quarto Publish
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-        # with:
-        #   To install LaTeX to build PDF book 
-        #   tinytex: true 
-        #   uncomment below and fill to pin a version
-        #   version: pre-release
-          
-      # - name: Setup Python
-      #   uses: actions/setup-python@v4.1.0
-            
-      # add software dependencies here
-      
-      # - name: Install python dependencies
-      #   run: |
-      #     python -m pip install jupyter
-      #     python -m pip install numpy
-      #     python -m pip install matplotlib
+
+      - name: Clean _site directory
+        run: |
+          rm -rf _site
 
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
@@ -43,7 +36,21 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add -A
-          git commit -m "Automated render and deploy by GitHub Actions"
+          git commit -m "Automated render and deploy by GitHub Actions" || echo "No changes to commit"
           git push origin main
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
