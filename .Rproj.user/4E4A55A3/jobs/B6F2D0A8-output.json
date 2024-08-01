@@ -1,3 +1,0 @@
-[2,"\n"]
-[1,"pandoc \n  to: html\n  output-file: index.html\n  standalone: true\n  section-divs: true\n  html-math-method: mathjax\n  wrap: none\n  default-image-extension: png\n  \nmetadata\n  document-css: false\n  link-citations: true\n  date-format: long\n  lang: en\n  title: Untitled\n  editor: visual\n  \n"]
-[1,"Output created: index.html\n\nWatching files for changes\nBrowse at http://localhost:4983/\n"]
