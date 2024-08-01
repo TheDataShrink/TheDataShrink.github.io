@@ -1,4 +1,0 @@
-[2,"\n"]
-[1,"pandoc \n  to: html\n  output-file: index.html\n  standalone: true\n  section-divs: false\n  html-math-method: mathjax\n  wrap: none\n  default-image-extension: png\n  \nmetadata\n  document-css: false\n  link-citations: true\n  date-format: long\n  lang: en\n  pagetitle: The Data Shrink\n  page-layout: custom\n  editor: source\n  sidebar: false\n  repo-actions: false\n  description: |\n    have an idea and build exampel of data source so that do not waste time. Create data synthetic and sell the data source. so that the business ba does not waste time. that is an option of waht to do..\n  \n"]
-[1,"Output created: index.html\n\nWatching files for changes\n"]
-[1,"Browse at http://localhost:4678/\n"]

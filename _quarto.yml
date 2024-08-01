@@ -1,0 +1,54 @@
+project:
+  type: website
+
+website:
+  title: "The Data Shrink"
+  image: images/rwds-logo-150px.png
+  favicon: images/rwds-favicon.png
+  twitter-card:
+    site: "@rwdatasci"
+  open-graph: true
+  site-url: https://www.thedatashrink.com/
+  repo-url: https://github.com/TheDataShrink/TheDataShrink.github.io
+  repo-actions: [edit, issue]
+  # If you are forking our repo to develop content -- whether for The Data Shrink 
+  # or your own purposes -- please disable our Google Analytics tag during development.
+  # If building your own site, replace our GA tag with your own GA tag before deployment.
+  # This will prevent your activity being tracked and counted in our analytics dashboard.
+  # Thank you!
+  navbar:
+    toggle-position: right
+    background: "#f0eeeb"
+    logo: images/rwds-logo-150px.png
+    logo-alt: "The Data Shrink brand"
+    title: false
+    collapse-below: lg
+    right:
+      - case-studies/index.qmd
+      - ideas/index.qmd
+      - careers/index.qmd
+      - viewpoints/index.qmd
+      - text: "About TDS"
+        menu: 
+        - text: "Why we shrink"
+          href: about-rwds.qmd
+        - text: "How to shrink"
+          href: contributor-docs/call-for-contributions.qmd
+        - text: "Code of conduct"
+          href: CODE_OF_CONDUCT.md
+        - text: "Contact us"
+          href: contact.qmd
+  page-navigation: true
+
+format:
+  html:
+    theme: [lux, rwds.scss]
+    css: rwds.css
+    toc: true
+    grid:
+      sidebar-width: 0px
+      body-width: 1000px
+      margin-width: 250px
+
+execute: 
+  freeze: auto
