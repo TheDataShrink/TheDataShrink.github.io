@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>The Data Shrink</title>
+<link>https://realworlddatascience.net/viewpoints/</link>
+<atom:link href="https://realworlddatascience.net/viewpoints/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<image>
+<url>https://realworlddatascience.net/images/rwds-logo-150px.png</url>
+<title>The Data Shrink</title>
+<link>https://realworlddatascience.net/viewpoints/</link>
+<height>83</height>
+<width>144</width>
+</image>
+<generator>quarto-1.5.55</generator>
+<lastBuildDate>Mon, 11 Mar 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Democratizing Data: Using natural language processing and machine learning to capture dataset usage</title>
+  <dc:creator>Brian Tarran</dc:creator>
+  <link>https://realworlddatascience.net/viewpoints/interviews/posts/2024/03/11/democratizing-data.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Figuring out how much money is spent annually on collecting and publishing datasets is a challenge. According to the World Bank, it is <a href="https://blogs.worldbank.org/opendata/how-much-should-governments-spend-data">“painfully hard to obtain”</a> information just on government spending on data, never mind all the other bodies and organisations who invest in the creation of data assets. But there’s an even more challenging figure to pin down: How much value does all this data provide? By and large, there is very little data – or systematic collection of data – on dataset usage. There’s no easy way to find all the users of a particular dataset and to see how the data has been used, or what research topics it may have contributed to.</p>
+<p>Writing in the <a href="https://hdsr.mitpress.mit.edu/pub/g6e8noiy/release/2">Harvard Data Science Review in April 2022</a>, <a href="https://julialane.org/">Julia Lane</a> and others explained that “the current approach to finding what data sets are used to answer scientific questions … is largely manual and ad hoc.” They went on to argue: “Better information on the use of data is likely to have at least two results: (i) government agencies might use the information to describe the return on investment in data sets and (ii) scientists might use the information to reduce the time taken to search and discover other empirical research.”</p>
+<p>This hope for a better understanding of how datasets are used and the value they provide underpins the creation of “Democratizing Data: A Search and Discovery Platform for Public Data Assets.”</p>
+<p>As described on <a href="https://democratizingdata.ai/">the platform’s homepage</a>, Democratizing Data “describes how datasets identified by federal agencies have been used in scientific research. It uses machine learning algorithms to search over 90 million documents and find how datasets are cited, in what publications, and what topics they are used to study.”</p>
+<p>But this is just the start of what Lane thinks the project could eventually achieve, as she explains in this interview.</p>
+<div class="keyline">
+<hr>
+</div>
+<p><strong>How did the Democratizing Data platform come about?</strong><br>
+It emerged from three things, really, and I can trace the start of it back to 2016, when I was asked to build a secure environment that could host confidential microdata in order to inform the work of the <a href="https://obamawhitehouse.archives.gov/omb/management/commission_evidence">Commission on Evidence-Based Policymaking</a>.<sup>1</sup> They asked me to lead on this because I had built the <a href="https://www.norc.org/services-solutions/data-enclave.html">NORC remote access Data Enclave at the University of Chicago</a> 10 years before that.</p>
+<p>This was the first step towards Democratizing Data.</p>
+<p>The second step was figuring out how to create value from the data in the secure environment, because we knew that if we couldn’t create value, government agencies weren’t going to put their data into it.</p>
+<p>But how do you figure out what agencies are going to want to do with the data in a secure environment? It’s difficult to get them to tell you what they want, so I thought, well, why don’t we build training classes, put people in these training classes and have them work on problems with their own data? That way, we’re going to know what problems they have so that we can address them.</p>
+<p>So, step 1 was build secure environment. Step 2 was build capacity and identify the questions that are of interest to agencies so that they would put data into the secure environment. That led to the training classes that Frauke Kreuter, Rayid Ghani, and I put together, which are described here.</p>
+<p>But then what happened was, people kept coming to me in the classes and asking, “Who else has worked with these data, and who can I go to and ask questions?”</p>
+<p>I could give them a list of people, but that list would be biased by my age and race and sex and the people I know. What about those people who are doing really interesting stuff with these data that I happen not to know about?</p>
+<p>So, that’s how Democratizing Data got started. I thought, really the best way to give a full answer to those sorts of questions is to figure out what datasets are being used in research publications.</p>
+<p>Now, how was I going do that? I could read all the publications and manually write notes about who the authors were, and what the topics were, and what datasets they used. But that’s not realistic. So, I thought, well, maybe we could combine natural language processing techniques with machine learning so that you could “read” all these publications and find out how datasets are cited.</p>
+<div class="pullquote-container">
+<div class="grid">
+<div class="g-col-12 g-col-lg-4">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://realworlddatascience.net/viewpoints/interviews/posts/2024/03/11/images/julia-lane-sq.png" class="img-fluid figure-img" alt="Photo of Julia Lane, professor at the NYU Wagner Graduate School of Public Service and visiting fellow at RTI International."></p>
+<figcaption>Julia Lane, professor at the NYU Wagner Graduate School of Public Service and visiting fellow at RTI International. Image supplied, used with permission.</figcaption>
+</figure>
+</div>
+</div>
+<div class="g-col-12 g-col-lg-8 pullquote-grid pullquote">
+<p><img src="https://realworlddatascience.net/images/pullquote-purple.png" class="img-fluid" width="50"></p>
+<p>We’re searching for ways to measure how datasets are used, how they’re valued, and so on. Federal statistical data and Elsevier’s Scopus have been a great starting point for us, but the broader vision is to incorporate other datasets and other publication databases.</p>
+</div>
+</div>
+</div>
+<p><strong>Would this have been a problem that needed solving if there were common, established citation standards and practices for datasets?</strong><br>
+There <em>are</em> great citation practices for datasets, and we’ve had them for 15 years. Back when I was a National Science Foundation (NSF) program officer, everyone was saying, well, if we just get the plumbing right, people will come and use it. Well, they don’t. Even when there are DOIs available and they’re relatively easy to cite, people don’t. The plumbing’s there, we built it, but they didn’t come.</p>
+<p>So, I think there has to be a demand-side piece, and we talk about that in one of the papers in an upcoming special issue of the <a href="https://hdsr.mitpress.mit.edu/">Harvard Data Science Review</a>: How do you create an incentive structure so that people do provide information about how they’ve used data? My thinking was that, suppose we can find out who’s using what data. Then the incentive structure to an academic is “your name in lights”: you are the world’s living expert in orange carrots with green stripes, or whatever. So, we would read the publications, find the datasets, and then you could have a leaderboard of the people who have done the most work in a particular field, and then people would have an incentive both to cite datasets and to let you know when you miss things. And that was when I thought, well, let’s put all this information up in a dashboard.</p>
+<p><strong>So, is the grand vision for this to create a platform that, essentially, any data owner – anyone who publishes datasets – could plug into, connect to, and understand how other people are using their datasets?</strong><br>
+That’s right. The grand vision is basically to set up a search and discovery portal. Originally, my thinking was that would be super helpful for people just starting out in a field; for a new graduate student or a postdoc to say, “I want to figure out what work has been done on recidivism of welfare recipients relative to access to jobs and neighborhood characteristics,” for example, and for them to see what datasets are available and how they have been used.</p>
+<p>But from the data producer side it’d also be useful to know: Who’s using the datasets? Where are the gaps? Where are we maybe not reaching as many people as we thought we were, and how can we change that?</p>
+<p>So, while the original idea was to build a platform for researchers, plans changed when the <a href="https://www.govinfo.gov/content/pkg/PLAW-115publ435/pdf/PLAW-115publ435.pdf">Evidence Act</a> passed, and agencies were required to produce usage statistics for their datasets.<sup>2</sup></p>
+<p>We started a pilot with the US Department of Agriculture’s (USDA) Economic Research Service (ERS). They have been a huge supporter and helped us work through a lot of the issues. Then, when we began showing around the ERS wireframes and ideas, the NSF National Center for Science and Engineering Statistics joined in, and so did USDA’s National Agricultural Statistics Service and the National Center for Education Statistics and the National Oceanic and Atmospheric Administration.</p>
+<p>So, we have these agencies involved and they’ve really been the drivers, the intellectual partners, pushing the design and the structure forward.</p>
+<p><strong>I’ve had a chance to play around with some of the <a href="https://democratizingdata.ai/tools/dashboards/">public dashboards you’ve released on Tableau</a>, and I really like the way you can explore dataset usage from different start points and end up with a list of publications that use those datasets. My question is, though, how have you connected all this up – datasets and publications?</strong><br>
+Our start point was scientific publications because these are pretty well curated. We ended up working with Elsevier because Scopus [Elsevier’s abstract and citation database] is a well-curated corpus and they’ve got the associated publication metadata well curated.</p>
+<p>So, we have the Scopus corpus, and we then ran <a href="https://www.kaggle.com/c/coleridgeinitiative-show-us-the-data">a Kaggle competition</a> to develop machine learning models to identify candidate snippets of text from scientific papers that seem like they might be referring to a dataset.</p>
+<p>Human researchers would then validate those snippets as either referring to a dataset or not, and once they’ve validated the publication-to-dataset dyad, we then pull in all the metadata associated with the publication: authors, institutions, key topics, publication year, countries, etc. – all this information gets piped over to the dashboards.</p>
+<p><strong>You published <a href="https://hdsr.mitpress.mit.edu/pub/g6e8noiy/release/2">a Harvard Data Science Review article about this competition a couple of years ago</a>, and from that I understand that you can actually get quite far with a simple string-matching method for finding datasets, but you would still miss a lot of citations using this approach because of the variability in the way people refer to datasets.</strong><br>
+That’s right. There were three different models that were developed, and each one picks up different aspects of how authors mention data in publications, and all three have been extremely useful. We learned a lot about the variety of ways in which researchers cite the data that they use.</p>
+<p>It turns out that more people do cite datasets in references than we had originally thought, but usually they don’t cite a DOI, they cite the URL or they cite the exact name of the dataset, so string search of references and URLs pulls out quite a lot of information that the DOIs, <em>per se</em>, don’t.</p>
+<p><strong>What are the next steps for scaling up the Democratizing Data work?</strong><br>
+I think it is more of a sociotechnical issue than a technical one. We have the plumbing, but really what we need to do is to figure out the incentives for researchers. We need to build a community around the data, which is what’s happened with code and the sharing of code on platforms like GitHub.</p>
+<p>Obviously, our initial focus has been on federal statistical data, but there’s also a lot of interest in how administrative data or streaming data are being used.</p>
+<p>The advantage of starting with statistical data is that they have names. As we learn more about citation patterns, though, it may be that we don’t need precise names. What may happen is that the community starts converging on common terminologies for datasets. That happens in a lot of fields.</p>
+<p>At the moment, it feels a little bit like the Wild West. We’re searching for ways to measure how datasets are used, how they’re valued, and so on. Federal statistical data and Elsevier’s Scopus have been a great starting point for us, but the broader vision is to incorporate other datasets and other publication databases like arXiv and Semantic Scholar. But all those other datasets that are out there, they need to be curated and documented in some way and that’s a huge task, so the solution has got to be community curation and sharing, right?</p>
+<p>If we don’t build a community around the data, we’re just going to have really bad information, really bad analysis, and really bad statistics on the value that our datasets – all these data assets – provide. My colleague <a href="https://www.rti.org/event/rti-fellow-program-distinguished-lecture-series-democratizing-data">Nancy Potok gave a talk a couple of days ago</a> in which she said that our future depends on this – and it really does.</p>
+<div class="article-btn">
+<p><a href="../../../../../../viewpoints/interviews/index.html">Find more Interviews</a></p>
+</div>
+<div class="further-info">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>Copyright and licence</dt>
+<dd>
+© 2023 Royal Statistical Society
+</dd>
+</dl>
+<p><a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"> <img style="height:22px!important;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a> This article is licensed under a Creative Commons Attribution 4.0 (CC BY 4.0) <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"> International licence</a>. Photo of Julia Lane is not included in this licence.</p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>How to cite</dt>
+<dd>
+Tarran, Brian. 2023. “Democratizing Data: Using natural language processing and machine learning to capture dataset usage.” The Data Shrink, March 11, 2024. <a href="https://realworlddatascience.net/viewpoints/interviews/posts/2024/03/11/democratizing-data.html">URL</a>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>The Commission on Evidence-Based Policymaking was “charged with examining all aspects of how to increase the availability and use of government data to build evidence and inform program design, while protecting privacy and confidentiality of those data.”↩︎</p></li>
+<li id="fn2"><p>Specifically, the act requires federal agencies to identify and implement methods “for collecting and analyzing digital information on data asset usage by users within and outside of the agency.”↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>AI</category>
+  <category>Data</category>
+  <category>Machine learning</category>
+  <category>Natural language processing</category>
+  <guid>https://realworlddatascience.net/viewpoints/interviews/posts/2024/03/11/democratizing-data.html</guid>
+  <pubDate>Mon, 11 Mar 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://realworlddatascience.net/viewpoints/interviews/posts/2024/03/11/images/julia-lane-thumb.png" medium="image" type="image/png" height="105" width="144"/>
+</item>
+<item>
+  <title>Editor’s note: Not saying goodbye, just saying…</title>
+  <dc:creator>Brian Tarran</dc:creator>
+  <link>https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/03/editors-note.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>It’s not easy to leave a brilliant group of people you’ve worked with for almost a decade, but in a month’s time I’ll be moving on from the Royal Statistical Society (RSS).</p>
+<p>When I joined RSS in June 2014 I was looking for new challenges. I wanted to find out more about the ways statistics and data are used to understand and solve problems and inform decisions in science, business and industry, public policy, health… I could go on! Working for the RSS certainly delivered on that front: as editor of <a href="https://significancemagazine.com/">Significance</a> for eight years and of The Data Shrink more recently, I have had many opportunities to learn.</p>
+<p>Pretty much every day of my working life for the past nine years, eight months or so involved speaking with expert statisticians and data scientists or reading about their work. When there were things I didn’t understand, they were always happy to explain. When I shared my ideas for how to make their articles clearer or more readable, they took the time to listen. Together, we worked to create accessible, engaging stories about statistics and data. There have been hundreds of these collaborations over the years – too many to namecheck individually – but I have enjoyed them all, and I’ve learned something from each of them.</p>
+<p>Before I head off to pursue a new set of challenges and learning opportunities, I want to say a big thank you to all the RSS staff and members, past and present, that I’ve been lucky to call my colleagues. Thank you also to the staff and members of the American Statistical Association who have been valued partners on Significance over the years and now RWDS too. It’s been a privilege to work with you all.</p>
+<p>The chance to launch RWDS has been a particular highlight of my time at RSS, and I am grateful to have had the support and input of The Alan Turing Institute and many of its wonderful staff and researchers on this project. I’m excited to see the site continue to grow and develop into a valuable resource for the data science community, and I look forward to reading an upcoming series of articles that will explore the statistical and data science perspectives on AI – stay tuned for more on this soon.</p>
+<p>Statistics and data will continue to be a big part of my life, so this isn’t “goodbye.” Instead, I’ll just say, let’s keep in touch – and thank you for reading!</p>
+<div class="article-btn">
+<p><a href="../../../../../viewpoints/editors-blog/index.html">Back to Editors’ blog</a></p>
+</div>
+<div class="further-info">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>Copyright and licence</dt>
+<dd>
+© 2024 Royal Statistical Society
+</dd>
+</dl>
+<p><a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"> <img style="height:22px!important;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a> This article is licensed under a Creative Commons Attribution 4.0 (CC BY 4.0) <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"> International licence</a>. Thumbnail photo by <a href="https://unsplash.com/@peet818?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Pete Pedroza</a> on <a href="https://unsplash.com/photos/thank-you-text-VyC0YSFRDTU?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.</p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>How to cite</dt>
+<dd>
+Tarran, Brian. 2024. “Editor’s note: Not saying goodbye, just saying…” The Data Shrink, March 6, 2024. <a href="https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/03/06/editors-note.html">URL</a>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+
+ ]]></description>
+  <category>People</category>
+  <category>Updates</category>
+  <guid>https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/03/editors-note.html</guid>
+  <pubDate>Wed, 06 Mar 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/03/images/thank-you.png" medium="image" type="image/png" height="105" width="144"/>
+</item>
+<item>
+  <title>£10m for UK regulators to ‘jumpstart’ AI capabilities, as government commits to white paper approach</title>
+  <dc:creator>Brian Tarran</dc:creator>
+  <link>https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/02/08/llms-whitepaper-response.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>The UK government this week announced a £10 million investment to “jumpstart regulators’ AI capabilities” as part of its commitment to a “pro-innovation approach to AI regulation.” But will this be sufficient to answer criticisms that it has so far been “too slow” to give regulators the tools they need to police the growing usage of AI?</p>
+<p>It was March last year when a Department for Science, Innovation and Technology (DSIT) white paper first set out the government’s <a href="https://www.gov.uk/government/publications/ai-regulation-a-pro-innovation-approach/white-paper">principles- and context-based approach to regulating artificial intelligence</a>. This proposed to focus regulatory attention on “the context in which AI is deployed” rather than target specific technologies. Under this model, existing regulators, including the Information Commissioner’s Office, Ofcom, and the Competition and Markets Authority, would be responsible for ensuring that technologies deployed within their domains adhered to established rules – e.g., data protection regulation – and a common set of principles:</p>
+<ul>
+<li>Safety, security and robustness.</li>
+<li>Appropriate transparency and explainability.</li>
+<li>Fairness.</li>
+<li>Accountability and governance.</li>
+<li>Contestability and redress.</li>
+</ul>
+<p>The approach was broadly well received, as was clear from a debate at techUK’s <a href="https://realworlddatascience.net/viewpoints/editors-blog/posts/2023/12/08/digital-ethics-summit.html">Digital Ethics Summit</a> last December. However, concerns were expressed about whether regulators would be funded sufficiently to meet the expectations set out in the March white paper. Also, the Royal Statistical Society, in <a href="https://rss.org.uk/RSS/media/File-library/Policy/2023/RSS-AI-white-paper-response-v2-2.pdf">its response to the white paper</a>, worried that “splitting responsibilities for regulating the use of AI between existing regulators does not meet the scale of the challenge,” and that “central leadership is required to give a clear, coherent and easily communicable framework that can be applied to all sectors.”</p>
+<p>While the DSIT white paper proposed that a range of “central functions” be created to support regulators, <a href="https://committees.parliament.uk/committee/170/communications-and-digital-committee/news/199728/uk-will-miss-ai-goldrush-unless-government-adopts-a-more-positive-vision/">evidence presented to a House of Lords inquiry</a> last November suggested that regulators “did not appear to know what was happening” with these mooted teams and were “keen to see progress” on this front.</p>
+<p>In reporting the outcomes of its inquiry last week, the House of Lords Communications and Digital Committee concluded that government was being “too slow” to give regulators the tools required to meet the objectives set out in the white paper, and that “speedier resourcing of government‑led central support teams is needed.”</p>
+<p>“Relying on existing regulators to ensure good outcomes from AI will only work if they are properly resourced and empowered,” the committee said.</p>
+<p>The £10 million funding for regulators announced this week is therefore likely to be welcomed. Money is earmarked to “help regulators develop cutting-edge research and practical tools to monitor and address risks and opportunities in their sectors, from telecoms and healthcare to finance and education,” according to <a href="https://www.gov.uk/government/news/uk-signals-step-change-for-regulators-to-strengthen-ai-leadership">a DSIT press release</a>. Speaking on February 6 at <a href="https://parliamentlive.tv/event/index/68ecee17-2896-4002-8736-1608229db364?in=15:27:41">a hearing of the Lords Communications and Digital Committee</a>, Michelle Donelan, Secretary of State for Science, Innovation and Technology, said that the government would “stay on top” of what regulators need to be able to fulfil their responsibilities for regulating the use of AI in their sectors.</p>
+<section id="consultation-response" class="level2">
+<h2 class="anchored" data-anchor-id="consultation-response">Consultation response</h2>
+<p>News of the funding for regulators came as part of <a href="https://www.gov.uk/government/consultations/ai-regulation-a-pro-innovation-approach-policy-proposals/outcome/a-pro-innovation-approach-to-ai-regulation-government-response">a long-awaited response by the government to the consultation on its AI regulation white paper</a>. The response essentially confirmed that the government was proceeding with its principles- and context-based approach to regulating AI, having received “strong support from stakeholders across society.”</p>
+<p>This approach is right for today, the government said, “as it allows us to keep pace with rapid and uncertain advances in AI.” However, it acknowledged that “the challenges posed by AI technologies will ultimately require legislative action in every country once understanding of risk has matured.”</p>
+<p>“Highly capable general-purpose AI systems” would, for example, present a particular challenge to the government’s current approach. It explained: “Even though some regulators can enforce existing laws against the developers of the most capable general-purpose systems within their current remits, the wide range of potential uses means that general-purpose systems do not currently fit neatly within the remit of any one regulator, potentially leaving risks without effective mitigations.”</p>
+<p>As a next step in delivering on the white paper approach, the government is asking key regulators to publish an update on their strategic approach to AI by the end of April. This was welcomed by Royal Statistical Society (RSS) president Andrew Garrett, who said:</p>
+<blockquote class="blockquote">
+<p>“Urgency is certainly warranted, and the directive for key regulators to disclose their approach in the coming months is a positive development. Ensuring consistency and coherence not only among key regulators but also those who follow is crucial.”</p>
+</blockquote>
+<p>Garrett also <a href="https://realworlddatascience.net/viewpoints/interviews/posts/2023/10/25/evaluating-ai.html">reiterated the need for government to engage with statisticians and data scientists</a>, particularly through its <a href="https://realworlddatascience.net/viewpoints/posts/2023/12/06/ai-fringe.html">new AI Safety Institute</a> (AISI). In the white paper consultation response, AISI is billed as being “fundamental to informing the UK’s regulatory framework”: it will “advance the world’s knowledge of AI safety by carefully examining, evaluating, and testing new frontier AI systems” and will also “research new techniques for understanding and mitigating AI risk.” Garrett said:</p>
+<blockquote class="blockquote">
+<p>“As always, fostering diversity of representation within government and regulatory bodies remains paramount; it cannot solely rely on input from major tech companies. It is especially important that the AI Safety Institute engages with a diverse array of voices, including statisticians and data scientists who play a pivotal role in both the development of AI systems and novel evaluation methodologies.”</p>
+</blockquote>
+</section>
+<section id="risks-and-opportunities" class="level2">
+<h2 class="anchored" data-anchor-id="risks-and-opportunities">Risks and opportunities</h2>
+<p>Calls for a “diversity of representation within government and regulatory bodies” certainly chime with a warning bell sounded by the Lords Communications and Digital Committee last week, in the February 2 release of its <a href="https://committees.parliament.uk/committee/170/communications-and-digital-committee/news/199728/uk-will-miss-ai-goldrush-unless-government-adopts-a-more-positive-vision/">inquiry report into large language models and generative AI</a>. “Regulatory capture” by big commercial interests was highlighted as a danger to be avoided, amid concern that “the AI safety debate is being dominated by views narrowly focused on catastrophic risk, often coming from those who developed such models in the first place” and that “this distracts from more immediate issues like copyright infringement, bias and reliability.”<sup>1</sup></p>
+<p>The committee called for enhanced governance and transparency measures in DSIT and AISI to guard against regulatory capture, and for a rebalancing away from a “narrow focus on high-stakes AI safety” toward a “more positive vision for the opportunities [of AI] and a more deliberate focus on near-term risks” including cyber security and disinformation.</p>
+<p>It also wants to see greater action by the government in support of copyright. “Some tech firms are using copyrighted material without permission, reaping vast financial rewards,” reads the report. “The legalities of this are complex but the principles remain clear. The point of copyright is to reward creators for their efforts, prevent others from using works without permission, and incentivise innovation. The current legal framework is failing to ensure these outcomes occur and the Government has a duty to act. It cannot sit on its hands for the next decade and hope the courts will provide an answer.”</p>
+<p>Again, here’s RSS president Andrew Garrett’s take on the Lords committee report:</p>
+<center>
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7159583475350585344" height="1091" width="504" frameborder="0" allowfullscreen="" title="Embedded post">
+</iframe>
+</center>
+<div class="article-btn">
+<p><a href="../../../../../../viewpoints/editors-blog/index.html">Back to Editors’ blog</a></p>
+</div>
+<div class="further-info">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>Copyright and licence</dt>
+<dd>
+© 2024 Royal Statistical Society
+</dd>
+</dl>
+<p><a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"> <img style="height:22px!important;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a> This article is licensed under a Creative Commons Attribution 4.0 (CC BY 4.0) <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"> International licence</a>. Thumbnail photo by <a href="https://unsplash.com/@yaopey?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Yaopey Yong</a> on <a href="https://unsplash.com/photos/white-concrete-building-near-body-of-water-during-night-time-flmPTUCjkto?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.</p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>How to cite</dt>
+<dd>
+Tarran, Brian. 2024. “£10m for UK regulators to ‘jumpstart’ AI capabilities, as government commits to white paper approach.” The Data Shrink, February 8, 2024. <a href="https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/02/08/llms-whitepaper-response.html">URL</a>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>See, for example, <a href="https://realworlddatascience.net/viewpoints/posts/2023/06/05/no-AI-probably-wont-kill-us.html">“No, AI probably won’t kill us all – and there’s more to this fear campaign than meets the eye.”</a>↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>AI</category>
+  <category>Large language models</category>
+  <category>Public policy</category>
+  <category>Risk</category>
+  <category>Regulation</category>
+  <guid>https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/02/08/llms-whitepaper-response.html</guid>
+  <pubDate>Thu, 08 Feb 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/02/08/images/parliament-and-thames.png" medium="image" type="image/png" height="105" width="144"/>
+</item>
+<item>
+  <title>UK government sets out 10 principles for use of generative AI</title>
+  <dc:creator>Brian Tarran</dc:creator>
+  <link>https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/01/22/gen-ai-framework.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>The UK government has published <a href="https://www.gov.uk/government/publications/generative-ai-framework-for-hmg/generative-ai-framework-for-hmg-html">a framework for the use of generative AI</a>, setting out 10 principles for departments and staff to think about if using, or planning to use, this technology.</p>
+<p>It covers the need to understand what generative AI is and its limitations, the lawful, ethical and secure use of the technology, and a requirement for “meaningful human control.”</p>
+<p>The focus is on large language models (LLMs) as, according to the framework, these have “the greatest level of immediate application in government.”</p>
+<p>It lists a number of promising use cases for LLMs, including the synthesise of complex data, software development, and summaries of text and audio. However, the document cautions against using generative AI for fully automated decision-making or in contexts where data is limited or explainability of decision-making is required. For example, it warns that:</p>
+<blockquote class="blockquote">
+<p>“although LLMs can give the appearance of reasoning, they are simply predicting the next most plausible word in their output, and may produce inaccurate or poorly-reasoned conclusions.”</p>
+</blockquote>
+<p>And on the issue of explainability, it says that:</p>
+<blockquote class="blockquote">
+<p>“generative AI is based on neural networks, which are so-called ‘black boxes’. This makes it difficult or impossible to explain the inner workings of the model which has potential implications if in the future you are challenged to justify decisioning or guidance based on the model.”</p>
+</blockquote>
+<p>The framework goes on to discuss some of the practicalities of building generative AI solutions. It talks specifically about the value a multi-disciplinary team can bring to such projects, and emphasises the role of data scientists:</p>
+<blockquote class="blockquote">
+<p>“data scientists … understand the relevant data, how to use it effectively, and how to build/train and test models.”</p>
+</blockquote>
+<p>It also speaks to the need to “understand how to monitor and mitigate generative AI drift, bias and hallucinations” and to have “a robust testing and monitoring process in place to catch these problems.”</p>
+<p>What do you make of the <a href="https://www.gov.uk/government/publications/generative-ai-framework-for-hmg/generative-ai-framework-for-hmg-html">Generative AI Framework for His Majesty’s Government</a>? What does it get right, and what needs more work?</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+And in case you missed it…
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>New York State issued a policy on the <a href="https://its.ny.gov/acceptable-use-artificial-intelligence-technologies">Acceptable Use of Artificial Intelligence Technologies</a> earlier this month. Similar to the UK government framework, it references the need for human oversight of AI models and rules out use of “automated final decision systems.” There is also discussion of fairness, equity and explainability, and AI risk assessment and management.</p>
+</div>
+</div>
+<div class="article-btn">
+<p><a href="../../../../../../viewpoints/editors-blog/index.html">Back to Editors’ blog</a></p>
+</div>
+<div class="further-info">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>Copyright and licence</dt>
+<dd>
+© 2024 Royal Statistical Society
+</dd>
+</dl>
+<p><a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"> <img style="height:22px!important;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a> This article is licensed under a Creative Commons Attribution 4.0 (CC BY 4.0) <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"> International licence</a>. Thumbnail photo by <a href="https://unsplash.com/@therawhunter?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Massimiliano Morosinotto</a> on <a href="https://unsplash.com/photos/brown-tower-clock-under-cloudy-sy-paINk01G8Xk?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.</p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>How to cite</dt>
+<dd>
+Tarran, Brian. 2024. “UK government sets out 10 principles for use of generative AI.” The Data Shrink, January 22, 2024. <a href="https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/01/22/gen-ai-framework.html">URL</a>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+
+ ]]></description>
+  <category>AI ethics</category>
+  <category>Large language models</category>
+  <category>Monitoring</category>
+  <category>Public policy</category>
+  <category>Risk</category>
+  <guid>https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/01/22/gen-ai-framework.html</guid>
+  <pubDate>Mon, 22 Jan 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/01/22/images/uk-parliament.png" medium="image" type="image/png" height="105" width="144"/>
+</item>
+<item>
+  <title>When will the cherry trees bloom? Get ready to make and share your predictions!</title>
+  <dc:creator>Brian Tarran</dc:creator>
+  <link>https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/01/18/cherry-blossom.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>The <a href="https://competition.statistics.gmu.edu/">2024 International Cherry Blossom Prediction Competition</a> will open for entries on February 1, and The Data Shrink is once again proud to be a sponsor.</p>
+<p>Contestants are invited to submit predictions for the date cherry trees will bloom in 2024 at five different locations – Kyoto, Japan; Liestal-Weideli, Switzerland; Vancouver, Canada; and Washington, DC and New York City, USA.</p>
+<p>The competition organisers will provide all the publicly available data they can find for the bloom dates of cherry trees in these locations, and contestants will then be challenged to use this data “in combination with any other publicly available data (e.g., climate data) to provide reproducible predictions of the peak bloom date.”</p>
+<p>“For this competition, we seek accurate, interpretable predictions that offer strong narratives about the factors that determine when cherry trees bloom and the broader consequences for local and global ecosystems,” say the organisers. “Your task is to predict the peak bloom date for 2024 and to estimate a prediction interval, a lower and upper endpoint of dates during which peak bloom is most probable.”</p>
+<p>So that organisers can reproduce the predictions, entrants must submit all data and code in a <a href="https://quarto.org/">Quarto document</a>.</p>
+<p>There’s cash and prizes on offer for the best entries, including having your work featured on The Data Shrink. <a href="https://competition.statistics.gmu.edu/">Head on over to the competition website for full details and rules</a>.</p>
+<p>And, if you are looking for some inspiration, check out this <a href="https://realworlddatascience.net/ideas/tutorials/posts/2023/04/13/flowers.html">tutorial on the law of the flowering plants</a>, written by Jonathan Auerbach, a co-organiser of the prediction competition.</p>
+<p>Good luck to all entrants!</p>
+<div class="article-btn">
+<p><a href="../../../../../../viewpoints/editors-blog/index.html">Back to Editors’ blog</a></p>
+</div>
+<div class="further-info">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>Copyright and licence</dt>
+<dd>
+© 2024 Royal Statistical Society
+</dd>
+</dl>
+<p><a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"> <img style="height:22px!important;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a> This article is licensed under a Creative Commons Attribution 4.0 (CC BY 4.0) <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"> International licence</a>. Photo by <a href="https://unsplash.com/@ajny?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">AJ</a> on <a href="https://unsplash.com/photos/pink-flowers-McsNra2VRQQ?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a>.</p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>How to cite</dt>
+<dd>
+Tarran, Brian. 2024. “When will the cherry trees bloom? Get ready to make and share your predictions!” The Data Shrink, January 18, 2024. <a href="https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/01/18/cherry-blossom.html">URL</a>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+
+ ]]></description>
+  <category>Coding</category>
+  <category>Prediction</category>
+  <category>Reproducible research</category>
+  <category>Statistics</category>
+  <guid>https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/01/18/cherry-blossom.html</guid>
+  <pubDate>Thu, 18 Jan 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/01/18/images/cherry-blossom.png" medium="image" type="image/png" height="105" width="144"/>
+</item>
+<item>
+  <title>Creating a web publication with Quarto: the The Data Shrink origin story</title>
+  <dc:creator>Brian Tarran</dc:creator>
+  <link>https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/01/03/posit-conf-video.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>When I attended posit::conf(2023) in Chicago last year, I gave a talk about creating The Data Shrink using Quarto, the open source publishing system developed by Posit. That talk is now online, along with all the other conference talks and keynotes.</p>
+<p>My talk, “From Journalist to Coder: Creating a Web Publication with Quarto,” is embedded below. You can also find a selection of talks on <a href="https://realworlddatascience.net/viewpoints/editors-blog/posts/2023/09/19/positconf-blog.html">our posit::conf highlights blog</a>. The <a href="https://www.youtube.com/playlist?list=PL9HYL-VRX0oRFZslRGHwHuwea7SvAATHp">full conference playlist is on YouTube</a>.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/ncDEqHxMWnE?si=A1GmLphRPlmspJCj" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="article-btn">
+<p><a href="../../../../../../viewpoints/editors-blog/index.html">Back to Editors’ blog</a></p>
+</div>
+<div class="further-info">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>Copyright and licence</dt>
+<dd>
+© 2024 Royal Statistical Society
+</dd>
+</dl>
+<p><a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"> <img style="height:22px!important;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a> This article is licensed under a Creative Commons Attribution 4.0 (CC BY 4.0) <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;"> International licence</a>.</p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>How to cite</dt>
+<dd>
+Tarran, Brian. 2024. “Creating a web publication with Quarto: the The Data Shrink origin story.” The Data Shrink, January 03, 2024. <a href="https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/01/03/posit-conf-video.html">URL</a>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+
+ ]]></description>
+  <category>Coding</category>
+  <category>Communication</category>
+  <category>Events</category>
+  <category>Communities</category>
+  <category>Open source</category>
+  <guid>https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/01/03/posit-conf-video.html</guid>
+  <pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://realworlddatascience.net/viewpoints/editors-blog/posts/2024/01/03/images/video-grab.png" medium="image" type="image/png" height="105" width="144"/>
+</item>
+<item>
+  <title>Evaluating artificial intelligence: How data science and statistics can make sense of AI models</title>
+  <dc:creator>Brian Tarran</dc:creator>
+  <link>https://realworlddatascience.net/viewpoints/posts/2023/12/06/ai-fringe.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>A little over a month ago, governments, technology firms, multilateral organisations, and academic and civil society groups came together at Bletchley Park – home of Britain’s World War II code breakers – to discuss the safety and risks of artificial intelligence.</p>
+<p>One output from that event was <a href="https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023">a declaration</a>, signed by countries in attendance, of their resolve to “work together in an inclusive manner to ensure human-centric, trustworthy and responsible AI that is safe, and supports the good of all.”</p>
+<p>We also heard from UK prime minister Rishi Sunak of <a href="https://www.gov.uk/government/news/prime-minister-launches-new-ai-safety-institute">plans for an AI Safety Institute</a>, to be based in the UK, which will “carefully test new types of frontier AI before and after they are released to address the potentially harmful capabilities of AI models, including exploring all the risks, from social harms like bias and misinformation, to the most unlikely but extreme risk, such as humanity losing control of AI completely.”</p>
+<p>But at a panel debate at the Royal Statistical Society (RSS) the day before the Bletchley Park gathering, data scientists, statisticians, and machine learning experts questioned whether such an institute would be sufficient to meet the challenges posed by AI; whether data inputs – compared to AI model outputs – are getting the attention they deserve; and whether the summit was overly focused on <a href="https://realworlddatascience.net/viewpoints/posts/2023/06/05/no-AI-probably-wont-kill-us.html">AI doomerism</a> and neglecting more immediate risks and harms. There were also calls for AI developers to be more driven to solve real-world problems, rather than just pursuing AI for AI’s sake.</p>
+<p>The RSS event was chaired by Andrew Garrett, the Society’s president, and formed part of the national <a href="https://aifringe.org/">AI Fringe programme of activities</a>. The panel featured:</p>
+<ul>
+<li>Mihaela van der Schaar, John Humphrey Plummer professor of machine learning, artificial intelligence and medicine at the University of Cambridge and a fellow at The Alan Turing Institute.</li>
+<li>Detlef Nauck, head of AI and data science research at BT, and a member of the <a href="https://realworlddatascience.net/viewpoints/editors-blog/posts/2022/10/18/meet-the-team.html">The Data Shrink editorial board</a>.</li>
+<li>Mark Levene, principal scientist in the Department of Data Science at the National Physical Laboratory.</li>
+<li>Martin Goodson, chief executive of Evolution AI, and former chair of the RSS Data Science and AI Section.</li>
+</ul>
+<p>What follows are some edited highlights and key takeaways from the discussion.</p>
+<div class="keyline">
+<hr>
+</div>
+<section id="ai-safety-and-ai-risks" class="level2">
+<h2 class="anchored" data-anchor-id="ai-safety-and-ai-risks">AI safety, and AI risks</h2>
+<p><strong>Andrew Garrett:</strong> For those who were listening to the commentary last week, the PM [prime minister] made a very interesting speech. Rishi Sunak announced the creation of the world’s first AI Safety Institute in the UK, to examine, evaluate and test new types of AI. He also stated that he pushed hard to agree the first ever international statement about the risks of AI because, in his view, there wasn’t a shared understanding of the risks that we face. He used the example of the IPCC, the Intergovernmental Panel on Climate Change, to establish a truly global panel to publish a “state of AI science” report. And he also announced an investment in raw computing power, so around a billion pounds in a supercomputer, and £2.5 billion in quantum computers, making them available for researchers and businesses as well as government.</p>
+<p>The RSS provided two responses this year to prominent [AI policy] reviews. The first was in June <a href="https://rss.org.uk/RSS/media/File-library/Policy/2023/RSS-AI-white-paper-response-v2-2.pdf">on the AI white paper</a>, and the second was on <a href="https://rss.org.uk/RSS/media/File-library/Policy/RSS_Evidence_Communications_and_Digital_Lords_Select_Committee_Inquiry_Large_Language_Models_September_2023.pdf">the House of Lords Select Committee inquiry into large language models</a> back in September. How do they relate to what the PM said? There’s some good news here, and maybe not quite so good news.</p>
+<p>First, the RSS had requested investments in AI evaluation and a risk-based approach. And you could argue, by stating that there will be a safety institute, that that certainly ticks one of the boxes. We also recommended investment in open source, in computing power, and in data access. In terms of computing power, that was certainly in the [PM’s] speech. We spoke about strengthening leadership, and in particular including practitioners in the [AI safety] debate. A lot of academics and maybe a lot of the big tech companies have been involved in the debate, but we want to get practitioners – those close to the coalface – involved in the debate. I’m not sure we’ve seen too much of that. We recommended that strategic direction was provided, because it’s such a fast-moving area, and the fact that the Bletchley Park Summit is happening tomorrow, I think, is good for that. And we also recommended that data science capability was built amongst the regulators. I don’t think there was any mention of that.</p>
+<p>That’s the context [for the RSS event today]. What I’m going to do now is ask each of the panellists to give an introductory statement around the AI summit, focusing on the safety aspects. What do they see as the biggest risk? And how would they mitigate or manage this risk?</p>
+<p><strong>Detlef Nauck:</strong> I work at BT and run the AI and data science research programme. We’ve been looking at the safety, reliability, and responsibility of AI for quite a number of years already. Five years ago, we put up a responsible AI framework in the company, and this is now very much tied into our data governance and risk management frameworks.</p>
+<p>Looking at the AI summit, they’re focusing on what they call “frontier models,” and they’re missing a trick here because I don’t think we need to worry about all-powerful AI; we need to worry about inadequate AI that is being used in the wrong context. For me, AI is programming with data, and that means I need to know what sort of data has been used to build the model, and I need AI vendors to be upfront about it and to tell me: What is the data that they have used to build it, how have they built it, or if they’ve tested for bias? And there are no protocols around this. So, therefore, I’m very much in favour of AI evaluation. But I don’t want to wait for an institute for AI evaluation. I want the academic research that needs to be done around this, which hasn’t been done. I want everybody who builds AI systems to take this responsibility and document properly what they’re doing.</p>
+<div class="pullquote-container">
+<div class="grid">
+<div class="g-col-12 g-col-lg-4">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://realworlddatascience.net/viewpoints/posts/2023/12/06/images/llm-3d-shapes-crop.png" class="img-fluid quarto-figure quarto-figure-left figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="g-col-12 g-col-lg-8 pullquote-grid pullquote">
+<p><img src="https://realworlddatascience.net/images/pullquote-purple.png" class="img-fluid" width="50"></p>
+<p>I hear more and more a lot of companies talking about AI general intelligence, and how AI is going to take over the world, and I’m tremendously concerned about this. There is an opportunity to build AI that is human empowering, that keeps us strong, able, capable, intelligent, and can support us in all our human capabilities.</p>
+</div>
+</div>
+</div>
+<p><strong>Mihaela van der Schaar:</strong> I am an AI researcher building AI and machine learning technology. Before talking about the risks, I also would like to say that I see tremendous potential for good. Many of these machine learning AI models can transform for the better areas that I find extremely important – healthcare and education. That being said, there are substantial risks, and we need to be very careful about that. First, if not designed well, AI can be both unsafe as well as biased, and that could lead to tremendous impact, especially in medicine and education. I completely agree with all the points that the Royal Statistical Society has made not only about open source but also about data access. This AI technology cannot be built unless you have access to high quality data, and what I see a lot happening, especially in industry, is people have data sources that they’ll keep private, build second-rate or third-rate technology on them, and then turn that into commercialised products that are sold to us for a lot of money. If data is made widely available, the best as well as the safest AI can be produced, rather than monopolised.</p>
+<p>Another area of risk that I’m especially worried about is human marginalisation. I hear more and more a lot of companies talking about AI general intelligence, and how AI is going to take over the world, and I’m tremendously concerned as an AI researcher about this. There is an opportunity to build AI that is human empowering, that keeps us strong, able, capable, intelligent, and can support us in all our human capabilities.</p>
+<p><strong>Martin Goodson:</strong> The AI Safety Summit is starting tomorrow. But, unfortunately, I think the government are focusing on the wrong risks. There are lots of risks to do with AI, and if you look at the scoping document for the summit, it says that what they’re interested in is misuse risk and the risk of loss of control. Misuse risk is that bad actors will gain access to information that they shouldn’t have and build chemical weapons and things like that. And the loss of control risk is that we will have this super intelligence which is going to take over and we should see, as is actually mentioned, the risk of the extinction of the human race, which I think is a bit overblown.</p>
+<p>Both of these risks – the misuse risk and the loss of control risk – are potential risks. But we don’t really know how likely they are. We don’t even know whether they’re possible. But there are lots of risks that we do know are possible, like loss of jobs, and reductions in salary, particularly of white-collar jobs – that seems inevitable. There’s another risk, which is really important, which is the risk of monopolistic control by the small number of very powerful AI companies. These are the risks which are not just likely but are actually happening now – people are losing their jobs right now because of AI – and in terms of monopolistic control, OpenAI is the only company that has anything like a large language model as powerful as GPT-4. Even the mighty Google can’t really compete. This is a huge risk, I think, because we have no control over pricing: they could raise the prices if they wanted to; they could constrain access; they could only give access to certain people that they want to give access to. We don’t have any control over these systems.</p>
+<p><strong>Mark Levene:</strong> I work in NPL as a principal scientist in the data science department. I’m also emeritus professor in Birkbeck, University of London. I have a long-standing expertise in machine learning and focus in NPL on trustworthy AI and uncertainty quantification. I believe that measurement is a key component in locking-in AI safety. Trustworthy AI and safe AI both have similar goals but different emphases. We strive to demonstrate the trustworthiness of an AI system so that we can have confidence in the technology making what we perceive as responsible decisions. Safe AI puts the emphasis on the prevention of harmful consequences. The risk [of AI] is significant, and it could potentially be catastrophic if we think of nuclear power plants, or weapons, and so on. I think one of the problems here is, who is actually going to take responsibility? This is a big issue, and not necessarily an issue for the scientist to decide. Also, who is accountable? For instance, the developers of large language models: are they the ones that are accountable? Or is it the people who deploy the large language models and are fine-tuning them for their use cases?</p>
+<p>The other thing I want to emphasise is the socio-technical characteristics [of the AI problem]. We need to get an interdisciplinary team of people to actually try and tackle these issues.</p>
+</section>
+<section id="do-we-need-an-ai-safety-institute" class="level2">
+<h2 class="anchored" data-anchor-id="do-we-need-an-ai-safety-institute">Do we need an AI Safety Institute?</h2>
+<p><strong>Andrew Garrett:</strong> Do we need to have an AI Safety Institute, as Rishi Sunak has said? And if we don’t need one, why not?</p>
+<p><strong>Detlef Nauck:</strong> I’m more in favour of encouraging academic research in the field and funding the kind of research projects that can look into how to build AI safely, [and] how to evaluate what it does. One of the key features of this technology is it has not come out of academic research; it has been built by large tech companies. And so, I think we have to do a bit of catch up in scientific research and in understanding how are we building these models, what can they do, and how do we control them?</p>
+<p><strong>Mihaela van der Schaar:</strong> This technology has a life of its own now, and we are using it for all sorts of things that maybe initially was not even intended. So, shall we create an AI [safety] institute? We can, but we need to realise first that testing AI and showing that it’s safe in all sorts of ways is complicated. I would dare say that doing that well is a big research challenge by itself. I don’t think just one institute will solve it. And I feel the industry needs to bear some of the responsibility. I was very impressed by Professor [Geoffrey] Hinton, who came to Cambridge and said, “I think that some of these companies should invest as much money in making safe AI as developing AI.” I resonated quite a lot with that.</p>
+<p>Also, let’s not forget, many academic researchers have two hats nowadays: they are professors, and they are working for big tech [companies] for a lot of money. So, if we take this academic, we put them in this AI tech safety institute, we have potential for corruption. I’m not saying that this will happen. But one needs to be very aware, and there needs to be a very big separation between who develops [AI technology] and who tests it. And finally, we need to realise that we may require an enormous amount of computation to be able to validate and test correctly, and very few academic or governmental organisations may have [that].</p>
+<div class="pullquote-container">
+<div class="grid">
+<div class="g-col-12 g-col-lg-8 pullquote-grid pullquote">
+<p><img src="https://realworlddatascience.net/images/pullquote-purple.png" class="img-fluid" width="50"></p>
+<p>I think it’s an insult to the UK’s scientific legacy that we’re reduced to testing software that has been made by US companies. We have huge talents in this country. Why aren’t we using that talent to actually build something instead of testing something that someone else has made?</p>
+</div>
+<div class="g-col-12 g-col-lg-4">
+<div class="quarto-figure quarto-figure-right">
+<figure class="figure">
+<p><img src="https://realworlddatascience.net/viewpoints/posts/2023/12/06/images/llm-3d-shapes-crop.png" class="img-fluid quarto-figure quarto-figure-right figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Martin Goodson:</strong> Can I disagree with this idea of an evaluation institute? I think it’s a really, really bad idea, for two reasons. The first is an argument about fairness. If you look at drug regulation, who pays for clinical trials? It’s not the government. It’s the pharmaceutical companies. They spend billions on clinical trials. So, why do we want to do this testing for free for the big tech companies? We’re just doing product development for them. It’s insane! They should be paying to show that their products are safe.</p>
+<p>The other reason is, I think it’s an insult to the UK’s scientific legacy that we’re reduced to testing software that has been made by US companies. I think it’s pathetic. We were one of the main leaders of the Human Genome Project, and we really pushed it – the Wellcome Trust and scientists in the UK pushed the Human Genome Project because we didn’t want companies to have monopolistic control over the human genome. People were idealistic, there was a moral purpose. But now, we’re so reduced that all we can do is test some APIs that have been produced by Silicon Valley companies. We have huge talents in this country. Why aren’t we using that talent to actually build something instead of testing something that someone else has made?</p>
+<p><strong>Mark Levene:</strong> Personally, I don’t see any problem in having an AI institute for safety or any other AI institutes. I think what’s important in terms of taxpayers’ money is that whatever institute or forum is invested in, it’s inclusive. One thing that the government should do is, we should have a panel of experts, and this panel should be interdisciplinary. And what this panel can do is it can advise government of the state of play in AI, and advise the regulators. And this panel doesn’t have to be static, it doesn’t have to be the same people all the time.</p>
+<p><strong>Andrew Garrett:</strong> To evaluate something, whichever way you chose to do it, you need to have an inventory of those systems. So, with the current proposal, how would this AI Safety Institute have an inventory of what anyone was doing? How would it even work in practice?</p>
+<p><strong>Martin Goodson:</strong> Unless we voluntarily go to them and say, “Can you test out our stuff?” then they wouldn’t. That’s the third reason why it’s a terrible idea. You’d need a licencing regime, like for drugs. You’d need to licence AI systems. But teenagers in their bedrooms are creating AI systems, so that’s impossible.</p>
+</section>
+<section id="lets-do-reality-centric-ai" class="level2">
+<h2 class="anchored" data-anchor-id="lets-do-reality-centric-ai">Let’s do reality-centric AI!</h2>
+<p><strong>Andrew Garrett:</strong> What are your thoughts about Rishi Sunak wanting the UK to be an AI powerhouse?</p>
+<p><strong>Martin Goodson:</strong> It’s not going to be a powerhouse. This stuff about us being world leading in AI, it’s just a fiction. It’s a fairy tale. There are no real supercomputers in the UK. There are moves to build something, like you mentioned in your introduction, Andrew. But what are they going do with it? If they’re just going to build a supercomputer and carry on doing the same kinds of stuff that they’ve been doing for years, they’re not going to get anywhere. There needs to be a big project with an aim. You can build as many computers as you want. But if you haven’t got a plan for what to do with them, what’s the point?</p>
+<p><strong>Mihaela van der Schaar:</strong> I really would agree with that. What about solving some real problem: trying to solve cancer; trying to solve our crisis in healthcare, where we don’t have enough infrastructure and doctors to take care of us? What about solving the climate change problem, or even traffic control, or preventing the next financial crisis? I wrote a little bit about that, and I call it “let’s do reality-centric AI.” Let’s have some goal that’s human empowering, take a problem that we have – energy, climate, cancer, Alzheimer’s, better education for children, and more diverse education for children – and let us solve these big challenges, and in the process we will build AI that’s hopefully more human empowering, rather than just saying, “Oh, we are going to solve everything if we have general AI.” Right now, I hear too much about AI for the sake of AI. I’m not sure, despite all the technology we build, that we have advanced in solving some real-world problems that are important for humanity – and imminently important.</p>
+<p><strong>Martin Goodson:</strong> So, healthcare– I tried to make an appointment with my GP last week, and they couldn’t get me an appointment for four weeks. In the US you have this United States Medical Licencing Examination, and in order to practice medicine you need to pass all three components, you need to pass them by about 60%. They are really hard tests. GPT-4 for gets over 80% in all three of those. So, it’s perfectly plausible, I think, that an AI could do at least some of the role of the GP. But, you’re right, there is no mission to do that, there is no ambition to do that.</p>
+<p><strong>Mihaela van der Schaar:</strong> Forget about replacing the doctors with ChatGPT, which I’m less sure is such a good idea. But, building AI to do the planning of healthcare, to say, “[Patient A], based on what we have found out about you, you’re not as high risk, maybe you can come in four weeks. But [patient B], you need to come tomorrow, because something is worrisome.”</p>
+<p><strong>Martin Goodson:</strong> We can get into the details, but I think we are agreeing that a big mission to solve real problems would be a step forward, rather than worrying about these risks of superintelligences taking over everything, which is what the government is doing right now.</p>
+</section>
+<section id="managing-misinformation" class="level2">
+<h2 class="anchored" data-anchor-id="managing-misinformation">Managing misinformation</h2>
+<p><strong>Andrew Garrett:</strong> We have some important elections coming up in 2024 and 2025. We haven’t talked much about misinformation, and then disinformation. So, I’m interested to get your views here. How much is that a problem?</p>
+<p><strong>Detlef Nauck:</strong> There’s a problem in figuring out when it happens, and that’s something we need to get our heads around. One thing that we’re looking at is, how do we make communication safe from bad actors? How do you know that you’re talking to the person you see on the camera and it’s not a deep fake? Detection mechanisms don’t really work, and they can be circumvented. So, it seems like what we need is new standards for communication systems, like watermarks and encryption built into devices. A camera should be able to say, “I’ve produced this picture, and I have watermarked it and it’s encrypted to a certain level,” and if you don’t see that, you can’t trust that what you see comes from a genuine camera, and it’s not artificially created. It’s more difficult around text and language – you can’t really watermark text.</p>
+<p><strong>Mark Levene:</strong> Misinformation is not just a derivative of AI. It’s a derivative of social networks and lots of other things.</p>
+<p><strong>Mihaela van der Schaar:</strong> I would agree that this is not only a problem with AI. We need to emphasise the role of education, and lifelong education. This is key to being able to comprehend, to judge for ourselves, to be trained to judge for ourselves. And maybe we need to teach different methods – from young kids to adults that are already working – to really exercise our own judgement. And that brings me to this AI for human empowerment. Can we build AI that is training us to become smarter, to become more able, more capable, more thoughtful, in addition to providing sources of information that are reliable and trustworthy?</p>
+<p><strong>Andrew Garrett:</strong> So, empower people to be able to evaluate AI themselves?</p>
+<p><strong>Mihaela van der Schaar:</strong> Yes, but not only AI – all information that is given to us.</p>
+<p><strong>Martin Goodson:</strong> On misinformation, I think this is really an important topic, because large language models are extremely persuasive. I asked ChatGPT a puzzle question, and it calculated all of this stuff and gave me paragraphs of explanations, and the answer was [wrong]. But it was so convincing I was almost convinced that it was right. The problem is, these things have been trained on the internet and the internet is full of marketing – it’s trillions of words of extremely persuasive writing. So, these things are really persuasive, and when you put that into a political debate or an election campaign, that’s when it becomes really, really dangerous. And that is extremely worrying and needs to be regulated.</p>
+<div class="pullquote-container">
+<div class="grid">
+<div class="g-col-12 g-col-lg-4">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://realworlddatascience.net/viewpoints/posts/2023/12/06/images/llm-3d-shapes-crop.png" class="img-fluid quarto-figure quarto-figure-left figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="g-col-12 g-col-lg-8 pullquote-grid pullquote">
+<p><img src="https://realworlddatascience.net/images/pullquote-purple.png" class="img-fluid" width="50"></p>
+<p>At the moment, if you type something into ChatGPT and you ask for references, half of them will be made up. We know that, and also OpenAI knows that. But it could be that, if there’s regulation that things are traceable, you should be able to ask, ‘How did this information come about? Where did it come from?’</p>
+</div>
+</div>
+</div>
+<p><strong>Mark Levene:</strong> You need ways to detect it. Even that is a big challenge. I don’t know if it’s impossible, because, if there’s regulation, for example, there should be traceability of data. So, at the moment, if you type something into ChatGPT and you ask for references, half of them will be made up. We know that, and also OpenAI knows that. But it could be that, if there’s regulation that things are traceable, you should be able to ask, “How did this information come about? Where did it come from?” But I agree that if you just look at an image or some text, and you don’t know where it came from, it’s easy to believe. Humans are easily fooled, because we’re just the product of what we know and what we’re used to, and if we see something that we recognise, we don’t question it.</p>
+</section>
+<section id="audience-qa" class="level2">
+<h2 class="anchored" data-anchor-id="audience-qa">Audience Q&amp;A</h2>
+<section id="how-can-we-help-organisations-to-deploy-ai-in-a-responsible-way" class="level3">
+<h3 class="anchored" data-anchor-id="how-can-we-help-organisations-to-deploy-ai-in-a-responsible-way">How can we help organisations to deploy AI in a responsible way?</h3>
+<p><strong>Detlef Nauck:</strong> Help for the industry to deploy AI reliably and responsibly is something that’s missing, and for that, trust in AI is one of the things that needs to be built up. And you can only build up trust in AI if you know what these things are doing and they’re properly documented and tested. So that’s the kind of infrastructure, if you like, that’s missing. It’s not all big foundation models. It’s about, how do you actually use this stuff in practice? And 90% of that will be small, purpose-built AI models. That’s an area where the government can help. How do you empower smaller companies that don’t have the background of how AI works and how it can be used, how can they be supported in knowing what they can buy and what they can use and how they can use it?</p>
+<p><strong>Mark Levene:</strong> One example from healthcare which comes to mind: when you do a test, let’s say, a blood test, you don’t just get one number, you should get an interval, because there’s uncertainty. What current [AI] models do is they give you one answer, right? In fact, there’s a lot of uncertainty in the answer. One thing that can build trust is to make transparent the uncertainty that the AI outputs.</p>
+</section>
+<section id="how-can-data-scientists-and-statisticians-help-us-understand-how-to-use-ai-properly" class="level3">
+<h3 class="anchored" data-anchor-id="how-can-data-scientists-and-statisticians-help-us-understand-how-to-use-ai-properly">How can data scientists and statisticians help us understand how to use AI properly?</h3>
+<p><strong>Martin Goodson:</strong> One big thing, I think, is in culture. In machine learning – academic research and in industry – there isn’t a very scientific culture. There isn’t really an emphasis on observation and experimentation. We hire loads of people coming out of an MSc or a PhD in machine learning, and they don’t know anything, really, about doing an experiment or selection bias or how data can trip you up. All they think about is, you get a benchmark set of data and you measure the accuracy of your algorithm on that. And so there isn’t this culture of scientific experimentation and observation, which is what statistics is all about, really.</p>
+<p><strong>Mihaela van der Schaar:</strong> I agree with you, this is where we are now. But we are trying to change it. As a matter of fact, at the next big AI conference, NeurIPS, we plan to do a tutorial to teach people exactly this and bring some of these problems to the forefront, because trying really to understand errors in data, biases, confounders, misrepresentation – this is the biggest problem AI has today. We shouldn’t just build yet another, let’s say, classifier. We should spend time to improve the ability of these machine learning models to deal with all sorts of data.</p>
+</section>
+<section id="do-we-honestly-believe-yet-another-institute-and-yet-more-regulation-is-the-answer-to-what-were-grappling-with-here" class="level3">
+<h3 class="anchored" data-anchor-id="do-we-honestly-believe-yet-another-institute-and-yet-more-regulation-is-the-answer-to-what-were-grappling-with-here">Do we honestly believe yet another institute, and yet more regulation, is the answer to what we’re grappling with here?</h3>
+<p><strong>Detlef Nauck:</strong> I think we all agree, another institute is not going to cut it. One of the main problems is regulators are not trained on AI, so it’s the wrong people looking into it. This is where some serious upskilling is required.</p>
+</section>
+<section id="are-we-wrong-to-downplay-the-existential-or-catastrophic-risks-of-ai" class="level3">
+<h3 class="anchored" data-anchor-id="are-we-wrong-to-downplay-the-existential-or-catastrophic-risks-of-ai">Are we wrong to downplay the existential or catastrophic risks of AI?</h3>
+<p><strong>Martin Goodson:</strong> If I was an AI, a superintelligent AI, the easiest path for me to cause the extinction of the human race would be to spread misinformation about climate change, right? So, let’s focus on misinformation, because that’s an immediate danger to our way of life. Why are we focusing on science fiction? Let’s focus on reality.</p>
+</section>
+<section id="ai-tech-has-advanced-but-evaluation-metrics-havent-moved-forward.-why" class="level3">
+<h3 class="anchored" data-anchor-id="ai-tech-has-advanced-but-evaluation-metrics-havent-moved-forward.-why">AI tech has advanced, but evaluation metrics haven’t moved forward. Why?</h3>
+<p><strong>Mihaela van der Schaar:</strong> First, the AI community that I’m part of innovates at a very fast pace, and they don’t reward metrics. I am a big fan of metrics, and I can tell you, I can publish much faster a method in these top conferences then I can publish a metric. Number two, we often have in AI very stupid benchmarks, where we test everything on one dataset, and these datasets may be very wrong. On a more positive note, this is an enormous opportunity for machine learners and statisticians to work together and advance this very important field of metrics, of test sets, of data generating processes.</p>
+<p><strong>Martin Goodson:</strong> The big problem with metrics right now is contamination, because most of the academic metrics and benchmark sets that we’re talking about, they’re published on the internet, and these systems are trained on the internet. I’ve already said that I don’t think this [evaluation] institute should exist. But if it did exist, there’s one thing that they could do, which is important, and that would be to create benchmark datasets that they do not publish. But obviously, you may decide, also, that the traditional idea of having a training set and a test set just doesn’t make any sense anymore. And there are loads of issues with data contamination, and data leakage between the training sets and the test sets.</p>
+</section>
+</section>
+<section id="closing-thoughts-what-would-you-say-to-the-ai-safety-summit" class="level2">
+<h2 class="anchored" data-anchor-id="closing-thoughts-what-would-you-say-to-the-ai-safety-summit">Closing thoughts: What would you say to the AI Safety Summit?</h2>
+<p><strong>Andrew Garrett:</strong> If you were at the AI Safety Summit and you could make one point very succinctly, what would it be?</p>
+<p><strong>Martin Goodson:</strong> You’re focusing on the wrong things.</p>
+<p><strong>Mark Levene:</strong> What’s important is to have an interdisciplinary team that will advise the government, rather than to build these institutes, and that this team should be independent and a team which will change over time, and it needs to be inclusive.</p>
+<p><strong>Mihaela van der Schaar:</strong> AI safety is complex, and we need to realise that people need to have the right expertise to be able to really understand the risks. And there is risk, as I mentioned before, of potential collusion, where people are both building the AI and saying it’s safe, and we need to separate these two worlds.</p>
+<p><strong>Detlef Nauck:</strong> Focus on the data, not the models. That’s what’s important to build AI.</p>
+<div class="article-btn">
+<p><a href="../../../../../viewpoints/index.html">Discover more Viewpoints</a></p>
+</div>
+<div class="further-info">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>Copyright and licence</dt>
+<dd>
+© 2023 Royal Statistical Society
+</dd>
+</dl>
+<p>Images by <a href="https://cream3d.com/">Wes Cockx</a> &amp; <a href="https://deepmind.google/discover/visualising-ai/">Google DeepMind</a> / <a href="https://www.betterimagesofai.org">Better Images of AI</a> / AI large language models / <a href="https://creativecommons.org/licenses/by/4.0/">Licenced by CC-BY 4.0</a>.</p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<dl>
+<dt>How to cite</dt>
+<dd>
+Tarran, Brian. 2023. “Evaluating artificial intelligence: How data science and statistics can make sense of AI models.” The Data Shrink, December 6, 2023. <a href="https://realworlddatascience.net/viewpoints/posts/2023/12/06/ai-fringe.html">URL</a>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>AI</category>
+  <category>Large language models</category>
+  <category>Accountability</category>
+  <category>Regulation</category>
+  <category>Metrics</category>
+  <category>Events</category>
+  <guid>https://realworlddatascience.net/viewpoints/posts/2023/12/06/ai-fringe.html</guid>
+  <pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate>
+  <media:content url="https://realworlddatascience.net/viewpoints/posts/2023/12/06/images/llm-3d-shapes.png" medium="image" type="image/png" height="105" width="144"/>
+</item>
+</channel>
+</rss>

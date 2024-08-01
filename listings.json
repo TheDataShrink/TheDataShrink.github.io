@@ -1,0 +1,123 @@
+[
+  {
+    "listing": "/store/index.html",
+    "items": []
+  },
+  {
+    "listing": "/viewpoints/index.html",
+    "items": [
+      "/viewpoints/interviews/posts/2024/03/11/democratizing-data.html",
+      "/viewpoints/editors-blog/posts/2024/03/editors-note.html",
+      "/viewpoints/editors-blog/posts/2024/02/08/llms-whitepaper-response.html",
+      "/viewpoints/editors-blog/posts/2024/01/22/gen-ai-framework.html",
+      "/viewpoints/editors-blog/posts/2024/01/18/cherry-blossom.html",
+      "/viewpoints/editors-blog/posts/2024/01/03/posit-conf-video.html",
+      "/viewpoints/posts/2023/12/06/ai-fringe.html"
+    ]
+  },
+  {
+    "listing": "/viewpoints/newsletter/index.html",
+    "items": []
+  },
+  {
+    "listing": "/latest-content.html",
+    "items": [
+      "/case-studies/posts/2024/05/08/dpm.html",
+      "/ideas/datasciencebites/posts/2024/6/25/nowcasting-3step.html",
+      "/ideas/posts/2024/06/11/ai-series-7.html",
+      "/ideas/posts/2024/06/04/ai-series-6.html",
+      "/careers/posts/2024/03/27/pholborn-interview.html",
+      "/careers/posts/2024/03/21/mjones-interview.html",
+      "/viewpoints/interviews/posts/2024/03/11/democratizing-data.html",
+      "/viewpoints/editors-blog/posts/2024/03/editors-note.html",
+      "/viewpoints/editors-blog/posts/2024/02/08/llms-whitepaper-response.html",
+      "/viewpoints/editors-blog/posts/2024/01/22/gen-ai-framework.html",
+      "/viewpoints/editors-blog/posts/2024/01/18/cherry-blossom.html",
+      "/viewpoints/editors-blog/posts/2024/01/03/posit-conf-video.html",
+      "/ideas/tutorials/posts/2023/12/12/xmas-cards.html",
+      "/viewpoints/posts/2023/12/06/ai-fringe.html",
+      "/ideas/tutorials/posts/2023/04/13/flowers.html",
+      "/careers/career-profiles/posts/2024/01/31/tamanna-haque.html"
+    ]
+  },
+  {
+    "listing": "/ideas/tutorials/index.html",
+    "items": [
+      "/ideas/tutorials/posts/2023/12/12/xmas-cards.html",
+      "/ideas/tutorials/posts/2023/04/13/flowers.html"
+    ]
+  },
+  {
+    "listing": "/careers/career-profiles/index.html",
+    "items": [
+      "/careers/career-profiles/posts/2024/01/31/tamanna-haque.html"
+    ]
+  },
+  {
+    "listing": "/careers/index.html",
+    "items": [
+      "/careers/posts/2024/03/27/pholborn-interview.html",
+      "/careers/posts/2024/03/21/mjones-interview.html",
+      "/careers/career-profiles/posts/2024/01/31/tamanna-haque.html"
+    ]
+  },
+  {
+    "listing": "/ideas/datasciencebites/index.html",
+    "items": [
+      "/ideas/datasciencebites/posts/2024/6/25/nowcasting-3step.html"
+    ]
+  },
+  {
+    "listing": "/ideas/index.html",
+    "items": [
+      "/ideas/datasciencebites/posts/2024/6/25/nowcasting-3step.html",
+      "/ideas/posts/2024/06/11/ai-series-7.html",
+      "/ideas/posts/2024/06/04/ai-series-6.html",
+      "/ideas/tutorials/posts/2023/12/12/xmas-cards.html",
+      "/ideas/tutorials/posts/2023/04/13/flowers.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/case-studies/posts/2024/05/08/dpm.html",
+      "/ideas/datasciencebites/posts/2024/6/25/nowcasting-3step.html",
+      "/ideas/posts/2024/06/11/ai-series-7.html",
+      "/ideas/posts/2024/06/04/ai-series-6.html",
+      "/careers/posts/2024/03/27/pholborn-interview.html",
+      "/careers/posts/2024/03/21/mjones-interview.html",
+      "/viewpoints/interviews/posts/2024/03/11/democratizing-data.html",
+      "/viewpoints/editors-blog/posts/2024/03/editors-note.html",
+      "/viewpoints/editors-blog/posts/2024/02/08/llms-whitepaper-response.html",
+      "/viewpoints/editors-blog/posts/2024/01/22/gen-ai-framework.html",
+      "/viewpoints/editors-blog/posts/2024/01/18/cherry-blossom.html",
+      "/viewpoints/editors-blog/posts/2024/01/03/posit-conf-video.html",
+      "/ideas/tutorials/posts/2023/12/12/xmas-cards.html",
+      "/viewpoints/posts/2023/12/06/ai-fringe.html",
+      "/ideas/tutorials/posts/2023/04/13/flowers.html",
+      "/careers/career-profiles/posts/2024/01/31/tamanna-haque.html"
+    ]
+  },
+  {
+    "listing": "/case-studies/index.html",
+    "items": [
+      "/case-studies/posts/2024/05/08/dpm.html"
+    ]
+  },
+  {
+    "listing": "/viewpoints/interviews/index.html",
+    "items": [
+      "/viewpoints/interviews/posts/2024/03/11/democratizing-data.html"
+    ]
+  },
+  {
+    "listing": "/viewpoints/editors-blog/index.html",
+    "items": [
+      "/viewpoints/editors-blog/posts/2024/03/editors-note.html",
+      "/viewpoints/editors-blog/posts/2024/02/08/llms-whitepaper-response.html",
+      "/viewpoints/editors-blog/posts/2024/01/22/gen-ai-framework.html",
+      "/viewpoints/editors-blog/posts/2024/01/18/cherry-blossom.html",
+      "/viewpoints/editors-blog/posts/2024/01/03/posit-conf-video.html"
+    ]
+  }
+]
