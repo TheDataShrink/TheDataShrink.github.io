@@ -1,0 +1,19 @@
+---
+title: "Use Cases"
+listing:
+  contents: use-cases
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---
+
+# Real-World Use Cases
+
+Explore our collection of real-world use cases that demonstrate the power of data science in action. These case studies showcase how businesses and organizations have successfully applied data-driven strategies to solve complex problems and drive innovation.
+
+Discover our latest use cases:
+

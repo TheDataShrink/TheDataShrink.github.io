@@ -1,0 +1,73 @@
+---
+pagetitle: Ideas | The Data Shrink
+title: Ideas Lab
+subtitle: "Explore the concepts, tools, and methods that power data science innovation"
+search: false
+repo-actions: false
+listing:
+  contents: 
+  - datasharkbites
+  - tutorials
+  - posts
+  - "!index.qmd"
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  page-size: 12
+  feed: true
+page-layout: full
+title-block-banner: true
+---
+
+# Welcome to the Ideas Lab
+
+Dive into a world of data science innovation and inspiration. Whether you're a student looking to expand your knowledge or a professional seeking fresh perspectives, our Ideas Lab is your gateway to cutting-edge concepts in data science.
+
+## What You'll Find Here
+
+::: {.grid}
+
+::: {.g-col-4}
+### [Quick Insights](datasharkbites/index.qmd)
+Bite-sized data science concepts explained simply. Perfect for quick learning and inspiration.
+:::
+
+::: {.g-col-4}
+### [In-Depth Tutorials](tutorials/index.qmd)
+Step-by-step guides to master essential data science skills and tools.
+:::
+
+::: {.g-col-4}
+### [Thought Pieces](posts/index.qmd)
+Explore thought-provoking articles on the future of data science and its impact on various industries.
+:::
+
+:::
+
+## Featured Ideas
+
+::: {#featured-ideas}
+:::
+
+## Explore All Ideas
+
+Use the filters and search below to find exactly what you're looking for:
+
+::: {#listing}
+:::
+
+## Get Involved
+
+Are you passionate about data science? We'd love to hear your ideas!
+
+[Share Your Idea](about/for-contributors.qmd){.btn .btn-primary}
+
+## Stay Inspired
+
+Subscribe to our newsletter for weekly doses of data science inspiration:
+
+::: {#newsletter-signup}
+[Get Weekly Insights](#){.btn .btn-secondary}
+:::

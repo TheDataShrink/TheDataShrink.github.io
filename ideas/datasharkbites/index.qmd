@@ -1,0 +1,46 @@
+---
+title: "DataSharkBites"
+subtitle: "Quick, sharp insights into data science with R"
+listing:
+  contents: "*.qmd"
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---
+
+# DataSharkBites: Bite-sized R Wisdom
+
+Welcome to DataSharkBites, where we serve up quick, powerful insights into data science using R. Just like a shark, these bites are designed to be swift, precise, and leave a lasting impression!
+
+## Featured Bite
+
+::: {.callout-note}
+## Sharpen Your dplyr Skills: The slice() Function
+
+Ever needed to grab specific rows from your data frame? The `slice()` function from dplyr is your go-to tool!
+
+```r
+library(dplyr)
+
+# Sample data
+df <- data.frame(x = 1:10, y = letters[1:10])
+
+# Get the first 5 rows
+df %>% slice(1:5)
+
+# Get every other row
+df %>% slice(seq(1, n(), by = 2))
+
+# Get the last 3 rows
+df %>% slice(tail(n():1, 3))
+```
+
+Remember: Like a shark's precision bite, `slice()` lets you extract exactly the rows you need!
+:::
+
+Explore more DataSharkBites below and boost your R skills one bite at a time!
+

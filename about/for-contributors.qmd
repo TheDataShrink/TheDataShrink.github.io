@@ -1,0 +1,31 @@
+---
+title: "For Contributors"
+page-layout: article
+title-block-banner: true
+---
+
+# Contribute to The Data Shrink
+
+We believe in the power of community and collaborative learning. If you're passionate about data science and have insights to share, we'd love to hear from you!
+
+## How to Contribute
+
+1. **Write an Article**: Share your knowledge on data science topics, methodologies, or case studies.
+2. **Submit a Use Case**: Showcase a real-world application of data science that you've worked on.
+3. **Propose a Viewpoint**: Offer your expert opinion on current trends or future predictions in the field.
+
+## Submission Guidelines
+
+- Content should be original and not published elsewhere.
+- Articles should be between 1000-2000 words.
+- Include relevant code snippets, visualizations, or data where applicable.
+- Follow our [style guide](#) for formatting and structure.
+
+## Benefits of Contributing
+
+- Gain exposure to our global audience of data professionals.
+- Establish yourself as a thought leader in the data science community.
+- Receive feedback and engage in discussions with peers.
+
+[Submit Your Contribution](mailto:contribute@thedatashrink.com){.btn .btn-primary}
+

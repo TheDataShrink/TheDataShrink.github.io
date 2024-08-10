@@ -11,42 +11,45 @@ description: |
 
 ---
 
-::: content-container
-::: {.top-story .purple-background}
+# Transforming Data into Insights
 
-::: grid
-::: {.g-col-12 .g-col-lg-4 .top-story-text}
-## lore ipsum
+Welcome to The Data Shrink, where we turn complex data into actionable insights. Our mission is to help you understand and leverage your data for better decision-making.
+
+## Featured Content
+
+::: {.grid}
+
+::: {.g-col-4}
+### Latest Use Case
+[Optimizing Supply Chain with AI](/use-cases/supply-chain-ai.qmd)
+:::
+
+::: {.g-col-4}
+### Popular Idea
+[The Future of Data Analytics](/ideas/future-of-data-analytics.qmd)
+:::
+
+::: {.g-col-4}
+### Recent Viewpoint
+[Interview with Leading Data Scientist](/viewpoints/interview-jane-doe.qmd)
+:::
 
 :::
 
-::: {.g-col-12 .g-col-lg-8 .top-story-img}
+## Our Courses
 
-:::
-:::
+Discover our top-rated courses designed to enhance your data skills:
 
-</a>
-:::
-:::
+1. [Data Science Fundamentals](/courses/data-science-fundamentals.qmd)
+2. [Advanced Machine Learning](/courses/advanced-ml.qmd)
+3. [Big Data Technologies](/courses/big-data-tech.qmd)
 
-::: header-text
-::: content-container
-::: header-block
-Welcome to **The Data Shrink**, 
+[Explore All Courses](/courses/index.qmd){.btn .btn-primary}
+
+## Join Our Community
+
+Subscribe to our newsletter for the latest insights, tutorials, and data science news.
+
+::: {#newsletter-signup}
+[Subscribe Now](#){.btn .btn-secondary}
 :::
-:::
-:::
-
-::: content-container
-::: listing-block
-
-
-## Latest content
-
-
-
-::: {#latest-content}
-:::
-:::
-:::
-

@@ -3,52 +3,65 @@ project:
 
 website:
   title: "The Data Shrink"
-  image: images/rwds-logo-150px.png
-  favicon: images/rwds-favicon.png
+  image: images/tds-logo-150px.png
+  favicon: images/tds-favicon.png
   twitter-card:
-    site: "@rwdatasci"
+    site: "@TheDataShrink"
   open-graph: true
   site-url: https://www.thedatashrink.com/
   repo-url: https://github.com/TheDataShrink/TheDataShrink.github.io
   repo-actions: [edit, issue]
-  # If you are forking our repo to develop content -- whether for The Data Shrink 
-  # or your own purposes -- please disable our Google Analytics tag during development.
-  # If building your own site, replace our GA tag with your own GA tag before deployment.
-  # This will prevent your activity being tracked and counted in our analytics dashboard.
-  # Thank you!
   navbar:
     toggle-position: right
     background: "#f0eeeb"
-    logo: images/rwds-logo-150px.png
+    logo: images/tds-logo-150px.png
     logo-alt: "The Data Shrink brand"
     title: false
     collapse-below: lg
+    left:
+      - text: "Home"
+        href: index.qmd
     right:
-      - case-studies/index.qmd
-      - ideas/index.qmd
-      - careers/index.qmd
-      - viewpoints/index.qmd
-      - text: "About TDS"
-        menu: 
-        - text: "Why we shrink"
-          href: about-rwds.qmd
-        - text: "How to shrink"
-          href: contributor-docs/call-for-contributions.qmd
-        - text: "Code of conduct"
-          href: CODE_OF_CONDUCT.md
-        - text: "Contact us"
-          href: contact.qmd
-  page-navigation: true
+      - text: "About"
+        menu:
+          - text: "Why we shrink"
+            href: about/why-we-shrink.qmd
+          - text: "Team"
+            href: about/team.qmd
+          - text: "Partnerships"
+            href: about/partnerships.qmd
+          - text: "For Contributors"
+            href: about/for-contributors.qmd
+      - text: "Ideas"
+        href: ideas/index.qmd
+      - text: "Use Cases"
+        href: use-cases/index.qmd
+      - text: "Viewpoints"
+        href: viewpoints/index.qmd
+      - text: "Courses"
+        href: courses/index.qmd
+      - text: "Contact"
+        href: contact.qmd
+
+  page-footer:
+    left: "Copyright © 2024 The Data Shrink. All rights reserved."
+    right:
+      - icon: github
+        href: https://github.com/TheDataShrink
+      - icon: twitter
+        href: https://twitter.com/TheDataShrink
+      - icon: linkedin
+        href: https://www.linkedin.com/company/the-data-shrink
 
 format:
   html:
-    theme: [lux, rwds.scss]
-    css: rwds.css
+    theme: [cyborg, tds.scss]
+    css: tds.css
     toc: true
     grid:
       sidebar-width: 0px
       body-width: 1000px
       margin-width: 250px
 
-execute: 
+execute:
   freeze: auto

@@ -1,0 +1,39 @@
+---
+title: "Our Team"
+page-layout: article
+title-block-banner: true
+---
+
+# Meet Our Team of Data Experts
+
+At The Data Shrink, our strength lies in our diverse team of data scientists, analysts, and industry experts. Each team member brings a unique set of skills and experiences to help solve your data challenges.
+
+## Leadership
+
+::: {.grid}
+
+::: {.g-col-6}
+### Jane Doe, PhD
+**Founder & Chief Data Scientist**
+
+With over 15 years of experience in data science and machine learning, Jane leads our team in developing cutting-edge analytics solutions.
+:::
+
+::: {.g-col-6}
+### John Smith, MBA
+**Chief Operating Officer**
+
+John brings a wealth of business acumen to our team, ensuring that our data solutions align with real-world business needs.
+:::
+
+:::
+
+## Our Experts
+
+- **Alice Johnson**: Senior Data Analyst
+- **Bob Williams**: Machine Learning Engineer
+- **Carol Brown**: Data Visualization Specialist
+- **David Lee**: Big Data Architect
+
+[Join Our Team](/careers){.btn .btn-primary}
+
