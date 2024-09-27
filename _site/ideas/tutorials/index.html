@@ -113,9 +113,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
 
     const options = {
-      valueNames: ['listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -283,7 +283,7 @@ window.Quarto = {
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TheDataShrink/TheDataShrink.github.io/edit/main/ideas/tutorials/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/TheDataShrink/TheDataShrink.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Data Visualization">Data Visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Tutorials">Tutorials <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -313,7 +313,7 @@ window.Quarto = {
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Simple Bar Plot with ggplot2"</span>,</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Category"</span>, <span class="at">y =</span> <span class="st">"Value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="ggplot2-intro.qmd" class="btn btn-primary">Read Full Tutorial</a></p>
+<p><a href="../../ideas/tutorials/ggplot2-intro.html" class="btn btn-primary">Read Full Tutorial</a></p>
 <p>Explore our full range of tutorials below and take your R programming skills to the next level!</p>
 
 
@@ -324,13 +324,70 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-author" data-direction="asc">
+          Author
+        </option>
+     </select>
+  </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
 <div class="list quarto-listing-default">
-
+<div class="quarto-post image-right" data-index="0" data-categories="R,Data Visualization,Tutorials" data-listing-date-sort="1691683200000" data-listing-file-modified-sort="1723337669581" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="571">
+<div class="thumbnail">
+<p><a href="../../ideas/tutorials/ggplot2-intro.html" class="no-external"></a></p><a href="../../ideas/tutorials/ggplot2-intro.html" class="no-external">
+<p><img loading="lazy" src="../../ideas/tutorials/ggplot2-logo.png" class="thumbnail-image"></p>
+</a><p><a href="../../ideas/tutorials/ggplot2-intro.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../ideas/tutorials/ggplot2-intro.html" class="no-external">Diving into Data Visualization with ggplot2</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../ideas/tutorials/ggplot2-intro.html" class="no-external">Create jaw-dropping plots that will make your data swim off the page!</a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Visualization'); return false;">
+Data Visualization
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Tutorials'); return false;">
+Tutorials
+</div>
+</div>
+<div class="listing-description">
+<a href="../../ideas/tutorials/ggplot2-intro.html" class="no-external">Welcome, data enthusiasts! Today, we’re diving deep into the ocean of data visualization with ggplot2, one of the most powerful and flexible plotting systems for R. By the…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../../ideas/tutorials/ggplot2-intro.html" class="no-external">
+<div class="listing-date">
+Aug 11, 2023
+</div>
+<div class="listing-author">
+Finn the Data Shark
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items

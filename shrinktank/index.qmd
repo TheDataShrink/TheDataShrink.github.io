@@ -1,8 +1,8 @@
 ---
-pagetitle: Ideas | The Data Shrink
-title: Ideas Lab
+pagetitle: Shrink Tank | The Data Shrink
+title: Shrink Tank
 subtitle: "Explore the concepts, tools, and methods that power data science innovation"
-search: false
+search: true
 repo-actions: false
 listing:
   contents: 
@@ -12,7 +12,7 @@ listing:
   - "!index.qmd"
   sort: "date desc"
   type: grid
-  categories: true
+  categories: false
   sort-ui: true
   filter-ui: true
   page-size: 12

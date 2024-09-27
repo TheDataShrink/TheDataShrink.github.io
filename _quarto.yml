@@ -18,9 +18,6 @@ website:
     logo-alt: "The Data Shrink brand"
     title: false
     collapse-below: lg
-    left:
-      - text: "Home"
-        href: index.qmd
     right:
       - text: "About"
         menu:
@@ -32,8 +29,8 @@ website:
             href: about/partnerships.qmd
           - text: "For Contributors"
             href: about/for-contributors.qmd
-      - text: "Ideas"
-        href: ideas/index.qmd
+      - text: "Shrink Tank"
+        href: shrinktank/index.qmd
       - text: "Use Cases"
         href: use-cases/index.qmd
       - text: "Viewpoints"

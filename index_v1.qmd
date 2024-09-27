@@ -1,0 +1,132 @@
+---
+pagetitle: "The Data Shrink"
+page-layout: custom
+section-divs: false
+editor: source
+sidebar: false
+search: false
+repo-actions: false
+description: |
+  Have an idea and build examples of data sources so that businesses do not waste time. Create synthetic data and sell the data source to save time for business analysts.
+listing:
+  - id: last-bites
+    contents: 
+    - /use-cases
+    - /shrinktank
+    - /courses
+    - /viewpoints
+    - "!index.qmd"
+    sort: "date desc"
+    type: grid
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    max-items: 3
+    feed: false
+
+  - id: use-cases
+    contents: 
+    - /use-cases
+    - "!index.qmd"
+    sort: "date desc"
+    type: grid
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    max-items: 3
+    feed: false
+
+  - id: shrinktank
+    contents: 
+    - /shrinktank
+    - "!index.qmd"
+    sort: "date desc"
+    type: grid
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    max-items: 3
+    feed: false
+
+  - id: viewpoints
+    contents: 
+    - /viewpoints
+    - "!index.qmd"
+    sort: "date desc"
+    type: grid
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    max-items: 3
+    feed: false
+---
+
+# Transforming Data into Insights
+
+Welcome to **The Data Shrink**, where we turn complex data into actionable insights. Our mission is to help you understand and leverage your data for better decision-making.
+
+## Home Page
+
+1. **Hero Section**
+   - Tagline: "Transforming Data into Insights"
+   - [Explore Our Tutorials](#cta) {.btn .btn-primary}
+   - Social media links
+
+2. **Featured Content**
+
+::: {.grid}
+
+::: {.g-col-4}
+### Latest Use Case
+[Optimizing Supply Chain with AI](/use-cases/supply-chain-ai.qmd)
+:::
+
+::: {.g-col-4}
+### Popular Idea
+[The Future of Data Analytics](/shrinktank/future-of-data-analytics.qmd)
+:::
+
+::: {.g-col-4}
+### Recent Viewpoint
+[Interview with Leading Data Scientist](/viewpoints/interview-jane-doe.qmd)
+:::
+
+:::
+
+3. **Course Showcase**
+
+Explore our top-rated courses designed to enhance your data skills:
+
+- [Data Science Fundamentals](/courses/data-science-fundamentals.qmd)
+- [Advanced Machine Learning](/courses/advanced-ml.qmd)
+- [Big Data Technologies](/courses/big-data-tech.qmd)
+
+[Explore All Courses](/courses/index.qmd){.btn .btn-primary}
+
+4. **Testimonials / Success Stories**
+
+> "The Data Shrink helped us streamline our data processes and improve decision-making across the board." — Client Testimonial
+
+5. **Newsletter Signup**
+
+Join our community for the latest insights, tutorials, and data science news.
+
+::: {#newsletter-signup}
+[Subscribe Now](#){.btn .btn-secondary}
+:::
+
+## Additional Features
+
+- **Patreon Section:** Exclusive content for supporters
+- **Optimized Content:** Fast-loading, especially above the fold
+- **Mobile-Responsive Design**
+- **SSL Certificate Implementation**
+- **Git Actions:** For regular updates
+
+## Footer
+
+- Quick links
+- Social media icons
+- Newsletter signup
+- Privacy policy and terms of service links
+

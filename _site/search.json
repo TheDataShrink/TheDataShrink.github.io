@@ -229,5 +229,145 @@
     "title": "In-Depth Tutorials",
     "section": "",
     "text": "Learn how to create stunning visualizations using the powerful ggplot2 package in R.\nlibrary(ggplot2)\n\n# Sample data\ndata &lt;- data.frame(\n  category = c(\"A\", \"B\", \"C\", \"D\"),\n  value = c(3, 7, 9, 4)\n)\n\n# Create a basic bar plot\nggplot(data, aes(x = category, y = value)) +\n  geom_bar(stat = \"identity\", fill = \"skyblue\") +\n  theme_minimal() +\n  labs(title = \"Simple Bar Plot with ggplot2\",\n       x = \"Category\", y = \"Value\")\nRead Full Tutorial\nExplore our full range of tutorials below and take your R programming skills to the next level!"
+  },
+  {
+    "objectID": "ideas/tutorials/ggplot2-intro.html",
+    "href": "ideas/tutorials/ggplot2-intro.html",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "Welcome, data enthusiasts! Today, we’re diving deep into the ocean of data visualization with ggplot2, one of the most powerful and flexible plotting systems for R. By the end of this tutorial, you’ll be creating plots so stunning, they’ll make other visualizations look like chum!\n\n\nggplot2 is a data visualization package for R, based on the grammar of graphics. It provides a structured approach to creating a wide range of statistical graphics. Think of it as LEGO for plots - you have different pieces (geoms, scales, themes) that you can combine to build complex and beautiful visualizations.\n\n\n\nFirst, let’s install and load the ggplot2 package:\n# Install ggplot2 if you haven't already\n# install.packages(\"ggplot2\")\n\n# Load the package\nlibrary(ggplot2)\n\n# We'll also use some data manipulation functions from dplyr\nlibrary(dplyr)\n\n\n\nFor this tutorial, we’ll use a dataset of ocean temperature readings:\n# Create our dataset\nocean_temp &lt;- data.frame(\n  date = seq(as.Date(\"2023-01-01\"), by = \"day\", length.out = 100),\n  temp_celsius = rnorm(100, mean = 20, sd = 2),\n  location = rep(c(\"Reef\", \"Open Water\"), each = 50),\n  shark_sightings = rpois(100, lambda = 2)\n)\n\n# Take a peek at our data\nhead(ocean_temp)\n\n\n\nLet’s start with a simple scatterplot of temperature over time:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point()\nHere’s what’s happening: 1. ggplot(ocean_temp, aes(x = date, y = temp_celsius)): This sets up our plot and maps our data. 2. geom_point(): This adds points to our plot.\n\n\n\nLet’s differentiate between reef and open water temperatures:\nggplot(ocean_temp, aes(x = date, y = temp_celsius, color = location)) +\n  geom_point()\n\n\n\nWe can add a trend line to see the overall temperature pattern:\nggplot(ocean_temp, aes(x = date, y = temp_celsius, color = location)) +\n  geom_point() +\n  geom_smooth(method = \"loess\", se = FALSE)\n\n\n\nLet’s create separate plots for each location and add a histogram of shark sightings:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point(aes(color = location)) +\n  geom_smooth(method = \"loess\", se = FALSE, color = \"black\") +\n  facet_wrap(~location) +\n  geom_histogram(aes(y = shark_sightings), stat = \"identity\", alpha = 0.3)\n\n\n\nFinally, let’s add some finishing touches to make our plot shine:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point(aes(color = location)) +\n  geom_smooth(method = \"loess\", se = FALSE, color = \"black\") +\n  facet_wrap(~location) +\n  geom_histogram(aes(y = shark_sightings), stat = \"identity\", alpha = 0.3) +\n  labs(title = \"Ocean Temperature and Shark Sightings\",\n       subtitle = \"A tale of two locations\",\n       x = \"Date\",\n       y = \"Temperature (°C)\",\n       color = \"Location\") +\n  theme_minimal() +\n  theme(legend.position = \"bottom\")\n\n\n\nCongratulations! You’ve just created your first complex ggplot2 visualization. You’ve learned how to:\n\nCreate basic scatterplots\nAdd color to differentiate groups\nInclude trend lines with geom_smooth()\nUse facets to create multiple plots\nCombine different geoms in one plot\nCustomize labels and themes\n\nRemember, this is just the tip of the iceberg (or should I say, the dorsal fin of the shark?). ggplot2 has many more features to explore. Keep practicing, and soon you’ll be the apex predator of data visualization!\n\n\n\nReady for more? Check out these resources: - ggplot2 documentation - R for Data Science book - The R Graph Gallery\nNow go forth and create some fin-tastic visualizations!"
+  },
+  {
+    "objectID": "ideas/tutorials/ggplot2-intro.html#what-is-ggplot2",
+    "href": "ideas/tutorials/ggplot2-intro.html#what-is-ggplot2",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "ggplot2 is a data visualization package for R, based on the grammar of graphics. It provides a structured approach to creating a wide range of statistical graphics. Think of it as LEGO for plots - you have different pieces (geoms, scales, themes) that you can combine to build complex and beautiful visualizations."
+  },
+  {
+    "objectID": "ideas/tutorials/ggplot2-intro.html#setting-up-our-aquarium",
+    "href": "ideas/tutorials/ggplot2-intro.html#setting-up-our-aquarium",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "First, let’s install and load the ggplot2 package:\n# Install ggplot2 if you haven't already\n# install.packages(\"ggplot2\")\n\n# Load the package\nlibrary(ggplot2)\n\n# We'll also use some data manipulation functions from dplyr\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "ideas/tutorials/ggplot2-intro.html#our-dataset-ocean-temperature-readings",
+    "href": "ideas/tutorials/ggplot2-intro.html#our-dataset-ocean-temperature-readings",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "For this tutorial, we’ll use a dataset of ocean temperature readings:\n# Create our dataset\nocean_temp &lt;- data.frame(\n  date = seq(as.Date(\"2023-01-01\"), by = \"day\", length.out = 100),\n  temp_celsius = rnorm(100, mean = 20, sd = 2),\n  location = rep(c(\"Reef\", \"Open Water\"), each = 50),\n  shark_sightings = rpois(100, lambda = 2)\n)\n\n# Take a peek at our data\nhead(ocean_temp)"
+  },
+  {
+    "objectID": "ideas/tutorials/ggplot2-intro.html#creating-our-first-plot-the-basic-scatterplot",
+    "href": "ideas/tutorials/ggplot2-intro.html#creating-our-first-plot-the-basic-scatterplot",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "Let’s start with a simple scatterplot of temperature over time:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point()\nHere’s what’s happening: 1. ggplot(ocean_temp, aes(x = date, y = temp_celsius)): This sets up our plot and maps our data. 2. geom_point(): This adds points to our plot."
+  },
+  {
+    "objectID": "ideas/tutorials/ggplot2-intro.html#adding-some-color-to-our-ocean",
+    "href": "ideas/tutorials/ggplot2-intro.html#adding-some-color-to-our-ocean",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "Let’s differentiate between reef and open water temperatures:\nggplot(ocean_temp, aes(x = date, y = temp_celsius, color = location)) +\n  geom_point()"
+  },
+  {
+    "objectID": "ideas/tutorials/ggplot2-intro.html#smoothing-the-waters",
+    "href": "ideas/tutorials/ggplot2-intro.html#smoothing-the-waters",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "We can add a trend line to see the overall temperature pattern:\nggplot(ocean_temp, aes(x = date, y = temp_celsius, color = location)) +\n  geom_point() +\n  geom_smooth(method = \"loess\", se = FALSE)"
+  },
+  {
+    "objectID": "ideas/tutorials/ggplot2-intro.html#diving-deeper-facets-and-multiple-geoms",
+    "href": "ideas/tutorials/ggplot2-intro.html#diving-deeper-facets-and-multiple-geoms",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "Let’s create separate plots for each location and add a histogram of shark sightings:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point(aes(color = location)) +\n  geom_smooth(method = \"loess\", se = FALSE, color = \"black\") +\n  facet_wrap(~location) +\n  geom_histogram(aes(y = shark_sightings), stat = \"identity\", alpha = 0.3)"
+  },
+  {
+    "objectID": "ideas/tutorials/ggplot2-intro.html#polishing-our-pearl-themes-and-labels",
+    "href": "ideas/tutorials/ggplot2-intro.html#polishing-our-pearl-themes-and-labels",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "Finally, let’s add some finishing touches to make our plot shine:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point(aes(color = location)) +\n  geom_smooth(method = \"loess\", se = FALSE, color = \"black\") +\n  facet_wrap(~location) +\n  geom_histogram(aes(y = shark_sightings), stat = \"identity\", alpha = 0.3) +\n  labs(title = \"Ocean Temperature and Shark Sightings\",\n       subtitle = \"A tale of two locations\",\n       x = \"Date\",\n       y = \"Temperature (°C)\",\n       color = \"Location\") +\n  theme_minimal() +\n  theme(legend.position = \"bottom\")"
+  },
+  {
+    "objectID": "ideas/tutorials/ggplot2-intro.html#wrapping-up",
+    "href": "ideas/tutorials/ggplot2-intro.html#wrapping-up",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "Congratulations! You’ve just created your first complex ggplot2 visualization. You’ve learned how to:\n\nCreate basic scatterplots\nAdd color to differentiate groups\nInclude trend lines with geom_smooth()\nUse facets to create multiple plots\nCombine different geoms in one plot\nCustomize labels and themes\n\nRemember, this is just the tip of the iceberg (or should I say, the dorsal fin of the shark?). ggplot2 has many more features to explore. Keep practicing, and soon you’ll be the apex predator of data visualization!"
+  },
+  {
+    "objectID": "ideas/tutorials/ggplot2-intro.html#dive-deeper",
+    "href": "ideas/tutorials/ggplot2-intro.html#dive-deeper",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "Ready for more? Check out these resources: - ggplot2 documentation - R for Data Science book - The R Graph Gallery\nNow go forth and create some fin-tastic visualizations!"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html",
+    "href": "courses/data-science-fundamentals.html",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "Are you ready to take a deep dive into the ocean of data science? This course is your trusty shark cage, protecting you from the overwhelm while giving you an up-close view of the exciting world of data!\n\n\nIn this comprehensive course, you’ll learn the fundamental concepts and skills needed to start your journey as a data scientist. From data wrangling to machine learning, we’ve got you covered!\n\n\n\n\n🦈 The Data Science Lifecycle: Understand the steps from data collection to insights\n🐠 Data Wrangling with R: Clean and prepare data like a pro\n🐋 Exploratory Data Analysis: Uncover hidden patterns in your data\n🦑 Statistical Thinking: Make sense of complex datasets\n🐬 Introduction to Machine Learning: Dive into predictive modeling\n🐙 Data Visualization: Create compelling visual stories with your data\n\n\n\n\n\n6 modules, each focusing on a key area of data science\nHands-on exercises and projects using real-world datasets\nWeekly DataSharkBites for quick, focused learning\nInteractive coding sessions with our shark-tastic instructors\n\n\n\n\n\nBasic programming knowledge (any language)\nFamiliarity with high school level mathematics\nA curiosity for data and a appetite for learning!\n\n\n\n\nLet’s take a quick bite into data wrangling with R using the dplyr package:\nlibrary(dplyr)\n\n# Sample dataset: Ocean temperature readings\nocean_temp &lt;- data.frame(\n  date = as.Date('2023-01-01') + 0:9,\n  temp_celsius = c(20, 21, 22, 21, 20, 19, 18, 19, 20, 21),\n  location = rep(c(\"Reef\", \"Open Water\"), each = 5)\n)\n\n# Let's do some data wrangling!\nocean_temp %&gt;%\n  group_by(location) %&gt;%\n  summarize(\n    avg_temp = mean(temp_celsius),\n    max_temp = max(temp_celsius),\n    min_temp = min(temp_celsius)\n  ) %&gt;%\n  arrange(desc(avg_temp))\nIn this snippet, we’re analyzing ocean temperatures, grouping by location, and calculating summary statistics. This is just a taste of what you’ll learn in our data wrangling module!\n\n\n\n\n“This course turned me from a guppy to a data shark! The instructors make complex concepts easy to understand, and the shark-themed examples keep it fun and engaging.” - Sarah, Marine Biologist\n\n\n“I never thought I’d be excited about statistics, but the DataSharkBites made learning actually enjoyable. Now I’m hooked on data science!” - Tom, Business Analyst\n\n\n\n\nEnroll now and start your journey to becoming a data science shark! Remember, in the ocean of data, knowledge is your dorsal fin – it’ll keep you above the surface and moving forward!\nEnroll Now\n\n\n\nHave questions about the course? Don’t let them circle in your mind like a shark – reach out to us!\nContact Us\n\nRemember, in the world of data science, every day is Shark Week. Let’s make it count!"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#course-overview",
+    "href": "courses/data-science-fundamentals.html#course-overview",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "In this comprehensive course, you’ll learn the fundamental concepts and skills needed to start your journey as a data scientist. From data wrangling to machine learning, we’ve got you covered!"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#what-youll-learn",
+    "href": "courses/data-science-fundamentals.html#what-youll-learn",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "🦈 The Data Science Lifecycle: Understand the steps from data collection to insights\n🐠 Data Wrangling with R: Clean and prepare data like a pro\n🐋 Exploratory Data Analysis: Uncover hidden patterns in your data\n🦑 Statistical Thinking: Make sense of complex datasets\n🐬 Introduction to Machine Learning: Dive into predictive modeling\n🐙 Data Visualization: Create compelling visual stories with your data"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#course-structure",
+    "href": "courses/data-science-fundamentals.html#course-structure",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "6 modules, each focusing on a key area of data science\nHands-on exercises and projects using real-world datasets\nWeekly DataSharkBites for quick, focused learning\nInteractive coding sessions with our shark-tastic instructors"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#prerequisites",
+    "href": "courses/data-science-fundamentals.html#prerequisites",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "Basic programming knowledge (any language)\nFamiliarity with high school level mathematics\nA curiosity for data and a appetite for learning!"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#sample-lesson-introduction-to-data-wrangling-with-r",
+    "href": "courses/data-science-fundamentals.html#sample-lesson-introduction-to-data-wrangling-with-r",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "Let’s take a quick bite into data wrangling with R using the dplyr package:\nlibrary(dplyr)\n\n# Sample dataset: Ocean temperature readings\nocean_temp &lt;- data.frame(\n  date = as.Date('2023-01-01') + 0:9,\n  temp_celsius = c(20, 21, 22, 21, 20, 19, 18, 19, 20, 21),\n  location = rep(c(\"Reef\", \"Open Water\"), each = 5)\n)\n\n# Let's do some data wrangling!\nocean_temp %&gt;%\n  group_by(location) %&gt;%\n  summarize(\n    avg_temp = mean(temp_celsius),\n    max_temp = max(temp_celsius),\n    min_temp = min(temp_celsius)\n  ) %&gt;%\n  arrange(desc(avg_temp))\nIn this snippet, we’re analyzing ocean temperatures, grouping by location, and calculating summary statistics. This is just a taste of what you’ll learn in our data wrangling module!"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#what-our-students-say",
+    "href": "courses/data-science-fundamentals.html#what-our-students-say",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "“This course turned me from a guppy to a data shark! The instructors make complex concepts easy to understand, and the shark-themed examples keep it fun and engaging.” - Sarah, Marine Biologist\n\n\n“I never thought I’d be excited about statistics, but the DataSharkBites made learning actually enjoyable. Now I’m hooked on data science!” - Tom, Business Analyst"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#ready-to-take-the-plunge",
+    "href": "courses/data-science-fundamentals.html#ready-to-take-the-plunge",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "Enroll now and start your journey to becoming a data science shark! Remember, in the ocean of data, knowledge is your dorsal fin – it’ll keep you above the surface and moving forward!\nEnroll Now"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#need-more-information",
+    "href": "courses/data-science-fundamentals.html#need-more-information",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "Have questions about the course? Don’t let them circle in your mind like a shark – reach out to us!\nContact Us\n\nRemember, in the world of data science, every day is Shark Week. Let’s make it count!"
   }
 ]

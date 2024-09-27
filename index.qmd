@@ -1,55 +1,73 @@
 ---
-pagetitle: "The Data Shrink"
-page-layout: custom
-section-divs: false
-editor: source
-sidebar: false
-search: false
+pagetitle: Shrink Tank | The Data Shrink
+title: Shrink Tank
+subtitle: "Explore the concepts, tools, and methods that power data science innovation"
+search: true
 repo-actions: false
-description: | 
-  have an idea and build exampel of data source so that do not waste time. Create data synthetic and sell the data source. so that the business ba does not waste time. that is an option of waht to do..
-
+listing:
+  contents: 
+  - datasharkbites
+  - tutorials
+  - posts
+  - "!index.qmd"
+  sort: "date desc"
+  type: grid
+  categories: false
+  sort-ui: true
+  filter-ui: true
+  page-size: 12
+  feed: true
+page-layout: full
+title-block-banner: true
 ---
 
-# Transforming Data into Insights
+# Welcome to the Shrink Tank Lab
 
-Welcome to The Data Shrink, where we turn complex data into actionable insights. Our mission is to help you understand and leverage your data for better decision-making.
+Dive into a world of data science innovation and inspiration. Whether you're a student looking to expand your knowledge or a professional seeking fresh perspectives, our shrinktank Lab is your gateway to cutting-edge concepts in data science.
 
-## Featured Content
+## What You'll Find Here
 
 ::: {.grid}
 
 ::: {.g-col-4}
-### Latest Use Case
-[Optimizing Supply Chain with AI](/use-cases/supply-chain-ai.qmd)
+### [Quick Insights](datasharkbites/index.qmd)
+Bite-sized data science concepts explained simply. Perfect for quick learning and inspiration.
 :::
 
 ::: {.g-col-4}
-### Popular Idea
-[The Future of Data Analytics](/ideas/future-of-data-analytics.qmd)
+### [In-Depth Tutorials](tutorials/index.qmd)
+Step-by-step guides to master essential data science skills and tools.
 :::
 
 ::: {.g-col-4}
-### Recent Viewpoint
-[Interview with Leading Data Scientist](/viewpoints/interview-jane-doe.qmd)
+### [Thought Pieces](posts/index.qmd)
+Explore thought-provoking articles on the future of data science and its impact on various industries.
 :::
 
 :::
 
-## Our Courses
+## Featured Shrink Tank
 
-Discover our top-rated courses designed to enhance your data skills:
+::: {#featured-shrinktank}
+:::
 
-1. [Data Science Fundamentals](/courses/data-science-fundamentals.qmd)
-2. [Advanced Machine Learning](/courses/advanced-ml.qmd)
-3. [Big Data Technologies](/courses/big-data-tech.qmd)
+## Explore All shrinktank
 
-[Explore All Courses](/courses/index.qmd){.btn .btn-primary}
+Use the filters and search below to find exactly what you're looking for:
 
-## Join Our Community
+::: {#listing}
+:::
 
-Subscribe to our newsletter for the latest insights, tutorials, and data science news.
+## Get Involved
+
+Are you passionate about data science? We'd love to hear your shrinktank!
+
+[Share Your Idea](about/for-contributors.qmd){.btn .btn-primary}
+
+## Stay Inspired
+
+Subscribe to our newsletter for weekly doses of data science inspiration:
 
 ::: {#newsletter-signup}
-[Subscribe Now](#){.btn .btn-secondary}
+[Get Weekly Insights](#){.btn .btn-secondary}
 :::

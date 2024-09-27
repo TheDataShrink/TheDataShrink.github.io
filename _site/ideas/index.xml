@@ -13,10 +13,399 @@
 <url>https://www.thedatashrink.com/images/tds-logo-150px.png</url>
 <title>The Data Shrink</title>
 <link>https://www.thedatashrink.com/ideas/</link>
-<height>83</height>
+<height>50</height>
 <width>144</width>
 </image>
-<generator>quarto-1.5.55</generator>
-<lastBuildDate>Sat, 10 Aug 2024 11:10:06 GMT</lastBuildDate>
+<generator>quarto-1.5.57</generator>
+<lastBuildDate>Thu, 10 Aug 2023 14:00:00 GMT</lastBuildDate>
+<item>
+  <title>Diving into Data Visualization with ggplot2</title>
+  <dc:creator>Finn the Data Shark</dc:creator>
+  <link>https://www.thedatashrink.com/ideas/tutorials/ggplot2-intro.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="introduction-to-ggplot2-making-waves-with-data-visualization" class="level1">
+<h1>Introduction to ggplot2: Making Waves with Data Visualization</h1>
+<p>Welcome, data enthusiasts! Today, we’re diving deep into the ocean of data visualization with ggplot2, one of the most powerful and flexible plotting systems for R. By the end of this tutorial, you’ll be creating plots so stunning, they’ll make other visualizations look like chum!</p>
+<section id="what-is-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-ggplot2">What is ggplot2?</h2>
+<p>ggplot2 is a data visualization package for R, based on the grammar of graphics. It provides a structured approach to creating a wide range of statistical graphics. Think of it as LEGO for plots - you have different pieces (geoms, scales, themes) that you can combine to build complex and beautiful visualizations.</p>
+</section>
+<section id="setting-up-our-aquarium" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-our-aquarium">Setting Up Our Aquarium</h2>
+<p>First, let’s install and load the ggplot2 package:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Install ggplot2 if you haven't already</span></span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("ggplot2")</span></span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Load the package</span></span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb1-6"></span>
+<span id="cb1-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># We'll also use some data manipulation functions from dplyr</span></span>
+<span id="cb1-8"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dplyr)</span></code></pre></div>
+</section>
+<section id="our-dataset-ocean-temperature-readings" class="level2">
+<h2 class="anchored" data-anchor-id="our-dataset-ocean-temperature-readings">Our Dataset: Ocean Temperature Readings</h2>
+<p>For this tutorial, we’ll use a dataset of ocean temperature readings:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create our dataset</span></span>
+<span id="cb2-2">ocean_temp <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb2-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">date =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.Date</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"2023-01-01"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"day"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length.out =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>),</span>
+<span id="cb2-4">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">temp_celsius =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>),</span>
+<span id="cb2-5">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">location =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Reef"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Open Water"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>),</span>
+<span id="cb2-6">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">shark_sightings =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rpois</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lambda =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb2-7">)</span>
+<span id="cb2-8"></span>
+<span id="cb2-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Take a peek at our data</span></span>
+<span id="cb2-10"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(ocean_temp)</span></code></pre></div>
+</section>
+<section id="creating-our-first-plot-the-basic-scatterplot" class="level2">
+<h2 class="anchored" data-anchor-id="creating-our-first-plot-the-basic-scatterplot">Creating Our First Plot: The Basic Scatterplot</h2>
+<p>Let’s start with a simple scatterplot of temperature over time:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(ocean_temp, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> date, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> temp_celsius)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>()</span></code></pre></div>
+<p>Here’s what’s happening: 1. <code>ggplot(ocean_temp, aes(x = date, y = temp_celsius))</code>: This sets up our plot and maps our data. 2. <code>geom_point()</code>: This adds points to our plot.</p>
+</section>
+<section id="adding-some-color-to-our-ocean" class="level2">
+<h2 class="anchored" data-anchor-id="adding-some-color-to-our-ocean">Adding Some Color to Our Ocean</h2>
+<p>Let’s differentiate between reef and open water temperatures:</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(ocean_temp, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> date, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> temp_celsius, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> location)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb4-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>()</span></code></pre></div>
+</section>
+<section id="smoothing-the-waters" class="level2">
+<h2 class="anchored" data-anchor-id="smoothing-the-waters">Smoothing the Waters</h2>
+<p>We can add a trend line to see the overall temperature pattern:</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(ocean_temp, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> date, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> temp_celsius, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> location)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb5-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb5-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"loess"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">se =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>)</span></code></pre></div>
+</section>
+<section id="diving-deeper-facets-and-multiple-geoms" class="level2">
+<h2 class="anchored" data-anchor-id="diving-deeper-facets-and-multiple-geoms">Diving Deeper: Facets and Multiple Geoms</h2>
+<p>Let’s create separate plots for each location and add a histogram of shark sightings:</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(ocean_temp, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> date, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> temp_celsius)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb6-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> location)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb6-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"loess"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">se =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb6-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">facet_wrap</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>location) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb6-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_histogram</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> shark_sightings), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">stat =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"identity"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>)</span></code></pre></div>
+</section>
+<section id="polishing-our-pearl-themes-and-labels" class="level2">
+<h2 class="anchored" data-anchor-id="polishing-our-pearl-themes-and-labels">Polishing Our Pearl: Themes and Labels</h2>
+<p>Finally, let’s add some finishing touches to make our plot shine:</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(ocean_temp, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> date, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> temp_celsius)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> location)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"loess"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">se =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">facet_wrap</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>location) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_histogram</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> shark_sightings), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">stat =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"identity"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Ocean Temperature and Shark Sightings"</span>,</span>
+<span id="cb7-7">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"A tale of two locations"</span>,</span>
+<span id="cb7-8">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Date"</span>,</span>
+<span id="cb7-9">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Temperature (°C)"</span>,</span>
+<span id="cb7-10">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Location"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-12">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">legend.position =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bottom"</span>)</span></code></pre></div>
+</section>
+<section id="wrapping-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrapping-up">Wrapping Up</h2>
+<p>Congratulations! You’ve just created your first complex ggplot2 visualization. You’ve learned how to:</p>
+<ol type="1">
+<li>Create basic scatterplots</li>
+<li>Add color to differentiate groups</li>
+<li>Include trend lines with <code>geom_smooth()</code></li>
+<li>Use facets to create multiple plots</li>
+<li>Combine different geoms in one plot</li>
+<li>Customize labels and themes</li>
+</ol>
+<p>Remember, this is just the tip of the iceberg (or should I say, the dorsal fin of the shark?). ggplot2 has many more features to explore. Keep practicing, and soon you’ll be the apex predator of data visualization!</p>
+</section>
+<section id="dive-deeper" class="level2">
+<h2 class="anchored" data-anchor-id="dive-deeper">Dive Deeper</h2>
+<p>Ready for more? Check out these resources: - <a href="https://ggplot2.tidyverse.org/">ggplot2 documentation</a> - <a href="https://r4ds.had.co.nz/data-visualisation.html">R for Data Science book</a> - <a href="https://www.r-graph-gallery.com/ggplot2-package.html">The R Graph Gallery</a></p>
+<p>Now go forth and create some fin-tastic visualizations!</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <category>Data Visualization</category>
+  <category>Tutorials</category>
+  <guid>https://www.thedatashrink.com/ideas/tutorials/ggplot2-intro.html</guid>
+  <pubDate>Thu, 10 Aug 2023 14:00:00 GMT</pubDate>
+  <media:content url="https://www.thedatashrink.com/ideas/tutorials/ggplot2-logo.png" medium="image" type="image/png" height="162" width="144"/>
+</item>
 </channel>
 </rss>

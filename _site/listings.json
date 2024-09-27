@@ -1,7 +1,9 @@
 [
   {
     "listing": "/ideas/index.html",
-    "items": []
+    "items": [
+      "/ideas/tutorials/ggplot2-intro.html"
+    ]
   },
   {
     "listing": "/use-cases/index.html",
@@ -21,6 +23,39 @@
   },
   {
     "listing": "/ideas/tutorials/index.html",
+    "items": [
+      "/ideas/tutorials/ggplot2-intro.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
     "items": []
+  },
+  {
+    "listing": "/last-bites.html",
+    "items": [
+      "/courses/data-science-fundamentals.html",
+      "/ideas/tutorials/ggplot2-intro.html"
+    ]
+  },
+  {
+    "listing": "/index copy.html",
+    "items": [
+      "/courses/data-science-fundamentals.html",
+      "/ideas/tutorials/ggplot2-intro.html"
+    ]
+  },
+  {
+    "listing": "/index_v1.html",
+    "items": [
+      "/courses/data-science-fundamentals.html",
+      "/ideas/tutorials/ggplot2-intro.html"
+    ]
+  },
+  {
+    "listing": "/shrinktank/index.html",
+    "items": [
+      "/shrinktank/tutorials/ggplot2-intro.html"
+    ]
   }
 ]

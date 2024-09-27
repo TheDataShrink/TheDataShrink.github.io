@@ -12,7 +12,7 @@ At The Data Shrink, we believe that the best insights come from collaboration. W
 ## Why Partner with Us?
 
 - 🦈 Dive into a sea of data science expertise
-- 🧠 Access our pool of creative minds and innovative ideas
+- 🧠 Access our pool of creative minds and innovative shrinktank
 - 🎓 Reach a growing community of data enthusiasts and learners
 - 🚀 Accelerate your data-driven projects and initiatives
 
@@ -34,17 +34,17 @@ Developed a cool data science tool? We'd love to feature it in our tutorials and
 
 1. 🤔 Think about how you'd like to collaborate
 2. 📧 Drop us a line at partnerships@thedatashrink.com
-3. 💡 Share your ideas - the quirkier, the better!
+3. 💡 Share your shrinktank - the quirkier, the better!
 4. 🤝 Let's chat and see how we can make data science awesome together
 
-Remember, at The Data Shrink, we believe that every partnership should be as unique as a shark's fingerprint (if sharks had fingerprints, that is). So don't be afraid to suggest out-of-the-box ideas!
+Remember, at The Data Shrink, we believe that every partnership should be as unique as a shark's fingerprint (if sharks had fingerprints, that is). So don't be afraid to suggest out-of-the-box shrinktank!
 
 ## Current Partners
 
 We're proud to be swimming alongside these fantastic organizations:
 
-- 🏫 DataU University
-- 🖥️ CodeCrunchers Inc.
+- 🏫 
+- 🖥️ Ndexr Inc.
 - 🌐 Global Data Science Association
 
 Want to see your logo here? Let's make it happen!
