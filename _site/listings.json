@@ -1,30 +1,37 @@
 [
   {
-    "listing": "/ideas/index.html",
-    "items": [
-      "/ideas/tutorials/ggplot2-intro.html"
-    ]
+    "listing": "/viewpoints/index.html",
+    "items": []
   },
   {
     "listing": "/use-cases/index.html",
     "items": []
   },
   {
-    "listing": "/viewpoints/index.html",
-    "items": []
-  },
-  {
-    "listing": "/ideas/datasharkbites/index.html",
-    "items": []
-  },
-  {
-    "listing": "/ideas/posts/index.html",
-    "items": []
-  },
-  {
-    "listing": "/ideas/tutorials/index.html",
+    "listing": "/shrinktank/index.html",
     "items": [
-      "/ideas/tutorials/ggplot2-intro.html"
+      "/shrinktank/tutorials/ggplot2-intro.html"
+    ]
+  },
+  {
+    "listing": "/shrinktank/posts/index.html",
+    "items": []
+  },
+  {
+    "listing": "/shrinktank/datasharkbites/index.html",
+    "items": []
+  },
+  {
+    "listing": "/shrinktank/tutorials/index.html",
+    "items": [
+      "/shrinktank/tutorials/ggplot2-intro.html"
+    ]
+  },
+  {
+    "listing": "/index_v1.html",
+    "items": [
+      "/courses/data-science-fundamentals.html",
+      "/shrinktank/tutorials/ggplot2-intro.html"
     ]
   },
   {
@@ -35,26 +42,6 @@
     "listing": "/last-bites.html",
     "items": [
       "/courses/data-science-fundamentals.html",
-      "/ideas/tutorials/ggplot2-intro.html"
-    ]
-  },
-  {
-    "listing": "/index copy.html",
-    "items": [
-      "/courses/data-science-fundamentals.html",
-      "/ideas/tutorials/ggplot2-intro.html"
-    ]
-  },
-  {
-    "listing": "/index_v1.html",
-    "items": [
-      "/courses/data-science-fundamentals.html",
-      "/ideas/tutorials/ggplot2-intro.html"
-    ]
-  },
-  {
-    "listing": "/shrinktank/index.html",
-    "items": [
       "/shrinktank/tutorials/ggplot2-intro.html"
     ]
   }

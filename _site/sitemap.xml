@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.thedatashrink.com/index.html</loc>
-    <lastmod>2024-09-23T03:45:33.222Z</lastmod>
+    <loc>https://www.thedatashrink.com/viewpoints/index.html</loc>
+    <lastmod>2024-08-10T10:18:54.318Z</lastmod>
   </url>
   <url>
-    <loc>https://www.thedatashrink.com/ideas/index.html</loc>
-    <lastmod>2024-08-10T11:08:42.433Z</lastmod>
+    <loc>https://www.thedatashrink.com/courses/data-science-fundamentals.html</loc>
+    <lastmod>2024-08-11T00:51:38.481Z</lastmod>
   </url>
   <url>
-    <loc>https://www.thedatashrink.com/courses/index.html</loc>
-    <lastmod>2024-08-10T10:18:57.228Z</lastmod>
+    <loc>https://www.thedatashrink.com/use-cases/index.html</loc>
+    <lastmod>2024-08-10T10:18:51.107Z</lastmod>
   </url>
   <url>
-    <loc>https://www.thedatashrink.com/about/about-team.html</loc>
+    <loc>https://www.thedatashrink.com/about/for-contributors.html</loc>
+    <lastmod>2024-08-10T10:19:13.492Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.thedatashrink.com/about/team.html</loc>
     <lastmod>2024-08-10T10:19:06.160Z</lastmod>
   </url>
   <url>
@@ -25,59 +29,47 @@
     <lastmod>2024-08-10T10:19:18.186Z</lastmod>
   </url>
   <url>
-    <loc>https://www.thedatashrink.com/about/for-contributors.html</loc>
-    <lastmod>2024-08-10T10:19:13.492Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.thedatashrink.com/use-cases/index.html</loc>
-    <lastmod>2024-08-10T10:18:51.107Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.thedatashrink.com/viewpoints/index.html</loc>
-    <lastmod>2024-08-10T10:18:54.318Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.thedatashrink.com/about/team.html</loc>
-    <lastmod>2024-08-10T10:19:06.160Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.thedatashrink.com/ideas/datasharkbites/index.html</loc>
-    <lastmod>2024-08-10T10:55:08.858Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.thedatashrink.com/about/partnerships.html</loc>
-    <lastmod>2024-08-10T11:00:03.367Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.thedatashrink.com/ideas/posts/index.html</loc>
-    <lastmod>2024-08-10T10:55:01.495Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.thedatashrink.com/ideas/tutorials/index.html</loc>
-    <lastmod>2024-08-10T10:55:05.327Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.thedatashrink.com/ideas/tutorials/ggplot2-intro.html</loc>
+    <loc>https://www.thedatashrink.com/shrinktank/tutorials/ggplot2-intro.html</loc>
     <lastmod>2024-08-11T00:54:29.581Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.thedatashrink.com/last-bites.html</loc>
-    <lastmod>2024-08-11T01:14:05.061Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.thedatashrink.com/courses/data-science-fundamentals.html</loc>
-    <lastmod>2024-08-11T00:51:38.481Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.thedatashrink.com/index copy.html</loc>
-    <lastmod>2024-08-11T01:31:43.961Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.thedatashrink.com/index_v1.html</loc>
-    <lastmod>2024-09-19T19:20:54.960Z</lastmod>
   </url>
   <url>
     <loc>https://www.thedatashrink.com/shrinktank/index.html</loc>
     <lastmod>2024-09-22T23:07:58.708Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.thedatashrink.com/shrinktank/posts/index.html</loc>
+    <lastmod>2024-08-10T10:55:01.495Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.thedatashrink.com/shrinktank/datasharkbites/index.html</loc>
+    <lastmod>2024-08-10T10:55:08.858Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.thedatashrink.com/shrinktank/tutorials/index.html</loc>
+    <lastmod>2024-08-10T10:55:05.327Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.thedatashrink.com/index_v1.html</loc>
+    <lastmod>2024-09-22T22:52:59.563Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.thedatashrink.com/about/partnerships.html</loc>
+    <lastmod>2024-09-27T06:24:33.661Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.thedatashrink.com/about/shrinkers.html</loc>
+    <lastmod>2024-09-27T06:23:37.319Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.thedatashrink.com/index.html</loc>
+    <lastmod>2024-09-23T03:45:33.222Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.thedatashrink.com/courses/index.html</loc>
+    <lastmod>2024-08-10T10:18:57.228Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.thedatashrink.com/last-bites.html</loc>
+    <lastmod>2024-09-22T22:52:59.567Z</lastmod>
   </url>
 </urlset>
