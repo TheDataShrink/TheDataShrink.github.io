@@ -1,17 +1,304 @@
 [
   {
-    "objectID": "shrinktank/posts/index.html",
-    "href": "shrinktank/posts/index.html",
-    "title": "Thought Pieces",
+    "objectID": "viewpoints/index.html",
+    "href": "viewpoints/index.html",
+    "title": "Viewpoints",
     "section": "",
-    "text": "Welcome to our Thought Pieces section, where we explore cutting-edge ideas, trends, and applications in the world of data science, with a focus on R programming. Dive into our articles to gain new perspectives and stay ahead in the ever-evolving field of data analytics.\n\n\n\n\nAs businesses increasingly rely on time-based data for forecasting and decision-making, R’s ecosystem for time series analysis continues to evolve. This post explores emerging packages and methodologies that are shaping the future of time series analysis in R.\nKey points: - The rise of the tidyverts ecosystem for tidy time series analysis - Advances in Prophet for automated forecasting - Integration of machine learning with traditional time series methods\n# Example: Using fable for modern time series forecasting\nlibrary(fable)\nlibrary(tsibble)\n\n# Create a tsibble object\nmy_tsibble &lt;- tsibble(\n  Year = 2010:2020,\n  Value = rnorm(11, mean = 100, sd = 10),\n  index = Year\n)\n\n# Fit a model and forecast\nfit &lt;- my_tsibble %&gt;%\n  model(ARIMA(Value))\n\nforecast &lt;- fit %&gt;%\n  forecast(h = \"3 years\")\n\n# Plot the forecast\nforecast %&gt;%\n  autoplot(my_tsibble)\nRead Full Post\nExplore more thought-provoking articles below and join the conversation on the future of data science!"
+    "text": "Expert Viewpoints\nWelcome to our Viewpoints section, where we feature interviews, opinions, and insights from leading experts in the field of data science and analytics. Gain valuable perspectives on industry trends, challenges, and opportunities.\nRead our latest viewpoints:\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "shrinktank/posts/index.html#featured-post",
-    "href": "shrinktank/posts/index.html#featured-post",
-    "title": "Thought Pieces",
+    "objectID": "courses/data-science-fundamentals.html",
+    "href": "courses/data-science-fundamentals.html",
+    "title": "Data Science Fundamentals",
     "section": "",
-    "text": "As businesses increasingly rely on time-based data for forecasting and decision-making, R’s ecosystem for time series analysis continues to evolve. This post explores emerging packages and methodologies that are shaping the future of time series analysis in R.\nKey points: - The rise of the tidyverts ecosystem for tidy time series analysis - Advances in Prophet for automated forecasting - Integration of machine learning with traditional time series methods\n# Example: Using fable for modern time series forecasting\nlibrary(fable)\nlibrary(tsibble)\n\n# Create a tsibble object\nmy_tsibble &lt;- tsibble(\n  Year = 2010:2020,\n  Value = rnorm(11, mean = 100, sd = 10),\n  index = Year\n)\n\n# Fit a model and forecast\nfit &lt;- my_tsibble %&gt;%\n  model(ARIMA(Value))\n\nforecast &lt;- fit %&gt;%\n  forecast(h = \"3 years\")\n\n# Plot the forecast\nforecast %&gt;%\n  autoplot(my_tsibble)\nRead Full Post\nExplore more thought-provoking articles below and join the conversation on the future of data science!"
+    "text": "Are you ready to take a deep dive into the ocean of data science? This course is your trusty shark cage, protecting you from the overwhelm while giving you an up-close view of the exciting world of data!\n\n\nIn this comprehensive course, you’ll learn the fundamental concepts and skills needed to start your journey as a data scientist. From data wrangling to machine learning, we’ve got you covered!\n\n\n\n\n🦈 The Data Science Lifecycle: Understand the steps from data collection to insights\n🐠 Data Wrangling with R: Clean and prepare data like a pro\n🐋 Exploratory Data Analysis: Uncover hidden patterns in your data\n🦑 Statistical Thinking: Make sense of complex datasets\n🐬 Introduction to Machine Learning: Dive into predictive modeling\n🐙 Data Visualization: Create compelling visual stories with your data\n\n\n\n\n\n6 modules, each focusing on a key area of data science\nHands-on exercises and projects using real-world datasets\nWeekly DataSharkBites for quick, focused learning\nInteractive coding sessions with our shark-tastic instructors\n\n\n\n\n\nBasic programming knowledge (any language)\nFamiliarity with high school level mathematics\nA curiosity for data and a appetite for learning!\n\n\n\n\nLet’s take a quick bite into data wrangling with R using the dplyr package:\nlibrary(dplyr)\n\n# Sample dataset: Ocean temperature readings\nocean_temp &lt;- data.frame(\n  date = as.Date('2023-01-01') + 0:9,\n  temp_celsius = c(20, 21, 22, 21, 20, 19, 18, 19, 20, 21),\n  location = rep(c(\"Reef\", \"Open Water\"), each = 5)\n)\n\n# Let's do some data wrangling!\nocean_temp %&gt;%\n  group_by(location) %&gt;%\n  summarize(\n    avg_temp = mean(temp_celsius),\n    max_temp = max(temp_celsius),\n    min_temp = min(temp_celsius)\n  ) %&gt;%\n  arrange(desc(avg_temp))\nIn this snippet, we’re analyzing ocean temperatures, grouping by location, and calculating summary statistics. This is just a taste of what you’ll learn in our data wrangling module!\n\n\n\n\n“This course turned me from a guppy to a data shark! The instructors make complex concepts easy to understand, and the shark-themed examples keep it fun and engaging.” - Sarah, Marine Biologist\n\n\n“I never thought I’d be excited about statistics, but the DataSharkBites made learning actually enjoyable. Now I’m hooked on data science!” - Tom, Business Analyst\n\n\n\n\nEnroll now and start your journey to becoming a data science shark! Remember, in the ocean of data, knowledge is your dorsal fin – it’ll keep you above the surface and moving forward!\nEnroll Now\n\n\n\nHave questions about the course? Don’t let them circle in your mind like a shark – reach out to us!\nContact Us\n\nRemember, in the world of data science, every day is Shark Week. Let’s make it count!"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#course-overview",
+    "href": "courses/data-science-fundamentals.html#course-overview",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "In this comprehensive course, you’ll learn the fundamental concepts and skills needed to start your journey as a data scientist. From data wrangling to machine learning, we’ve got you covered!"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#what-youll-learn",
+    "href": "courses/data-science-fundamentals.html#what-youll-learn",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "🦈 The Data Science Lifecycle: Understand the steps from data collection to insights\n🐠 Data Wrangling with R: Clean and prepare data like a pro\n🐋 Exploratory Data Analysis: Uncover hidden patterns in your data\n🦑 Statistical Thinking: Make sense of complex datasets\n🐬 Introduction to Machine Learning: Dive into predictive modeling\n🐙 Data Visualization: Create compelling visual stories with your data"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#course-structure",
+    "href": "courses/data-science-fundamentals.html#course-structure",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "6 modules, each focusing on a key area of data science\nHands-on exercises and projects using real-world datasets\nWeekly DataSharkBites for quick, focused learning\nInteractive coding sessions with our shark-tastic instructors"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#prerequisites",
+    "href": "courses/data-science-fundamentals.html#prerequisites",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "Basic programming knowledge (any language)\nFamiliarity with high school level mathematics\nA curiosity for data and a appetite for learning!"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#sample-lesson-introduction-to-data-wrangling-with-r",
+    "href": "courses/data-science-fundamentals.html#sample-lesson-introduction-to-data-wrangling-with-r",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "Let’s take a quick bite into data wrangling with R using the dplyr package:\nlibrary(dplyr)\n\n# Sample dataset: Ocean temperature readings\nocean_temp &lt;- data.frame(\n  date = as.Date('2023-01-01') + 0:9,\n  temp_celsius = c(20, 21, 22, 21, 20, 19, 18, 19, 20, 21),\n  location = rep(c(\"Reef\", \"Open Water\"), each = 5)\n)\n\n# Let's do some data wrangling!\nocean_temp %&gt;%\n  group_by(location) %&gt;%\n  summarize(\n    avg_temp = mean(temp_celsius),\n    max_temp = max(temp_celsius),\n    min_temp = min(temp_celsius)\n  ) %&gt;%\n  arrange(desc(avg_temp))\nIn this snippet, we’re analyzing ocean temperatures, grouping by location, and calculating summary statistics. This is just a taste of what you’ll learn in our data wrangling module!"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#what-our-students-say",
+    "href": "courses/data-science-fundamentals.html#what-our-students-say",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "“This course turned me from a guppy to a data shark! The instructors make complex concepts easy to understand, and the shark-themed examples keep it fun and engaging.” - Sarah, Marine Biologist\n\n\n“I never thought I’d be excited about statistics, but the DataSharkBites made learning actually enjoyable. Now I’m hooked on data science!” - Tom, Business Analyst"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#ready-to-take-the-plunge",
+    "href": "courses/data-science-fundamentals.html#ready-to-take-the-plunge",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "Enroll now and start your journey to becoming a data science shark! Remember, in the ocean of data, knowledge is your dorsal fin – it’ll keep you above the surface and moving forward!\nEnroll Now"
+  },
+  {
+    "objectID": "courses/data-science-fundamentals.html#need-more-information",
+    "href": "courses/data-science-fundamentals.html#need-more-information",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "Have questions about the course? Don’t let them circle in your mind like a shark – reach out to us!\nContact Us\n\nRemember, in the world of data science, every day is Shark Week. Let’s make it count!"
+  },
+  {
+    "objectID": "use-cases/03-data-preparation.html",
+    "href": "use-cases/03-data-preparation.html",
+    "title": "Data Preparation and Processing",
+    "section": "",
+    "text": "graph TD\n    A[Raw Data] --&gt; B[Extraction]\n    B --&gt; C[Cleaning]\n    C --&gt; D[Standardization]\n    D --&gt; E[Validation]\n    E --&gt; F[Loading]\n    style A fill:#f9f,stroke:#333\n    style F fill:#bbf,stroke:#333"
+  },
+  {
+    "objectID": "use-cases/03-data-preparation.html#data-processing-pipeline",
+    "href": "use-cases/03-data-preparation.html#data-processing-pipeline",
+    "title": "Data Preparation and Processing",
+    "section": "",
+    "text": "graph TD\n    A[Raw Data] --&gt; B[Extraction]\n    B --&gt; C[Cleaning]\n    C --&gt; D[Standardization]\n    D --&gt; E[Validation]\n    E --&gt; F[Loading]\n    style A fill:#f9f,stroke:#333\n    style F fill:#bbf,stroke:#333"
+  },
+  {
+    "objectID": "use-cases/03-data-preparation.html#data-extraction-methods",
+    "href": "use-cases/03-data-preparation.html#data-extraction-methods",
+    "title": "Data Preparation and Processing",
+    "section": "Data Extraction Methods 🔍",
+    "text": "Data Extraction Methods 🔍\n\nAutomated Extraction Process\n\n\n\n\n\nMethod\nDataType\nReliability\n\n\n\n\nExcel Direct Read\nStructured Tables\nHigh\n\n\nPattern Matching\nSemi-structured\nMedium\n\n\nCustom Parsers\nComplex Formats\nHigh"
+  },
+  {
+    "objectID": "use-cases/03-data-preparation.html#format-standardization",
+    "href": "use-cases/03-data-preparation.html#format-standardization",
+    "title": "Data Preparation and Processing",
+    "section": "Format Standardization 📋",
+    "text": "Format Standardization 📋\n\nStandardization Rules 📏\n\nDate Formats 📅\n\nISO 8601 compliance\nTimezone handling\nHistorical data conversion\n\nNumerical Values 🔢\n\nDecimal standardization\nUnit conversion\nRange validation\n\nText Fields 📝\n\nCharacter encoding\nCase normalization\nWhitespace handling"
+  },
+  {
+    "objectID": "use-cases/03-data-preparation.html#quality-control-checks",
+    "href": "use-cases/03-data-preparation.html#quality-control-checks",
+    "title": "Data Preparation and Processing",
+    "section": "Quality Control Checks ✅",
+    "text": "Quality Control Checks ✅\n\nValidation Framework\n\nvalidation_rules &lt;- tibble::tribble(\n  ~Rule, ~Description, ~Severity,\n  \"Completeness\", \"Required fields present\", \"High\",\n  \"Format\", \"Data format compliance\", \"High\",\n  \"Range\", \"Values within bounds\", \"Medium\",\n  \"Consistency\", \"Cross-field validation\", \"High\"\n)\n\nvalidation_rules |&gt; \n  knitr::kable()\n\n\n\n\nRule\nDescription\nSeverity\n\n\n\n\nCompleteness\nRequired fields present\nHigh\n\n\nFormat\nData format compliance\nHigh\n\n\nRange\nValues within bounds\nMedium\n\n\nConsistency\nCross-field validation\nHigh\n\n\n\n\n\n➡️ Next: System Architecture"
+  },
+  {
+    "objectID": "use-cases/appendix-c.html",
+    "href": "use-cases/appendix-c.html",
+    "title": "References and Glossary",
+    "section": "",
+    "text": "Data Management\n\nISO/IEC 27001\nGDPR compliance\nIndustry best practices\n\nDocumentation\n\nTechnical writing standards\nAPI documentation\nCode documentation"
+  },
+  {
+    "objectID": "use-cases/appendix-c.html#technical-references",
+    "href": "use-cases/appendix-c.html#technical-references",
+    "title": "References and Glossary",
+    "section": "",
+    "text": "Data Management\n\nISO/IEC 27001\nGDPR compliance\nIndustry best practices\n\nDocumentation\n\nTechnical writing standards\nAPI documentation\nCode documentation"
+  },
+  {
+    "objectID": "use-cases/appendix-c.html#glossary",
+    "href": "use-cases/appendix-c.html#glossary",
+    "title": "References and Glossary",
+    "section": "Glossary 📖",
+    "text": "Glossary 📖\n\nTerms and Definitions\n\n\n\n\n\n\n\n\n\n\nTerm\nDefinition\nCategory\n\n\n\n\nSPC\nSouth Pacific Commission\nOrganization\n\n\nCRISP-DM\nCross-Industry Standard Process for Data Mining\nMethodology\n\n\ndbt\nData Build Tool\nTechnology\n\n\n\n\n\n🔙 Back to Main Content"
+  },
+  {
+    "objectID": "use-cases/06-implementation.html",
+    "href": "use-cases/06-implementation.html",
+    "title": "Implementation Guide and Future Considerations",
+    "section": "",
+    "text": "gantt\n    title Project Implementation Schedule\n    dateFormat  YYYY-MM-DD\n    section Infrastructure\n    Setup    :2024-11-01, 30d\n    Configuration   :2024-12-01, 15d\n    section Migration\n    Data Migration  :2024-12-15, 45d\n    Testing        :2025-01-15, 30d\n    section Training\n    Staff Training :2025-02-15, 30d\n    Go Live       :2025-03-15, 15d"
+  },
+  {
+    "objectID": "use-cases/06-implementation.html#deployment-strategy",
+    "href": "use-cases/06-implementation.html#deployment-strategy",
+    "title": "Implementation Guide and Future Considerations",
+    "section": "",
+    "text": "gantt\n    title Project Implementation Schedule\n    dateFormat  YYYY-MM-DD\n    section Infrastructure\n    Setup    :2024-11-01, 30d\n    Configuration   :2024-12-01, 15d\n    section Migration\n    Data Migration  :2024-12-15, 45d\n    Testing        :2025-01-15, 30d\n    section Training\n    Staff Training :2025-02-15, 30d\n    Go Live       :2025-03-15, 15d"
+  },
+  {
+    "objectID": "use-cases/06-implementation.html#configuration-requirements",
+    "href": "use-cases/06-implementation.html#configuration-requirements",
+    "title": "Implementation Guide and Future Considerations",
+    "section": "Configuration Requirements ⚙️",
+    "text": "Configuration Requirements ⚙️\n\nSystem Setup Checklist ✅\n\nInfrastructure Setup 🏗️\n\nServer provisioning\nNetwork configuration\nSecurity setup\n\nSoftware Installation 💿\n\nR environment\nSQL Server\ndbt framework\n\nIntegration Configuration 🔄\n\nAPI setup\nAuthentication\nMonitoring tools\n\n\n➡️ Next: Technical Documentation"
+  },
+  {
+    "objectID": "use-cases/index.html",
+    "href": "use-cases/index.html",
+    "title": "Use Cases",
+    "section": "",
+    "text": "📚 Welcome to the comprehensive guide for automating SPC’s fisheries data management processes. This book outlines a modern approach to handling operational logbook fisheries data, moving from manual Excel processing to an automated, database-driven solution.\n\n\n🎯 Each year SPC receives operational logbook fisheries data from distant water fishing nations, in various Excel formats. Describe a simple system for automating data reception, loading, checking, and consolidating into an SQL Server database – as an alternative to emailing Excel files and manual formatting/loading. This presentation is aimed at data management staff as a proposal for a new way of doing things, to improve efficiency. Please provide enough detail to understand the proposed process and anticipated benefits, but not all of the technical details required for implementation.\n\n\n\n🤖 Automate data reception and processing\n📋 Standardize data formats\n✅ Implement robust validation\n⚡ Improve operational efficiency\n🎯 Ensure data quality and consistency\n\n\n\n\n\n\n\nCrisp-DM\n\n\n📖 This book follows the CRISP-DM methodology while addressing specific needs of fisheries data management:\n\n🔍 Each chapter corresponds to a CRISP-DM phase:\n\nChapter 1: Introduction and Business Understanding\nChapter 2: Data Reception and Understanding\nChapter 3: Data Preparation and Processing\nChapter 4: System Architecture and Modeling\nChapter 5: System Evaluation and Benefits\nChapter 6: Implementation and Deployment\n\n💡 Practical examples and implementation details are provided in each chapter:\n\nTechnical Documentation\nUser Guides\nReferences and Glossary\n\n🔧 Technical content is balanced with user-friendly explanations throughout all chapters\n📊 Interactive elements enhance understanding with:\n\nMermaid diagrams\nR code examples\nInteractive visualizations\n\n📈 Clear progression from concept to implementation:\n\nStart with the Introduction\nFollow the implementation guide in Chapter 6\nReference the Technical Documentation as needed\n\n\n\n\n\n📑 Key Resources: - System Architecture 🏗️ - Data Processing Workflows ⚙️ - Implementation Guide 📋 - Performance Metrics 📊 - User Guides 📖"
+  },
+  {
+    "objectID": "use-cases/index.html#project-overview",
+    "href": "use-cases/index.html#project-overview",
+    "title": "Use Cases",
+    "section": "",
+    "text": "🎯 Each year SPC receives operational logbook fisheries data from distant water fishing nations, in various Excel formats. Describe a simple system for automating data reception, loading, checking, and consolidating into an SQL Server database – as an alternative to emailing Excel files and manual formatting/loading. This presentation is aimed at data management staff as a proposal for a new way of doing things, to improve efficiency. Please provide enough detail to understand the proposed process and anticipated benefits, but not all of the technical details required for implementation.\n\n\n\n🤖 Automate data reception and processing\n📋 Standardize data formats\n✅ Implement robust validation\n⚡ Improve operational efficiency\n🎯 Ensure data quality and consistency\n\n\n\n\n\n\n\nCrisp-DM\n\n\n📖 This book follows the CRISP-DM methodology while addressing specific needs of fisheries data management:\n\n🔍 Each chapter corresponds to a CRISP-DM phase:\n\nChapter 1: Introduction and Business Understanding\nChapter 2: Data Reception and Understanding\nChapter 3: Data Preparation and Processing\nChapter 4: System Architecture and Modeling\nChapter 5: System Evaluation and Benefits\nChapter 6: Implementation and Deployment\n\n💡 Practical examples and implementation details are provided in each chapter:\n\nTechnical Documentation\nUser Guides\nReferences and Glossary\n\n🔧 Technical content is balanced with user-friendly explanations throughout all chapters\n📊 Interactive elements enhance understanding with:\n\nMermaid diagrams\nR code examples\nInteractive visualizations\n\n📈 Clear progression from concept to implementation:\n\nStart with the Introduction\nFollow the implementation guide in Chapter 6\nReference the Technical Documentation as needed\n\n\n\n\n\n📑 Key Resources: - System Architecture 🏗️ - Data Processing Workflows ⚙️ - Implementation Guide 📋 - Performance Metrics 📊 - User Guides 📖"
+  },
+  {
+    "objectID": "use-cases/02-data-reception.html",
+    "href": "use-cases/02-data-reception.html",
+    "title": "Data Reception and Understanding",
+    "section": "",
+    "text": "Understanding the variety of input formats is crucial for automation success. This chapter details our approach to handling diverse data sources.\n\n\n\n\n\n\n\nFormat\nFrequency\nChallenges\n\n\n\n\nExcel 97-2003\n30\nLegacy format, limited features\n\n\nExcel 2007+\n45\nMultiple sheets, complex formatting\n\n\nCSV\n25\nEncoding issues, delimiter variations"
+  },
+  {
+    "objectID": "use-cases/02-data-reception.html#data-source-analysis",
+    "href": "use-cases/02-data-reception.html#data-source-analysis",
+    "title": "Data Reception and Understanding",
+    "section": "",
+    "text": "Understanding the variety of input formats is crucial for automation success. This chapter details our approach to handling diverse data sources.\n\n\n\n\n\n\n\nFormat\nFrequency\nChallenges\n\n\n\n\nExcel 97-2003\n30\nLegacy format, limited features\n\n\nExcel 2007+\n45\nMultiple sheets, complex formatting\n\n\nCSV\n25\nEncoding issues, delimiter variations"
+  },
+  {
+    "objectID": "use-cases/02-data-reception.html#automated-reception-system",
+    "href": "use-cases/02-data-reception.html#automated-reception-system",
+    "title": "Data Reception and Understanding",
+    "section": "Automated Reception System 🤖",
+    "text": "Automated Reception System 🤖\n\nSystem Architecture 🏗️\n\n\n\n\n\nflowchart LR\n    subgraph Raw Data\n        RD[Raw Data Files]\n    end\n\n    subgraph Database\n        PG[(PostgreSQL DB)]\n    end\n\n    subgraph Data Transformation\n        DBT[dbt Transformations]\n    end\n\n    subgraph Analysis & Visualization\n        RS[RStudio]\n        SH[Shiny Dashboard]\n    end\n\n    RD --&gt;|Load| PG\n    PG --&gt;|Source Data| DBT\n    DBT --&gt;|Transformed Data| PG\n    PG --&gt;|Query Data| RS\n    PG --&gt;|Query Data| SH\n    RS --&gt;|Analysis Results| SH\n\n\n\n\n\n\n\n\nSecurity Measures 🔒\n\nEncryption 🔐\n\nIn-transit encryption\nAt-rest encryption\nKey management\n\nAuthentication 👤\n\nMulti-factor authentication\nRole-based access\nSession management\n\nMonitoring 👁️\n\nReal-time alerts\nActivity logging\nPerformance metrics"
+  },
+  {
+    "objectID": "use-cases/02-data-reception.html#data-quality-assessment",
+    "href": "use-cases/02-data-reception.html#data-quality-assessment",
+    "title": "Data Reception and Understanding",
+    "section": "Data Quality Assessment 🎯",
+    "text": "Data Quality Assessment 🎯\n\nInitial Validation Checks ✅\n\n\n\n\n\nCheck_Type\nDescription\nSeverity\n\n\n\n\nFormat\nFile format verification\nHigh\n\n\nStructure\nExpected columns present\nHigh\n\n\nData Types\nCorrect data types\nMedium\n\n\nRange\nValues within expected ranges\nMedium\n\n\nCompleteness\nRequired fields populated\nHigh\n\n\n\n\n\n\n\nMonitoring Framework 📊\n\nReal-time Metrics 📈\n\n📥 Reception success rate\n⏱️ Processing time\n❌ Error frequency\n📊 Data volume\n🎯 Quality scores\n\n\n\nAlerting System ⚠️\n\n🔔 Immediate alerts for critical issues\n📧 Daily summary reports\n📊 Weekly performance metrics\n📈 Trend analysis"
+  },
+  {
+    "objectID": "use-cases/02-data-reception.html#data-profiling",
+    "href": "use-cases/02-data-reception.html#data-profiling",
+    "title": "Data Reception and Understanding",
+    "section": "Data Profiling 🔍",
+    "text": "Data Profiling 🔍\n\nAutomated Analysis 📊\n\n\n\n\n\nMetric\nDescription\nFrequency\n\n\n\n\nCompleteness\nMissing value analysis\nPer file\n\n\nConsistency\nFormat adherence\nPer file\n\n\nValidity\nBusiness rule compliance\nPer file\n\n\nTimeliness\nProcessing duration\nPer file"
+  },
+  {
+    "objectID": "use-cases/02-data-reception.html#next-steps",
+    "href": "use-cases/02-data-reception.html#next-steps",
+    "title": "Data Reception and Understanding",
+    "section": "Next Steps 📋",
+    "text": "Next Steps 📋\n\n➡️ Proceed to Data Preparation\n🔙 Back to Introduction\n📚 View Technical Documentation"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Shrink Tank",
+    "section": "",
+    "text": "Dive into a world of data science innovation and inspiration. Whether you’re a student looking to expand your knowledge or a professional seeking fresh perspectives, our shrinktank Lab is your gateway to cutting-edge concepts in data science.\n\n\n\n\n\nBite-sized data science concepts explained simply. Perfect for quick learning and inspiration.\n\n\n\nStep-by-step guides to master essential data science skills and tools.\n\n\n\nExplore thought-provoking articles on the future of data science and its impact on various industries.\n\n\n\n\n\n\n\n\n\n\n\nUse the filters and search below to find exactly what you’re looking for:\n\n\n    \n      \n      \n    \n\n\n\n\n\nNo matching items\n\n\n\n\n\nAre you passionate about data science? We’d love to hear your shrinktank!\nShare Your Idea\n\n\n\nSubscribe to our newsletter for weekly doses of data science inspiration:\n\nGet Weekly Insights"
+  },
+  {
+    "objectID": "index.html#what-youll-find-here",
+    "href": "index.html#what-youll-find-here",
+    "title": "Shrink Tank",
+    "section": "",
+    "text": "Bite-sized data science concepts explained simply. Perfect for quick learning and inspiration.\n\n\n\nStep-by-step guides to master essential data science skills and tools.\n\n\n\nExplore thought-provoking articles on the future of data science and its impact on various industries."
+  },
+  {
+    "objectID": "index.html#explore-all-shrinktank",
+    "href": "index.html#explore-all-shrinktank",
+    "title": "Shrink Tank",
+    "section": "",
+    "text": "Use the filters and search below to find exactly what you’re looking for:\n\n\n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#get-involved",
+    "href": "index.html#get-involved",
+    "title": "Shrink Tank",
+    "section": "",
+    "text": "Are you passionate about data science? We’d love to hear your shrinktank!\nShare Your Idea"
+  },
+  {
+    "objectID": "index.html#stay-inspired",
+    "href": "index.html#stay-inspired",
+    "title": "Shrink Tank",
+    "section": "",
+    "text": "Subscribe to our newsletter for weekly doses of data science inspiration:\n\nGet Weekly Insights"
+  },
+  {
+    "objectID": "about/shrinkers.html",
+    "href": "about/shrinkers.html",
+    "title": "For Shrinkers",
+    "section": "",
+    "text": "We believe in the power of community and collaborative learning. If you’re passionate about data science and have insights to share, we’d love to hear from you!\n\n\n\nWrite an Article: Share your knowledge on data science topics, methodologies, or case studies.\nSubmit a Use Case: Showcase a real-world application of data science that you’ve worked on.\nPropose a Viewpoint: Offer your expert opinion on current trends or future predictions in the field.\n\n\n\n\n\nContent should be original and not published elsewhere.\nArticles should be between 1000-2000 words.\nInclude relevant code snippets, visualizations, or data where applicable.\nFollow our style guide for formatting and structure.\n\n\n\n\n\nGain exposure to our global audience of data professionals.\nEstablish yourself as a thought leader in the data science community.\nReceive feedback and engage in discussions with peers.\n\nSubmit Your Contribution"
+  },
+  {
+    "objectID": "about/shrinkers.html#how-to-contribute",
+    "href": "about/shrinkers.html#how-to-contribute",
+    "title": "For Shrinkers",
+    "section": "",
+    "text": "Write an Article: Share your knowledge on data science topics, methodologies, or case studies.\nSubmit a Use Case: Showcase a real-world application of data science that you’ve worked on.\nPropose a Viewpoint: Offer your expert opinion on current trends or future predictions in the field."
+  },
+  {
+    "objectID": "about/shrinkers.html#submission-guidelines",
+    "href": "about/shrinkers.html#submission-guidelines",
+    "title": "For Shrinkers",
+    "section": "",
+    "text": "Content should be original and not published elsewhere.\nArticles should be between 1000-2000 words.\nInclude relevant code snippets, visualizations, or data where applicable.\nFollow our style guide for formatting and structure."
+  },
+  {
+    "objectID": "about/shrinkers.html#benefits-of-contributing",
+    "href": "about/shrinkers.html#benefits-of-contributing",
+    "title": "For Shrinkers",
+    "section": "",
+    "text": "Gain exposure to our global audience of data professionals.\nEstablish yourself as a thought leader in the data science community.\nReceive feedback and engage in discussions with peers.\n\nSubmit Your Contribution"
+  },
+  {
+    "objectID": "about/partnerships.html",
+    "href": "about/partnerships.html",
+    "title": "Partnerships & Collaboration",
+    "section": "",
+    "text": "At The Data Shrink, we believe that the best insights come from collaboration. We’re always excited to partner with individuals, organizations, and companies who share our passion for making data science more accessible, engaging, and impactful.\n\n\n\n🦈 Dive into a sea of data science expertise\n🧠 Access our pool of creative minds and innovative shrinktank\n🎓 Reach a growing community of data enthusiasts and learners\n🚀 Accelerate your data-driven projects and initiatives\n\n\n\n\n\n\nGot a brilliant data science idea or case study? Let’s create something amazing together! Whether it’s a tutorial, a DataSharkBite, or an in-depth article, we’d love to feature your expertise.\n\n\n\nLet’s shrink the distance between data science theory and practice. Partner with us to deliver engaging workshops or webinars that our community will sink their teeth into.\n\n\n\nHave a data challenge that needs solving? Sponsor a project and watch our community of data scientists work their magic.\n\n\n\nDeveloped a cool data science tool? We’d love to feature it in our tutorials and help our community learn how to use it effectively.\n\n\n\n\n\n🤔 Think about how you’d like to collaborate\n📧 Drop us a line at partnerships@thedatashrink.com\n💡 Share your shrinktank - the quirkier, the better!\n🤝 Let’s chat and see how we can make data science awesome together\n\nRemember, at The Data Shrink, we believe that every partnership should be as unique as a shark’s fingerprint (if sharks had fingerprints, that is). So don’t be afraid to suggest out-of-the-box shrinktank!\n\n\n\nWe’re proud to be swimming alongside these fantastic organizations:\n\n🏫\n🖥️ Ndexr Inc.\n🌐 Global Data Science Association\n\nWant to see your logo here? Let’s make it happen!\n\nReady to take the plunge? Contact us today and let’s start shrinking those data challenges together!"
+  },
+  {
+    "objectID": "about/partnerships.html#why-partner-with-us",
+    "href": "about/partnerships.html#why-partner-with-us",
+    "title": "Partnerships & Collaboration",
+    "section": "",
+    "text": "🦈 Dive into a sea of data science expertise\n🧠 Access our pool of creative minds and innovative shrinktank\n🎓 Reach a growing community of data enthusiasts and learners\n🚀 Accelerate your data-driven projects and initiatives"
+  },
+  {
+    "objectID": "about/partnerships.html#partnership-opportunities",
+    "href": "about/partnerships.html#partnership-opportunities",
+    "title": "Partnerships & Collaboration",
+    "section": "",
+    "text": "Got a brilliant data science idea or case study? Let’s create something amazing together! Whether it’s a tutorial, a DataSharkBite, or an in-depth article, we’d love to feature your expertise.\n\n\n\nLet’s shrink the distance between data science theory and practice. Partner with us to deliver engaging workshops or webinars that our community will sink their teeth into.\n\n\n\nHave a data challenge that needs solving? Sponsor a project and watch our community of data scientists work their magic.\n\n\n\nDeveloped a cool data science tool? We’d love to feature it in our tutorials and help our community learn how to use it effectively."
+  },
+  {
+    "objectID": "about/partnerships.html#how-to-get-started",
+    "href": "about/partnerships.html#how-to-get-started",
+    "title": "Partnerships & Collaboration",
+    "section": "",
+    "text": "🤔 Think about how you’d like to collaborate\n📧 Drop us a line at partnerships@thedatashrink.com\n💡 Share your shrinktank - the quirkier, the better!\n🤝 Let’s chat and see how we can make data science awesome together\n\nRemember, at The Data Shrink, we believe that every partnership should be as unique as a shark’s fingerprint (if sharks had fingerprints, that is). So don’t be afraid to suggest out-of-the-box shrinktank!"
+  },
+  {
+    "objectID": "about/partnerships.html#current-partners",
+    "href": "about/partnerships.html#current-partners",
+    "title": "Partnerships & Collaboration",
+    "section": "",
+    "text": "We’re proud to be swimming alongside these fantastic organizations:\n\n🏫\n🖥️ Ndexr Inc.\n🌐 Global Data Science Association\n\nWant to see your logo here? Let’s make it happen!\n\nReady to take the plunge? Contact us today and let’s start shrinking those data challenges together!"
   },
   {
     "objectID": "shrinktank/tutorials/index.html",
@@ -26,6 +313,34 @@
     "title": "In-Depth Tutorials",
     "section": "",
     "text": "Learn how to create stunning visualizations using the powerful ggplot2 package in R.\nlibrary(ggplot2)\n\n# Sample data\ndata &lt;- data.frame(\n  category = c(\"A\", \"B\", \"C\", \"D\"),\n  value = c(3, 7, 9, 4)\n)\n\n# Create a basic bar plot\nggplot(data, aes(x = category, y = value)) +\n  geom_bar(stat = \"identity\", fill = \"skyblue\") +\n  theme_minimal() +\n  labs(title = \"Simple Bar Plot with ggplot2\",\n       x = \"Category\", y = \"Value\")\nRead Full Tutorial\nExplore our full range of tutorials below and take your R programming skills to the next level!"
+  },
+  {
+    "objectID": "shrinktank/datasharkbites/index.html",
+    "href": "shrinktank/datasharkbites/index.html",
+    "title": "DataSharkBites",
+    "section": "",
+    "text": "Welcome to DataSharkBites, where we serve up quick, powerful insights into data science using R. Just like a shark, these bites are designed to be swift, precise, and leave a lasting impression!\n\n\n\n\n\n\n\n\nSharpen Your dplyr Skills: The slice() Function\n\n\n\nEver needed to grab specific rows from your data frame? The slice() function from dplyr is your go-to tool!\nlibrary(dplyr)\n\n# Sample data\ndf &lt;- data.frame(x = 1:10, y = letters[1:10])\n\n# Get the first 5 rows\ndf %&gt;% slice(1:5)\n\n# Get every other row\ndf %&gt;% slice(seq(1, n(), by = 2))\n\n# Get the last 3 rows\ndf %&gt;% slice(tail(n():1, 3))\nRemember: Like a shark’s precision bite, slice() lets you extract exactly the rows you need!\n\n\nExplore more DataSharkBites below and boost your R skills one bite at a time!"
+  },
+  {
+    "objectID": "shrinktank/datasharkbites/index.html#featured-bite",
+    "href": "shrinktank/datasharkbites/index.html#featured-bite",
+    "title": "DataSharkBites",
+    "section": "",
+    "text": "Sharpen Your dplyr Skills: The slice() Function\n\n\n\nEver needed to grab specific rows from your data frame? The slice() function from dplyr is your go-to tool!\nlibrary(dplyr)\n\n# Sample data\ndf &lt;- data.frame(x = 1:10, y = letters[1:10])\n\n# Get the first 5 rows\ndf %&gt;% slice(1:5)\n\n# Get every other row\ndf %&gt;% slice(seq(1, n(), by = 2))\n\n# Get the last 3 rows\ndf %&gt;% slice(tail(n():1, 3))\nRemember: Like a shark’s precision bite, slice() lets you extract exactly the rows you need!\n\n\nExplore more DataSharkBites below and boost your R skills one bite at a time!"
+  },
+  {
+    "objectID": "shrinktank/posts/index.html",
+    "href": "shrinktank/posts/index.html",
+    "title": "Thought Pieces",
+    "section": "",
+    "text": "Welcome to our Thought Pieces section, where we explore cutting-edge ideas, trends, and applications in the world of data science, with a focus on R programming. Dive into our articles to gain new perspectives and stay ahead in the ever-evolving field of data analytics.\n\n\n\n\nAs businesses increasingly rely on time-based data for forecasting and decision-making, R’s ecosystem for time series analysis continues to evolve. This post explores emerging packages and methodologies that are shaping the future of time series analysis in R.\nKey points: - The rise of the tidyverts ecosystem for tidy time series analysis - Advances in Prophet for automated forecasting - Integration of machine learning with traditional time series methods\n# Example: Using fable for modern time series forecasting\nlibrary(fable)\nlibrary(tsibble)\n\n# Create a tsibble object\nmy_tsibble &lt;- tsibble(\n  Year = 2010:2020,\n  Value = rnorm(11, mean = 100, sd = 10),\n  index = Year\n)\n\n# Fit a model and forecast\nfit &lt;- my_tsibble %&gt;%\n  model(ARIMA(Value))\n\nforecast &lt;- fit %&gt;%\n  forecast(h = \"3 years\")\n\n# Plot the forecast\nforecast %&gt;%\n  autoplot(my_tsibble)\nRead Full Post\nExplore more thought-provoking articles below and join the conversation on the future of data science!"
+  },
+  {
+    "objectID": "shrinktank/posts/index.html#featured-post",
+    "href": "shrinktank/posts/index.html#featured-post",
+    "title": "Thought Pieces",
+    "section": "",
+    "text": "As businesses increasingly rely on time-based data for forecasting and decision-making, R’s ecosystem for time series analysis continues to evolve. This post explores emerging packages and methodologies that are shaping the future of time series analysis in R.\nKey points: - The rise of the tidyverts ecosystem for tidy time series analysis - Advances in Prophet for automated forecasting - Integration of machine learning with traditional time series methods\n# Example: Using fable for modern time series forecasting\nlibrary(fable)\nlibrary(tsibble)\n\n# Create a tsibble object\nmy_tsibble &lt;- tsibble(\n  Year = 2010:2020,\n  Value = rnorm(11, mean = 100, sd = 10),\n  index = Year\n)\n\n# Fit a model and forecast\nfit &lt;- my_tsibble %&gt;%\n  model(ARIMA(Value))\n\nforecast &lt;- fit %&gt;%\n  forecast(h = \"3 years\")\n\n# Plot the forecast\nforecast %&gt;%\n  autoplot(my_tsibble)\nRead Full Post\nExplore more thought-provoking articles below and join the conversation on the future of data science!"
   },
   {
     "objectID": "shrinktank/index.html",
@@ -119,6 +434,62 @@
     "text": "Let’s create separate plots for each location and add a histogram of shark sightings:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point(aes(color = location)) +\n  geom_smooth(method = \"loess\", se = FALSE, color = \"black\") +\n  facet_wrap(~location) +\n  geom_histogram(aes(y = shark_sightings), stat = \"identity\", alpha = 0.3)"
   },
   {
+    "objectID": "shrinktank/tutorials/ggplot2-intro.html#polishing-our-pearl-themes-and-labels",
+    "href": "shrinktank/tutorials/ggplot2-intro.html#polishing-our-pearl-themes-and-labels",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "Finally, let’s add some finishing touches to make our plot shine:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point(aes(color = location)) +\n  geom_smooth(method = \"loess\", se = FALSE, color = \"black\") +\n  facet_wrap(~location) +\n  geom_histogram(aes(y = shark_sightings), stat = \"identity\", alpha = 0.3) +\n  labs(title = \"Ocean Temperature and Shark Sightings\",\n       subtitle = \"A tale of two locations\",\n       x = \"Date\",\n       y = \"Temperature (°C)\",\n       color = \"Location\") +\n  theme_minimal() +\n  theme(legend.position = \"bottom\")"
+  },
+  {
+    "objectID": "shrinktank/tutorials/ggplot2-intro.html#wrapping-up",
+    "href": "shrinktank/tutorials/ggplot2-intro.html#wrapping-up",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "Congratulations! You’ve just created your first complex ggplot2 visualization. You’ve learned how to:\n\nCreate basic scatterplots\nAdd color to differentiate groups\nInclude trend lines with geom_smooth()\nUse facets to create multiple plots\nCombine different geoms in one plot\nCustomize labels and themes\n\nRemember, this is just the tip of the iceberg (or should I say, the dorsal fin of the shark?). ggplot2 has many more features to explore. Keep practicing, and soon you’ll be the apex predator of data visualization!"
+  },
+  {
+    "objectID": "shrinktank/tutorials/ggplot2-intro.html#dive-deeper",
+    "href": "shrinktank/tutorials/ggplot2-intro.html#dive-deeper",
+    "title": "Diving into Data Visualization with ggplot2",
+    "section": "",
+    "text": "Ready for more? Check out these resources: - ggplot2 documentation - R for Data Science book - The R Graph Gallery\nNow go forth and create some fin-tastic visualizations!"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact Us",
+    "section": "",
+    "text": "We’d love to hear from you! Whether you have a question about our services, want to explore collaboration opportunities, or just want to say hello, feel free to reach out.\n\n\nEmail: info@thedatashrink.com Phone: +1 (555) 123-4567\n\n\n\n123 Data Street Analyticsville, DS 12345 United States\n\n\n\n\n[Your contact form or embedded form goes here]\n\n\n\n\nFollow us on social media for the latest updates, insights, and data science tips:\n\nTwitter\nLinkedIn\nGitHub\n\nWe aim to respond to all inquiries within 24-48 hours during business days."
+  },
+  {
+    "objectID": "contact.html#contact-information",
+    "href": "contact.html#contact-information",
+    "title": "Contact Us",
+    "section": "",
+    "text": "Email: info@thedatashrink.com Phone: +1 (555) 123-4567"
+  },
+  {
+    "objectID": "contact.html#office-location",
+    "href": "contact.html#office-location",
+    "title": "Contact Us",
+    "section": "",
+    "text": "123 Data Street Analyticsville, DS 12345 United States"
+  },
+  {
+    "objectID": "contact.html#send-us-a-message",
+    "href": "contact.html#send-us-a-message",
+    "title": "Contact Us",
+    "section": "",
+    "text": "[Your contact form or embedded form goes here]"
+  },
+  {
+    "objectID": "contact.html#connect-with-us",
+    "href": "contact.html#connect-with-us",
+    "title": "Contact Us",
+    "section": "",
+    "text": "Follow us on social media for the latest updates, insights, and data science tips:\n\nTwitter\nLinkedIn\nGitHub\n\nWe aim to respond to all inquiries within 24-48 hours during business days."
+  },
+  {
     "objectID": "about/why-we-shrink.html",
     "href": "about/why-we-shrink.html",
     "title": "Why We Shrink",
@@ -137,6 +508,13 @@
     "href": "about/why-we-shrink.html#our-vision",
     "title": "Why We Shrink",
     "section": "",
+    "text": "We envision a world where data-driven decision-making is accessible to all organizations, regardless of their size or technical expertise. By “shrinking” data challenges, we aim to empower businesses to harness the full potential of their data assets.\nJoin us on our mission to make data work for you!"
+  },
+  {
+    "objectID": "about/team.html",
+    "href": "about/team.html",
+    "title": "Our Team",
+    "section": "",
     "text": "At The Data Shrink, our strength lies in our diverse team of data scientists, analysts, and industry experts. Each team member brings a unique set of skills and experiences to help solve your data challenges.\n\n\n\n\n\nFounder & Chief Data Scientist\nWith over 15 years of experience in data science and machine learning, Jane leads our team in developing cutting-edge analytics solutions.\n\n\n\nChief Operating Officer\nJohn brings a wealth of business acumen to our team, ensuring that our data solutions align with real-world business needs.\n\n\n\n\n\n\nAlice Johnson: Senior Data Analyst\nBob Williams: Machine Learning Engineer\nCarol Brown: Data Visualization Specialist\nDavid Lee: Big Data Architect\n\nJoin Our Team"
   },
   {
@@ -154,220 +532,171 @@
     "text": "Alice Johnson: Senior Data Analyst\nBob Williams: Machine Learning Engineer\nCarol Brown: Data Visualization Specialist\nDavid Lee: Big Data Architect\n\nJoin Our Team"
   },
   {
-    "objectID": "ideas/datasharkbites/index.html",
-    "href": "ideas/datasharkbites/index.html",
-    "title": "DataSharkBites",
+    "objectID": "about/for-contributors.html",
+    "href": "about/for-contributors.html",
+    "title": "For Contributors",
     "section": "",
-    "text": "Welcome to DataSharkBites, where we serve up quick, powerful insights into data science using R. Just like a shark, these bites are designed to be swift, precise, and leave a lasting impression!\n\n\n\n\n\n\n\n\nSharpen Your dplyr Skills: The slice() Function\n\n\n\nEver needed to grab specific rows from your data frame? The slice() function from dplyr is your go-to tool!\nlibrary(dplyr)\n\n# Sample data\ndf &lt;- data.frame(x = 1:10, y = letters[1:10])\n\n# Get the first 5 rows\ndf %&gt;% slice(1:5)\n\n# Get every other row\ndf %&gt;% slice(seq(1, n(), by = 2))\n\n# Get the last 3 rows\ndf %&gt;% slice(tail(n():1, 3))\nRemember: Like a shark’s precision bite, slice() lets you extract exactly the rows you need!\n\n\nExplore more DataSharkBites below and boost your R skills one bite at a time!"
+    "text": "We believe in the power of community and collaborative learning. If you’re passionate about data science and have insights to share, we’d love to hear from you!\n\n\n\nWrite an Article: Share your knowledge on data science topics, methodologies, or case studies.\nSubmit a Use Case: Showcase a real-world application of data science that you’ve worked on.\nPropose a Viewpoint: Offer your expert opinion on current trends or future predictions in the field.\n\n\n\n\n\nContent should be original and not published elsewhere.\nArticles should be between 1000-2000 words.\nInclude relevant code snippets, visualizations, or data where applicable.\nFollow our style guide for formatting and structure.\n\n\n\n\n\nGain exposure to our global audience of data professionals.\nEstablish yourself as a thought leader in the data science community.\nReceive feedback and engage in discussions with peers.\n\nSubmit Your Contribution"
   },
   {
-    "objectID": "ideas/datasharkbites/index.html#featured-bite",
-    "href": "ideas/datasharkbites/index.html#featured-bite",
-    "title": "DataSharkBites",
+    "objectID": "about/for-contributors.html#how-to-contribute",
+    "href": "about/for-contributors.html#how-to-contribute",
+    "title": "For Contributors",
     "section": "",
-    "text": "Sharpen Your dplyr Skills: The slice() Function\n\n\n\nEver needed to grab specific rows from your data frame? The slice() function from dplyr is your go-to tool!\nlibrary(dplyr)\n\n# Sample data\ndf &lt;- data.frame(x = 1:10, y = letters[1:10])\n\n# Get the first 5 rows\ndf %&gt;% slice(1:5)\n\n# Get every other row\ndf %&gt;% slice(seq(1, n(), by = 2))\n\n# Get the last 3 rows\ndf %&gt;% slice(tail(n():1, 3))\nRemember: Like a shark’s precision bite, slice() lets you extract exactly the rows you need!\n\n\nExplore more DataSharkBites below and boost your R skills one bite at a time!"
+    "text": "Write an Article: Share your knowledge on data science topics, methodologies, or case studies.\nSubmit a Use Case: Showcase a real-world application of data science that you’ve worked on.\nPropose a Viewpoint: Offer your expert opinion on current trends or future predictions in the field."
   },
   {
-    "objectID": "about/partnerships.html",
-    "href": "about/partnerships.html",
-    "title": "Partnerships & Collaboration",
+    "objectID": "about/for-contributors.html#submission-guidelines",
+    "href": "about/for-contributors.html#submission-guidelines",
+    "title": "For Contributors",
     "section": "",
-    "text": "At The Data Shrink, we believe that the best insights come from collaboration. We’re always excited to partner with individuals, organizations, and companies who share our passion for making data science more accessible, engaging, and impactful.\n\n\n\n🦈 Dive into a sea of data science expertise\n🧠 Access our pool of creative minds and innovative ideas\n🎓 Reach a growing community of data enthusiasts and learners\n🚀 Accelerate your data-driven projects and initiatives\n\n\n\n\n\n\nGot a brilliant data science idea or case study? Let’s create something amazing together! Whether it’s a tutorial, a DataSharkBite, or an in-depth article, we’d love to feature your expertise.\n\n\n\nLet’s shrink the distance between data science theory and practice. Partner with us to deliver engaging workshops or webinars that our community will sink their teeth into.\n\n\n\nHave a data challenge that needs solving? Sponsor a project and watch our community of data scientists work their magic.\n\n\n\nDeveloped a cool data science tool? We’d love to feature it in our tutorials and help our community learn how to use it effectively.\n\n\n\n\n\n🤔 Think about how you’d like to collaborate\n📧 Drop us a line at partnerships@thedatashrink.com\n💡 Share your ideas - the quirkier, the better!\n🤝 Let’s chat and see how we can make data science awesome together\n\nRemember, at The Data Shrink, we believe that every partnership should be as unique as a shark’s fingerprint (if sharks had fingerprints, that is). So don’t be afraid to suggest out-of-the-box ideas!\n\n\n\nWe’re proud to be swimming alongside these fantastic organizations:\n\n🏫 DataU University\n🖥️ CodeCrunchers Inc.\n🌐 Global Data Science Association\n\nWant to see your logo here? Let’s make it happen!\n\nReady to take the plunge? Contact us today and let’s start shrinking those data challenges together!"
+    "text": "Content should be original and not published elsewhere.\nArticles should be between 1000-2000 words.\nInclude relevant code snippets, visualizations, or data where applicable.\nFollow our style guide for formatting and structure."
   },
   {
-    "objectID": "about/partnerships.html#why-partner-with-us",
-    "href": "about/partnerships.html#why-partner-with-us",
-    "title": "Partnerships & Collaboration",
+    "objectID": "about/for-contributors.html#benefits-of-contributing",
+    "href": "about/for-contributors.html#benefits-of-contributing",
+    "title": "For Contributors",
     "section": "",
-    "text": "🦈 Dive into a sea of data science expertise\n🧠 Access our pool of creative minds and innovative ideas\n🎓 Reach a growing community of data enthusiasts and learners\n🚀 Accelerate your data-driven projects and initiatives"
+    "text": "Gain exposure to our global audience of data professionals.\nEstablish yourself as a thought leader in the data science community.\nReceive feedback and engage in discussions with peers.\n\nSubmit Your Contribution"
   },
   {
-    "objectID": "about/partnerships.html#partnership-opportunities",
-    "href": "about/partnerships.html#partnership-opportunities",
-    "title": "Partnerships & Collaboration",
+    "objectID": "use-cases/01-introduction.html",
+    "href": "use-cases/01-introduction.html",
+    "title": "Introduction and Business Understanding",
     "section": "",
-    "text": "Got a brilliant data science idea or case study? Let’s create something amazing together! Whether it’s a tutorial, a DataSharkBite, or an in-depth article, we’d love to feature your expertise.\n\n\n\nLet’s shrink the distance between data science theory and practice. Partner with us to deliver engaging workshops or webinars that our community will sink their teeth into.\n\n\n\nHave a data challenge that needs solving? Sponsor a project and watch our community of data scientists work their magic.\n\n\n\nDeveloped a cool data science tool? We’d love to feature it in our tutorials and help our community learn how to use it effectively."
+    "text": "SPC’s data management team faces several challenges in processing operational logbook fisheries data. This chapter explores the current situation and sets the foundation for automation.\n\n\n\n\n\n\n\n%%{init: {'themeVariables': { 'fontSize': '22px' }}}%%\nflowchart LR\n  A[Manual Email Reception] --&gt; B[Excel Format Variations]\n  B --&gt; C[Manual Processing]\n  C --&gt; D[Quality Issues]\n  D --&gt; E[Delayed Analysis]\n  E --&gt; F[Resource Intensive]"
   },
   {
-    "objectID": "about/partnerships.html#how-to-get-started",
-    "href": "about/partnerships.html#how-to-get-started",
-    "title": "Partnerships & Collaboration",
+    "objectID": "use-cases/01-introduction.html#business-context",
+    "href": "use-cases/01-introduction.html#business-context",
+    "title": "Introduction and Business Understanding",
     "section": "",
-    "text": "🤔 Think about how you’d like to collaborate\n📧 Drop us a line at partnerships@thedatashrink.com\n💡 Share your ideas - the quirkier, the better!\n🤝 Let’s chat and see how we can make data science awesome together\n\nRemember, at The Data Shrink, we believe that every partnership should be as unique as a shark’s fingerprint (if sharks had fingerprints, that is). So don’t be afraid to suggest out-of-the-box ideas!"
+    "text": "SPC’s data management team faces several challenges in processing operational logbook fisheries data. This chapter explores the current situation and sets the foundation for automation.\n\n\n\n\n\n\n\n%%{init: {'themeVariables': { 'fontSize': '22px' }}}%%\nflowchart LR\n  A[Manual Email Reception] --&gt; B[Excel Format Variations]\n  B --&gt; C[Manual Processing]\n  C --&gt; D[Quality Issues]\n  D --&gt; E[Delayed Analysis]\n  E --&gt; F[Resource Intensive]"
   },
   {
-    "objectID": "about/partnerships.html#current-partners",
-    "href": "about/partnerships.html#current-partners",
-    "title": "Partnerships & Collaboration",
-    "section": "",
-    "text": "We’re proud to be swimming alongside these fantastic organizations:\n\n🏫 DataU University\n🖥️ CodeCrunchers Inc.\n🌐 Global Data Science Association\n\nWant to see your logo here? Let’s make it happen!\n\nReady to take the plunge? Contact us today and let’s start shrinking those data challenges together!"
+    "objectID": "use-cases/01-introduction.html#current-challenges",
+    "href": "use-cases/01-introduction.html#current-challenges",
+    "title": "Introduction and Business Understanding",
+    "section": "Current Challenges 🔍",
+    "text": "Current Challenges 🔍\nThe existing process involves several pain points:\n\n📧 Manual email handling and file management\n📊 Various Excel formats requiring individual attention\n⏱️ Time-consuming manual processing steps\n❌ Inconsistent validation procedures\n🤹 Limited automation capabilities"
   },
   {
-    "objectID": "ideas/posts/index.html",
-    "href": "ideas/posts/index.html",
-    "title": "Thought Pieces",
-    "section": "",
-    "text": "Welcome to our Thought Pieces section, where we explore cutting-edge ideas, trends, and applications in the world of data science, with a focus on R programming. Dive into our articles to gain new perspectives and stay ahead in the ever-evolving field of data analytics.\n\n\n\n\nAs businesses increasingly rely on time-based data for forecasting and decision-making, R’s ecosystem for time series analysis continues to evolve. This post explores emerging packages and methodologies that are shaping the future of time series analysis in R.\nKey points: - The rise of the tidyverts ecosystem for tidy time series analysis - Advances in Prophet for automated forecasting - Integration of machine learning with traditional time series methods\n# Example: Using fable for modern time series forecasting\nlibrary(fable)\nlibrary(tsibble)\n\n# Create a tsibble object\nmy_tsibble &lt;- tsibble(\n  Year = 2010:2020,\n  Value = rnorm(11, mean = 100, sd = 10),\n  index = Year\n)\n\n# Fit a model and forecast\nfit &lt;- my_tsibble %&gt;%\n  model(ARIMA(Value))\n\nforecast &lt;- fit %&gt;%\n  forecast(h = \"3 years\")\n\n# Plot the forecast\nforecast %&gt;%\n  autoplot(my_tsibble)\nRead Full Post\nExplore more thought-provoking articles below and join the conversation on the future of data science!"
+    "objectID": "use-cases/01-introduction.html#user-stories",
+    "href": "use-cases/01-introduction.html#user-stories",
+    "title": "Introduction and Business Understanding",
+    "section": "User Stories 👥",
+    "text": "User Stories 👥\n\n1. Data Reception Automation 🔄\nAs a data management staff member, I want to automate the reception of fisheries data.\n\n📫 Current: Manual email processing\n🎯 Desired: Automated file reception\n✨ Benefits: Reduced delays and handling time\n\n➡️ See implementation details\n\n\n2. Database Loading 💾\nAs a data manager, I need automated database loading.\n\n📑 Current: Manual Excel processing\n🎯 Desired: Automated database loading\n✨ Benefits: Faster, more reliable processing\n\n➡️ See technical architecture\n\n\n3. Quality Assurance 🎯\nAs a data quality analyst, I want automated checking.\n\n👁️ Current: Manual inspection\n🎯 Desired: Automated validation\n✨ Benefits: Consistent quality control\n\n➡️ See data validation approach"
   },
   {
-    "objectID": "ideas/posts/index.html#featured-post",
-    "href": "ideas/posts/index.html#featured-post",
-    "title": "Thought Pieces",
-    "section": "",
-    "text": "As businesses increasingly rely on time-based data for forecasting and decision-making, R’s ecosystem for time series analysis continues to evolve. This post explores emerging packages and methodologies that are shaping the future of time series analysis in R.\nKey points: - The rise of the tidyverts ecosystem for tidy time series analysis - Advances in Prophet for automated forecasting - Integration of machine learning with traditional time series methods\n# Example: Using fable for modern time series forecasting\nlibrary(fable)\nlibrary(tsibble)\n\n# Create a tsibble object\nmy_tsibble &lt;- tsibble(\n  Year = 2010:2020,\n  Value = rnorm(11, mean = 100, sd = 10),\n  index = Year\n)\n\n# Fit a model and forecast\nfit &lt;- my_tsibble %&gt;%\n  model(ARIMA(Value))\n\nforecast &lt;- fit %&gt;%\n  forecast(h = \"3 years\")\n\n# Plot the forecast\nforecast %&gt;%\n  autoplot(my_tsibble)\nRead Full Post\nExplore more thought-provoking articles below and join the conversation on the future of data science!"
+    "objectID": "use-cases/01-introduction.html#business-requirements",
+    "href": "use-cases/01-introduction.html#business-requirements",
+    "title": "Introduction and Business Understanding",
+    "section": "Business Requirements 📋",
+    "text": "Business Requirements 📋\n\nFunctional Requirements ⚙️\n\nData Reception 📥\n\nAutomated file reception system\nFormat validation\nSecure transfer protocols\n\nProcessing 🔄\n\nAutomated data extraction\nFormat standardization\nError handling\n\nStorage 💾\n\nSQL Server database\nData versioning\nBackup procedures\n\n\n\n\nNon-Functional Requirements 🎯\n\nPerformance ⚡\n\nProcessing time &lt; 2 hours\n99.9% uptime\nReal-time monitoring\n\nSecurity 🔒\n\nData encryption\nAccess control\nAudit logging\n\nUsability 👥\n\nIntuitive interface\nClear error messages\nDocumentation"
   },
   {
-    "objectID": "ideas/tutorials/index.html",
-    "href": "ideas/tutorials/index.html",
-    "title": "In-Depth Tutorials",
-    "section": "",
-    "text": "Welcome to our In-Depth Tutorials section. Here, you’ll find comprehensive guides to help you master various aspects of data science using R. Whether you’re a beginner or an experienced data scientist, our tutorials will help you sharpen your skills and tackle real-world problems.\n\n\n\n\nLearn how to create stunning visualizations using the powerful ggplot2 package in R.\nlibrary(ggplot2)\n\n# Sample data\ndata &lt;- data.frame(\n  category = c(\"A\", \"B\", \"C\", \"D\"),\n  value = c(3, 7, 9, 4)\n)\n\n# Create a basic bar plot\nggplot(data, aes(x = category, y = value)) +\n  geom_bar(stat = \"identity\", fill = \"skyblue\") +\n  theme_minimal() +\n  labs(title = \"Simple Bar Plot with ggplot2\",\n       x = \"Category\", y = \"Value\")\nRead Full Tutorial\nExplore our full range of tutorials below and take your R programming skills to the next level!"
+    "objectID": "use-cases/01-introduction.html#success-criteria",
+    "href": "use-cases/01-introduction.html#success-criteria",
+    "title": "Introduction and Business Understanding",
+    "section": "Success Criteria 🎯",
+    "text": "Success Criteria 🎯\n\n⏱️ 90% reduction in processing time\n📊 99% data accuracy rate\n💪 80% reduction in manual effort\n📈 100% data traceability\n🔄 Real-time processing capability\n\n➡️ Next Chapter: Data Reception and Understanding"
   },
   {
-    "objectID": "ideas/tutorials/index.html#featured-tutorial",
-    "href": "ideas/tutorials/index.html#featured-tutorial",
-    "title": "In-Depth Tutorials",
+    "objectID": "use-cases/04-system-architecture.html",
+    "href": "use-cases/04-system-architecture.html",
+    "title": "System Architecture and Implementation",
     "section": "",
-    "text": "Learn how to create stunning visualizations using the powerful ggplot2 package in R.\nlibrary(ggplot2)\n\n# Sample data\ndata &lt;- data.frame(\n  category = c(\"A\", \"B\", \"C\", \"D\"),\n  value = c(3, 7, 9, 4)\n)\n\n# Create a basic bar plot\nggplot(data, aes(x = category, y = value)) +\n  geom_bar(stat = \"identity\", fill = \"skyblue\") +\n  theme_minimal() +\n  labs(title = \"Simple Bar Plot with ggplot2\",\n       x = \"Category\", y = \"Value\")\nRead Full Tutorial\nExplore our full range of tutorials below and take your R programming skills to the next level!"
+    "text": "graph TD\n    A[Data Sources] --&gt; B[R Processing Layer]\n    B --&gt; C[dbt Transformation]\n    C --&gt; D[SQL Server]\n    D --&gt; E[Reporting Layer]\n    style A fill:#f9f,stroke:#333\n    style E fill:#bbf,stroke:#333"
   },
   {
-    "objectID": "ideas/tutorials/ggplot2-intro.html",
-    "href": "ideas/tutorials/ggplot2-intro.html",
-    "title": "Diving into Data Visualization with ggplot2",
+    "objectID": "use-cases/04-system-architecture.html#component-integration",
+    "href": "use-cases/04-system-architecture.html#component-integration",
+    "title": "System Architecture and Implementation",
     "section": "",
-    "text": "Welcome, data enthusiasts! Today, we’re diving deep into the ocean of data visualization with ggplot2, one of the most powerful and flexible plotting systems for R. By the end of this tutorial, you’ll be creating plots so stunning, they’ll make other visualizations look like chum!\n\n\nggplot2 is a data visualization package for R, based on the grammar of graphics. It provides a structured approach to creating a wide range of statistical graphics. Think of it as LEGO for plots - you have different pieces (geoms, scales, themes) that you can combine to build complex and beautiful visualizations.\n\n\n\nFirst, let’s install and load the ggplot2 package:\n# Install ggplot2 if you haven't already\n# install.packages(\"ggplot2\")\n\n# Load the package\nlibrary(ggplot2)\n\n# We'll also use some data manipulation functions from dplyr\nlibrary(dplyr)\n\n\n\nFor this tutorial, we’ll use a dataset of ocean temperature readings:\n# Create our dataset\nocean_temp &lt;- data.frame(\n  date = seq(as.Date(\"2023-01-01\"), by = \"day\", length.out = 100),\n  temp_celsius = rnorm(100, mean = 20, sd = 2),\n  location = rep(c(\"Reef\", \"Open Water\"), each = 50),\n  shark_sightings = rpois(100, lambda = 2)\n)\n\n# Take a peek at our data\nhead(ocean_temp)\n\n\n\nLet’s start with a simple scatterplot of temperature over time:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point()\nHere’s what’s happening: 1. ggplot(ocean_temp, aes(x = date, y = temp_celsius)): This sets up our plot and maps our data. 2. geom_point(): This adds points to our plot.\n\n\n\nLet’s differentiate between reef and open water temperatures:\nggplot(ocean_temp, aes(x = date, y = temp_celsius, color = location)) +\n  geom_point()\n\n\n\nWe can add a trend line to see the overall temperature pattern:\nggplot(ocean_temp, aes(x = date, y = temp_celsius, color = location)) +\n  geom_point() +\n  geom_smooth(method = \"loess\", se = FALSE)\n\n\n\nLet’s create separate plots for each location and add a histogram of shark sightings:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point(aes(color = location)) +\n  geom_smooth(method = \"loess\", se = FALSE, color = \"black\") +\n  facet_wrap(~location) +\n  geom_histogram(aes(y = shark_sightings), stat = \"identity\", alpha = 0.3)\n\n\n\nFinally, let’s add some finishing touches to make our plot shine:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point(aes(color = location)) +\n  geom_smooth(method = \"loess\", se = FALSE, color = \"black\") +\n  facet_wrap(~location) +\n  geom_histogram(aes(y = shark_sightings), stat = \"identity\", alpha = 0.3) +\n  labs(title = \"Ocean Temperature and Shark Sightings\",\n       subtitle = \"A tale of two locations\",\n       x = \"Date\",\n       y = \"Temperature (°C)\",\n       color = \"Location\") +\n  theme_minimal() +\n  theme(legend.position = \"bottom\")\n\n\n\nCongratulations! You’ve just created your first complex ggplot2 visualization. You’ve learned how to:\n\nCreate basic scatterplots\nAdd color to differentiate groups\nInclude trend lines with geom_smooth()\nUse facets to create multiple plots\nCombine different geoms in one plot\nCustomize labels and themes\n\nRemember, this is just the tip of the iceberg (or should I say, the dorsal fin of the shark?). ggplot2 has many more features to explore. Keep practicing, and soon you’ll be the apex predator of data visualization!\n\n\n\nReady for more? Check out these resources: - ggplot2 documentation - R for Data Science book - The R Graph Gallery\nNow go forth and create some fin-tastic visualizations!"
+    "text": "graph TD\n    A[Data Sources] --&gt; B[R Processing Layer]\n    B --&gt; C[dbt Transformation]\n    C --&gt; D[SQL Server]\n    D --&gt; E[Reporting Layer]\n    style A fill:#f9f,stroke:#333\n    style E fill:#bbf,stroke:#333"
   },
   {
-    "objectID": "ideas/tutorials/ggplot2-intro.html#what-is-ggplot2",
-    "href": "ideas/tutorials/ggplot2-intro.html#what-is-ggplot2",
-    "title": "Diving into Data Visualization with ggplot2",
-    "section": "",
-    "text": "ggplot2 is a data visualization package for R, based on the grammar of graphics. It provides a structured approach to creating a wide range of statistical graphics. Think of it as LEGO for plots - you have different pieces (geoms, scales, themes) that you can combine to build complex and beautiful visualizations."
+    "objectID": "use-cases/04-system-architecture.html#workflow-orchestration-with-r",
+    "href": "use-cases/04-system-architecture.html#workflow-orchestration-with-r",
+    "title": "System Architecture and Implementation",
+    "section": "Workflow Orchestration with R 🔄",
+    "text": "Workflow Orchestration with R 🔄\n\nR Processing Components\n\n\n\n\n\nComponent\nPurpose\nDependencies\n\n\n\n\nData Loader\nInitial data ingestion\nreadxl, tidyverse\n\n\nValidator\nData validation\nassertr, validate\n\n\nTransformer\nData transformation\ndplyr, tidyr\n\n\nLogger\nProcess logging\nlogger, futile.logger"
   },
   {
-    "objectID": "ideas/tutorials/ggplot2-intro.html#setting-up-our-aquarium",
-    "href": "ideas/tutorials/ggplot2-intro.html#setting-up-our-aquarium",
-    "title": "Diving into Data Visualization with ggplot2",
-    "section": "",
-    "text": "First, let’s install and load the ggplot2 package:\n# Install ggplot2 if you haven't already\n# install.packages(\"ggplot2\")\n\n# Load the package\nlibrary(ggplot2)\n\n# We'll also use some data manipulation functions from dplyr\nlibrary(dplyr)"
+    "objectID": "use-cases/04-system-architecture.html#database-schema-design",
+    "href": "use-cases/04-system-architecture.html#database-schema-design",
+    "title": "System Architecture and Implementation",
+    "section": "Database Schema Design 💾",
+    "text": "Database Schema Design 💾\n\nLogical Data Model 📊\n\n\n\n\n\nerDiagram\n    VESSELS ||--o{ TRIPS : makes\n    TRIPS ||--o{ CATCH_DATA : contains\n    CATCH_DATA }|--|| SPECIES : references\n\n\n\n\n\n\n➡️ Next: System Evaluation"
   },
   {
-    "objectID": "ideas/tutorials/ggplot2-intro.html#our-dataset-ocean-temperature-readings",
-    "href": "ideas/tutorials/ggplot2-intro.html#our-dataset-ocean-temperature-readings",
-    "title": "Diving into Data Visualization with ggplot2",
+    "objectID": "use-cases/05-evaluation.html",
+    "href": "use-cases/05-evaluation.html",
+    "title": "System Evaluation and Benefits Analysis",
     "section": "",
-    "text": "For this tutorial, we’ll use a dataset of ocean temperature readings:\n# Create our dataset\nocean_temp &lt;- data.frame(\n  date = seq(as.Date(\"2023-01-01\"), by = \"day\", length.out = 100),\n  temp_celsius = rnorm(100, mean = 20, sd = 2),\n  location = rep(c(\"Reef\", \"Open Water\"), each = 50),\n  shark_sightings = rpois(100, lambda = 2)\n)\n\n# Take a peek at our data\nhead(ocean_temp)"
+    "text": "Metric\nBefore\nAfter\nImprovement\n\n\n\n\nProcessing Time (hrs)\n24\n2.0\n92%\n\n\nError Rate (%)\n5\n0.5\n90%\n\n\nManual Effort (hrs/week)\n40\n4.0\n90%\n\n\nData Quality Score (%)\n85\n98.0\n15%"
   },
   {
-    "objectID": "ideas/tutorials/ggplot2-intro.html#creating-our-first-plot-the-basic-scatterplot",
-    "href": "ideas/tutorials/ggplot2-intro.html#creating-our-first-plot-the-basic-scatterplot",
-    "title": "Diving into Data Visualization with ggplot2",
+    "objectID": "use-cases/05-evaluation.html#performance-metrics",
+    "href": "use-cases/05-evaluation.html#performance-metrics",
+    "title": "System Evaluation and Benefits Analysis",
     "section": "",
-    "text": "Let’s start with a simple scatterplot of temperature over time:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point()\nHere’s what’s happening: 1. ggplot(ocean_temp, aes(x = date, y = temp_celsius)): This sets up our plot and maps our data. 2. geom_point(): This adds points to our plot."
+    "text": "Metric\nBefore\nAfter\nImprovement\n\n\n\n\nProcessing Time (hrs)\n24\n2.0\n92%\n\n\nError Rate (%)\n5\n0.5\n90%\n\n\nManual Effort (hrs/week)\n40\n4.0\n90%\n\n\nData Quality Score (%)\n85\n98.0\n15%"
   },
   {
-    "objectID": "ideas/tutorials/ggplot2-intro.html#adding-some-color-to-our-ocean",
-    "href": "ideas/tutorials/ggplot2-intro.html#adding-some-color-to-our-ocean",
-    "title": "Diving into Data Visualization with ggplot2",
-    "section": "",
-    "text": "Let’s differentiate between reef and open water temperatures:\nggplot(ocean_temp, aes(x = date, y = temp_celsius, color = location)) +\n  geom_point()"
+    "objectID": "use-cases/05-evaluation.html#cost-benefit-analysis",
+    "href": "use-cases/05-evaluation.html#cost-benefit-analysis",
+    "title": "System Evaluation and Benefits Analysis",
+    "section": "Cost-Benefit Analysis 💰",
+    "text": "Cost-Benefit Analysis 💰\n\nROI Calculation 📈\n\n\n\n\n\npie title Cost Savings Distribution\n    \"Labor Cost Reduction\" : 45\n    \"Error Prevention\" : 25\n    \"Faster Processing\" : 20\n    \"Infrastructure\" : 10\n\n\n\n\n\n\n➡️ Next: Implementation Guide"
   },
   {
-    "objectID": "ideas/tutorials/ggplot2-intro.html#smoothing-the-waters",
-    "href": "ideas/tutorials/ggplot2-intro.html#smoothing-the-waters",
-    "title": "Diving into Data Visualization with ggplot2",
+    "objectID": "use-cases/appendix-b.html",
+    "href": "use-cases/appendix-b.html",
+    "title": "User Guides",
     "section": "",
-    "text": "We can add a trend line to see the overall temperature pattern:\nggplot(ocean_temp, aes(x = date, y = temp_celsius, color = location)) +\n  geom_point() +\n  geom_smooth(method = \"loess\", se = FALSE)"
+    "text": "System Monitoring 👁️\n\nCheck system status\nReview error logs\nMonitor data flow\n\nData Validation ✅\n\nReview validation reports\nAddress any failures\nDocument issues\n\nMaintenance Tasks 🔧\n\nBackup verification\nPerformance checks\nSecurity audit\n\n\n🔙 Back to Implementation"
   },
   {
-    "objectID": "ideas/tutorials/ggplot2-intro.html#diving-deeper-facets-and-multiple-geoms",
-    "href": "ideas/tutorials/ggplot2-intro.html#diving-deeper-facets-and-multiple-geoms",
-    "title": "Diving into Data Visualization with ggplot2",
+    "objectID": "use-cases/appendix-b.html#standard-operating-procedures",
+    "href": "use-cases/appendix-b.html#standard-operating-procedures",
+    "title": "User Guides",
     "section": "",
-    "text": "Let’s create separate plots for each location and add a histogram of shark sightings:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point(aes(color = location)) +\n  geom_smooth(method = \"loess\", se = FALSE, color = \"black\") +\n  facet_wrap(~location) +\n  geom_histogram(aes(y = shark_sightings), stat = \"identity\", alpha = 0.3)"
+    "text": "System Monitoring 👁️\n\nCheck system status\nReview error logs\nMonitor data flow\n\nData Validation ✅\n\nReview validation reports\nAddress any failures\nDocument issues\n\nMaintenance Tasks 🔧\n\nBackup verification\nPerformance checks\nSecurity audit\n\n\n🔙 Back to Implementation"
   },
   {
-    "objectID": "ideas/tutorials/ggplot2-intro.html#polishing-our-pearl-themes-and-labels",
-    "href": "ideas/tutorials/ggplot2-intro.html#polishing-our-pearl-themes-and-labels",
-    "title": "Diving into Data Visualization with ggplot2",
+    "objectID": "use-cases/appendix-a.html",
+    "href": "use-cases/appendix-a.html",
+    "title": "Technical Documentation",
     "section": "",
-    "text": "Finally, let’s add some finishing touches to make our plot shine:\nggplot(ocean_temp, aes(x = date, y = temp_celsius)) +\n  geom_point(aes(color = location)) +\n  geom_smooth(method = \"loess\", se = FALSE, color = \"black\") +\n  facet_wrap(~location) +\n  geom_histogram(aes(y = shark_sightings), stat = \"identity\", alpha = 0.3) +\n  labs(title = \"Ocean Temperature and Shark Sightings\",\n       subtitle = \"A tale of two locations\",\n       x = \"Date\",\n       y = \"Temperature (°C)\",\n       color = \"Location\") +\n  theme_minimal() +\n  theme(legend.position = \"bottom\")"
+    "text": "graph TD\n    A[Front End️] --&gt; B[API Layer]\n    B --&gt; C[Processing Engine️]\n    C --&gt; D[Database]\n    D --&gt; E[Reporting]"
   },
   {
-    "objectID": "ideas/tutorials/ggplot2-intro.html#wrapping-up",
-    "href": "ideas/tutorials/ggplot2-intro.html#wrapping-up",
-    "title": "Diving into Data Visualization with ggplot2",
+    "objectID": "use-cases/appendix-a.html#system-architecture-details",
+    "href": "use-cases/appendix-a.html#system-architecture-details",
+    "title": "Technical Documentation",
     "section": "",
-    "text": "Congratulations! You’ve just created your first complex ggplot2 visualization. You’ve learned how to:\n\nCreate basic scatterplots\nAdd color to differentiate groups\nInclude trend lines with geom_smooth()\nUse facets to create multiple plots\nCombine different geoms in one plot\nCustomize labels and themes\n\nRemember, this is just the tip of the iceberg (or should I say, the dorsal fin of the shark?). ggplot2 has many more features to explore. Keep practicing, and soon you’ll be the apex predator of data visualization!"
+    "text": "graph TD\n    A[Front End️] --&gt; B[API Layer]\n    B --&gt; C[Processing Engine️]\n    C --&gt; D[Database]\n    D --&gt; E[Reporting]"
   },
   {
-    "objectID": "ideas/tutorials/ggplot2-intro.html#dive-deeper",
-    "href": "ideas/tutorials/ggplot2-intro.html#dive-deeper",
-    "title": "Diving into Data Visualization with ggplot2",
-    "section": "",
-    "text": "Ready for more? Check out these resources: - ggplot2 documentation - R for Data Science book - The R Graph Gallery\nNow go forth and create some fin-tastic visualizations!"
+    "objectID": "use-cases/appendix-a.html#database-schema",
+    "href": "use-cases/appendix-a.html#database-schema",
+    "title": "Technical Documentation",
+    "section": "Database Schema 💾",
+    "text": "Database Schema 💾\n\nTable Definitions\nCREATE TABLE Vessels (\n    vessel_id INT PRIMARY KEY,\n    vessel_name VARCHAR(100),\n    registration_number VARCHAR(50)\n);\n\nCREATE TABLE Trips (\n    trip_id INT PRIMARY KEY,\n    vessel_id INT FOREIGN KEY REFERENCES Vessels(vessel_id),\n    start_date DATE,\n    end_date DATE\n);\n🔙 Back to Implementation"
   },
   {
-    "objectID": "courses/data-science-fundamentals.html",
-    "href": "courses/data-science-fundamentals.html",
-    "title": "Data Science Fundamentals",
+    "objectID": "courses/index.html",
+    "href": "courses/index.html",
+    "title": "Courses",
     "section": "",
-    "text": "Are you ready to take a deep dive into the ocean of data science? This course is your trusty shark cage, protecting you from the overwhelm while giving you an up-close view of the exciting world of data!\n\n\nIn this comprehensive course, you’ll learn the fundamental concepts and skills needed to start your journey as a data scientist. From data wrangling to machine learning, we’ve got you covered!\n\n\n\n\n🦈 The Data Science Lifecycle: Understand the steps from data collection to insights\n🐠 Data Wrangling with R: Clean and prepare data like a pro\n🐋 Exploratory Data Analysis: Uncover hidden patterns in your data\n🦑 Statistical Thinking: Make sense of complex datasets\n🐬 Introduction to Machine Learning: Dive into predictive modeling\n🐙 Data Visualization: Create compelling visual stories with your data\n\n\n\n\n\n6 modules, each focusing on a key area of data science\nHands-on exercises and projects using real-world datasets\nWeekly DataSharkBites for quick, focused learning\nInteractive coding sessions with our shark-tastic instructors\n\n\n\n\n\nBasic programming knowledge (any language)\nFamiliarity with high school level mathematics\nA curiosity for data and a appetite for learning!\n\n\n\n\nLet’s take a quick bite into data wrangling with R using the dplyr package:\nlibrary(dplyr)\n\n# Sample dataset: Ocean temperature readings\nocean_temp &lt;- data.frame(\n  date = as.Date('2023-01-01') + 0:9,\n  temp_celsius = c(20, 21, 22, 21, 20, 19, 18, 19, 20, 21),\n  location = rep(c(\"Reef\", \"Open Water\"), each = 5)\n)\n\n# Let's do some data wrangling!\nocean_temp %&gt;%\n  group_by(location) %&gt;%\n  summarize(\n    avg_temp = mean(temp_celsius),\n    max_temp = max(temp_celsius),\n    min_temp = min(temp_celsius)\n  ) %&gt;%\n  arrange(desc(avg_temp))\nIn this snippet, we’re analyzing ocean temperatures, grouping by location, and calculating summary statistics. This is just a taste of what you’ll learn in our data wrangling module!\n\n\n\n\n“This course turned me from a guppy to a data shark! The instructors make complex concepts easy to understand, and the shark-themed examples keep it fun and engaging.” - Sarah, Marine Biologist\n\n\n“I never thought I’d be excited about statistics, but the DataSharkBites made learning actually enjoyable. Now I’m hooked on data science!” - Tom, Business Analyst\n\n\n\n\nEnroll now and start your journey to becoming a data science shark! Remember, in the ocean of data, knowledge is your dorsal fin – it’ll keep you above the surface and moving forward!\nEnroll Now\n\n\n\nHave questions about the course? Don’t let them circle in your mind like a shark – reach out to us!\nContact Us\n\nRemember, in the world of data science, every day is Shark Week. Let’s make it count!"
+    "text": "Explore our comprehensive range of data science and analytics courses designed to take your skills to the next level. Whether you’re a beginner or an experienced professional, we have courses tailored to meet your learning needs.\n\n\n\n\n\nLearn the basics of data analysis, statistics, and machine learning. Learn More\n\n\n\nDive deep into complex ML algorithms and their applications. Learn More\n\n\n\nMaster the tools and techniques for handling large-scale data. Learn More\n\n\nBrowse All Courses"
   },
   {
-    "objectID": "courses/data-science-fundamentals.html#course-overview",
-    "href": "courses/data-science-fundamentals.html#course-overview",
-    "title": "Data Science Fundamentals",
+    "objectID": "courses/index.html#featured-courses",
+    "href": "courses/index.html#featured-courses",
+    "title": "Courses",
     "section": "",
-    "text": "In this comprehensive course, you’ll learn the fundamental concepts and skills needed to start your journey as a data scientist. From data wrangling to machine learning, we’ve got you covered!"
-  },
-  {
-    "objectID": "courses/data-science-fundamentals.html#what-youll-learn",
-    "href": "courses/data-science-fundamentals.html#what-youll-learn",
-    "title": "Data Science Fundamentals",
-    "section": "",
-    "text": "🦈 The Data Science Lifecycle: Understand the steps from data collection to insights\n🐠 Data Wrangling with R: Clean and prepare data like a pro\n🐋 Exploratory Data Analysis: Uncover hidden patterns in your data\n🦑 Statistical Thinking: Make sense of complex datasets\n🐬 Introduction to Machine Learning: Dive into predictive modeling\n🐙 Data Visualization: Create compelling visual stories with your data"
-  },
-  {
-    "objectID": "courses/data-science-fundamentals.html#course-structure",
-    "href": "courses/data-science-fundamentals.html#course-structure",
-    "title": "Data Science Fundamentals",
-    "section": "",
-    "text": "6 modules, each focusing on a key area of data science\nHands-on exercises and projects using real-world datasets\nWeekly DataSharkBites for quick, focused learning\nInteractive coding sessions with our shark-tastic instructors"
-  },
-  {
-    "objectID": "courses/data-science-fundamentals.html#prerequisites",
-    "href": "courses/data-science-fundamentals.html#prerequisites",
-    "title": "Data Science Fundamentals",
-    "section": "",
-    "text": "Basic programming knowledge (any language)\nFamiliarity with high school level mathematics\nA curiosity for data and a appetite for learning!"
-  },
-  {
-    "objectID": "courses/data-science-fundamentals.html#sample-lesson-introduction-to-data-wrangling-with-r",
-    "href": "courses/data-science-fundamentals.html#sample-lesson-introduction-to-data-wrangling-with-r",
-    "title": "Data Science Fundamentals",
-    "section": "",
-    "text": "Let’s take a quick bite into data wrangling with R using the dplyr package:\nlibrary(dplyr)\n\n# Sample dataset: Ocean temperature readings\nocean_temp &lt;- data.frame(\n  date = as.Date('2023-01-01') + 0:9,\n  temp_celsius = c(20, 21, 22, 21, 20, 19, 18, 19, 20, 21),\n  location = rep(c(\"Reef\", \"Open Water\"), each = 5)\n)\n\n# Let's do some data wrangling!\nocean_temp %&gt;%\n  group_by(location) %&gt;%\n  summarize(\n    avg_temp = mean(temp_celsius),\n    max_temp = max(temp_celsius),\n    min_temp = min(temp_celsius)\n  ) %&gt;%\n  arrange(desc(avg_temp))\nIn this snippet, we’re analyzing ocean temperatures, grouping by location, and calculating summary statistics. This is just a taste of what you’ll learn in our data wrangling module!"
-  },
-  {
-    "objectID": "courses/data-science-fundamentals.html#what-our-students-say",
-    "href": "courses/data-science-fundamentals.html#what-our-students-say",
-    "title": "Data Science Fundamentals",
-    "section": "",
-    "text": "“This course turned me from a guppy to a data shark! The instructors make complex concepts easy to understand, and the shark-themed examples keep it fun and engaging.” - Sarah, Marine Biologist\n\n\n“I never thought I’d be excited about statistics, but the DataSharkBites made learning actually enjoyable. Now I’m hooked on data science!” - Tom, Business Analyst"
-  },
-  {
-    "objectID": "courses/data-science-fundamentals.html#ready-to-take-the-plunge",
-    "href": "courses/data-science-fundamentals.html#ready-to-take-the-plunge",
-    "title": "Data Science Fundamentals",
-    "section": "",
-    "text": "Enroll now and start your journey to becoming a data science shark! Remember, in the ocean of data, knowledge is your dorsal fin – it’ll keep you above the surface and moving forward!\nEnroll Now"
-  },
-  {
-    "objectID": "courses/data-science-fundamentals.html#need-more-information",
-    "href": "courses/data-science-fundamentals.html#need-more-information",
-    "title": "Data Science Fundamentals",
-    "section": "",
-    "text": "Have questions about the course? Don’t let them circle in your mind like a shark – reach out to us!\nContact Us\n\nRemember, in the world of data science, every day is Shark Week. Let’s make it count!"
+    "text": "Learn the basics of data analysis, statistics, and machine learning. Learn More\n\n\n\nDive deep into complex ML algorithms and their applications. Learn More\n\n\n\nMaster the tools and techniques for handling large-scale data. Learn More\n\n\nBrowse All Courses"
   }
 ]

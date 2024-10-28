@@ -32,7 +32,25 @@ website:
       - text: "Shrink Tank"
         href: shrinktank/index.qmd
       - text: "Use Cases"
-        href: use-cases/index.qmd
+        menu:
+          - text: "Project task"
+            href: use-cases/index.qmd
+          - text: "Introduction"
+            href: about/01-introduction.qmd
+          - text: "Data Reception"
+            href: use-cases/02-data-reception.qmd
+          - text: "Data Preparation"
+            href: use-cases/03-data-preparation.qmd
+          - text: "Data Evaluation"
+            href: use-cases/05-evaluation.qmd 
+          - text: "Implementation"
+            href: use-cases/06-implementation.qmd
+          - text: "User Guides"
+            href: use-cases/appendix-b.qmd
+          - text: "Technical Documentation"
+            href: use-cases/appendix-a.qmd
+          - text: "References and Glossary"
+            href: use-cases/appendix-c.qmd
       - text: "Viewpoints"
         href: viewpoints/index.qmd
       - text: "Courses"

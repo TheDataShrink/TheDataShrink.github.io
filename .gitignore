@@ -4,5 +4,7 @@
 .Ruserdata
 /.quarto/
 /.vscode/
-/_site/
 _site/
+_freeze/
+The Hub of Condensed Wisdom
+renv/

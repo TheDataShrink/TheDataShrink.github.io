@@ -185,10 +185,49 @@ window.Quarto = {
     <a class="nav-link" href="../shrinktank/index.html"> 
 <span class="menu-text">Shrink Tank</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="../use-cases/index.html" aria-current="page"> 
-<span class="menu-text">Use Cases</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-use-cases" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Use Cases</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-use-cases">    
+        <li>
+    <a class="dropdown-item" href="../use-cases/index.html">
+ <span class="dropdown-text">Project task</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../about/01-introduction.qmd">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../use-cases/02-data-reception.html">
+ <span class="dropdown-text">Data Reception</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../use-cases/03-data-preparation.html">
+ <span class="dropdown-text">Data Preparation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../use-cases/05-evaluation.html">
+ <span class="dropdown-text">Data Evaluation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../use-cases/06-implementation.html">
+ <span class="dropdown-text">Implementation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../use-cases/appendix-b.html">
+ <span class="dropdown-text">User Guides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../use-cases/appendix-a.html">
+ <span class="dropdown-text">Technical Documentation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../use-cases/appendix-c.html">
+ <span class="dropdown-text">References and Glossary</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../viewpoints/index.html"> 
 <span class="menu-text">Viewpoints</span></a>
@@ -233,7 +272,15 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#real-world-use-cases" id="toc-real-world-use-cases" class="nav-link active" data-scroll-target="#real-world-use-cases">Real-World Use Cases</a></li>
+  <li><a href="#real-world-use-cases" id="toc-real-world-use-cases" class="nav-link active" data-scroll-target="#real-world-use-cases">Real-World Use Cases</a>
+  <ul class="collapse">
+  <li><a href="#project-overview" id="toc-project-overview" class="nav-link" data-scroll-target="#project-overview">Project Overview</a>
+  <ul class="collapse">
+  <li><a href="#key-objectives" id="toc-key-objectives" class="nav-link" data-scroll-target="#key-objectives">Key Objectives</a></li>
+  <li><a href="#how-to-use-this-book" id="toc-how-to-use-this-book" class="nav-link" data-scroll-target="#how-to-use-this-book">How to Use This Book</a></li>
+  <li><a href="#quick-navigation" id="toc-quick-navigation" class="nav-link" data-scroll-target="#quick-navigation">Quick Navigation</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TheDataShrink/TheDataShrink.github.io/edit/main/use-cases/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/TheDataShrink/TheDataShrink.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
@@ -246,11 +293,68 @@ window.Quarto = {
 
 <section id="real-world-use-cases" class="level1">
 <h1>Real-World Use Cases</h1>
-<p>Explore our collection of real-world use cases that demonstrate the power of data science in action. These case studies showcase how businesses and organizations have successfully applied data-driven strategies to solve complex problems and drive innovation.</p>
-<p>Discover our latest use cases:</p>
+<p>📚 Welcome to the comprehensive guide for automating SPC’s fisheries data management processes. This book outlines a modern approach to handling operational logbook fisheries data, moving from manual Excel processing to an automated, database-driven solution.</p>
+<section id="project-overview" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="project-overview">Project Overview</h2>
+<p>🎯 Each year SPC receives <strong><code>operational logbook fisheries data</code></strong> from distant water <strong><code>fishing nations</code></strong>, in various <strong><code>Excel formats</code></strong>. Describe a simple system for <strong><code>automating data reception, loading, checking, and consolidating into an SQL Server database</code></strong> – as an alternative to <strong><code>emailing Excel files and manual formatting/loading</code></strong>. This presentation is aimed at <strong><code>data management staff</code></strong> as a proposal for a new way of doing things, to <strong><code>improve efficiency</code></strong>. Please provide enough detail to understand the <strong><code>proposed process and anticipated benefits</code></strong>, but not all of the technical details required for implementation.</p>
+<section id="key-objectives" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="key-objectives">Key Objectives</h3>
+<ul>
+<li>🤖 <a href="../use-cases/02-data-reception.html">Automate data reception and processing</a></li>
+<li>📋 <a href="../use-cases/03-data-preparation.html">Standardize data formats</a></li>
+<li>✅ <a href="../use-cases/03-data-preparation.html#data-validation">Implement robust validation</a></li>
+<li>⚡ <a href="../use-cases/05-evaluation.html">Improve operational efficiency</a></li>
+<li>🎯 <a href="../use-cases/03-data-preparation.html#quality-control">Ensure data quality and consistency</a></li>
+</ul>
+</section>
+<section id="how-to-use-this-book" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="how-to-use-this-book">How to Use This Book</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/CRISP-DM_Process_Diagram.png/1280px-CRISP-DM_Process_Diagram.png" class="img-fluid figure-img"></p>
+<figcaption>Crisp-DM</figcaption>
+</figure>
+</div>
+<p>📖 This book follows the CRISP-DM methodology while addressing specific needs of fisheries data management:</p>
+<ol type="1">
+<li><p>🔍 Each chapter corresponds to a CRISP-DM phase:</p>
+<ul>
+<li><a href="../use-cases/01-introduction.html">Chapter 1: Introduction and Business Understanding</a></li>
+<li><a href="../use-cases/02-data-reception.html">Chapter 2: Data Reception and Understanding</a></li>
+<li><a href="../use-cases/03-data-preparation.html">Chapter 3: Data Preparation and Processing</a></li>
+<li><a href="../use-cases/04-system-architecture.html">Chapter 4: System Architecture and Modeling</a></li>
+<li><a href="../use-cases/05-evaluation.html">Chapter 5: System Evaluation and Benefits</a></li>
+<li><a href="../use-cases/06-implementation.html">Chapter 6: Implementation and Deployment</a></li>
+</ul></li>
+<li><p>💡 Practical examples and implementation details are provided in each chapter:</p>
+<ul>
+<li><a href="../use-cases/appendix-a.html">Technical Documentation</a></li>
+<li><a href="../use-cases/appendix-b.html">User Guides</a></li>
+<li><a href="../use-cases/appendix-c.html">References and Glossary</a></li>
+</ul></li>
+<li><p>🔧 Technical content is balanced with user-friendly explanations throughout all chapters</p></li>
+<li><p>📊 Interactive elements enhance understanding with:</p>
+<ul>
+<li>Mermaid diagrams</li>
+<li>R code examples</li>
+<li>Interactive visualizations</li>
+</ul></li>
+<li><p>📈 Clear progression from concept to implementation:</p>
+<ul>
+<li>Start with the <a href="../use-cases/01-introduction.html">Introduction</a></li>
+<li>Follow the implementation guide in <a href="../use-cases/06-implementation.html">Chapter 6</a></li>
+<li>Reference the <a href="../use-cases/appendix-a.html">Technical Documentation</a> as needed</li>
+</ul></li>
+</ol>
+</section>
+<section id="quick-navigation" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="quick-navigation">Quick Navigation</h3>
+<p>📑 Key Resources: - <a href="../use-cases/04-system-architecture.html">System Architecture</a> 🏗️ - <a href="../use-cases/03-data-preparation.html">Data Processing Workflows</a> ⚙️ - <a href="../use-cases/06-implementation.html">Implementation Guide</a> 📋 - <a href="../use-cases/05-evaluation.html">Performance Metrics</a> 📊 - <a href="../use-cases/appendix-b.html">User Guides</a> 📖</p>
 
 
 
+</section>
+</section>
 </section>
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
