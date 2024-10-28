@@ -24,6 +24,23 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      # Set up a writable R library path
+      - name: Set up R library path
+        run: |
+         mkdir -p ~/R/library
+         echo 'R_LIBS_USER="~/R/library"' > ~/.Renviron
+      
+        # Install system dependencies
+      - name: Install system dependencies
+        run: sudo apt-get install -y libcurl4-openssl-dev
+
+      # Install renv and restore dependencies
+      - name: Install renv and restore dependencies
+        run: |
+          R -e 'install.packages("renv")'
+          R -e 'renv::restore()'
+
+
       - name: Clean _site directory
         run: |
           rm -rf _site
