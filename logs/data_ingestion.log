@@ -1,0 +1,262 @@
+INFO [2024-10-29 21:06:02] Starting data ingestion process
+INFO [2024-10-29 21:06:03] Successfully connected to database
+INFO [2024-10-29 21:06:03] Created BRONZE_CATCH_DATA table
+INFO [2024-10-29 21:06:03] Found 15 files to process
+INFO [2024-10-29 21:06:03] Processing file: raw_data/2024-10-01/Japan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-29 21:06:03] Successfully processed file: raw_data/2024-10-01/Japan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-29 21:06:03] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:03] Processing file: raw_data/2024-10-01/Korea_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-29 21:06:03] Successfully processed file: raw_data/2024-10-01/Korea_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-29 21:06:03] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:03] Processing file: raw_data/2024-10-01/Taiwan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-29 21:06:03] Successfully processed file: raw_data/2024-10-01/Taiwan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-29 21:06:03] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:03] Processing file: raw_data/2024-10-02/Japan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-29 21:06:04] Successfully processed file: raw_data/2024-10-02/Japan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-29 21:06:04] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:04] Processing file: raw_data/2024-10-02/Korea_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-29 21:06:04] Successfully processed file: raw_data/2024-10-02/Korea_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-29 21:06:05] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:05] Processing file: raw_data/2024-10-02/Taiwan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-29 21:06:05] Successfully processed file: raw_data/2024-10-02/Taiwan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-29 21:06:05] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:05] Processing file: raw_data/2024-10-03/Japan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-29 21:06:06] Successfully processed file: raw_data/2024-10-03/Japan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-29 21:06:06] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:06] Processing file: raw_data/2024-10-03/Korea_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-29 21:06:06] Successfully processed file: raw_data/2024-10-03/Korea_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-29 21:06:06] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:06] Processing file: raw_data/2024-10-03/Taiwan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-29 21:06:06] Successfully processed file: raw_data/2024-10-03/Taiwan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-29 21:06:07] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:07] Processing file: raw_data/2024-10-04/Japan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-29 21:06:07] Successfully processed file: raw_data/2024-10-04/Japan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-29 21:06:07] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:07] Processing file: raw_data/2024-10-04/Korea_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-29 21:06:07] Successfully processed file: raw_data/2024-10-04/Korea_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-29 21:06:07] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:07] Processing file: raw_data/2024-10-04/Taiwan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-29 21:06:07] Successfully processed file: raw_data/2024-10-04/Taiwan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-29 21:06:08] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:08] Processing file: raw_data/2024-10-05/Japan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-29 21:06:08] Successfully processed file: raw_data/2024-10-05/Japan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-29 21:06:08] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:08] Processing file: raw_data/2024-10-05/Korea_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-29 21:06:08] Successfully processed file: raw_data/2024-10-05/Korea_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-29 21:06:08] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:08] Processing file: raw_data/2024-10-05/Taiwan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-29 21:06:10] Successfully processed file: raw_data/2024-10-05/Taiwan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-29 21:06:10] Successfully wrote 50 rows to database
+INFO [2024-10-29 21:06:10] Completed data ingestion process
+INFO [2024-10-29 21:06:35] Successfully connected to database
+INFO [2024-10-29 21:07:35] 
+INFO [2024-10-29 21:08:24] Successfully connected to database
+ERROR [2024-10-29 21:25:00] Failed to create control record: {"exception_type":"Parser","exception_message":"syntax error at or near \"SELECT\"","position":"225","error_subtype":"SYNTAX_ERROR"}
+ERROR [2024-10-29 21:25:11] Failed to create control record: {"exception_type":"Parser","exception_message":"syntax error at or near \"SELECT\"","position":"225","error_subtype":"SYNTAX_ERROR"}
+INFO [2024-10-29 21:28:56] Successfully connected to database
+INFO [2024-10-29 21:30:51] Successfully connected to database
+INFO [2024-10-29 21:30:52] Successfully initialized control table
+ERROR [2024-10-29 21:42:38] Failed to create control record: rapi_execute: Failed to run query
+Error: Constraint Error: NOT NULL constraint failed: PROCESS_CONTROL.PROCESS_CONTROL_ID
+ERROR [2024-10-29 21:42:57] Failed to update control record: rapi_bind: Bind parameter values need to have the same length
+ERROR [2024-10-29 21:43:00] Failed to update control record: rapi_bind: Bind parameter values need to have the same length
+ERROR [2024-10-29 21:43:02] Failed to update control record: rapi_bind: Bind parameter values need to have the same length
+INFO [2024-10-29 21:46:57] Successfully initialized control table
+ERROR [2024-10-29 21:46:59] Failed to create control record: rapi_execute: Failed to run query
+Error: Constraint Error: NOT NULL constraint failed: PROCESS_CONTROL.PROCESS_CONTROL_ID
+ERROR [2024-10-29 21:47:08] Failed to update control record: rapi_bind: Bind parameter values need to have the same length
+ERROR [2024-10-29 21:47:09] Failed to update control record: rapi_bind: Bind parameter values need to have the same length
+ERROR [2024-10-29 21:47:10] Failed to update control record: rapi_bind: Bind parameter values need to have the same length
+INFO [2024-10-29 21:48:52] 
+INFO [2024-10-29 21:58:57] Successfully initialized control table
+INFO [2024-10-29 21:59:24] Successfully connected to database at data/fisheries.duckdb
+INFO [2024-10-29 21:59:26] Successfully initialized control table
+INFO [2024-10-29 22:05:50] Starting data ingestion process
+INFO [2024-10-29 22:05:56] Successfully connected to database at data/fisheries.duckdb
+INFO [2024-10-29 22:06:09] Successfully connected to database at data/fisheries.duckdb
+INFO [2024-10-29 22:06:17] Created BRONZE_CATCH_DATA table
+INFO [2024-10-29 22:06:26] Found 15 files to process
+INFO [2024-10-29 22:06:33] Processing file: raw_data/2024-10-01/Japan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-29 22:06:33] Successfully processed file: raw_data/2024-10-01/Japan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-29 22:06:33] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:33] Processing file: raw_data/2024-10-01/Korea_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-29 22:06:33] Successfully processed file: raw_data/2024-10-01/Korea_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-29 22:06:33] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:33] Processing file: raw_data/2024-10-01/Taiwan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-29 22:06:34] Successfully processed file: raw_data/2024-10-01/Taiwan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-29 22:06:34] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:34] Processing file: raw_data/2024-10-02/Japan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-29 22:06:34] Successfully processed file: raw_data/2024-10-02/Japan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-29 22:06:35] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:35] Processing file: raw_data/2024-10-02/Korea_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-29 22:06:36] Successfully processed file: raw_data/2024-10-02/Korea_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-29 22:06:36] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:36] Processing file: raw_data/2024-10-02/Taiwan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-29 22:06:36] Successfully processed file: raw_data/2024-10-02/Taiwan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-29 22:06:37] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:37] Processing file: raw_data/2024-10-03/Japan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-29 22:06:37] Successfully processed file: raw_data/2024-10-03/Japan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-29 22:06:37] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:37] Processing file: raw_data/2024-10-03/Korea_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-29 22:06:38] Successfully processed file: raw_data/2024-10-03/Korea_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-29 22:06:38] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:38] Processing file: raw_data/2024-10-03/Taiwan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-29 22:06:39] Successfully processed file: raw_data/2024-10-03/Taiwan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-29 22:06:39] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:39] Processing file: raw_data/2024-10-04/Japan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-29 22:06:39] Successfully processed file: raw_data/2024-10-04/Japan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-29 22:06:40] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:40] Processing file: raw_data/2024-10-04/Korea_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-29 22:06:40] Successfully processed file: raw_data/2024-10-04/Korea_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-29 22:06:41] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:41] Processing file: raw_data/2024-10-04/Taiwan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-29 22:06:41] Successfully processed file: raw_data/2024-10-04/Taiwan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-29 22:06:41] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:41] Processing file: raw_data/2024-10-05/Japan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-29 22:06:42] Successfully processed file: raw_data/2024-10-05/Japan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-29 22:06:42] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:42] Processing file: raw_data/2024-10-05/Korea_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-29 22:06:42] Successfully processed file: raw_data/2024-10-05/Korea_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-29 22:06:43] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:43] Processing file: raw_data/2024-10-05/Taiwan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-29 22:06:43] Successfully processed file: raw_data/2024-10-05/Taiwan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-29 22:06:43] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-29 22:06:48] Completed data ingestion process
+INFO [2024-10-29 22:07:00] Successfully connected to database at data/fisheries.duckdb
+INFO [2024-10-29 22:18:44] Successfully connected to database at data/fisheries.duckdb
+ERROR [2024-10-29 22:19:41] Failed to create silver aggregations: rapi_prepare: Failed to prepare query 
+      CREATE TABLE IF NOT EXISTS SILVER_DAILY_CATCH AS
+      SELECT 
+        DATE_TRUNC('day', catch_date) as catch_day,
+        species,
+        fishing_area,
+        COUNT(*) as number_of_catches,
+        SUM(catch_weight_kg) as total_catch_weight,
+        AVG(catch_weight_kg) as avg_catch_weight,
+        COUNT(DISTINCT vessel_id) as unique_vessels
+      FROM BRONZE_CATCH_DATA
+      GROUP BY 
+        DATE_TRUNC('day', catch_date),
+        species,
+        fishing_area;
+    
+Error: Binder Error: Referenced column "catch_date" not found in FROM clause!
+Candidate bindings: "BRONZE_CATCH_DATA.LOG_NO"
+LINE 13:         DATE_TRUNC('day', catch_date),
+                                   ^
+INFO [2024-10-30 00:54:55] Successfully connected to database at data/fisheries.duckdb
+ERROR [2024-10-30 00:55:00] Failed to initialize control table: {"exception_type":"Parser","exception_message":"syntax error at or near \"AUTOINCREMENT\"","position":"82","error_subtype":"SYNTAX_ERROR"}
+ERROR [2024-10-30 01:14:40] Failed to initialize control table: {"exception_type":"Not implemented","exception_message":"Constraint not implemented!"}
+ERROR [2024-10-30 01:37:39] Failed to initialize control table: rapi_execute: Failed to run query
+Error: Catalog Error: Table with name "PROCESS_CONTROL" already exists!
+ERROR [2024-10-30 01:38:01] Failed to initialize control table: rapi_execute: Failed to run query
+Error: Catalog Error: Table with name "PROCESS_CONTROL" already exists!
+INFO [2024-10-30 01:43:10] Successfully initialized control table
+INFO [2024-10-30 01:47:02] Successfully initialized control table
+INFO [2024-10-30 01:59:08] Successfully connected to database at data/fisheries.duckdb
+INFO [2024-10-30 02:02:53] Successfully connected to database at data/fisheries.duckdb
+INFO [2024-10-30 02:05:06] Successfully connected to database at data/fisheries.duckdb
+INFO [2024-10-30 02:08:15] Successfully connected to database at data/fisheries.duckdb
+INFO [2024-10-30 02:16:45] Successfully initialized control table
+INFO [2024-10-30 02:19:06] Successfully initialized control table
+INFO [2024-10-30 02:37:15] Starting data ingestion process
+INFO [2024-10-30 02:37:15] Successfully connected to database at data/fisheries.duckdb
+INFO [2024-10-30 02:37:15] Found 15 files to process
+INFO [2024-10-30 02:37:16] Processing file: raw_data/2024-10-01/Japan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-30 02:37:16] Successfully processed file: raw_data/2024-10-01/Japan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-30 02:37:16] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:16] Processing file: raw_data/2024-10-01/Korea_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-30 02:37:16] Successfully processed file: raw_data/2024-10-01/Korea_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-30 02:37:16] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:16] Processing file: raw_data/2024-10-01/Taiwan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-30 02:37:16] Successfully processed file: raw_data/2024-10-01/Taiwan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-30 02:37:16] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:16] Processing file: raw_data/2024-10-02/Japan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-30 02:37:16] Successfully processed file: raw_data/2024-10-02/Japan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-30 02:37:16] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:16] Processing file: raw_data/2024-10-02/Korea_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-30 02:37:16] Successfully processed file: raw_data/2024-10-02/Korea_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-30 02:37:16] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:16] Processing file: raw_data/2024-10-02/Taiwan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-30 02:37:16] Successfully processed file: raw_data/2024-10-02/Taiwan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-30 02:37:16] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:16] Processing file: raw_data/2024-10-03/Japan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-30 02:37:16] Successfully processed file: raw_data/2024-10-03/Japan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-30 02:37:16] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:16] Processing file: raw_data/2024-10-03/Korea_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-30 02:37:16] Successfully processed file: raw_data/2024-10-03/Korea_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-30 02:37:17] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:17] Processing file: raw_data/2024-10-03/Taiwan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-30 02:37:17] Successfully processed file: raw_data/2024-10-03/Taiwan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-30 02:37:21] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:21] Processing file: raw_data/2024-10-04/Japan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-30 02:37:21] Successfully processed file: raw_data/2024-10-04/Japan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-30 02:37:21] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:21] Processing file: raw_data/2024-10-04/Korea_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-30 02:37:21] Successfully processed file: raw_data/2024-10-04/Korea_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-30 02:37:22] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:22] Processing file: raw_data/2024-10-04/Taiwan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-30 02:37:22] Successfully processed file: raw_data/2024-10-04/Taiwan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-30 02:37:22] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:22] Processing file: raw_data/2024-10-05/Japan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-30 02:37:22] Successfully processed file: raw_data/2024-10-05/Japan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-30 02:37:22] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:22] Processing file: raw_data/2024-10-05/Korea_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-30 02:37:22] Successfully processed file: raw_data/2024-10-05/Korea_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-30 02:37:22] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:22] Processing file: raw_data/2024-10-05/Taiwan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-30 02:37:22] Successfully processed file: raw_data/2024-10-05/Taiwan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-30 02:37:23] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:23] Completed data ingestion process
+INFO [2024-10-30 02:37:24] Successfully connected to database at data/fisheries.duckdb
+ERROR [2024-10-30 02:37:28] Failed to initialize control table: rapi_execute: Failed to run query
+Error: Catalog Error: Table with name "PROCESS_CONTROL" already exists!
+INFO [2024-10-30 02:37:42] Starting data ingestion process
+INFO [2024-10-30 02:37:42] Successfully connected to database at data/fisheries.duckdb
+INFO [2024-10-30 02:37:42] Found 15 files to process
+INFO [2024-10-30 02:37:42] Processing file: raw_data/2024-10-01/Japan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-30 02:37:42] Successfully processed file: raw_data/2024-10-01/Japan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-30 02:37:43] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:43] Processing file: raw_data/2024-10-01/Korea_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-30 02:37:43] Successfully processed file: raw_data/2024-10-01/Korea_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-30 02:37:43] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:43] Processing file: raw_data/2024-10-01/Taiwan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-30 02:37:43] Successfully processed file: raw_data/2024-10-01/Taiwan_Marine_Shell_Logbook_2024-10-01.xlsx
+INFO [2024-10-30 02:37:44] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:44] Processing file: raw_data/2024-10-02/Japan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-30 02:37:44] Successfully processed file: raw_data/2024-10-02/Japan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-30 02:37:45] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:45] Processing file: raw_data/2024-10-02/Korea_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-30 02:37:45] Successfully processed file: raw_data/2024-10-02/Korea_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-30 02:37:45] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:45] Processing file: raw_data/2024-10-02/Taiwan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-30 02:37:45] Successfully processed file: raw_data/2024-10-02/Taiwan_Marine_Shell_Logbook_2024-10-02.xlsx
+INFO [2024-10-30 02:37:45] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:45] Processing file: raw_data/2024-10-03/Japan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-30 02:37:46] Successfully processed file: raw_data/2024-10-03/Japan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-30 02:37:46] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:46] Processing file: raw_data/2024-10-03/Korea_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-30 02:37:46] Successfully processed file: raw_data/2024-10-03/Korea_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-30 02:37:46] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:46] Processing file: raw_data/2024-10-03/Taiwan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-30 02:37:47] Successfully processed file: raw_data/2024-10-03/Taiwan_Marine_Shell_Logbook_2024-10-03.xlsx
+INFO [2024-10-30 02:37:47] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:47] Processing file: raw_data/2024-10-04/Japan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-30 02:37:47] Successfully processed file: raw_data/2024-10-04/Japan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-30 02:37:47] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:47] Processing file: raw_data/2024-10-04/Korea_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-30 02:37:47] Successfully processed file: raw_data/2024-10-04/Korea_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-30 02:37:49] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:49] Processing file: raw_data/2024-10-04/Taiwan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-30 02:37:49] Successfully processed file: raw_data/2024-10-04/Taiwan_Marine_Shell_Logbook_2024-10-04.xlsx
+INFO [2024-10-30 02:37:50] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:50] Processing file: raw_data/2024-10-05/Japan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-30 02:37:50] Successfully processed file: raw_data/2024-10-05/Japan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-30 02:37:50] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:50] Processing file: raw_data/2024-10-05/Korea_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-30 02:37:51] Successfully processed file: raw_data/2024-10-05/Korea_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-30 02:37:51] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:51] Processing file: raw_data/2024-10-05/Taiwan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-30 02:37:51] Successfully processed file: raw_data/2024-10-05/Taiwan_Marine_Shell_Logbook_2024-10-05.xlsx
+INFO [2024-10-30 02:37:51] Appended 50 rows to BRONZE_CATCH_DATA
+INFO [2024-10-30 02:37:51] Completed data ingestion process

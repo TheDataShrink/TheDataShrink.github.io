@@ -36,7 +36,7 @@ website:
           - text: "Project task"
             href: use-cases/index.qmd
           - text: "Introduction"
-            href: about/01-introduction.qmd
+            href: use-cases/01-introduction.qmd
           - text: "Data Reception"
             href: use-cases/02-data-reception.qmd
           - text: "Data Preparation"
