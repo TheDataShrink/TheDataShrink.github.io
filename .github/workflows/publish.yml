@@ -24,6 +24,11 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Setup R
+        uses: r-lib/setup-r@v2
+        with:
+          r-version: '4.3'
+
       # Set up a writable R library path
       - name: Set up R library path
         run: |
