@@ -1,0 +1,10 @@
+---
+title: "The Science of Sonic Healing"
+description: "Evidence-based research on music therapy"
+date: 2025-05-05
+image: images/song-customization.jpg
+categories: ["research"]
+---
+
+## Clinical Findings
+

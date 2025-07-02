@@ -1,0 +1,26 @@
+---
+title: "Healing Stories"
+description: "Real experiences from our community"
+---
+
+## Voices of Transformation
+
+::: {.row}
+::: {.col-md-6}
+### Sarah's Grief Journey
+> "After losing my mother, the songs created from my conversations became my most powerful healing tool. They gave voice to emotions I couldn't express."
+
+[Listen to Sarah's Song](#){.btn .btn-outline-primary}
+:::
+
+::: {.col-md-6}
+### Michael's Anxiety Relief
+> "My anxiety song helps me center myself every morning. It's incredible how accurately it captures my emotional landscape."
+
+[Listen to Michael's Song](#){.btn .btn-outline-primary}
+:::
+:::
+
+::: {.text-center .mt-5}
+[Share Your Story](#){.btn .btn-primary .btn-lg}
+:::

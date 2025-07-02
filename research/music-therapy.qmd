@@ -1,0 +1,22 @@
+---
+title: "The Science of Sonic Healing"
+description: "Evidence-based research on music therapy"
+date: 2025-05-05
+image: images/music-therapy-research.jpg
+categories: ["research"]
+---
+
+## Clinical Findings
+
+```{r}
+#| echo: false
+#| fig-cap: "Music therapy effectiveness across emotional states"
+library(knitr)
+
+data <- data.frame(
+  Condition = c("Depression", "Anxiety", "Grief", "PTSD", "Stress"),
+  Improvement = c(72, 68, 65, 60, 78)
+)
+
+kable(data, col.names = c("Emotional State", "Improvement (%)"))
+```

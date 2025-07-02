@@ -1,0 +1,16 @@
+---
+title: "Michael: Songs of Separation"
+description: "Navigating divorce through musical expression"
+date: 2025-03-18
+image: images/michael-story.jpg
+audio: audio/divorce-song-journey.mp3
+categories: ["user-stories"]
+---
+
+## From Heartbreak to Healing
+
+### Emotional Transformation
+
+
+> "The songs created from my raw emotions helped me process feelings I couldn't articulate"
+```

@@ -1,0 +1,35 @@
+---
+title: "Song Gallery"
+description: "Explore healing songs created by our community"
+listing: 
+  contents: 
+    - "../emotional-journeys/*.qmd"
+    - "../user-stories/*.qmd"
+  type: grid
+  page-size: 9
+  categories: true
+  sort: "date desc"
+---
+
+## Healing Through Music
+
+Browse anonymously shared songs created from emotional journeys. Each song represents a personal healing story.
+
+::: {.text-center .my-5}
+[Submit Your Song](#){.btn .btn-primary}
+:::
+
+
+::: {.tracks-grid}
+::: {.track-card}
+[Explore This Song →](/emotional-journeys/anxiety){.track-link}
+:::
+
+::: {.track-card}
+[Explore This Song →](/emotional-journeys/grief){.track-link}
+:::
+
+::: {.track-card}
+[Explore This Song →](/emotional-journeys/joy){.track-link}
+:::
+:::

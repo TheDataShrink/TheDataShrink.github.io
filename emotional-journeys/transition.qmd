@@ -1,0 +1,41 @@
+---
+title: "From Grief to Grace"
+description: "Transforming loss into healing melodies"
+image: images/grief-journey.jpg
+audio: audio/grief-song-sample.mp3
+categories: ["emotional-journeys"]
+---
+
+## The Grief Transformation Process
+
+```{=html}
+<div class="process-steps">
+  <div class="step">
+    <div class="step-number">1</div>
+    <h3>Expression</h3>
+    <p>Voice your loss and memories</p>
+  </div>
+  <div class="step-arrow">→</div>
+  <div class="step">
+    <div class="step-number">2</div>
+    <h3>Identification</h3>
+    <p>AI detects core emotions</p>
+  </div>
+  <div class="step-arrow">→</div>
+  <div class="step">
+    <div class="step-number">3</div>
+    <h3>Composition</h3>
+    <p>Personal memorial song created</p>
+  </div>
+</div>
+```
+
+### Sample Grief Song
+```{=html}
+<audio controls>
+  <source src="audio/grief-song-sample.mp3" type="audio/mpeg">
+</audio>
+```
+
+> "This song helped me say goodbye in a way words couldn't" - Emma, after losing her brother
+```

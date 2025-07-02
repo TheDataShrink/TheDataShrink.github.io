@@ -1,0 +1,22 @@
+---
+title: "Sarah's Journey Through Cancer"
+description: "Finding strength through song during chemotherapy"
+image: images/sarah-story.jpg
+categories: ["user-stories"]
+---
+
+## My Healing Soundtrack
+
+> "During my lowest points in chemo, I'd talk to the AI therapist about my fears. The songs it created became my battle anthems."
+
+### Song Evolution Timeline
+
+| Treatment Phase | Song Theme       | Emotional Tone          |
+|-----------------|-----------------|-------------------------|
+| Diagnosis       | "Facing Shadows" | Fearful → Determined    |
+| Chemo Round 1   | "Small Victories" | Hopeful → Resilient     |
+| Mid-Treatment   | "Light Ahead"    | Weary → Optimistic      |
+| Recovery        | "New Dawn"       | Grateful → Celebratory |
+
+[Listen to Sarah's Healing Playlist](#){.btn .btn-primary}
+```

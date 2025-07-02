@@ -1,0 +1,29 @@
+---
+title: "Amplifying Joy"
+description: "Celebrating happiness through personalized anthems"
+image: images/joy-journey.jpg
+audio: audio/joy-song-sample.mp3
+categories: ["emotional-journeys"]
+---
+
+## Creating Joy Anthems
+
+Our AI identifies moments of pure happiness in your conversations and transforms them into celebratory songs perfect for:
+
+- Personal achievements
+- Relationship milestones
+- Moments of gratitude
+- Everyday wins
+
+```{=html}
+<div class="joy-player">
+  <img src="images/joy-album-cover.jpg" alt="Joy Album Cover">
+  <div class="player-controls">
+    <button class="play-btn">▶</button>
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+  </div>
+</div>
+```
+```

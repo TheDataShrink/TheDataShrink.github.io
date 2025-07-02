@@ -1,0 +1,16 @@
+---
+title: "Research & Science"
+description: "Evidence behind musical healing"
+listing: 
+  contents: 
+    - "music-therapy.qmd"
+    - "ai-emotion.qmd"
+  type: default
+  sort: "date desc"
+  categories: false
+  page-size: 5
+---
+
+## Evidence-Based Healing
+
+Explore the scientific foundation of our therapeutic approach.

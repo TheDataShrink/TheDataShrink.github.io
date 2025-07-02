@@ -1,0 +1,536 @@
+/* ================================================= */
+/* ---        CSS for Dr. Shrink Website         --- */
+/* ---    Adapted from Vanuella & TDS Therapy    --- */
+/* ================================================= */
+
+
+/* --- 1. Font Imports --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- 2. CSS Variables (Theme Definition) --- */
+:root {
+  /* Core Colors - Therapeutic Palette */
+  --bg-color: #1A2A2D; /* Deep, calm teal */
+  --bg-color-secondary: #2C3E40; /* Slightly lighter dark */
+  --bg-card: #223438; /* Card background */
+  --text-color: #E0E7E9; /* Soft off-white */
+  --text-color-muted: #A8B2B5; /* Dimmer text */
+  --text-color-headings: #ffffff; /* Pure white headings */
+
+  /* Accent Colors */
+  --healing-green: #2ecc71; /* Vibrant, positive green */
+  --healing-green-dark: #27ae60;
+  --calm-blue: #3498db; /* Trustworthy, calm blue */
+  --calm-blue-dark: #2980b9;
+  
+  /* UI Elements */
+  --link-color: var(--healing-green);
+  --link-color-hover: #58d68d; /* Lighter green */
+  --border-color: #3b5257; /* Subtle border */
+  
+  /* Fonts */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Poppins', sans-serif; /* Using one font for consistency */
+
+  /* Spacing */
+  --card-padding: 1.5rem;
+  --section-padding: 3rem 1rem;
+}
+
+
+/* --- 3. Base & Typography --- */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-primary);
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  color: var(--text-color-headings);
+  line-height: 1.3;
+  margin: 0 0 1rem 0;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-color-muted);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-color-hover);
+}
+
+
+/* --- 4. Hero Section --- */
+.hero {
+  background: linear-gradient(135deg, var(--bg-color) 0%, #20363b 100%);
+  padding: 5rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  color: var(--text-color-headings);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  font-weight: 300;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  color: var(--text-color-muted);
+}
+
+/* Keyframe for button pulse */
+@keyframes pulse-grow {
+  0% { 
+    transform: scale(1); 
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); 
+  }
+  70% { 
+    transform: scale(1.03); 
+    box-shadow: 0 0 0 15px rgba(46, 204, 113, 0); 
+  }
+  100% { 
+    transform: scale(1); 
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); 
+  }
+}
+
+.cta-button.primary {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding: 1rem 2.5rem;
+  border-radius: 50px; /* Pill shape */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background-color: var(--healing-green);
+  color: white !important; /* Ensure text is white */
+  border: none;
+  box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
+  animation: pulse-grow 2.5s infinite;
+}
+
+.cta-button.primary:hover {
+  background-color: var(--healing-green-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(46, 204, 113, 0.4);
+  animation-play-state: paused;
+}
+
+
+/* --- 5. Shared Components & Sections --- */
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: var(--text-color-headings);
+  font-weight: 600;
+}
+
+audio {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 1rem;
+  border-radius: 50px;
+}
+
+/* Customizing audio player controls */
+audio::-webkit-media-controls-panel {
+  background-color: var(--bg-card);
+  border-radius: 50px;
+}
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-mute-button {
+  background-color: var(--healing-green);
+  border-radius: 50%;
+}
+audio::-webkit-media-controls-timeline {
+  background-color: var(--border-color);
+  border-radius: 20px;
+}
+
+
+/* --- 6. Features Section --- */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 3rem auto;
+  max-width: 1100px;
+  padding: 0 1rem;
+}
+
+.feature {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 320px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: var(--healing-green);
+}
+
+.feature h3 {
+  color: var(--text-color-headings);
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.feature p {
+  color: var(--text-color-muted);
+  margin-bottom: 0;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+
+/* --- 7. Tracks Section (Healing Melodies) --- */
+.tracks-section {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.track-card {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.track-image {
+  height: 160px;
+  background: linear-gradient(135deg, var(--healing-green), var(--calm-blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3rem;
+}
+
+.track-info {
+  padding: var(--card-padding);
+  flex-grow: 1;
+}
+
+.track-info h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 0;
+  color: var(--text-color-headings);
+}
+
+.track-info p {
+  color: var(--text-color-muted);
+  margin-bottom: 1.5rem;
+}
+
+.track-link {
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  margin-top: auto; /* Pushes link to the bottom */
+}
+
+
+/* --- 8. Testimonial Section --- */
+.testimonial-section {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: var(--section-padding);
+  background-color: var(--bg-card);
+  border-radius: 12px;
+}
+
+.testimonial {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  line-height: 1.7;
+  text-align: center;
+  border-left: 4px solid var(--healing-green);
+  padding-left: 1.5rem;
+}
+
+.testimonial::after {
+  content: attr(data-cite);
+  display: block;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--text-color-muted);
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+
+/* --- 9. Social/Internal Links Section --- */
+.social-section {
+  background: linear-gradient(135deg, var(--healing-green-dark) 0%, var(--calm-blue-dark) 100%);
+  padding: 3rem 1rem;
+  margin: 2rem 0;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.social-section p:empty {
+  display: none;
+}
+
+.social-card p {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.social-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  z-index: -1;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.social-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 1.8rem 1rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-decoration: none;
+}
+
+.social-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  background: white;
+}
+
+.social-icon {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.social-card:hover .social-icon {
+  transform: scale(1.15);
+}
+
+.social-card h3 {
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.social-card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0;
+}
+.vibe-quote {
+  display: block;
+  text-align: center;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: white;
+  margin: 2.5rem auto 0 auto;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  max-width: 800px;
+}
+
+
+/* --- 10. Responsive Design --- */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ===== PROCESS LAYOUTS ===== */
+
+/* Vertical Process Layout */
+.process-vertical {
+  position: relative;
+  padding-left: 40px;
+}
+
+.process-vertical::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #007bff, #28a745);
+}
+
+/* Horizontal Process Layout */
+.process-steps {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+
+/* Dialogue Flow Layout */
+.dialogue-flow {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+
+.dialogue-flow .step {
+  background: #d5f5e3;
+  border-radius: 15px;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.connector {
+  flex: 1;
+  border-top: 2px dashed #27ae60;
+  margin-top: 2.5rem;
+}
+
+/* ===== PROCESS STEPS ===== */
+.step {
+  position: relative;
+  margin-bottom: 2rem;
+  text-align: center;
+  flex: 1;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.step-number {
+  position: absolute;
+  left: -40px;
+  width: 48px;
+  height: 48px;
+  background: #007bff;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  z-index: 2;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 0 auto 1rem;
+}
+
+/* Step number colors */
+.step:nth-child(1) .step-number { background: #007bff; }
+.step:nth-child(2) .step-number { background: #28a745; }
+.step:nth-child(3) .step-number { background: #ffc107; color: #000; }
+.step:nth-child(4) .step-number { background: #dc3545; }
+.step:nth-child(5) .step-number { background: #6f42c1; }
+
+.step-header h3 {
+  margin: 0;
+  margin-left: 1rem;
+  color: white;
+}
+
+.step-content {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+  margin-left: 1rem;
+}
+
+/* Step content border colors */
+.step:nth-child(1) .step-content { border-left-color: #007bff; }
+.step:nth-child(2) .step-content { border-left-color: #28a745; }
+.step:nth-child(3) .step-content { border-left-color: #ffc107; }
+.step:nth-child(4) .step-content { border-left-color: #dc3545; }
+.step:nth-child(5) .step-content { border-left-color: #6f42c1; }
+
+.step-arrow {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  color: #16a085;
+  padding: 0 1rem;
+}
+
+.step-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}

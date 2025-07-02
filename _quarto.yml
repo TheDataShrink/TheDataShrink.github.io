@@ -3,6 +3,7 @@ project:
 
 website:
   title: "The Data Shrink"
+  description: "Transform your emotions into healing music through AI-powered therapeutic conversations"
   image: images/tds-logo-150px.png
   favicon: images/tds-favicon.png
   twitter-card:
@@ -13,70 +14,45 @@ website:
   repo-actions: [edit, issue]
   navbar:
     toggle-position: right
-    background: "#f0eeeb"
+    background: "#27ae60"  # Intense healing green
     logo: images/tds-logo-150px.png
-    logo-alt: "The Data Shrink brand"
+    logo-alt: "Music-Soul-Love"
     title: false
     collapse-below: lg
     right:
-      - text: "About"
-        menu:
-          - text: "Why we shrink"
-            href: about/why-we-shrink.qmd
-          - text: "Team"
-            href: about/team.qmd
-          - text: "Partnerships"
-            href: about/partnerships.qmd
-          - text: "For Contributors"
-            href: about/for-contributors.qmd
-      - text: "Shrink Tank"
-        href: shrinktank/index.qmd
-      - text: "Use Cases"
-        menu:
-          - text: "Project task"
-            href: use-cases/index.qmd
-          - text: "Introduction"
-            href: use-cases/01-introduction.qmd
-          - text: "Data Reception"
-            href: use-cases/02-data-reception.qmd
-          - text: "Data Preparation"
-            href: use-cases/03-data-preparation.qmd
-          - text: "Data Evaluation"
-            href: use-cases/05-evaluation.qmd 
-          - text: "Implementation"
-            href: use-cases/06-implementation.qmd
-          - text: "User Guides"
-            href: use-cases/appendix-b.qmd
-          - text: "Technical Documentation"
-            href: use-cases/appendix-a.qmd
-          - text: "References and Glossary"
-            href: use-cases/appendix-c.qmd
-      - text: "Viewpoints"
-        href: viewpoints/index.qmd
-      - text: "Courses"
-        href: courses/index.qmd
-      - text: "Contact"
-        href: contact.qmd
+    - text: "How It Works"
+      href: process/index.qmd
+    - text: "Testimonials"
+      href: testimonials/index.qmd
+    - text: "Song Gallery"
+      href: gallery/index.qmd
+    - text: "Science"
+      href: science/index.qmd
+    - text: "Resources"
+      href: resources/index.qmd
+    - text: "Journal"
+      href: journal/index.qmd
+    - icon: mic
+      href: start-session.qmd
 
   page-footer:
-    left: "Copyright © 2024 The Data Shrink. All rights reserved."
+    left: "Copyright © 2025 The Data Shrink. All rights reserved."
     right:
-      - icon: github
-        href: https://github.com/TheDataShrink
+      - icon: instagram
+        href: https://instagram.com/thedatashrink
+      - icon: spotify
+        href: https://open.spotify.com/user/thedatashrink
       - icon: twitter
         href: https://twitter.com/TheDataShrink
-      - icon: linkedin
-        href: https://www.linkedin.com/company/the-data-shrink
+      - icon: youtube
+        href: https://youtube.com/@TheDataShrink
 
 format:
   html:
-    theme: [cyborg, tds.scss]
-    css: tds.css
-    toc: true
-    grid:
-      sidebar-width: 0px
-      body-width: 1000px
-      margin-width: 250px
+    theme: [default, tds-therapy.scss]
+    css: 
+      - tds-therapy.css
+    toc: false
 
 execute:
   freeze: auto

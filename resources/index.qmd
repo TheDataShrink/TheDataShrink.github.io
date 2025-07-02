@@ -1,0 +1,20 @@
+---
+title: "Healing Resources"
+description: "Tools for your emotional journey"
+---
+
+## Support Materials
+
+### Emotional Exploration Guides
+- [Understanding Grief](resources/grief-guide.pdf)
+- [Managing Anxiety](resources/anxiety-toolkit.pdf)
+- [Cultivating Joy](resources/joy-journal.pdf)
+
+### Therapeutic Exercises
+- [Daily Emotion Tracking](resources/emotion-tracker.xlsx)
+- [Guided Reflection Prompts](resources/reflection-prompts.docx)
+- [Breathing Techniques](resources/breathing-exercises.mp4)
+
+### Community Support
+- [Healing Circles Schedule](community/schedule.qmd)
+- [Peer Support Groups](community/groups.qmd)

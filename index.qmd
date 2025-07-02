@@ -1,73 +1,153 @@
 ---
-pagetitle: Shrink Tank | The Data Shrink
-title: Shrink Tank
-subtitle: "Explore the concepts, tools, and methods that power data science innovation"
-search: true
+pagetitle: Dr. Shrink | Transform Emotions Into Healing Melodies
+search: false
 repo-actions: false
-listing:
-  contents: 
-  - datasharkbites
-  - tutorials
-  - posts
-  - "!index.qmd"
-  sort: "date desc"
-  type: grid
-  categories: false
-  sort-ui: true
-  filter-ui: true
-  page-size: 12
-  feed: true
 page-layout: full
 title-block-banner: true
+anchor-sections: false
+css: tds-therapy.css
 ---
 
-# Welcome to the Shrink Tank Lab
+::: {.hero}
+::: {.hero-content}
 
-Dive into a world of data science innovation and inspiration. Whether you're a student looking to expand your knowledge or a professional seeking fresh perspectives, our shrinktank Lab is your gateway to cutting-edge concepts in data science.
+# Turn Your Voice Into a Healing Song{.hero-title}
 
-## What You'll Find Here
+::: {.hero-subtitle}
 
-::: {.grid}
-
-::: {.g-col-4}
-### [Quick Insights](datasharkbites/index.qmd)
-Bite-sized data science concepts explained simply. Perfect for quick learning and inspiration.
-:::
-
-::: {.g-col-4}
-### [In-Depth Tutorials](tutorials/index.qmd)
-Step-by-step guides to master essential data science skills and tools.
-:::
-
-::: {.g-col-4}
-### [Thought Pieces](posts/index.qmd)
-Explore thought-provoking articles on the future of data science and its impact on various industries.
-:::
+Speak your mind, and our A.I. will compose a personalized therapeutic melody just for you. Your feelings have a frequency—let's find its harmony.
 
 :::
 
-## Featured Shrink Tank
+<a href="/start-session" class="cta-button primary">Start Your Healing Session</a>
 
-::: {#featured-shrinktank}
+:::
 :::
 
-## Explore All shrinktank
-
-Use the filters and search below to find exactly what you're looking for:
-
-::: {#listing}
+::: {.text-center .my-5}
+<h2 class="section-title">Hear the Transformation</h2>
+```{=html}
+<iframe src="https://suno.com/embed/274ec192-515d-40c2-82c4-b8edca93c24c" width="760" height="240"><a href="https://suno.com/song/274ec192-515d-40c2-82c4-b8edca93c24c">Listen on Suno</a></iframe>
+<p>Listen to a sample session transform into a song</p>
+```
 :::
 
-## Get Involved
+```{=html}
+<div class="social-section">
+  <div class="social-grid">
+    <a href="/research/" class="social-card" target="_blank">  <!-- Fixed -->
+      <span class="social-icon">🔬</span>
+      <h3>The Science</h3>
+      <p>Discover the evidence-based research behind sound healing.</p>
+    </a>
+    <a href="/science/" class="social-card" target="_blank">  <!-- Fixed -->
+      <span class="social-icon">⚙️</span>
+      <h3>How It Works</h3>
+      <p>Learn about our AI and music generation process.</p>
+    </a>
+    <a href="/user-stories" class="social-card" target="_blank">  <!-- Fixed -->
+      <span class="social-icon">❤️</span>
+      <h3>User Stories</h3>
+      <p>Read real experiences of healing through our platform.</p>
+    </a>
+    <a href="/testimonials" class="social-card" target="_blank">  <!-- Fixed -->
+      <span class="social-icon">💡</span>
+      <h3>Testimonials</h3>  <!-- Changed title -->
+      <p>Learn why we're dedicated to accessible mental wellness.</p>
+    </a>
+    <a href="/gallery" class="social-card" target="_blank">  <!-- Fixed -->
+      <span class="social-icon">🎧</span>
+      <h3>Song Gallery</h3>  <!-- Changed title -->
+      <p>Explore a library of melodies created from emotion.</p>
+    </a>
+  </div>
+  <span class="vibe-quote">"Sound is the medicine of the future." - Edgar Cayce</span>
+</div>
+```
 
-Are you passionate about data science? We'd love to hear your shrinktank!
-
-[Share Your Idea](about/for-contributors.qmd){.btn .btn-primary}
-
-## Stay Inspired
-
-Subscribe to our newsletter for weekly doses of data science inspiration:
-
-::: {#newsletter-signup}
-[Get Weekly Insights](#){.btn .btn-secondary}
+::: {.features}
+::: {.feature}
+::: {.feature-icon}
+🧠
 :::
+
+### AI-Powered Therapy
+
+Our empathetic AI listens to the nuances in your voice to understand your emotional state and guide the music creation process.
+:::
+
+::: {.feature}
+::: {.feature-icon}
+🎵
+:::
+
+### Personalized Healing
+
+Receive a unique song composed with frequencies and rhythms designed to soothe your specific emotional needs and promote balance.
+:::
+
+::: {.feature}
+::: {.feature-icon}
+🔒
+:::
+
+### Safe & Confidential
+
+Your sessions are completely private and secure. Speak freely in a judgment-free space designed for your comfort and healing.
+:::
+:::
+
+::: {#tracks .tracks-section}
+## Sample Healing Melodies {.section-title}
+:::
+
+::: {.tracks-grid}
+::: {.track-card}
+::: {.track-image}
+🎶
+:::
+::: {.track-info}
+### Anxiety to Calm
+
+A gentle, flowing melody created from a session on overcoming anxious thoughts, using frequencies associated with calm (Alpha waves).
+
+[Explore This Song →](/gallery/anxiety-to-calm.qmd){.track-link}  <!-- Fixed -->
+:::
+:::
+
+::: {.track-card}
+::: {.track-image}
+🎶
+:::
+::: {.track-info}
+### Grief to Acceptance
+
+A reflective piano piece generated from a user's journey through loss, with harmonies that provide a sense of support and peace.
+
+[Explore This Song →](/gallery/grief-to-acceptance.qmd){.track-link}  <!-- Fixed -->
+:::
+:::
+
+::: {.track-card}
+::: {.track-image}
+🎶
+:::
+::: {.track-info}
+### Joyful Release
+
+An uplifting and rhythmic track born from a moment of pure happiness and gratitude, designed to energize and inspire.
+
+[Explore This Song →](/gallery/joyful-release.qmd){.track-link}  <!-- Fixed -->
+:::
+:::
+:::
+
+::: {.testimonial-section}
+## Stories of Transformation
+
+::: {.testimonial}
+*"I was skeptical, but hearing my jumbled feelings turned into a beautiful, coherent song... it was incredibly moving. I listen to it whenever I feel overwhelmed, and it instantly brings me back to center."*  
+— Alex P.
+:::
+:::
+

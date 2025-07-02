@@ -1,0 +1,17 @@
+---
+title: "Healing Journal"
+description: "Reflections from our community"
+listing: 
+  contents: start-session.qmd
+  type: default
+  sort: "date desc"
+  page-size: 10
+---
+
+## Shared Healing Journey
+
+> "Today I created a song about my anxiety - hearing it made me realize how much strength I actually have"  
+> - Anonymous, June 28
+
+> "My grief song didn't take the pain away, but it made it feel more bearable"  
+> - Mark, June 25
