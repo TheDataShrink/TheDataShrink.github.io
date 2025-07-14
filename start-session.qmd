@@ -1,25 +1,293 @@
----
-title: "Begin Your Healing Journey"
-description: "Start a conversation with our AI therapist"
----
-
 # Ready to Transform Your Emotions?
 
 ```{=html}
-<div class="text-center my-5">
-  <div class="mic-button healing-pulse mx-auto">
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" viewBox="0 0 16 16">
-      <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
-      <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
-    </svg>
-  </div>
-  <p class="mt-3">Click to start speaking</p>
-</div>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Begin Your Healing Journey</h1>
+        <p class="hero-subtitle">Share your thoughts with our AI therapist and transform your emotions into personalized healing music</p>
+        <a href="#therapist" class="cta-button primary">
+            <i class="fas fa-microphone-alt"></i> Start Speaking
+        </a>
+    </div>
+</section>
+
+<!-- Therapist Section -->
+    <div class="therapist-container" id="therapist">
+        <div class="therapist-card">
+            <div class="card-header">
+                Ready to Transform Your Emotions?
+            </div>
+            <div class="card-body">
+                <div class="mic-container">
+                    <div class="mic-button" id="micButton">
+                        <i class="fas fa-microphone mic-icon" id="micIcon"></i>
+                    </div>
+                </div>
+                
+                <p class="instructions" id="instructions">Click the microphone and speak freely about your feelings</p>
+                
+                <div class="transcript-container">
+                    <h3>Your Thoughts & Emotions:</h3>
+                    <div class="transcript-box" id="transcriptBox">
+                        <p class="transcript-placeholder">Your spoken words will appear here...</p>
+                    </div>
+                    
+                    <!-- Song Customization Options -->
+                    <div class="customization-row" id="customizationRow" style="display: none;">
+                        <div class="customization-column">
+                            <label class="customization-label" for="genreSelect">Music Genre</label>
+                            <select class="customization-select" id="genreSelect">
+                                <option value="Country">Country</option>
+                                <option value="Rock">Rock</option>
+                                <option value="Pop">Pop</option>
+                                <option value="Hip-Hop">Hip-Hop</option>
+                                <option value="Jazz">Jazz</option>
+                                <option value="Classical">Classical</option>
+                                <option value="Electronic">Electronic</option>
+                                <option value="R&B">R&B</option>
+                                <option value="Metal">Metal</option>
+                                <option value="Folk">Folk</option>
+                                <option value="Reggae">Reggae</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="customization-column">
+                            <label class="customization-label" for="feelingSelect">Emotional Theme</label>
+                            <select class="customization-select" id="feelingSelect">
+                                <option value="Love">Love</option>
+                                <option value="Anxiety">Anxiety</option>
+                                <option value="Fear">Fear</option>
+                                <option value="Sadness">Sadness</option>
+                                <option value="Joy">Joy</option>
+                                <option value="Anger">Anger</option>
+                                <option value="Hope">Hope</option>
+                                <option value="Confusion">Confusion</option>
+                                <option value="Excitement">Excitement</option>
+                                <option value="Peace">Peace</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="generateBtn" disabled>
+                            <i class="fas fa-music"></i> Generate Song Prompt
+                        </button>
+                        <button class="btn btn-outline" id="copyBtn" disabled>
+                            <i class="fas fa-copy"></i> Copy Transcript
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Generated Prompt -->
+                <div class="prompt-container" id="promptContainer">
+                    <h3 class="prompt-title">Your AI Song Prompt</h3>
+                    <div class="prompt-text" id="promptText"></div>
+                    <div class="prompt-actions">
+                        <button class="btn btn-outline" id="copyPromptBtn">
+                            <i class="fas fa-copy"></i> Copy Prompt
+                        </button>
+                        <button class="btn btn-primary" id="emailBtn">
+                            <i class="fas fa-envelope"></i> Email to Create Song
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature">
+            <div class="feature-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <h3>Speak Freely</h3>
+            <p>Share your thoughts and feelings in a safe, judgment-free space with our AI therapist.</p>
+        </div>
+        
+        <div class="feature">
+            <div class="feature-icon">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h3>Emotional Analysis</h3>
+            <p>Our AI processes your emotions to identify therapeutic insights and themes.</p>
+        </div>
+        
+        <div class="feature">
+            <div class="feature-icon">
+                <i class="fas fa-music"></i>
+            </div>
+            <h3>Song Creation</h3>
+            <p>Transform your emotional journey into a personalized therapeutic song.</p>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <h2 class="section-title">What Our Users Say</h2>
+        <div class="testimonial" data-cite="- Sarah M., Anxiety Recovery">
+            "The AI therapist helped me process emotions I didn't even realize I was holding onto. The song created from my session was profoundly moving and has become part of my healing ritual."
+        </div>
+    </section>
+
+    <footer>
+        <p>Your privacy is important. All conversations are confidential and never stored.</p>
+        <p>© 2023 Dr. Shrink | Therapeutic AI Companion</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const micButton = document.getElementById('micButton');
+            const micIcon = document.getElementById('micIcon');
+            const instructions = document.getElementById('instructions');
+            const transcriptBox = document.getElementById('transcriptBox');
+            const generateBtn = document.getElementById('generateBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            const promptContainer = document.getElementById('promptContainer');
+            const promptText = document.getElementById('promptText');
+            const copyPromptBtn = document.getElementById('copyPromptBtn');
+            const emailBtn = document.getElementById('emailBtn');
+            const customizationRow = document.getElementById('customizationRow');
+            const genreSelect = document.getElementById('genreSelect');
+            const feelingSelect = document.getElementById('feelingSelect');
+            
+            let recognition;
+            let isRecording = false;
+            let transcript = '';
+            
+            // Check if browser supports Web Speech API
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US';
+                
+                recognition.onstart = function() {
+                    isRecording = true;
+                    micButton.classList.add('recording');
+                    micIcon.classList.remove('fa-microphone');
+                    micIcon.classList.add('fa-microphone-alt');
+                    instructions.textContent = "Listening... speak now. Click to stop.";
+                    transcriptBox.innerHTML = '<p class="transcript-placeholder">Listening...</p>';
+                };
+                
+                recognition.onresult = function(event) {
+                    let interimTranscript = '';
+                    for (let i = event.resultIndex; i < event.results.length; i++) {
+                        if (event.results[i].isFinal) {
+                            transcript += event.results[i][0].transcript + ' ';
+                        } else {
+                            interimTranscript += event.results[i][0].transcript;
+                        }
+                    }
+                    
+                    if (transcript || interimTranscript) {
+                        transcriptBox.innerHTML = `<p>${transcript}<span style="color:#999;">${interimTranscript}</span></p>`;
+                    }
+                };
+                
+                recognition.onerror = function(event) {
+                    console.error('Speech recognition error', event.error);
+                    instructions.textContent = "Error occurred. Please try again.";
+                    stopRecording();
+                };
+                
+                recognition.onend = function() {
+                    stopRecording();
+                };
+                
+                micButton.addEventListener('click', toggleRecording);
+                copyBtn.addEventListener('click', copyTranscript);
+                generateBtn.addEventListener('click', generatePrompt);
+                copyPromptBtn.addEventListener('click', copyPrompt);
+                emailBtn.addEventListener('click', emailPrompt);
+                
+            } else {
+                micButton.style.backgroundColor = '#ccc';
+                micButton.style.cursor = 'not-allowed';
+                instructions.textContent = "Speech recognition not supported in your browser. Try Chrome or Edge.";
+            }
+            
+            function toggleRecording() {
+                if (!recognition) return;
+                
+                if (isRecording) {
+                    recognition.stop();
+                } else {
+                    transcript = '';
+                    recognition.start();
+                }
+            }
+            
+            function stopRecording() {
+                isRecording = false;
+                micButton.classList.remove('recording');
+                micIcon.classList.remove('fa-microphone-alt');
+                micIcon.classList.add('fa-microphone');
+                instructions.textContent = "Click the microphone to speak again";
+                
+                if (transcript.trim() !== '') {
+                    transcriptBox.innerHTML = `<p>${transcript}</p>`;
+                    generateBtn.disabled = false;
+                    copyBtn.disabled = false;
+                    customizationRow.style.display = 'flex';
+                } else {
+                    transcriptBox.innerHTML = '<p class="transcript-placeholder">No speech detected. Please try again.</p>';
+                }
+            }
+            
+            function copyTranscript() {
+                navigator.clipboard.writeText(transcript)
+                    .then(() => {
+                        // Visual feedback
+                        const originalText = copyBtn.innerHTML;
+                        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalText;
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy: ', err);
+                    });
+            }
+            
+            function generatePrompt() {
+                const genre = genreSelect.value;
+                const feeling = feelingSelect.value;
+                
+                // Create the prompt using the user's transcript and selections
+                const prompt = `Take the author's voice and thoughts:\n\n"${transcript}"\n\nAnd combine them with the top ten ${genre} songs. Make sure the song reflects feelings of ${feeling}. Use the rhythm and melody to create a song. Provide the lyrics and also describe the melodic structure for each verse. Separate the lyrics and melody description at the end.`;
+                
+                promptText.textContent = prompt;
+                promptContainer.classList.add('show');
+                
+                // Scroll to prompt
+                promptContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            function copyPrompt() {
+                navigator.clipboard.writeText(promptText.textContent)
+                    .then(() => {
+                        // Visual feedback
+                        const originalText = copyPromptBtn.innerHTML;
+                        copyPromptBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                        setTimeout(() => {
+                            copyPromptBtn.innerHTML = originalText;
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy: ', err);
+                    });
+            }
+            
+            function emailPrompt() {
+                const subject = "Create my personalized healing song";
+                const body = encodeURIComponent(`Please create a song based on this prompt:\n\n${promptText.textContent}`);
+                window.location.href = `mailto:music@drshrink.com?subject=${subject}&body=${body}`;
+            }
+        });
+    </script>
 ```
-
-### How It Works
-
-1. Click the microphone and speak freely
-2. Our AI therapist will guide the conversation
-3. Your emotions will be analyzed in real-time
-4. Receive a personalized song in minutes

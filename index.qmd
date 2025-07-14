@@ -19,7 +19,7 @@ Speak your mind, and our A.I. will compose a personalized therapeutic melody jus
 
 :::
 
-<a href="/start-session" class="cta-button primary">Start Your Healing Session</a>
+<a href="/start-session.html" class="cta-button primary">Start Your Healing Session</a>
 
 :::
 :::

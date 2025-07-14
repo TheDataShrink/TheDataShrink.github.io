@@ -1,0 +1,84 @@
+---
+title: "I Am Doctor Shrink"
+author: "Data Shrink"
+search: false
+repo-actions: false
+page-layout: full
+title-block-banner: true
+anchor-sections: false
+css: tds-therapy.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+album_cover_url <- "/images/iamdoctorshrink.jpg"
+```
+
+::: {.music-player-container}
+
+<!-- Album Cover with Play Button -->
+::: {.album-cover-section}
+::: {.album-cover-wrapper}
+![I Am Doctor Shrink Album Cover](/images/iamdoctorshrink.jpg){.album-cover}
+
+::: {.play-bar}
+<i class="fas fa-play play-button"></i>
+<span class="track-duration">3:06</span>
+:::
+:::
+
+::: {.player-actions}
+<a href="#" class="btn-follow"><i class="far fa-circle-user"></i> FOLLOW</a>
+<a href="#" class="btn-share"><i class="fas fa-share"></i> SHARE</a>
+:::
+:::
+
+<!-- Song Title and Artist -->
+::: {.song-info}
+# I Am Doctor Shrink
+
+::: {.artist-credit}
+by **Data Shrink**
+:::
+:::
+
+<!-- Streaming Platform Links -->
+::: {.streaming-section}
+::: {.get-music-label}
+Get the music:
+:::
+
+::: {.streaming-buttons}
+<a href="#" class="btn-spotify"><i class="fab fa-spotify"></i> Spotify</a>
+<a href="#" class="btn-apple"><i class="fab fa-apple"></i> Apple Music</a>
+<a href="#" class="btn-itunes"><i class="fab fa-itunes"></i> iTunes</a>
+<a href="#" class="btn-amazon"><i class="fab fa-amazon"></i> Amazon</a>
+<a href="#" class="btn-pandora"><i class="fab fa-pandora"></i> Pandora</a>
+<a href="#" class="btn-deezer"><i class="fab fa-deezer"></i> Deezer</a>
+:::
+:::
+
+<!-- Buy from Artist Button -->
+::: {.buy-artist-section}
+<a href="#" class="btn-buy-artist"><i class="fas fa-shopping-cart"></i> Buy from Artist</a>
+:::
+
+<!-- Description Text -->
+::: {.description}
+Your HearNow page includes a space for short notes about your music. Add your artist bio, a snippet of the lyrics, or a shoutout to your supporters. It's your space to add context and share information with your fans.
+:::
+
+<!-- Release Year -->
+::: {.release-info}
+Released 2025
+:::
+
+<!-- Social Media Links -->
+::: {.social-links}
+<a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+<a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+<a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+<a href="#" class="social-btn"><i class="fas fa-home"></i></a>
+:::
+
+:::
