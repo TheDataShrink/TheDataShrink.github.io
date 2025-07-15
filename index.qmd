@@ -1,153 +1,777 @@
----
-pagetitle: Dr. Shrink | Transform Emotions Into Healing Melodies
-search: false
-repo-actions: false
-page-layout: full
-title-block-banner: true
-anchor-sections: false
-css: tds-therapy.css
----
-
-::: {.hero}
-::: {.hero-content}
-
-# Turn Your Voice Into a Healing Song{.hero-title}
-
-::: {.hero-subtitle}
-
-Speak your mind, and our A.I. will compose a personalized therapeutic melody just for you. Your feelings have a frequency—let's find its harmony.
-
-:::
-
-<a href="/start-session.html" class="cta-button primary">Start Your Healing Session</a>
-
-:::
-:::
-
-::: {.text-center .my-5}
-<h2 class="section-title">Hear the Transformation</h2>
-```{=html}
-<iframe src="https://suno.com/embed/274ec192-515d-40c2-82c4-b8edca93c24c" width="760" height="240"><a href="https://suno.com/song/274ec192-515d-40c2-82c4-b8edca93c24c">Listen on Suno</a></iframe>
-<p>Listen to a sample session transform into a song</p>
-```
-:::
 
 ```{=html}
-<div class="social-section">
-  <div class="social-grid">
-    <a href="/research/" class="social-card" target="_blank">  <!-- Fixed -->
-      <span class="social-icon">🔬</span>
-      <h3>The Science</h3>
-      <p>Discover the evidence-based research behind sound healing.</p>
-    </a>
-    <a href="/science/" class="social-card" target="_blank">  <!-- Fixed -->
-      <span class="social-icon">⚙️</span>
-      <h3>How It Works</h3>
-      <p>Learn about our AI and music generation process.</p>
-    </a>
-    <a href="/user-stories" class="social-card" target="_blank">  <!-- Fixed -->
-      <span class="social-icon">❤️</span>
-      <h3>User Stories</h3>
-      <p>Read real experiences of healing through our platform.</p>
-    </a>
-    <a href="/testimonials" class="social-card" target="_blank">  <!-- Fixed -->
-      <span class="social-icon">💡</span>
-      <h3>Testimonials</h3>  <!-- Changed title -->
-      <p>Learn why we're dedicated to accessible mental wellness.</p>
-    </a>
-    <a href="/gallery" class="social-card" target="_blank">  <!-- Fixed -->
-      <span class="social-icon">🎧</span>
-      <h3>Song Gallery</h3>  <!-- Changed title -->
-      <p>Explore a library of melodies created from emotion.</p>
-    </a>
-  </div>
-  <span class="vibe-quote">"Sound is the medicine of the future." - Edgar Cayce</span>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Shrink | Transform Emotions Into Healing Melodies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ================================================= */
+        /* ---        CSS for Dr. Shrink Website         --- */
+        /* ================================================= */
+        
+        /* --- 2. CSS Variables (Theme Definition) --- */
+        :root {
+            /* Core Colors - Therapeutic Palette */
+            --bg-color: #1A2A2D;
+            --bg-color-secondary: #2C3E40;
+            --bg-card: #223438;
+            --text-color: #E0E7E9;
+            --text-color-muted: #A8B2B5;
+            --text-color-headings: #ffffff;
+        
+            /* Accent Colors */
+            --healing-green: #2ecc71;
+            --healing-green-dark: #27ae60;
+            --calm-blue: #3498db;
+            --calm-blue-dark: #2980b9;
+            --accent-pink: #ff85a2;
+            --accent-yellow: #FFD166;
+            
+            /* UI Elements */
+            --link-color: var(--healing-green);
+            --link-color-hover: #58d68d;
+            --border-color: #3b5257;
+            
+            /* Fonts */
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Poppins', sans-serif;
+        
+            /* Spacing */
+            --card-padding: 1.5rem;
+            --section-padding: 3rem 1rem;
+        }
+        
+        /* --- 3. Base & Typography --- */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-primary);
+            font-weight: 400;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-secondary);
+            font-weight: 600;
+            color: var(--text-color-headings);
+            line-height: 1.3;
+            margin: 0 0 1rem 0;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-color-muted);
+        }
+        
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        a:hover {
+            color: var(--link-color-hover);
+        }
+        
+        /* --- 4. Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-color) 0%, #20363b 100%);
+            padding: 5rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 0 0 1rem;
+            color: var(--text-color-headings);
+            line-height: 1.2;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            color: var(--text-color-muted);
+        }
+        
+        /* Keyframe for button pulse */
+        @keyframes pulse-grow {
+            0% { 
+                transform: scale(1); 
+                box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); 
+            }
+            70% { 
+                transform: scale(1.03); 
+                box-shadow: 0 0 0 15px rgba(46, 204, 113, 0); 
+            }
+            100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); 
+            }
+        }
+        
+        .cta-button {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 1.25rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+        
+        .cta-button.primary {
+            background-color: var(--healing-green);
+            color: white !important;
+            border: none;
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
+            animation: pulse-grow 2.5s infinite;
+        }
+        
+        .cta-button.secondary {
+            background-color: transparent;
+            border: 2px solid var(--healing-green);
+            color: var(--healing-green);
+        }
+        
+        .cta-button.primary:hover {
+            background-color: var(--healing-green-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(46, 204, 113, 0.4);
+            animation-play-state: paused;
+        }
+        
+        .cta-button.secondary:hover {
+            background-color: rgba(46, 204, 113, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* --- 5. Healing Journey Process --- */
+        .journey-section {
+            padding: 5rem 1rem;
+            background: linear-gradient(135deg, #223438 0%, #1A2A2D 100%);
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--text-color-headings);
+            font-weight: 600;
+        }
+        
+        .journey-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .journey-step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+        
+        .journey-step:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: var(--healing-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+        
+        .step-icon {
+            font-size: 3.5rem;
+            margin: 20px 0;
+            color: var(--healing-green);
+            transition: all 0.3s ease;
+        }
+        
+        .journey-step:hover .step-icon {
+            transform: scale(1.2);
+            color: var(--accent-yellow);
+        }
+        
+        .step-title {
+            font-size: 1.6rem;
+            margin: 20px 0 15px;
+            color: var(--text-color-headings);
+        }
+        
+        .step-content {
+            margin-bottom: 20px;
+            color: var(--text-color-muted);
+        }
+        
+        .step-emotions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .emotion-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .step-highlight {
+            background: rgba(255, 133, 162, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 3px solid var(--accent-pink);
+        }
+        
+        /* --- 6. Content Levels Section --- */
+        .levels-section {
+            padding: 5rem 1rem;
+            background: var(--bg-color);
+        }
+        
+        .levels-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        
+        .content-level {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .content-level:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .level-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .level-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .level-1 .level-icon {
+            background: rgba(52, 152, 219, 0.2);
+            color: var(--calm-blue);
+        }
+        
+        .level-2 .level-icon {
+            background: rgba(46, 204, 113, 0.2);
+            color: var(--healing-green);
+        }
+        
+        .level-3 .level-icon {
+            background: rgba(255, 133, 162, 0.2);
+            color: var(--accent-pink);
+        }
+        
+        .level-4 .level-icon {
+            background: rgba(255, 209, 102, 0.2);
+            color: var(--accent-yellow);
+        }
+        
+        .level-title {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        
+        .level-content {
+            margin-bottom: 25px;
+            color: var(--text-color-muted);
+        }
+        
+        .level-cta {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .level-1 .level-cta {
+            background: var(--calm-blue);
+            color: white;
+        }
+        
+        .level-2 .level-cta {
+            background: var(--healing-green);
+            color: white;
+        }
+        
+        .level-3 .level-cta {
+            background: var(--accent-pink);
+            color: white;
+        }
+        
+        .level-4 .level-cta {
+            background: var(--accent-yellow);
+            color: #333;
+        }
+        
+        /* --- 7. Features Section --- */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem auto;
+            max-width: 1100px;
+            padding: 0 1rem;
+        }
+        
+        .feature {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            width: 320px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: var(--healing-green);
+        }
+        
+        .feature h3 {
+            color: var(--text-color-headings);
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.5rem;
+        }
+        
+        .feature p {
+            color: var(--text-color-muted);
+            margin-bottom: 0;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            line-height: 1;
+            color: var(--healing-green);
+            margin-bottom: 20px;
+        }
+        
+        /* --- 8. Testimonial Section --- */
+        .testimonial-section {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: var(--section-padding);
+            background-color: var(--bg-card);
+            border-radius: 12px;
+        }
+        
+        .testimonial {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            line-height: 1.7;
+            text-align: center;
+            border-left: 4px solid var(--healing-green);
+            padding-left: 1.5rem;
+        }
+        
+        .testimonial::after {
+            content: attr(data-cite);
+            display: block;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--text-color-muted);
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+        
+        /* --- 9. Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-color-muted);
+            font-size: 0.9rem;
+            background: var(--bg-color-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--healing-green);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            background: var(--healing-green);
+            color: white;
+        }
+        
+        /* --- 10. Responsive Design --- */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .journey-step {
+                min-width: 45%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .journey-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .journey-step {
+                min-width: 100%;
+                max-width: 400px;
+            }
+            
+            .levels-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .content-level {
+                min-width: 100%;
+                max-width: 500px;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Transform Your Emotions Into Healing Melodies</h1>
+            <p class="hero-subtitle">Experience the revolutionary 5-step journey that turns your feelings into personalized therapeutic songs</p>
+            <div>
+                <a href="#journey" class="cta-button primary">
+                    <i class="fas fa-play-circle"></i> Start Healing Journey
+                </a>
+                <a href="https://twitch.tv/doctorshrink" target="_blank" class="cta-button secondary">
+                    <i class="fas fa-broadcast-tower"></i> Watch Live on Twitch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Healing Journey Process -->
+    <section class="journey-section" id="journey">
+        <h2 class="section-title">Our Enhanced Healing Journey</h2>
+        
+        <div class="journey-steps">
+            <!-- Step 1 -->
+            <div class="journey-step">
+                <div class="step-number">1</div>
+                <div class="step-icon">
+                    <i class="fas fa-microphone-alt"></i>
+                </div>
+                <h3 class="step-title">AI Therapy Session</h3>
+                <p class="step-content">Speak freely with our compassionate AI therapist about your emotions. All sessions are anonymous and never stored.</p>
+                
+                <div class="step-emotions">
+                    <span class="emotion-tag">Understanding Anxiety</span>
+                    <span class="emotion-tag">Processing Grief</span>
+                    <span class="emotion-tag">Finding Joy</span>
+                </div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="journey-step">
+                <div class="step-number">2</div>
+                <div class="step-icon">
+                    <i class="fas fa-sliders-h"></i>
+                </div>
+                <h3 class="step-title">Song Customization</h3>
+                <p class="step-content">Choose your music genre, emotional theme, and vocal style preferences.</p>
+                
+                <div class="step-emotions">
+                    <span class="emotion-tag">Rock</span>
+                    <span class="emotion-tag">Country</span>
+                    <span class="emotion-tag">Pop</span>
+                    <span class="emotion-tag">Electronic</span>
+                </div>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="journey-step">
+                <div class="step-number">3</div>
+                <div class="step-icon">
+                    <i class="fas fa-broadcast-tower"></i>
+                </div>
+                <h3 class="step-title">Live Creation</h3>
+                <p class="step-content">Watch Doctor Shrink compose your song in real-time on our Twitch channel.</p>
+                
+                <div class="step-highlight">
+                    <i class="fas fa-video"></i> LIVE on Twitch: Daily sessions at 7PM EST
+                </div>
+            </div>
+            
+            <!-- Step 4 -->
+            <div class="journey-step">
+                <div class="step-number">4</div>
+                <div class="step-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="step-title">Community Sharing</h3>
+                <p class="step-content">Your song debuts on our Twitch channel where our supportive community celebrates your emotional journey.</p>
+            </div>
+            
+            <!-- Step 5 -->
+            <div class="journey-step">
+                <div class="step-number">5</div>
+                <div class="step-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3 class="step-title">Own Your Song</h3>
+                <p class="step-content">Receive the professional recording to keep and use in your personal healing practice.</p>
+                
+                <div class="step-highlight">
+                    <i class="fas fa-headphones"></i> Download MP3 or high-quality WAV
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Levels Section -->
+    <section class="levels-section">
+        <h2 class="section-title">Choose Your Healing Experience</h2>
+        
+        <div class="levels-container">
+            <!-- Level 1: Water Cooler -->
+            <div class="content-level level-1">
+                <div class="level-header">
+                    <div class="level-icon">
+                        <i class="fas fa-glass-whiskey"></i>
+                    </div>
+                    <h3 class="level-title">Water Cooler</h3>
+                </div>
+                <p class="level-content">Quick, impactful moments - perfect for those seeking immediate emotional relief through music. Experience healing in bite-sized sessions.</p>
+                <a href="#journey" class="level-cta">Listen to Sample Songs</a>
+            </div>
+            
+            <!-- Level 2: Café -->
+            <div class="content-level level-2">
+                <div class="level-header">
+                    <div class="level-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h3 class="level-title">Café</h3>
+                </div>
+                <p class="level-content">Deeper emotional exploration through guided sessions. Share your story and receive a personalized song created from your emotions.</p>
+                <a href="/start-session.qmd" class="level-cta">Create Your Song</a>
+            </div>
+            
+            <!-- Level 3: Research Library -->
+            <div class="content-level level-3">
+                <div class="level-header">
+                    <div class="level-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="level-title">Research Library</h3>
+                </div>
+                <p class="level-content">Explore the science behind music therapy. Understand how melodies heal the mind and transform emotional pain into growth.</p>
+                <a href="/research" class="level-cta">Explore Research</a>
+            </div>
+            
+            <!-- Level 4: Lab -->
+            <div class="content-level level-4">
+                <div class="level-header">
+                    <div class="level-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="level-title">Lab</h3>
+                </div>
+                <p class="level-content">Join Doctor Shrink live for 1-on-1 sessions. Experience real-time song creation and personalized therapeutic guidance.</p>
+                <a href="https://twitch.tv/doctorshrink" target="_blank" class="level-cta">Join Live Session</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="journey-section" style="background: var(--bg-color);">
+        <h2 class="section-title">Why Our Approach Works</h2>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Neuroscience-Backed</h3>
+                <p>Our methods leverage the proven power of music to rewire emotional patterns in the brain.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3>100% Anonymous</h3>
+                <p>Share freely without judgment. Your identity remains protected throughout your journey.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-community"></i>
+                </div>
+                <h3>Community Support</h3>
+                <p>Join thousands who've transformed their emotional pain into healing melodies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <h2 class="section-title">Healing Stories</h2>
+        <div class="testimonial" data-cite="- Michael T., Anxiety Recovery">
+            "The live session with Doctor Shrink transformed my anxiety into a song that now calms me whenever I listen. The process was magical - watching my feelings become music in real-time created a profound healing experience."
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://twitch.tv/doctorshrink" class="social-link" target="_blank">
+                <i class="fab fa-twitch"></i>
+            </a>
+            <a href="https://twitter.com/doctorshrink" class="social-link" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://instagram.com/doctorshrink" class="social-link" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:thedoctorshrink@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        
+        <p>Your privacy is our priority. All conversations are confidential and never stored.</p>
+        <p>© 2023 Dr. Shrink | Therapeutic Music Journey</p>
+    </footer>
+
+    <script>
+        // Simple animation for step icons
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.journey-step');
+            
+            steps.forEach(step => {
+                step.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.step-icon');
+                    icon.style.transform = 'scale(1.2)';
+                    icon.style.color = '#FFD166';
+                });
+                
+                step.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.step-icon');
+                    icon.style.transform = 'scale(1)';
+                    icon.style.color = '#2ecc71';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
 ```
-
-::: {.features}
-::: {.feature}
-::: {.feature-icon}
-🧠
-:::
-
-### AI-Powered Therapy
-
-Our empathetic AI listens to the nuances in your voice to understand your emotional state and guide the music creation process.
-:::
-
-::: {.feature}
-::: {.feature-icon}
-🎵
-:::
-
-### Personalized Healing
-
-Receive a unique song composed with frequencies and rhythms designed to soothe your specific emotional needs and promote balance.
-:::
-
-::: {.feature}
-::: {.feature-icon}
-🔒
-:::
-
-### Safe & Confidential
-
-Your sessions are completely private and secure. Speak freely in a judgment-free space designed for your comfort and healing.
-:::
-:::
-
-::: {#tracks .tracks-section}
-## Sample Healing Melodies {.section-title}
-:::
-
-::: {.tracks-grid}
-::: {.track-card}
-::: {.track-image}
-🎶
-:::
-::: {.track-info}
-### Anxiety to Calm
-
-A gentle, flowing melody created from a session on overcoming anxious thoughts, using frequencies associated with calm (Alpha waves).
-
-[Explore This Song →](/gallery/anxiety-to-calm.qmd){.track-link}  <!-- Fixed -->
-:::
-:::
-
-::: {.track-card}
-::: {.track-image}
-🎶
-:::
-::: {.track-info}
-### Grief to Acceptance
-
-A reflective piano piece generated from a user's journey through loss, with harmonies that provide a sense of support and peace.
-
-[Explore This Song →](/gallery/grief-to-acceptance.qmd){.track-link}  <!-- Fixed -->
-:::
-:::
-
-::: {.track-card}
-::: {.track-image}
-🎶
-:::
-::: {.track-info}
-### Joyful Release
-
-An uplifting and rhythmic track born from a moment of pure happiness and gratitude, designed to energize and inspire.
-
-[Explore This Song →](/gallery/joyful-release.qmd){.track-link}  <!-- Fixed -->
-:::
-:::
-:::
-
-::: {.testimonial-section}
-## Stories of Transformation
-
-::: {.testimonial}
-*"I was skeptical, but hearing my jumbled feelings turned into a beautiful, coherent song... it was incredibly moving. I listen to it whenever I feel overwhelmed, and it instantly brings me back to center."*  
-— Alex P.
-:::
-:::
-

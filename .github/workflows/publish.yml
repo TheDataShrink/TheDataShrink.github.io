@@ -24,6 +24,11 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.1'
+
       # Set up a writable R library path
       - name: Set up R library path
         run: |
@@ -32,14 +37,20 @@ jobs:
       
         # Install system dependencies
       - name: Install system dependencies
-        run: sudo apt-get install -y libcurl4-openssl-dev
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y \
+            libcurl4-openssl-dev \
+            libfontconfig1-dev \
+            libfreetype6-dev \
+            libharfbuzz-dev \
+            libfribidi-dev
 
       # Install renv and restore dependencies
       - name: Install renv and restore dependencies
         run: |
           R -e 'install.packages("renv")'
           R -e 'renv::restore()'
-
 
       - name: Clean _site directory
         run: |

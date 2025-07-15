@@ -20,6 +20,9 @@ website:
     title: false
     collapse-below: lg
     right:
+    - icon: mic
+      href: start-session.qmd
+      text: "Start here"
     - text: "How It Works"
       href: process/index.qmd
     - text: "Testimonials"
@@ -30,10 +33,6 @@ website:
       href: science/index.qmd
     - text: "Resources"
       href: resources/index.qmd
-    - text: "Journal"
-      href: journal/index.qmd
-    - icon: mic
-      href: start-session.qmd
 
   page-footer:
     left: "Copyright © 2025 The Data Shrink. All rights reserved."

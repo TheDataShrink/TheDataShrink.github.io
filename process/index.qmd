@@ -14,9 +14,9 @@ description: "Transform your emotions into shared musical experiences"
 :::
 ::: {.step-content}
 <p>Speak freely with our compassionate AI therapist about your emotions</p>
-[Understanding Anxiety](/emotional-journeys/anxiety)
-[Processing Grief](/emotional-journeys/grief)
-[Finding Joy](/emotional-journeys/joy)
+[Understanding Anxiety](/emotional-journeys/anxiety.qmd){.track-link}
+[Processing Grief](/emotional-journeys/grief.qmd){.track-link}
+[Finding Joy](/emotional-journeys/joy.qmd){.track-link}   
 :::
 :::
 
