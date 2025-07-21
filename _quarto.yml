@@ -2,8 +2,9 @@ project:
   type: website
 
 website:
-  title: "The Data Shrink"
-  description: "Transform your emotions into healing music through AI-powered therapeutic conversations"
+  # --- CHANGED: Updated title and description for better OG data ---
+  title: "Dr. Shrink | AI-Powered Music Therapy"
+  description: "Experience a revolutionary journey turning your feelings into personalized, therapeutic songs. Start your healing process with Dr. Shrink."
   image: images/tds-logo-150px.png
   favicon: images/tds-favicon.png
   twitter-card:
@@ -20,9 +21,6 @@ website:
     title: false
     collapse-below: lg
     right:
-    - icon: mic
-      href: start-session.qmd
-      text: "Start here"
     - text: "How It Works"
       href: process/index.qmd
     - text: "Testimonials"

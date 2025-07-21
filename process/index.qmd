@@ -48,7 +48,7 @@ description: "Transform your emotions into shared musical experiences"
 <p>Doctor Shrink composes your song in real-time</p>
 <div class="live-indicator">LIVE</div>
 <div style="margin-top: 1rem;">
-  <a href="https://www.twitch.tv/vanuellasing" class="cta-button twitch">
+  <a href="https://www.twitch.tv/doctorshrinkt" class="cta-button twitch">
     <img src="images/twitch_wordmark_extruded_purple.png" alt="Twitch" style="filter: brightness(0) invert(1);">
     Watch Live on Twitch
   </a>

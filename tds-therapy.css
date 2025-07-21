@@ -1,6 +1,6 @@
 /* ================================================= */
 /* ---        CSS for Dr. Shrink Website         --- */
-/* ---    Adapted from Vanuella & TDS Therapy    --- */
+/* ---    TDS Therapy    --- */
 /* ================================================= */
 
 
@@ -1072,3 +1072,239 @@ footer {
         gap: 10px;
     }
 }
+
+/* ================================================= */
+/* ---        CSS for Dr. Shrink Website         --- */
+/* ---    Adapted from Vanuella & TDS Therapy    --- */
+/* ================================================= */
+
+/* --- 1. Font Imports --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- 2. CSS Variables (Theme Definition) --- */
+:root {
+  /* Core Colors - Therapeutic Palette */
+  --bg-color: #1A2A2D; /* Deep, calm teal */
+  --bg-color-secondary: #2C3E40; /* Slightly lighter dark */
+  --bg-card: #223438; /* Card background */
+  --text-color: #E0E7E9; /* Soft off-white */
+  --text-color-muted: #A8B2B5; /* Dimmer text */
+  --text-color-headings: #ffffff; /* Pure white headings */
+
+  /* Accent Colors */
+  --healing-green: #2ecc71; /* Vibrant, positive green */
+  --healing-green-dark: #27ae60;
+  --calm-blue: #3498db; /* Trustworthy, calm blue */
+  --calm-blue-dark: #2980b9;
+  
+  /* UI Elements */
+  --link-color: var(--healing-green);
+  --link-color-hover: #58d68d; /* Lighter green */
+  --border-color: #3b5257; /* Subtle border */
+  
+  /* Fonts */
+  --font-primary: 'Poppins', sans-serif;
+}
+
+/* --- 3. Base & Typography --- */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--text-color-headings);
+  line-height: 1.3;
+  margin: 0 0 1rem 0;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-color-muted);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-color-hover);
+}
+
+
+/* ... All your other base styles (Hero, Features, etc.) would go here ... */
+
+
+/* ================================================= */
+/* ---    Custom CSS for Music Player Page         --- */
+/* ================================================= */
+
+.music-player-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--bg-color-secondary);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  color: var(--text-color);
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+.album-cover-section {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.album-cover-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.album-cover {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  display: block;
+}
+
+.play-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to right, rgba(46, 204, 113, 0.8), rgba(52, 152, 219, 0.7)); /* Green to Blue */
+  padding: 8px 15px;
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.play-button { font-size: 16px; color: white; cursor: pointer; }
+.track-duration { font-size: 14px; font-weight: bold; color: white; }
+
+.player-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-follow, .btn-share {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 8px 16px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-follow:hover, .btn-share:hover {
+  background-color: var(--border-color);
+  transform: translateY(-2px);
+}
+
+.song-info h1 {
+  font-size: 2.5em;
+  margin: 20px 0 10px 0;
+  color: var(--text-color-headings);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.artist-credit {
+  font-size: 1.2em;
+  color: var(--text-color-muted);
+  margin-bottom: 30px;
+}
+
+.streaming-section { margin: 30px 0; }
+.get-music-label { font-size: 1.1em; font-weight: bold; margin-bottom: 20px; color: var(--text-color-headings); }
+
+.streaming-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 20px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-streaming {
+  background: var(--bg-card);
+  color: var(--text-color);
+  padding: 8px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.btn-streaming:hover { background-color: var(--healing-green); color: white; border-color: var(--healing-green); }
+
+.buy-artist-section { margin: 20px 0; }
+
+.btn-buy-artist {
+  background: var(--healing-green);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+}
+.btn-buy-artist:hover { background: var(--healing-green-dark); transform: translateY(-2px); }
+
+.description {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: var(--text-color-muted);
+  border: 1px solid var(--border-color);
+}
+
+.release-info { margin: 20px 0; font-size: 1.1em; color: var(--text-color-muted); font-weight: bold; }
+
+.social-links { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+
+.social-btn {
+  background: var(--bg-card);
+  color: var(--text-color);
+  border-radius: 50%; /* This is the key for circles */
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+}
+
+.social-btn:hover { background-color: var(--calm-blue); color: white; transform: translateY(-2px); }

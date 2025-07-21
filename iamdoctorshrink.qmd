@@ -6,13 +6,14 @@ repo-actions: false
 page-layout: full
 title-block-banner: true
 anchor-sections: false
-css: tds-therapy.css
+format:
+  html:
+    css: tds-therapy.css
+    include-in-header:
+      # This is the crucial line to make icons work
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
-album_cover_url <- "/images/iamdoctorshrink.jpg"
-```
 
 ::: {.music-player-container}
 
@@ -21,10 +22,6 @@ album_cover_url <- "/images/iamdoctorshrink.jpg"
 ::: {.album-cover-wrapper}
 ![I Am Doctor Shrink Album Cover](/images/iamdoctorshrink.jpg){.album-cover}
 
-::: {.play-bar}
-<i class="fas fa-play play-button"></i>
-<span class="track-duration">3:06</span>
-:::
 :::
 
 ::: {.player-actions}
@@ -36,9 +33,8 @@ album_cover_url <- "/images/iamdoctorshrink.jpg"
 <!-- Song Title and Artist -->
 ::: {.song-info}
 # I Am Doctor Shrink
-
 ::: {.artist-credit}
-by **Data Shrink**
+by **Doctor Shrink**
 :::
 :::
 
@@ -49,12 +45,12 @@ Get the music:
 :::
 
 ::: {.streaming-buttons}
-<a href="#" class="btn-spotify"><i class="fab fa-spotify"></i> Spotify</a>
-<a href="#" class="btn-apple"><i class="fab fa-apple"></i> Apple Music</a>
-<a href="#" class="btn-itunes"><i class="fab fa-itunes"></i> iTunes</a>
-<a href="#" class="btn-amazon"><i class="fab fa-amazon"></i> Amazon</a>
-<a href="#" class="btn-pandora"><i class="fab fa-pandora"></i> Pandora</a>
-<a href="#" class="btn-deezer"><i class="fab fa-deezer"></i> Deezer</a>
+<a href="#" class="btn-streaming"><i class="fab fa-spotify"></i> Spotify</a>
+<a href="#" class="btn-streaming"><i class="fab fa-apple"></i> Apple Music</a>
+<a href="#" class="btn-streaming"><i class="fab fa-itunes"></i> iTunes</a>
+<a href="#" class="btn-streaming"><i class="fab fa-amazon"></i> Amazon</a>
+<a href="#" class="btn-streaming"><i class="fab fa-pandora"></i> Pandora</a>
+<a href="#" class="btn-streaming"><i class="fab fa-deezer"></i> Deezer</a>
 :::
 :::
 
@@ -65,7 +61,7 @@ Get the music:
 
 <!-- Description Text -->
 ::: {.description}
-Your HearNow page includes a space for short notes about your music. Add your artist bio, a snippet of the lyrics, or a shoutout to your supporters. It's your space to add context and share information with your fans.
+This space can include an artist bio, a snippet of the lyrics, or a shoutout to supporters. It's your space to add context and share information with your fans.
 :::
 
 <!-- Release Year -->
