@@ -1,0 +1,36 @@
+---
+title: "Curated Playlists | TheDataShrink™ Record Label"
+---
+
+```{=html}
+<!-- HERO SECTION -->
+<section class="submissions-hero" style="height: 70vh;">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="page-title">Healing Playlists</h1>
+            <p class="hero-subtitle">Soundtracks for every step of your journey, curated by Doctor Shrink and our community.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PLAYLISTS SECTION -->
+<section class="criteria-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Top Playlists</h2>
+        </div>
+        
+        <div class="criteria-grid">
+            <!-- You can embed Spotify players here -->
+            <div class="playlist-embed">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4sWSpwq3LiO?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="playlist-embed">
+                 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZqd5JICaPfx?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="playlist-embed">
+                 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wzrS?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>

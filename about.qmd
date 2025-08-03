@@ -1,0 +1,69 @@
+---
+title: "About Us | TheDataShrink™ Record Label"
+---
+
+```{=html}
+<!-- HERO SECTION -->
+<section class="submissions-hero" style="height: 70vh;">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="page-title">Our Mission</h1>
+            <p class="hero-subtitle">We are a new kind of record label, one built on the foundation that music is medicine. We partner with artists to transform raw human experience into data-driven, therapeutic art that heals.</p>
+        </div>
+    </div>
+    <div class="hero-particles"></div>
+</section>
+
+<!-- PHILOSOPHY SECTION -->
+<section class="criteria-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Philosophy: Data Meets Soul</h2>
+            <p>We blend the art of music with the science of healing. Our unique process ensures every song is not just heard, but felt on a deeply therapeutic level.</p>
+        </div>
+        
+        <div class="criteria-grid">
+            <div class="criteria-card">
+                <div class="criteria-icon"><i class="fas fa-heart-pulse"></i></div>
+                <h3>Therapeutic A&R</h3>
+                <p>We don't scout for hits; we scout for stories of struggle and resilience. Our artists are chosen for their authentic vulnerability and desire to heal.</p>
+            </div>
+            
+            <div class="criteria-card">
+                <div class="criteria-icon"><i class="fas fa-brain"></i></div>
+                <h3>AI-Powered Songwriting</h3>
+                <p>We use proprietary AI to analyze emotional data from journals and interviews, suggesting harmonic structures and lyrical themes that amplify therapeutic impact.</p>
+            </div>
+            
+            <div class="criteria-card">
+                <div class="criteria-icon"><i class="fas fa-wave-square"></i></div>
+                <h3>Sonic Alchemy</h3>
+                <p>Our production process focuses on frequencies, rhythms, and soundscapes known to induce states of calm, reflection, and catharsis in the listener.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MEET THE FOUNDER SECTION -->
+<section id="founder" class="studio-section" style="background: rgba(0,0,0,0.2);">
+    <div class="container">
+        <div class="section-header">
+            <h2>Meet The Founder</h2>
+        </div>
+        <div class="featured-release-grid">
+            <div class="featured-art">
+                <img src="https://www.thedoctorshrink.com/albums/images/iamdoctorshrink.jpg" alt="Doctor Shrink">
+            </div>
+            <div class="featured-info">
+                <h3>Doctor Shrink</h3>
+                <h4>Artist & Visionary</h4>
+                <p>As a data scientist who found solace in music after a personal tragedy, Doctor Shrink founded the label on a simple premise: if data can model the world, it can also model the path to healing. He pioneers the label's techniques, transforming his own journey into the therapeutic anthems that form the core of TheDataShrink™ sound.</p>
+                <div class="social-links" style="font-size: 1.8rem; display: flex; gap: 25px;">
+                    <a href="https://twitter.com/TheDataShrink" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/thedatashrink" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@TheDataShrink" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,96 @@
+---
+title: "Contact Us | TheDataShrink™ Record Label"
+---
+
+```{=html}
+<!-- HERO SECTION -->
+<section class="submissions-hero" style="height: 70vh;">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="page-title">Get In Touch</h1>
+            <p class="hero-subtitle">Whether you're an artist, a member of the press, or a listener with a story to share, we'd love to hear from you. Your signal matters.</p>
+        </div>
+    </div>
+    <div class="hero-particles"></div>
+</section>
+
+<!-- CONTACT METHODS SECTION -->
+<section class="criteria-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Contact Directory</h2>
+            <p>Please direct your inquiry to the appropriate department to ensure a timely response.</p>
+        </div>
+        
+        <div class="criteria-grid">
+            <div class="criteria-card">
+                <div class="criteria-icon"><i class="fas fa-envelope-open-text"></i></div>
+                <h3>General Inquiries</h3>
+                <p>For general questions, feedback, or to share your story.</p>
+                <a href="mailto:contact@thedatashrink.com" class="btn btn-primary" style="margin-top: 20px;">Email Us</a>
+            </div>
+            
+            <div class="criteria-card">
+                <div class="criteria-icon"><i class="fas fa-microphone-alt"></i></div>
+                <h3>Press & Media</h3>
+                <p>For interviews, press releases, and media kits.</p>
+                <a href="mailto:press@thedatashrink.com" class="btn btn-primary" style="margin-top: 20px;">Email Press</a>
+            </div>
+            
+            <div class="criteria-card">
+                <div class="criteria-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Licensing & Partnerships</h3>
+                <p>To license our music for your project or to discuss brand partnerships.</p>
+                <a href="mailto:licensing@thedatashrink.com" class="btn btn-primary" style="margin-top: 20px;">Email Licensing</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT FORM SECTION -->
+<section class="form-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Send Us a Message</h2>
+        </div>
+        <form class="submission-form" id="contactForm" style="max-width: 800px; margin: 0 auto;">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="contactName">Your Name *</label>
+                    <input type="text" id="contactName" name="contactName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactEmail">Your Email *</label>
+                    <input type="email" id="contactEmail" name="contactEmail" required>
+                </div>
+            </div>
+            <div class="form-group full-width">
+                <label for="subject">Subject *</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group full-width">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" style="width: 100%;">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+            </button>
+        </form>
+    </div>
+</section>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('.submit-btn');
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        btn.disabled = true;
+        // Simulate sending
+        setTimeout(() => {
+            btn.innerHTML = '<i class="fas fa-check-circle"></i> Message Sent!';
+            btn.style.background = 'var(--success-green)';
+        }, 1500);
+    });
+</script>

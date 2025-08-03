@@ -15,40 +15,45 @@ website:
   repo-actions: [edit, issue]
   navbar:
     toggle-position: right
-    background: "#27ae60"  # Intense healing green
+    background: "#100C1F" # Changed to match your dark theme
     logo: images/tds-logo-150px.png
     logo-alt: "Music-Soul-Love"
     title: false
     collapse-below: lg
-    right:
-    - text: "How It Works"
-      href: process/index.qmd
-    - text: "Testimonials"
-      href: testimonials/index.qmd
-    - text: "Song Gallery"
-      href: gallery/index.qmd
-    - text: "Science"
-      href: science/index.qmd
-    - text: "Resources"
-      href: resources/index.qmd
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Artists"
+        menu:
+          - text: "Our Roster"
+            href: index.qmd#artists
+          - text: "Artist Submissions"
+            href: artist_submissions.html
+      - text: "Releases"
+        href: releases.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "Contact"
+        href: contact.qmd
 
   page-footer:
-    left: "Copyright © 2025 The Data Shrink. All rights reserved."
+    background: "rgba(0,0,0,0.4)" # Match your custom footer
+    border: false
+    left: "Copyright © 2025 TheDataShrink™ Record Label. All Rights Reserved."
     right:
       - icon: instagram
         href: https://instagram.com/thedatashrink
-      - icon: spotify
-        href: https://open.spotify.com/user/thedatashrink
       - icon: twitter
         href: https://twitter.com/TheDataShrink
       - icon: youtube
         href: https://youtube.com/@TheDataShrink
-
+      - icon: spotify
+        href: https://open.spotify.com/artist/your-artist-id
 format:
   html:
-    theme: [default, tds-therapy.scss]
+    theme: [default, tds.scss]
     css: 
-      - tds-therapy.css
+      - tds.css
     toc: false
 
 execute:
