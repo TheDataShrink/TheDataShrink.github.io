@@ -52,7 +52,7 @@ title: "About Us | TheDataShrink™ Record Label"
         </div>
         <div class="featured-release-grid">
             <div class="featured-art">
-                <img src="https://www.thedoctorshrink.com/albums/images/iamdoctorshrink.jpg" alt="Doctor Shrink">
+                <img src="images/iamdoctorshrink.jpg" alt="Doctor Shrink - Founder">
             </div>
             <div class="featured-info">
                 <h3>Doctor Shrink</h3>
@@ -67,3 +67,34 @@ title: "About Us | TheDataShrink™ Record Label"
         </div>
     </div>
 </section>
+
+<!-- LABEL VALUES SECTION -->
+<section class="criteria-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Values</h2>
+            <p>The principles that guide everything we create</p>
+        </div>
+        
+        <div class="criteria-grid">
+            <div class="criteria-card">
+                <div class="criteria-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Artist-First</h3>
+                <p>We believe artists should own their work and their story. Our contracts are transparent, fair, and designed for long-term creative partnership.</p>
+            </div>
+            
+            <div class="criteria-card">
+                <div class="criteria-icon"><i class="fas fa-globe"></i></div>
+                <h3>Healing Through Music</h3>
+                <p>Every release is crafted with therapeutic intent. We measure success not just in streams, but in the healing impact on listeners' lives.</p>
+            </div>
+            
+            <div class="criteria-card">
+                <div class="criteria-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Data-Driven Artistry</h3>
+                <p>We use AI and data science to enhance human creativity, not replace it. Technology serves the art, and the art serves the soul.</p>
+            </div>
+        </div>
+    </div>
+</section>
+```

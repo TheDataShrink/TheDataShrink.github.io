@@ -1,9 +1,7 @@
 ---
-title: "TheDataShrink™ Record Label"
 format: 
   html:
     theme: none
-    css: styles.css
     toc: false
     page-layout: custom
     title-block-banner: false
@@ -13,528 +11,638 @@ format:
 
 ```{=html}
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>TheDataShrink™ | Record Label - Music. Soul. Love.</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TheDataShrink™ | AI‑Powered Music Therapy Record Label</title>
+  <meta name="description" content="TheDataShrink™ is an AI‑powered, therapy‑driven record label. Discover artists, releases, playlists, and our studio process turning pain into healing anthems." />
+  <meta name="theme-color" content="#100C1F" />
+  <link rel="canonical" href="https://www.thedoctorshrink.com/" />
 
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TheDataShrink™ | AI‑Powered Music Therapy Record Label" />
+  <meta property="og:description" content="Discover therapeutic music, artists, and AI studio sessions. One Signal: Music. Soul. Love.™" />
+  <meta property="og:url" content="https://www.thedoctorshrink.com/" />
+  <meta property="og:image" content="https://www.thedoctorshrink.com/albums/images/iamdoctorshrink.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TheDataShrink™ | AI‑Powered Music Therapy Record Label" />
+  <meta name="twitter:description" content="Discover therapeutic music, artists, and AI studio sessions." />
+  <meta name="twitter:image" content="https://www.thedoctorshrink.com/albums/images/iamdoctorshrink.jpg" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- NOTE: Ensure integrity hash matches exact file version; update if you change the CDN file. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root{
+      --bg-deep-space:#100C1F; --bg-glass-purple:rgba(155,89,182,.08);
+      --text-color:#D1CDE0; --text-heading:#FFF; --primary-purple:#A060FF;
+      --accent-magenta:#F857A6; --border-color:rgba(255,255,255,.1);
+      --studio-green:#00FF88; --waveform-blue:#00D4FF
+    }
+    *{box-sizing:border-box; margin:0; padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg-deep-space); color:var(--text-color); line-height:1.6; overflow-x:hidden}
+
+    /* Dynamic Background */
+    body::before{content:''; position:fixed; inset:0; z-index:-1;
+      background:
+        radial-gradient(circle at 20% 80%, rgba(160,96,255,.10) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(248,87,166,.10) 0%, transparent 50%),
+        linear-gradient(315deg, var(--bg-deep-space) 0%, rgba(160,96,255,.05) 50%, var(--bg-deep-space) 100%);
+      background-size:100% 100%, 100% 100%, 400% 400%;
+      animation:cosmicFlow 20s ease infinite
+    }
+    @keyframes cosmicFlow{0%,100%{background-position:0% 50%,0% 50%,0% 50%}33%{background-position:30% 70%,70% 30%,50% 0%}66%{background-position:70% 30%,30% 70%,100% 50%}}
+
+    /* Skip link */
+    .skip-link{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .skip-link:focus{left:16px; top:12px; width:auto; height:auto; background:#1b1333; color:#fff; padding:.6rem 1rem; border-radius:.5rem; outline:2px solid var(--studio-green)}
+
+    /* Navbar (Quarto integration — use Quarto's built-in navbar)
+   NOTE: In your _quarto.yml, set:
+
+   website:
+     navbar:
+       pinned: true   # keeps the navbar visible; disables hide-on-scroll
+       background: "#100C1F"  # already in your config
+
+   We style Quarto's generated header here so we don't duplicate markup.
+*/
+#quarto-header{position:sticky; top:0; z-index:1100; backdrop-filter:blur(20px)}
+#quarto-header .navbar{background:rgba(16,12,31,.95)!important; border-bottom:1px solid var(--border-color)}
+
+/* Prevent Headroom auto-hide just in case it's enabled */
+.headroom,.headroom--unpinned,.headroom--pinned{transform:none!important}
+
+/* Offset anchor targets so fixed header doesn't cover them */
+main section[id]{scroll-margin-top:84px}
+
+/* Optional: tweak Quarto navbar logo height if used */
+.navbar-brand img.navbar-logo{max-height:36px}
+
+/* Hero */
+    .hero{min-height:100vh; display:grid; place-items:center; text-align:center; padding-top:64px}
+    .hero-logo{font-size:4rem; font-weight:800; background:linear-gradient(90deg,var(--primary-purple),var(--accent-magenta),var(--studio-green)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(0 0 24px rgba(160,96,255,.35))}
+    .hero-slogan{font-size:1.25rem; opacity:.9; margin-top:8px}
+    .hero-stats{display:flex; gap:50px; margin:32px 0}
+    .stat-item{text-align:center}
+    .stat-number{display:block; font-size:2.5rem; font-weight:800; color:var(--primary-purple); margin-bottom:6px; font-variant-numeric:tabular-nums}
+    .stat-label{font-size:.95rem; opacity:.85}
+    .cta-buttons{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:8px}
+    .btn{padding:14px 26px; border-radius:999px; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:10px; border:2px solid transparent}
+    .btn-primary{background:linear-gradient(90deg,var(--primary-purple),var(--accent-magenta)); color:#fff}
+    .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 32px rgba(160,96,255,.35)}
+    .btn-secondary{background:transparent; color:var(--text-color); border-color:var(--border-color)}
+    .btn-secondary:hover{background:var(--primary-purple); border-color:var(--primary-purple); color:#fff}
+
+    /* Sections */
+    main section{padding:80px 0; content-visibility:auto; contain-intrinsic-size:1px 600px}
+    .container{max-width:1200px; margin:0 auto; padding:0 20px}
+    .section-header{text-align:center; margin-bottom:48px}
+    .section-header h2{font-size:2.25rem; color:var(--text-heading); margin-bottom:10px}
+
+    /* Quick Nav */
+    .quick-nav{background:rgba(0,0,0,.2)}
+    .nav-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px}
+    .nav-card{background:var(--bg-glass-purple); border:1px solid var(--border-color); border-radius:20px; padding:26px; text-align:center; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; color:inherit; text-decoration:none; position:relative; overflow:hidden}
+    .nav-card::before{content:''; position:absolute; inset:0; left:-100%; background:linear-gradient(90deg,transparent,rgba(160,96,255,.12),transparent); transition:left .45s ease}
+    .nav-card:hover{transform:translateY(-8px); border-color:var(--primary-purple); box-shadow:0 18px 36px rgba(160,96,255,.18)}
+    .nav-card:hover::before{left:100%}
+    .nav-card-icon{font-size:2rem; color:var(--primary-purple); margin-bottom:14px}
+    .nav-card h3{color:var(--text-heading); font-size:1.25rem; margin-bottom:10px}
+
+    /* Featured */
+    .featured-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center}
+    .featured-content h3{font-size:2rem; color:var(--text-heading); margin-bottom:16px}
+    .featured-content p{font-size:1.05rem; opacity:.9; margin-bottom:18px}
+    .featured-media{position:relative; border-radius:20px; overflow:hidden; aspect-ratio:16/10}
+    .featured-media img{width:100%; height:100%; object-fit:cover; transition:transform .3s ease}
+    .featured-media:hover img{transform:scale(1.04)}
+    .play-button{position:absolute; inset:auto auto 16px 16px; width:auto; height:auto; background:rgba(16,12,31,.7); border:1px solid var(--border-color); padding:10px 14px; border-radius:999px; color:#fff; cursor:pointer}
+    .play-button i{margin-right:8px}
+
+/* Spotify embed sizing */
+.featured-media.has-embed{aspect-ratio:auto}
+.featured-media.has-embed iframe{display:block; width:100%; height:352px; border:0}
+
+    /* Player */
+    .music-player{background:var(--bg-glass-purple); border:1px solid var(--border-color); border-radius:20px; padding:24px; margin:36px 0}
+    .player-header{display:flex; align-items:center; gap:18px; margin-bottom:16px}
+    .album-art{width:72px; height:72px; border-radius:10px; background:linear-gradient(45deg,var(--primary-purple),var(--accent-magenta)); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.25rem}
+    .track-info h4{color:var(--text-heading); margin-bottom:4px}
+    .track-info p{color:var(--primary-purple); font-size:.9rem}
+    .player-controls{display:flex; align-items:center; justify-content:center; gap:18px}
+    .control-btn{background:none; border:none; color:var(--text-color); font-size:1.1rem; cursor:pointer; padding:10px; border-radius:50%; transition:background .2s ease, color .2s ease}
+    .control-btn:hover{color:var(--primary-purple); background:rgba(160,96,255,.1)}
+    .play-btn{font-size:1.35rem; color:var(--primary-purple)}
+
+    /* Newsletter */
+    .newsletter{background:linear-gradient(135deg, rgba(160,96,255,.1), rgba(248,87,166,.1)); text-align:center}
+    .newsletter-form{display:flex; max-width:520px; margin:20px auto 0; gap:12px; align-items:flex-start}
+    .newsletter-form label{position:absolute; left:-9999px}
+    .newsletter-form input{flex:1; padding:14px 18px; border:1px solid var(--border-color); border-radius:999px; background:rgba(255,255,255,.05); color:var(--text-color)}
+    .newsletter-form input::placeholder{color:rgba(209,205,224,.65)}
+    .newsletter .form-note{margin-top:8px; font-size:.85rem; opacity:.8}
+
+    /* Footer */
+    .footer{background:rgba(0,0,0,.5); border-top:1px solid var(--border-color)}
+    .footer-content{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:28px; margin-bottom:28px}
+    .footer-section h4{color:var(--text-heading); margin-bottom:12px; font-size:1.05rem}
+    .footer-section a{color:var(--text-color); text-decoration:none; display:block; margin-bottom:8px}
+    .footer-section a:hover{color:var(--primary-purple)}
+    .footer-socials{display:flex; justify-content:center; gap:18px; margin:12px 0 18px}
+    .footer-socials a{color:var(--text-color); font-size:1.35rem}
+    .footer-socials a:focus-visible{outline:2px solid var(--studio-green); outline-offset:3px}
+    .footer p{text-align:center; opacity:.65; font-size:.9rem; padding-bottom:20px}
+
+    /* Utilities */
+    .fade-in{opacity:0; transform:translateY(30px); transition:opacity .6s ease, transform .6s ease}
+    .fade-in.visible{opacity:1; transform:translateY(0)}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .featured-grid{grid-template-columns:1fr; text-align:center}
+    }
+    @media (max-width: 768px){
+      .hero-logo{font-size:2.5rem}
+      .hero-stats{flex-direction:column; gap:18px}
+      .newsletter-form{flex-direction:column}
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      body::before{animation:none}
+    }
+  </style>
 </head>
 
 <body>
-    <!-- NAVIGATION -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">TheDataShrink™</a>
-            <ul class="nav-links">
-                <li><a href="#artists">Artists</a></li>
-                <li><a href="#releases">Releases</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <h1 class="hero-logo">TheDataShrink<sup>™</sup></h1>
-        <p class="hero-slogan">One Signal: Music. Soul. Love.<sup>™</sup></p>
-        
-        <div class="hero-stats">
-            <div class="stat-item">
-                <span class="stat-number">3</span>
-                <span class="stat-label">Signed Artists</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">12</span>
-                <span class="stat-label">Releases</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">1M+</span>
-                <span class="stat-label">Streams</span>
-            </div>
+
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top" aria-label="Hero">
+      <div class="container">
+        <h1 class="hero-logo">TheDataShrink™</h1>
+        <p class="hero-slogan">One Signal: Music. Soul. Love.™</p>
+
+        <div class="hero-stats" aria-label="Label stats">
+          <div class="stat-item">
+            <span class="stat-number" data-target="2">0</span>
+            <span class="stat-label">Signed Artists</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="20">0</span>
+            <span class="stat-label">Releases</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="1000000">0</span>
+            <span class="stat-label">Streams</span>
+          </div>
         </div>
-        
-        <a href="#artists" class="btn btn-primary">Meet Our Artists</a>
+
+        <div class="cta-buttons" role="group" aria-label="Primary calls to action">
+          <a href="#featured" class="btn btn-primary"><i class="fa-solid fa-play"></i>Listen Now</a>
+          <a href="#artists" class="btn btn-secondary"><i class="fa-solid fa-users"></i>Meet Our Artists</a>
+        </div>
+      </div>
     </section>
 
-    <!-- SIGNED ARTISTS SECTION -->
-    <section id="artists">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Roster</h2>
-                <p>Artists who've partnered with us to transform their stories into healing music. Each contract represents a commitment to authentic expression and therapeutic artistry.</p>
-            </div>
-            
-            <div class="artists-showcase">
-                <!-- DOCTOR SHRINK -->
-                <div class="artist-card" onclick="playArtistMedia(this)">
-                    <div class="artist-media">
-                        <img src="https://www.thedoctorshrink.com/images/iamdoctorshrinkart.png" alt="Doctor Shrink" class="artist-image">
-                        <div class="play-overlay">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="artist-info">
-                        <div class="artist-genre">Hip-Hop / Therapeutic</div>
-                        <h3>Doctor Shrink</h3>
-                        <p>Founder and lead artist. Transforms trauma into therapeutic anthems through data-driven songwriting and raw emotional storytelling.</p>
-                        <div class="artist-links">
-                            <div class="social-links">
-                                <a href="https://open.spotify.com/artist/your-artist-id" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
-                                <a href="https://music.apple.com/us/artist/doctor-shrink/1828459282" target="_blank" title="Apple Music"><i class="fab fa-apple"></i></a>
-                                <a href="https://www.youtube.com/@TheDataShrink" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                            </div>
-                            <div class="contract-badge">Signed</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- LUNA BLOOM -->
-                <div class="artist-card" onclick="playArtistMedia(this)">
-                    <div class="artist-media">
-                        <img src="https://via.placeholder.com/600x700/A060FF/FFFFFF?text=Luna+Bloom" alt="Luna Bloom" class="artist-image">
-                        <div class="play-overlay">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="artist-info">
-                        <div class="artist-genre">Ambient Pop / Healing</div>
-                        <h3>Luna Bloom</h3>
-                        <p>Ethereal vocalist transforming anxiety into peace through ambient soundscapes. Her intricate journals become soaring melodies that heal.</p>
-                        <div class="artist-links">
-                            <div class="social-links">
-                                <a href="#" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
-                                <a href="#" target="_blank" title="Apple Music"><i class="fab fa-apple"></i></a>
-                                <a href="#" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                            </div>
-                            <div class="contract-badge">Signed</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CIPHER -->
-                <div class="artist-card" onclick="playArtistMedia(this)">
-                    <div class="artist-media">
-                        <img src="https://via.placeholder.com/600x700/F857A6/FFFFFF?text=Cipher" alt="Cipher" class="artist-image">
-                        <div class="play-overlay">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="artist-info">
-                        <div class="artist-genre">Conscious Hip-Hop</div>
-                        <h3>Cipher</h3>
-                        <p>Lyrical storyteller addressing systemic injustice. Data-driven narrative structures amplify powerful messages across cohesive concept albums.</p>
-                        <div class="artist-links">
-                            <div class="social-links">
-                                <a href="#" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
-                                <a href="#" target="_blank" title="Apple Music"><i class="fab fa-apple"></i></a>
-                                <a href="#" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                            </div>
-                            <div class="contract-badge">Signed</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MEDIA GALLERY -->
-            <div class="section-header" style="margin-top: 100px;">
-                <h3 style="font-size: 2.2rem; margin-bottom: 15px;">Behind the Scenes</h3>
-                <p>Studio sessions, music videos, and moments that capture our creative process.</p>
-            </div>
-            
-            <div class="media-gallery">
-                <div class="media-item">
-                    <img src="https://via.placeholder.com/400x300/A060FF/FFFFFF?text=Studio+Session" alt="Studio Recording">
-                    <div class="media-overlay">
-                        <h4>Recording "Soulprint Vol. 1"</h4>
-                        <p>Doctor Shrink in the studio crafting therapeutic beats</p>
-                    </div>
-                </div>
-                
-                <div class="media-item">
-                    <img src="https://via.placeholder.com/400x300/F857A6/FFFFFF?text=Music+Video" alt="Music Video">
-                    <div class="media-overlay">
-                        <h4>Luna Bloom - "Anxiety Garden" Video</h4>
-                        <p>Visual representation of transformation through art</p>
-                    </div>
-                </div>
-                
-                <div class="media-item">
-                    <img src="https://via.placeholder.com/400x300/6C5CE7/FFFFFF?text=Live+Performance" alt="Live Performance">
-                    <div class="media-overlay">
-                        <h4>Cipher Live at The Healing Hub</h4>
-                        <p>Powerful performance addressing social justice</p>
-                    </div>
-                </div>
-                
-                <div class="media-item">
-                    <img src="https://via.placeholder.com/400x300/A060FF/FFFFFF?text=Contract+Signing" alt="Contract Signing">
-                    <div class="media-overlay">
-                        <h4>Welcome Luna Bloom</h4>
-                        <p>Celebrating our newest artist partnership</p>
-                    </div>
-                </div>
-                
-                <div class="media-item">
-                    <img src="https://via.placeholder.com/400x300/F857A6/FFFFFF?text=Team+Meeting" alt="Creative Meeting">
-                    <div class="media-overlay">
-                        <h4>Creative Strategy Session</h4>
-                        <p>Data meets artistry in our creative process</p>
-                    </div>
-                </div>
-                
-                <div class="media-item">
-                    <img src="https://via.placeholder.com/400x300/6C5CE7/FFFFFF?text=Album+Release" alt="Album Release">
-                    <div class="media-overlay">
-                        <h4>Soulprint Vol. 1 Release Party</h4>
-                        <p>Celebrating healing through music</p>
-                    </div>
-                </div>
-            </div>
+<!-- Artists Section -->
+    <section id="artists" aria-labelledby="artists-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="artists-heading">Our Artists</h2>
+          <p>Meet the creators transforming trauma into therapeutic anthems</p>
         </div>
+        
+        <div class="nav-grid">
+          <div class="nav-card artist-spotlight">
+            <div class="artist-avatar">
+              <img src="images/iamdoctorshrink.jpg" alt="Doctor Shrink" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
+            </div>
+            <h3>Doctor Shrink</h3>
+            <p class="artist-genre">Hip-Hop / Therapeutic</p>
+            <p>Founder and lead artist. Data scientist turned rapper, transforming personal trauma into healing anthems through AI-assisted production.</p>
+            <div class="artist-stats">
+              <span>1M+ streams</span> • <span>Soulprint Vol. 1</span>
+            </div>
+          </div>
+
+          <div class="nav-card artist-spotlight">
+            <div class="artist-avatar">
+              <img src="images/anxiety.jpg" alt="Luna Bloom" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
+            </div>
+            <h3>Luna Bloom</h3>
+            <p class="artist-genre">Ambient Pop / Healing</p>
+            <p>Creates ethereal soundscapes for anxiety relief and emotional processing. Her music blends organic instruments with AI-generated harmonies.</p>
+            <div class="artist-stats">
+              <span>Anxiety Garden EP</span> • <span>Coming 2025</span>
+            </div>
+          </div>
+
+          <div class="nav-card artist-spotlight">
+            <div class="artist-avatar">
+              <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(45deg, var(--primary-purple), var(--accent-magenta)); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-bottom: 1rem;">C</div>
+            </div>
+            <h3>Cipher</h3>
+            <p class="artist-genre">Conscious Hip-Hop</p>
+            <p>Social justice rapper using data-driven insights to craft powerful messages of systemic change and community healing.</p>
+            <div class="artist-stats">
+              <span>System Static</span> • <span>In Production</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="artist_submissions.html" class="btn btn-primary">
+            <i class="fa-solid fa-microphone"></i>
+            Join Our Label
+          </a>
+        </div>
+      </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Artists</h4>
-                    <a href="#doctor-shrink">Doctor Shrink</a>
-                    <a href="artist_submissions.html">Artist Submissions</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Music</h4>
-                    <a href="#releases">Latest Releases</a>
-                    <a href="#playlists">Curated Playlists</a>
-                    <a href="#streaming">Streaming Platforms</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Label</h4>
-                    <a href="about.html">About TheDataShrink™</a>
-                    <a href="#process">Our Process</a>
-                    <a href="#contact">Contact Us</a>
-                    <a href="#press">Press Kit</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <a href="mailto:thedoctorshrink@gmail.com">Email Us</a>
-                    <a href="#newsletter">Newsletter</a>
-                    <a href="#community">Community</a>
-                </div>
-            </div>
-            
-            <div class="footer-socials">
-                <a href="https://instagram.com/thedatashrink" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/TheDataShrink" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://youtube.com/@TheDataShrink" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="https://open.spotify.com/artist/your-artist-id" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
-                <a href="https://soundcloud.com/thedatashrink" target="_blank" title="SoundCloud"><i class="fab fa-soundcloud"></i></a>
-            </div>
-            
-            <p>Copyright © 2025 TheDataShrink™ Record Label. All Rights Reserved.<br>
-            One Signal: Music. Soul. Love.™</p>
+    <!-- Releases Section -->
+    <section id="releases" aria-labelledby="releases-heading" style="background: rgba(0,0,0,0.2);">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="releases-heading">Latest Releases</h2>
+          <p>Therapeutic music crafted with AI-assisted precision</p>
         </div>
-    </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        <div class="releases-grid">
+          <div class="release-card featured-release">
+            <div class="release-artwork">
+              <img src="images/soulprint-vol1.jpg" alt="Soulprint Vol. 1" style="width: 100%; border-radius: 12px;">
+              <div class="play-overlay">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <div class="release-info">
+              <h3>Soulprint Vol. 1</h3>
+              <p class="release-artist">Doctor Shrink</p>
+              <p class="release-desc">The debut album transforming personal data into healing hip-hop anthems.</p>
+              <div class="release-stats">
+                <span><i class="fa-solid fa-play"></i> 1M+ streams</span>
+                <span><i class="fa-solid fa-heart"></i> 15K saves</span>
+              </div>
+              <div class="streaming-buttons">
+                <a href="https://open.spotify.com/album/6VPgkp0mx5pUdChRsGnw43" class="stream-btn spotify">
+                  <i class="fab fa-spotify"></i> Spotify
+                </a>
+                <a href="https://music.apple.com/us/artist/doctor-shrink/1828459282" class="stream-btn apple">
+                  <i class="fab fa-apple"></i> Apple
+                </a>
+              </div>
+            </div>
+          </div>
 
-        // Navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(16, 12, 31, 0.95)';
-            } else {
-                navbar.style.background = 'rgba(16, 12, 31, 0.9)';
-            }
-        });
+          <div class="releases-upcoming">
+            <h4>Coming Soon</h4>
+            <div class="upcoming-list">
+              <div class="upcoming-item">
+                <img src="images/soulprint-vol2.jpg" alt="Soulprint Vol. 2" style="width: 60px; height: 60px; border-radius: 8px;">
+                <div>
+                  <p><strong>Soulprint Vol. 2</strong></p>
+                  <p>Doctor Shrink • Q2 2025</p>
+                </div>
+              </div>
+              <div class="upcoming-item">
+                <img src="images/anxiety.jpg" alt="Anxiety Garden" style="width: 60px; height: 60px; border-radius: 8px;">
+                <div>
+                  <p><strong>Anxiety Garden EP</strong></p>
+                  <p>Luna Bloom • Spring 2025</p>
+                </div>
+              </div>
+              <div class="upcoming-item">
+                <div style="width: 60px; height: 60px; border-radius: 8px; background: linear-gradient(45deg, var(--primary-purple), var(--studio-green)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">SS</div>
+                <div>
+                  <p><strong>System Static</strong></p>
+                  <p>Cipher • Summer 2025</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // Artist card interactions
-        function playArtistMedia(card) {
-            // Add ripple effect
-            const ripple = document.createElement('div');
-            ripple.style.position = 'absolute';
-            ripple.style.borderRadius = '50%';
-            ripple.style.background = 'rgba(160, 96, 255, 0.3)';
-            ripple.style.transform = 'scale(0)';
-            ripple.style.animation = 'ripple 0.6s linear';
-            ripple.style.left = '50%';
-            ripple.style.top = '50%';
-            ripple.style.width = '20px';
-            ripple.style.height = '20px';
-            ripple.style.marginLeft = '-10px';
-            ripple.style.marginTop = '-10px';
-            
-            card.style.position = 'relative';
-            card.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-            
-            // You can add actual media playback logic here
-            console.log('Playing media for:', card.querySelector('h3').textContent);
-        }
-
-        // Add ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                }
-            });
-        }, observerOptions);
-
-        // Observe artist cards and media items
-        document.querySelectorAll('.artist-card, .media-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            observer.observe(el);
-        });
-
-        // Media gallery interactions
-        document.querySelectorAll('.media-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const title = this.querySelector('h4').textContent;
-                const description = this.querySelector('p').textContent;
-                
-                // Create a simple modal or lightbox effect
-                const modal = document.createElement('div');
-                modal.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0,0,0,0.9);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 9999;
-                    cursor: pointer;
-                `;
-                
-                modal.innerHTML = `
-                    <div style="text-align: center; color: white; max-width: 600px; padding: 20px;">
-                        <h2 style="margin-bottom: 15px; color: var(--primary-purple);">${title}</h2>
-                        <p style="font-size: 1.1rem; line-height: 1.6;">${description}</p>
-                        <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">Click anywhere to close</p>
-                    </div>
-                `;
-                
-                document.body.appendChild(modal);
-                
-                modal.addEventListener('click', () => {
-                    modal.remove();
-                });
-                
-                // Prevent event from bubbling up
-                modal.querySelector('div').addEventListener('click', (e) => {
-                    e.stopPropagation();
-                });
-            });
-        });
-
-        // Add some dynamic stats animation
-        function animateStats() {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            const targets = [3, 12, 1000000]; // Actual target numbers
-            
-            statNumbers.forEach((stat, index) => {
-                const target = targets[index];
-                const increment = target / 100;
-                let current = 0;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    
-                    if (index === 2) {
-                        stat.textContent = (current / 1000000).toFixed(1) + 'M+';
-                    } else {
-                        stat.textContent = Math.floor(current);
-                    }
-                }, 50);
-            });
-        }
-
-        // Trigger stats animation when hero comes into view
-        const heroObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(animateStats, 1000);
-                    heroObserver.unobserve(entry.target);
-                }
-            });
-        });
-
-        heroObserver.observe(document.querySelector('.hero'));
-
-        // Add floating particles effect
-        function createParticles() {
-            const particlesContainer = document.createElement('div');
-            particlesContainer.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                pointer-events: none;
-                z-index: -1;
-            `;
-            
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.style.cssText = `
-                    position: absolute;
-                    width: 2px;
-                    height: 2px;
-                    background: rgba(160, 96, 255, 0.3);
-                    border-radius: 50%;
-                    animation: float ${10 + Math.random() * 20}s infinite linear;
-                    left: ${Math.random() * 100}%;
-                    animation-delay: ${Math.random() * 20}s;
-                `;
-                particlesContainer.appendChild(particle);
-            }
-            
-            document.body.appendChild(particlesContainer);
-        }
-
-        // Add floating animation
-        const floatStyle = document.createElement('style');
-        floatStyle.textContent = `
-            @keyframes float {
-                0% {
-                    transform: translateY(100vh) rotate(0deg);
-                    opacity: 0;
-                }
-                10% {
-                    opacity: 0.3;
-                }
-                90% {
-                    opacity: 0.3;
-                }
-                100% {
-                    transform: translateY(-100vh) rotate(360deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(floatStyle);
-
-        createParticles();
-
-        // Enhanced hover effects for artist cards
-        document.querySelectorAll('.artist-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02)';
-                this.style.boxShadow = '0 25px 50px rgba(160, 96, 255, 0.25)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-                this.style.boxShadow = 'none';
-            });
-        });
-
-        // Mobile navigation toggle (for future mobile menu)
-        let mobileMenuOpen = false;
+    <!-- Curated Playlists Section -->
+    <section id="playlists" aria-labelledby="playlists-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="playlists-heading">Therapeutic Playlists</h2>
+          <p>Soundtracks for every step of your healing journey</p>
+        </div>
         
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            if (mobileMenuOpen) {
-                navLinks.style.display = 'none';
-                mobileMenuOpen = false;
-            } else {
-                navLinks.style.display = 'flex';
-                mobileMenuOpen = true;
-            }
+        <div class="nav-grid">
+          <div class="nav-card playlist-card">
+            <div class="playlist-icon" style="background: linear-gradient(45deg, var(--studio-green), #00FF88);">
+              <i class="fa-solid fa-arrow-trend-up"></i>
+            </div>
+            <h3>Uplifting</h3>
+            <p>Energizing tracks to boost mood and motivation. Perfect for morning routines and workout sessions.</p>
+            <div class="playlist-stats">42 songs • 2h 18m</div>
+          </div>
+
+          <div class="nav-card playlist-card">
+            <div class="playlist-icon" style="background: linear-gradient(45deg, var(--waveform-blue), #0066FF);">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3>Reflective</h3>
+            <p>Contemplative music for journaling, therapy sessions, and deep introspection.</p>
+            <div class="playlist-stats">38 songs • 2h 45m</div>
+          </div>
+
+          <div class="nav-card playlist-card">
+            <div class="playlist-icon" style="background: linear-gradient(45deg, var(--accent-magenta), #FF6B9D);">
+              <i class="fa-solid fa-anchor"></i>
+            </div>
+            <h3>Grounding</h3>
+            <p>Calming frequencies to reduce anxiety and center yourself during overwhelming moments.</p>
+            <div class="playlist-stats">31 songs • 2h 2m</div>
+          </div>
+
+          <div class="nav-card playlist-card">
+            <div class="playlist-icon" style="background: linear-gradient(45deg, var(--primary-purple), #8B5CF6);">
+              <i class="fa-solid fa-dove"></i>
+            </div>
+            <h3>Release</h3>
+            <p>Cathartic tracks for letting go of pain, anger, and trauma. Emotional processing through sound.</p>
+            <div class="playlist-stats">29 songs • 1h 56m</div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="#newsletter" class="btn btn-primary">
+            <i class="fa-solid fa-headphones"></i>
+            Access All Playlists
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Studio Section -->
+    <section id="studio" aria-labelledby="studio-heading" style="background: rgba(0,0,0,0.2);">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="studio-heading">AI Studio Process</h2>
+          <p>Where data science meets musical therapy</p>
+        </div>
+
+        <div class="studio-process">
+          <div class="process-flow">
+            <div class="studio-step">
+              <div class="step-visual">
+                <i class="fa-solid fa-brain"></i>
+              </div>
+              <h3>Emotional Data Analysis</h3>
+              <p>AI analyzes artist interviews, journals, and biometric data to identify core emotional patterns and therapeutic needs.</p>
+            </div>
+
+            <div class="flow-arrow">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+            <div class="studio-step">
+              <div class="step-visual">
+                <i class="fa-solid fa-music"></i>
+              </div>
+              <h3>AI-Assisted Composition</h3>
+              <p>Our proprietary algorithms suggest chord progressions, rhythmic patterns, and sonic textures optimized for therapeutic impact.</p>
+            </div>
+
+            <div class="flow-arrow">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+            <div class="studio-step">
+              <div class="step-visual">
+                <i class="fa-solid fa-heart-pulse"></i>
+              </div>
+              <h3>Biometric Feedback</h3>
+              <p>Real-time monitoring of heart rate, stress markers, and emotional response during recording to optimize therapeutic resonance.</p>
+            </div>
+          </div>
+
+          <div class="studio-features">
+            <div class="feature-card">
+              <h4><i class="fa-solid fa-waveform-lines"></i> Therapeutic Frequencies</h4>
+              <p>AI identifies and incorporates specific frequencies known to reduce anxiety, promote healing, and induce calm states.</p>
+            </div>
+            <div class="feature-card">
+              <h4><i class="fa-solid fa-chart-line"></i> Data-Driven Lyrics</h4>
+              <p>Sentiment analysis and emotional mapping guide lyrical themes that resonate with universal healing experiences.</p>
+            </div>
+            <div class="feature-card">
+              <h4><i class="fa-solid fa-infinity"></i> Iterative Refinement</h4>
+              <p>Continuous feedback loops between AI analysis and human creativity ensure authentic, impactful therapeutic music.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="artist_submissions.html" class="btn btn-primary">
+            <i class="fa-solid fa-flask"></i>
+            Experience Our Process
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Content -->
+    <section class="featured-section" id="featured" aria-labelledby="featured-heading">
+      <div class="container">
+        <div class="featured-grid">
+          <div class="featured-content fade-in">
+            <h2 id="featured-heading" class="sr-only" aria-hidden="true">Featured</h2>
+            <h3>Now Playing: Soulprint Vol. 1</h3>
+            <p>Experience a fusion of therapeutic hip‑hop and AI‑driven emotional analysis. Each track is a “soulprint” that turns personal trauma into a healing anthem.</p>
+            <a href="https://open.spotify.com/album/6VPgkp0mx5pUdChRsGnw43" target="_blank" rel="noopener" class="btn btn-primary"><i class="fa-brands fa-spotify"></i>Listen on Spotify</a>
+          </div>
+          <div class="featured-media fade-in has-embed">
+            <iframe title="Soulprint Vol. 1 — Spotify player" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/6VPgkp0mx5pUdChRsGnw43?utm_source=generator" width="100%" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <!-- Music Player Widget -->
+        <div class="music-player fade-in" aria-label="Music player">
+          <div class="player-header">
+            <div class="album-art" aria-hidden="true"><i class="fa-solid fa-music"></i></div>
+            <div class="track-info">
+              <h4>Trauma to Triumph</h4>
+              <p>Doctor Shrink • Soulprint Vol. 1</p>
+            </div>
+          </div>
+          <div class="player-controls" role="group" aria-label="Player controls">
+            <button class="control-btn" type="button" aria-label="Previous"><i class="fa-solid fa-backward-step"></i></button>
+            <button class="control-btn play-btn" type="button" aria-label="Play"><i class="fa-solid fa-play"></i></button>
+            <button class="control-btn" type="button" aria-label="Next"><i class="fa-solid fa-forward-step"></i></button>
+            <button class="control-btn" type="button" aria-pressed="false" aria-label="Like"><i class="fa-regular fa-heart"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Newsletter Signup -->
+    <section class="newsletter" id="newsletter" aria-labelledby="news-heading">
+      <div class="container">
+        <h2 id="news-heading">Stay Connected</h2>
+        <p>Get exclusive access to new releases, behind‑the‑scenes content, and therapeutic music insights.</p>
+        <form class="newsletter-form" novalidate>
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="Enter your email address" required autocomplete="email" />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <p class="form-note" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+<!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Artists</h4>
+          <a href="#artists">Doctor Shrink</a>
+          <a href="#artists">Luna Bloom</a>
+          <a href="#artists">Artist Submissions</a>
+          <a href="#studio">Our Process</a>
+        </div>
+        <div class="footer-section">
+          <h4>Music</h4>
+          <a href="#releases">Latest Releases</a>
+          <a href="#playlists">Curated Playlists</a>
+          <a href="#featured">Streaming Platforms</a>
+          <a href="#studio">Studio Sessions</a>
+        </div>
+        <div class="footer-section">
+          <h4>Label</h4>
+          <a href="#about">About TheDataShrink™</a>
+          <a href="#about">Our Mission</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#about">Press Kit</a>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <a href="mailto:thedoctorshrink@gmail.com">Email Us</a>
+          <a href="#newsletter">Newsletter</a>
+          <a href="#contact">Community</a>
+          <a href="#contact">Support</a>
+        </div>
+      </div>
+
+      <div class="footer-socials" aria-label="Social links">
+        <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" title="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" title="Spotify"><i class="fa-brands fa-spotify"></i></a>
+        <a href="#" title="SoundCloud"><i class="fa-brands fa-soundcloud"></i></a>
+      </div>
+
+      <p>Copyright © 2025 TheDataShrink™ Record Label. All Rights Reserved.<br />
+      One Signal: Music. Soul. Love.™</p>
+    </div>
+  </footer>
+
+  <script>
+    // Helper: reduced‑motion check
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Mobile menu toggle (accessible)
+    const toggleBtn = document.querySelector('.menu-toggle');
+    const navList   = document.getElementById('primary-nav');
+    if (toggleBtn && navList) {
+      const toggleMenu = () => {
+        const isOpen = navList.classList.toggle('open');
+        toggleBtn.setAttribute('aria-expanded', String(isOpen));
+        toggleBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      };
+      toggleBtn.addEventListener('click', toggleMenu);
+      // Close on link click (use capture to catch early)
+      navList.addEventListener('click', (e) => {
+        const t = e.target;
+        if (t.tagName === 'A' && navList.classList.contains('open')) {
+          navList.classList.remove('open');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          toggleBtn.setAttribute('aria-label', 'Open menu');
         }
-
-        // Loading animation
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease';
-            
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const rate = scrolled * -0.5;
-            
-            if (hero) {
-                hero.style.transform = `translateY(${rate}px)`;
-            }
-        });
-
-        // Dynamic typing effect for hero slogan
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            
-            type();
+      }, true);
+      // Close on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navList.classList.contains('open')) {
+          navList.classList.remove('open');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          toggleBtn.setAttribute('aria-label', 'Open menu');
+          toggleBtn.focus();
         }
+      });
+    }
 
-        // Initialize typing effect after page load
-        setTimeout(() => {
-            const slogan = document.querySelector('.hero-slogan');
-            if (slogan) {
-                const originalText = slogan.textContent;
-                typeWriter(slogan, originalText, 80);
-            }
-        }, 2000);
-    </script>
+    // Animated statistics counter (respects reduced motion)
+    function animateCount(el) {
+      const target = Number(el.dataset.target || 0);
+      if (!target || prefersReduced) { el.textContent = formatNum(target); return; }
+      const duration = 1800;
+      const start = performance.now();
+      function step(now) {
+        const p = Math.min(1, (now - start) / duration);
+        const val = Math.floor(target * (0.2 + 0.8 * p));
+        el.textContent = formatNum(val);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    function formatNum(n) {
+      if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M+';
+      return new Intl.NumberFormat().format(n);
+    }
+    document.querySelectorAll('.stat-number').forEach(animateCount);
+
+    // Fade-in on scroll (IntersectionObserver)
+    const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.18, rootMargin: '0px 0px -80px 0px' }) : null;
+    document.querySelectorAll('.fade-in').forEach(el => io && io.observe(el));
+
+    // Featured play button (demo only)
+    const playBtn = document.querySelector('.play-button');
+    if (playBtn) {
+      playBtn.addEventListener('click', () => {
+        const icon = playBtn.querySelector('i');
+        const isPlay = icon.classList.contains('fa-play');
+        icon.classList.toggle('fa-play', !isPlay);
+        icon.classList.toggle('fa-pause', isPlay);
+        setTimeout(() => { icon.classList.add('fa-play'); icon.classList.remove('fa-pause'); }, 2800);
+      });
+    }
+
+    // Newsletter form (client-side UX only)
+    const form = document.querySelector('.newsletter-form');
+    const note = document.querySelector('.form-note');
+    if (form && note) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = /** @type {HTMLInputElement} */(form.querySelector('#email')).value.trim();
+        if (!email) { note.textContent = 'Please enter a valid email.'; return; }
+        note.textContent = 'Thanks! You\'ll receive healing music updates soon.';
+        form.reset();
+      });
+    }
+  </script>
 </body>
 </html>
+
+
 ```
 

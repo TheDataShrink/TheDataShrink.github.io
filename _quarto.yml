@@ -21,8 +21,6 @@ website:
     title: false
     collapse-below: lg
     left:
-      - text: "Home"
-        href: index.qmd
       - text: "Artists"
         menu:
           - text: "Our Roster"

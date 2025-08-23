@@ -23,7 +23,7 @@ title: "Releases | TheDataShrink™ Record Label"
         </div>
         <div class="featured-release-grid">
             <div class="featured-art">
-                <img src="https://www.thedoctorshrink.com/albums/images/iamdoctorshrink.jpg" alt="Soulprint Vol. 1 Album Art">
+                <img src="images/soulprint-vol1.jpg" alt="Soulprint Vol. 1 Album Art">
             </div>
             <div class="featured-info">
                 <span class="artist-genre">Hip-Hop / Therapeutic</span>
@@ -31,14 +31,13 @@ title: "Releases | TheDataShrink™ Record Label"
                 <h4>by Doctor Shrink</h4>
                 <p>The debut album from Doctor Shrink is a journey through trauma and recovery, transforming raw data of personal experience into anthems of healing. Each track is a 'soulprint'—a unique identifier of a moment in the therapeutic process.</p>
                 <div class="streaming-links">
-                    <a href="https://open.spotify.com/artist/your-artist-id" class="btn btn-primary"><i class="fab fa-spotify"></i> Listen on Spotify</a>
+                    <a href="https://open.spotify.com/album/6VPgkp0mx5pUdChRsGnw43" class="btn btn-primary"><i class="fab fa-spotify"></i> Listen on Spotify</a>
                     <a href="https://music.apple.com/us/artist/doctor-shrink/1828459282" class="btn btn-secondary"><i class="fab fa-apple"></i> Listen on Apple Music</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 
 <!-- FULL DISCOGRAPHY SECTION -->
 <section id="discography" class="criteria-section" style="background: rgba(0,0,0,0.2);">
@@ -52,16 +51,16 @@ title: "Releases | TheDataShrink™ Record Label"
             <!-- Release 1 -->
             <div class="artist-card">
                 <div class="artist-media">
-                    <img src="https://via.placeholder.com/600x600/A060FF/FFFFFF?text=Soulprint+Vol.+1" alt="Album Art" class="artist-image">
+                    <img src="images/soulprint-vol1.jpg" alt="Soulprint Vol. 1 Album Art" class="artist-image">
                 </div>
                 <div class="artist-info">
                     <h3>Soulprint Vol. 1</h3>
                     <p class="release-artist">Doctor Shrink</p>
                     <div class="artist-links">
                         <div class="social-links">
-                            <a href="#" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
-                            <a href="#" target="_blank" title="Apple Music"><i class="fab fa-apple"></i></a>
-                            <a href="#" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://open.spotify.com/album/6VPgkp0mx5pUdChRsGnw43" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
+                            <a href="https://music.apple.com/us/artist/doctor-shrink/1828459282" target="_blank" title="Apple Music"><i class="fab fa-apple"></i></a>
+                            <a href="https://youtube.com/@TheDataShrink" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
                         </div>
                         <span class="release-date">Released: 2025</span>
                     </div>
@@ -71,7 +70,26 @@ title: "Releases | TheDataShrink™ Record Label"
             <!-- Release 2 -->
             <div class="artist-card">
                 <div class="artist-media">
-                    <img src="https://via.placeholder.com/600x600/F857A6/FFFFFF?text=Anxiety+Garden" alt="Album Art" class="artist-image">
+                    <img src="images/soulprint-vol2.jpg" alt="Soulprint Vol. 2 Album Art" class="artist-image">
+                </div>
+                <div class="artist-info">
+                    <h3>Soulprint Vol. 2</h3>
+                    <p class="release-artist">Doctor Shrink</p>
+                    <div class="artist-links">
+                        <div class="social-links">
+                            <a href="#" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
+                            <a href="https://music.apple.com/us/artist/doctor-shrink/1828459282" target="_blank" title="Apple Music"><i class="fab fa-apple"></i></a>
+                            <a href="https://youtube.com/@TheDataShrink" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                        <span class="release-date">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Release 3 -->
+            <div class="artist-card">
+                <div class="artist-media">
+                    <img src="images/anxiety.jpg" alt="Anxiety Garden Album Art" class="artist-image">
                 </div>
                 <div class="artist-info">
                     <h3>Anxiety Garden (EP)</h3>
@@ -80,16 +98,17 @@ title: "Releases | TheDataShrink™ Record Label"
                         <div class="social-links">
                             <a href="#" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
                             <a href="#" target="_blank" title="Apple Music"><i class="fab fa-apple"></i></a>
+                            <a href="https://youtube.com/@TheDataShrink" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
                         </div>
                         <span class="release-date">Released: 2025</span>
                     </div>
                 </div>
             </div>
-
-            <!-- Release 3 -->
+            
+            <!-- Release 4 - Upcoming -->
             <div class="artist-card">
                 <div class="artist-media">
-                    <img src="https://via.placeholder.com/600x600/6C5CE7/FFFFFF?text=System+Static" alt="Album Art" class="artist-image">
+                    <img src="images/studio.jpg" alt="System Static Album Art" class="artist-image">
                 </div>
                 <div class="artist-info">
                     <h3>System Static</h3>
@@ -98,14 +117,12 @@ title: "Releases | TheDataShrink™ Record Label"
                         <div class="social-links">
                             <a href="#" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
                             <a href="#" target="_blank" title="Apple Music"><i class="fab fa-apple"></i></a>
+                            <a href="https://youtube.com/@TheDataShrink" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
                         </div>
-                        <span class="release-date">Released: 2024</span>
+                        <span class="release-date">Coming Soon</span>
                     </div>
                 </div>
             </div>
-            
-            <!-- Add more release cards as needed -->
-
         </div>
     </div>
 </section>
@@ -172,3 +189,5 @@ title: "Releases | TheDataShrink™ Record Label"
     }
 }
 </style>
+
+```
