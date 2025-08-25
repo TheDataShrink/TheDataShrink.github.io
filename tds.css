@@ -222,17 +222,17 @@
     transform: none;
   }
 
-  /* --- HERO SECTIONS --- */
+  /* --- HERO .hero {height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; padding: 20px; position: relative;} SECTIONS --- */
+  
+  
   .hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    padding: 20px;
-    position: relative;
-  }
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding-top: 120px; /* Increased from 64px to account for navbar */
+  margin-top: -60px; /* Negative margin to pull content up */
+}
 
   .submissions-hero {
     height: 80vh;
