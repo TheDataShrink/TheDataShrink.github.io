@@ -4,7 +4,7 @@ import { Mail, Linkedin, Twitter } from 'lucide-react'
 const serviceLinks = [
   ['Spectrum & Radio', '/services#spectrum'],
   ['Compliance & Governance', '/services#compliance'],
-  ['Data & Analytics', '/services#data'],
+  ['Systems Thinking', '/services#data'],
   ['AI Automation', '/services#automation'],
   ['Compliance Monitor', '/services#subscription'],
 ]
@@ -28,8 +28,8 @@ export default function Footer() {
               <span className="font-display font-700 text-sm text-slate-200">TheDataShrink<span className="text-slate-600 font-400">™</span></span>
             </div>
             <p className="text-sm text-slate-600 font-body leading-relaxed max-w-xs mb-5">
-              Spectrum · Compliance · Data · AI Automation<br />
-              for AU/NZ telecom operators.
+              Spectrum · Compliance · Systems Thinking · AI Automation<br />
+              for NZ telecom operators.
             </p>
             <div className="flex gap-3">
               <a href="https://www.linkedin.com/in/stoianandreimircea/" target="_blank" rel="noreferrer"
@@ -84,7 +84,7 @@ export default function Footer() {
             © 2026 TheDataShrink™ · Andrei Stoian · ABN registered · AU · NZ
           </p>
           <p className="text-xs text-slate-700 font-mono">
-            ACMA Accredited Person · NZ ARE #176
+            NZ ARE #176 · MBIE RSM · Enterprise Architect
           </p>
         </div>
       </div>

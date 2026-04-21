@@ -4,7 +4,7 @@ import { ChevronDown, ArrowRight } from 'lucide-react'
 const credentials = [
   { tag: 'NZ', label: 'ARE #176', desc: 'NZ Approved Radio Engineer' },
   { tag: 'RSM', label: 'Former Regulator', desc: 'MBIE Radio Spectrum Management' },
-  { tag: 'AU', label: 'ACMA Accredited Person', desc: 'FAC & IIC sign-off authority' },
+  { tag: 'ARCH', label: 'Enterprise Architect', desc: 'TOGAF · COBIT · ITIL · NIST' },
   { tag: 'DATA', label: 'BI & Data Manager', desc: 'UniSC — team of 4' },
   { tag: 'AI', label: 'AI-Native Builder', desc: 'SEFF Spectrum Platform — live' },
   { tag: 'SYS', label: 'Systems Thinker', desc: 'TidyTuesday · D3 + React training' },
@@ -25,7 +25,7 @@ const timeline = [
 ]
 
 const differentiators = [
-  { n: '01', title: 'RSM & ACMA Authorised', desc: 'NZ ARE #176 for RSM endorsements. ACMA Accredited Person for FAC/IIC certificates. Legally authorised sign-off in both jurisdictions — not just advice.' },
+  { n: '01', title: 'RSM Authorised — ARE #176', desc: 'NZ ARE #176 for RSM endorsements. Legally authorised sign-off — not just advice. I know what auditors look for because I wrote the audit methodology.' },
   { n: '02', title: 'Former Regulator', desc: 'Ran the ARE audit regime from inside MBIE Radio Spectrum Management. I know what auditors look for because I ran the audits.' },
   { n: '03', title: 'Builds Real Systems', desc: 'SEFF Spectrum Platform: 70,000+ licence records in production. TidyTuesday analytics platform. D3 + React training. I ship working systems, not just recommendations.' },
   { n: '04', title: 'AI-Native Delivery', desc: 'Every engagement is augmented by AI automation. Analysis that took days takes hours. The saving gets passed on.' },
@@ -90,7 +90,7 @@ export default function About() {
                   RF engineer → NZ ARE #176 → MBIE spectrum regulator → BI manager → founder. Twenty years on both sides of the compliance fence.
                 </p>
                 <p>
-                  I hold NZ ARE #176 and am an ACMA Accredited Person in Australia — legally authorised to sign RSM endorsements, FAC and IIC certificates in both jurisdictions. This isn't advice. This is authorised sign-off.
+                  I hold NZ ARE #176 — legally authorised to sign RSM endorsements in New Zealand. This isn't advice. This is authorised sign-off.
                 </p>
                 <p>
                   I also build systems that run. The SEFF Spectrum Platform processes 70,000+ licence records in production. When I recommend a solution, I've already shipped one.
@@ -172,7 +172,7 @@ export default function About() {
               'Recommend a solution before I understand your problem.',
               'Lock you into a 12-month contract you didn\'t need.',
               'Write a 50-page report when a 5-page one will do.',
-              'Give you advice I couldn\'t defend in front of RSM or ACMA.',
+              'Give you advice I couldn\'t defend in front of RSM.',
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-4 px-5 py-3.5" style={{ borderBottom: i < 4 ? '1px solid rgba(14,165,233,0.06)' : 'none' }}>
                 <span className="text-sky-500/40 font-mono text-xs mt-0.5 flex-shrink-0">—</span>
