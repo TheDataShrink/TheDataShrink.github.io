@@ -13,10 +13,10 @@ const credentials = [
 ]
 
 const timeline = [
-  { year: '2026', role: 'TheDataShrink™ — Founder', org: 'ABN registered · AU & NZ', color: 'sky' as const, desc: 'Solo consulting practice: RSM & ACMA spectrum licensing, compliance, systems thinking, and data for AU/NZ telecom operators.' },
-  { year: '2023–26', role: 'Manager, BI & Data Warehousing', org: 'University of the Sunshine Coast', color: 'default' as const, desc: 'Led team of 4 delivering enterprise data warehouse, Power BI, and ETL pipelines. Built the SEFF Spectrum Platform — live system processing 70K+ licence records.' },
-  { year: '2022–23', role: 'Spectrum Analyst', org: 'Spectrum Efficiency Ltd', color: 'default' as const, desc: 'Spectrum analytics, R modelling, and regulatory reporting for the SEFF platform.' },
-  { year: '2020–23', role: 'Data Analyst / BI Developer', org: 'New Zealand Government', color: 'default' as const, desc: 'Data engineering, Power BI, and analytics across NZ government agencies. Data governance and privacy compliance throughout.' },
+  { year: '2026', role: 'TheDataShrink™ — Founder', org: 'ABN registered · NZ & AU', color: 'sky' as const, desc: 'Solo consulting practice: RSM spectrum licensing, compliance, systems thinking, and data for NZ/AU telecom operators. AI-augmented delivery.' },
+  { year: '2023–26', role: 'Manager, BI & Data Warehousing', org: 'University of the Sunshine Coast', color: 'sky' as const, desc: 'Led team of 4 delivering enterprise data warehouse, Power BI, and ETL pipelines. Built the SEFF Spectrum Platform — live system processing 70K+ RSM licence records.' },
+  { year: '2022–23', role: 'Spectrum Analyst', org: 'Spectrum Efficiency Ltd', color: 'default' as const, desc: 'Spectrum analytics, R modelling, and regulatory reporting. Architect of the SEFF platform — now used for NZ licence intelligence.' },
+  { year: '2020–23', role: 'Principal Data Analyst → Lead Data Analyst → BI Developer', org: 'New Zealand Government', color: 'default' as const, desc: 'Progressed from BI developer to lead and then principal analyst. Data engineering, Power BI, and analytics across NZ government agencies. Data governance and privacy compliance throughout.' },
   { year: '2019–20', role: 'Senior Policy Analyst', org: 'MBIE Ministerial Services', color: 'default' as const, desc: 'Policy analysis and ministerial correspondence. Excellence award recipient.' },
   { year: '2017–19', role: 'Radio Engineer — ARE Audit Management', org: 'MBIE Radio Spectrum Management', color: 'amber' as const, desc: 'Managed the NZ ARE audit regime from inside the regulator. Compliance expectations, audit methodology, and enforcement — from the other side of the desk.' },
   { year: '2015–17', role: 'Spectrum Engineer — ARE & Licensing', org: 'Spark New Zealand', color: 'amber' as const, desc: '2.5 years zero-infringement record at NZ\'s largest telco. Spectrum licence management, frequency coordination, and regulatory compliance.' },

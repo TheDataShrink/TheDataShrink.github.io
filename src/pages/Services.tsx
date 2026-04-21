@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import ServiceCard from '@/components/ServiceCard'
 import TierCard from '@/components/TierCard'
+import QuantaPricing from '@/components/QuantaPricing'
 
 const sections = [
   { id: 'spectrum', label: '01 Spectrum', num: '01' },
@@ -97,14 +98,15 @@ export default function Services() {
   return (
     <>
       <section className="pt-[52px] pb-0 bg-[#04080f]">
-        <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="max-w-6xl mx-auto px-6 pt-16 pb-0">
           <div className="label mb-4">SERVICES & PRICING</div>
           <h1 className="font-display font-800 text-4xl text-slate-100 mb-3">
             Straightforward pricing. No surprises.
           </h1>
-          <p className="text-slate-500 font-body text-sm max-w-lg">
+          <p className="text-slate-500 font-body text-sm max-w-lg mb-12">
             Fixed-fee engagements wherever possible. Retainers are month-to-month. All prices NZD exclusive of GST.
           </p>
+          <QuantaPricing />
         </div>
       </section>
 
