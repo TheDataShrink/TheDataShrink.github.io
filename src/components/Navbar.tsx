@@ -11,7 +11,7 @@ const navLinks = [
 const serviceLinks = [
   { label: 'Spectrum & Radio', href: '/services#spectrum' },
   { label: 'Compliance & Governance', href: '/services#compliance' },
-  { label: 'Data & Analytics', href: '/services#data' },
+  { label: 'Systems Thinking', href: '/services#data' },
   { label: 'AI Automation', href: '/services#automation' },
   { label: 'Compliance Monitor', href: '/services#subscription' },
 ]

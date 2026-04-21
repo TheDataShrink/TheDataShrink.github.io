@@ -7,47 +7,50 @@ import TierCard from '@/components/TierCard'
 const sections = [
   { id: 'spectrum', label: '01 Spectrum', num: '01' },
   { id: 'compliance', label: '02 Compliance', num: '02' },
-  { id: 'data', label: '03 Data', num: '03' },
+  { id: 'data', label: '03 Systems', num: '03' },
   { id: 'automation', label: '04 Automation', num: '04' },
   { id: 'subscription', label: '05 Monitor', num: '05' },
 ]
 
 const spectrumServices = [
-  { title: 'FAC Certificates', who: 'Carriers · ISPs · Private networks', price: '$500–$2,000', description: 'Frequency Assignment Certificates prepared and submitted by an ACMA Accredited Person. Legally authorised sign-off — not just advice. Includes application preparation, ACMA liaison, and confirmation.' },
-  { title: 'IIC Certificates', who: 'Broadcasters · Major spectrum users', price: '$2,000–$5,000', description: 'Interference Impact Certificates for complex environments. Multi-party coordination, propagation modelling, and regulatory submission included.' },
-  { title: 'Spectrum Licence Audit', who: 'Operators with 10+ licences', price: '$2,500–$6,000 fixed', description: 'Full inventory of your spectrum holdings. Identify at-risk licences, expiry dates, and compliance gaps before ACMA does. Delivered as a prioritised action register.' },
-  { title: 'Spectrum Lifecycle Management', who: 'Ongoing spectrum users', price: '$1,500–$3,500/mo', description: 'Monthly retainer covering renewals, variation applications, monitoring, and proactive regulatory engagement. You focus on operations; we manage the licences.' },
-  { title: 'International Frequency Coordination', who: 'Satellite · Border region operators', price: '$3,000–$15,000', description: 'ITU coordination, MBIE/ACMA submission management, and cross-border frequency clearance for AU and NZ operations.' },
+  { title: 'ARE Endorsement Applications (NZ)', who: 'NZ spectrum users', price: '$500–$1,500', description: 'RSM licence endorsements prepared and submitted by NZ ARE #176. The NZ equivalent of ACMA AP sign-off — legally authorised by Radio Spectrum Management, MBIE.' },
+  { title: 'RSM Licence Management (NZ)', who: 'NZ operators with active licences', price: '$1,000–$3,000/mo', description: 'Monthly retainer covering RSM licence renewals, variations, expiry tracking, and proactive MBIE engagement. Built on the same system powering the SEFF Spectrum Platform.' },
+  { title: 'FAC Certificates (AU)', who: 'Carriers · ISPs · Private networks', price: '$500–$2,000', description: 'Frequency Assignment Certificates prepared and submitted by an ACMA Accredited Person. Legally authorised sign-off — not just advice. Includes application preparation, ACMA liaison, and confirmation.' },
+  { title: 'IIC Certificates (AU)', who: 'Broadcasters · Major spectrum users', price: '$2,000–$5,000', description: 'Interference Impact Certificates for complex environments. Multi-party coordination, propagation modelling, and regulatory submission included.' },
+  { title: 'Spectrum Licence Audit', who: 'AU/NZ operators with 10+ licences', price: '$2,500–$6,000 fixed', description: 'Full inventory of your RSM and ACMA spectrum holdings. Identify at-risk licences, expiry dates, and compliance gaps before the regulator does. Delivered as a prioritised action register.' },
+  { title: 'International Frequency Coordination', who: 'Satellite · Border region operators', price: '$3,000–$15,000', description: 'ITU coordination, RSM/MBIE and ACMA submission management, and cross-border frequency clearance for AU and NZ operations.' },
   { title: 'RF Network Design & Optimisation', who: 'Network teams · Integrators', price: 'from $220/hr', description: 'Propagation modelling, interference analysis, frequency planning, and link budget reviews for fixed and mobile networks.' },
 ]
 
 const complianceServices = [
-  { title: 'ACMA Compliance Audit', who: 'Carriers · CSPs', price: '$3,500–$8,000', description: 'End-to-end review of your ACMA obligations: licence conditions, record-keeping, reporting, and TCP Code alignment. Delivered with a prioritised remediation roadmap.' },
+  { title: 'RSM Compliance Audit (NZ)', who: 'NZ Carriers · RSPs', price: '$3,000–$7,000', description: 'End-to-end review of your RSM obligations: licence conditions, record-keeping, and Radio Act compliance. Delivered with a prioritised remediation roadmap by a former MBIE auditor.' },
+  { title: 'ACMA Compliance Audit (AU)', who: 'AU Carriers · CSPs', price: '$3,500–$8,000', description: 'End-to-end review of your ACMA obligations: licence conditions, record-keeping, reporting, and TCP Code alignment. Delivered with a prioritised remediation roadmap.' },
   { title: 'TCP Code Review', who: 'RSPs · Resellers · MVNOs', price: '$2,500–$5,000', description: 'Gap analysis against the Telecommunications Consumer Protections Code. Includes remediation roadmap and board briefing.' },
   { title: 'Spam Act Review', who: 'Marketing-heavy operators', price: '$1,500–$3,000', description: 'Consent framework audit, unsubscribe mechanism testing, and policy documentation to ACMA standard.' },
   { title: 'Data Governance Framework', who: 'Growth-stage telcos', price: '$8,000–$25,000', description: 'Policies, standards, and data catalogue implementation. Microsoft Purview or open-source stack — your choice. Delivered in phases.' },
   { title: 'Privacy Act Assessment', who: 'Any data-holding operator', price: '$3,000–$7,000', description: 'APP compliance review, data flow mapping, and PIAs for new products. Ready for the Privacy Act 2024 reforms.' },
   { title: 'CDR Readiness Assessment', who: 'Telcos entering CDR regime', price: '$4,000–$10,000', description: 'Gap assessment against CDR Rules, data holder obligations, and phased implementation plan.' },
-  { title: 'Data Sovereignty Review', who: 'GovTech · Defence suppliers', price: '$5,000–$15,000', description: 'Identify data residency risks, cloud provider obligations, and sovereignty controls for AU/NZ government contracts.' },
-  { title: 'Fractional Compliance Officer', who: 'Operators without in-house compliance', price: '$2,500–$5,000/mo', description: 'Your named compliance officer on retainer. ACMA liaison, board reporting, and regulatory horizon scanning. Month-to-month.' },
+  { title: 'Fractional Compliance Officer', who: 'Operators without in-house compliance', price: '$2,500–$5,000/mo', description: 'Your named compliance officer on retainer. RSM and ACMA liaison, board reporting, and regulatory horizon scanning. Month-to-month.' },
 ]
 
 const dataServices = [
+  { title: 'Systems Thinking Engagement', who: 'Teams with complex data problems', price: 'from $3,500', description: 'Before building anything: map the system. Understand feedback loops, data flows, and where decisions actually get made. Delivered as a system map + intervention points report.' },
+  { title: 'Analytical Pattern Library (R)', who: 'Research · Analytics teams', price: 'from $220/hr', description: 'Extract reusable EDA, modelling, and communication patterns from your domain. Built on 70+ TidyTuesday episodes — the same methodology applied to your data.' },
+  { title: 'D3 + React Interactive Viz', who: 'Teams publishing data publicly', price: 'from $3,000', description: 'Custom interactive data visualisations built with D3.js and React. SVG, scales, tooltips, geo, force-directed graphs. From the same training platform used to teach 300+ analysts.' },
   { title: 'Data Warehouse Build', who: 'Operators scaling data', price: 'from $8,000', description: 'Modern lakehouse on DuckDB, Snowflake, or Databricks. Bronze/silver/gold architecture with full lineage and automated testing.' },
   { title: 'ETL / ELT Pipelines', who: 'Data engineering teams', price: 'from $220/hr', description: 'Python/R data pipelines with incremental load, error handling, and monitoring. OSS-first, cloud-optional.' },
   { title: 'Power BI Dashboards', who: 'Operations · Management', price: '$2,500–$8,000', description: 'Executive and operational dashboards. DAX modelling, row-level security, and embedded reporting.' },
   { title: 'R & Python Analytics', who: 'Research · Regulatory teams', price: 'from $220/hr', description: 'Statistical modelling, forecasting, geospatial analysis, and automated reporting. 12+ years deep expertise.' },
-  { title: 'Microsoft Purview', who: 'M365 operators', price: '$3,000–$10,000', description: 'Data catalogue, sensitivity labels, DLP policies, and audit trails for regulated data assets.' },
-  { title: 'R Training', who: 'Analyst teams', price: '$1,500/day', description: 'Custom R workshops: data wrangling (tidyverse), visualisation (ggplot2), and reporting (R Markdown/Quarto). Half-day or multi-day.' },
+  { title: 'R Training (TidyTuesday Method)', who: 'Analyst teams', price: '$1,500/day', description: 'Custom R workshops using real datasets and EDA-first workflows: tidyverse, ggplot2, R Markdown/Quarto. Learn by building, not by slides.' },
 ]
 
 const automationServices = [
   { title: 'Starter Automation Retainer', who: 'Single process', price: '$100–$150/mo', description: 'One automation deployed and running. Ideal for a single repetitive process: weekly reports, meeting summaries, or invoice extraction. Includes monthly maintenance.' },
   { title: 'Growth Automation Retainer', who: '3 automations', price: '$200/mo', description: 'Three automations plus AI-augmented analysis. The most popular entry point for compliance-heavy operators. Includes fortnightly check-in and one new automation per quarter.' },
   { title: 'Full Stack Retainer', who: 'Unlimited automations', price: '$400/mo', description: 'Full automation stack: reporting, comms, compliance, and document processing. Custom AI workflow design, weekly optimisation review, and same-day support.' },
-  { title: 'Weekly Compliance Report', who: 'Pre-built · 3-day setup', price: 'incl. Growth+', description: 'Input: ACMA feed + licence DB. Output: PDF email to stakeholders. Saves 3hr/week.' },
+  { title: 'Weekly Compliance Report', who: 'Pre-built · 3-day setup', price: 'incl. Growth+', description: 'Input: RSM/ACMA feed + licence DB. Output: PDF email to stakeholders. Saves 3hr/week.' },
   { title: 'Meeting Notes & Actions', who: 'Pre-built · 3-day setup', price: 'incl. Growth+', description: 'Input: Audio recording / transcript. Output: Structured Markdown + action items. Saves 1hr/meeting.' },
-  { title: 'Regulatory Digest', who: 'Pre-built · 3-day setup', price: 'incl. Growth+', description: 'Input: ACMA · MBIE · OAIC feeds. Output: Prioritised briefing with impact flags. Saves 4hr/week.' },
+  { title: 'Regulatory Digest', who: 'Pre-built · 3-day setup', price: 'incl. Growth+', description: 'Input: RSM · ACMA · MBIE · OAIC feeds. Output: Prioritised briefing with impact flags. Saves 4hr/week.' },
 ]
 
 const monitorTiers = [
@@ -55,7 +58,7 @@ const monitorTiers = [
     name: 'Starter',
     price: '$500',
     description: 'Core regulatory monitoring for small operators.',
-    features: ['Weekly ACMA regulatory digest', 'TCP Code obligation tracker', 'Spam Act & Privacy Act alerts', 'Monthly compliance briefing (1hr)', 'Email support — 48hr SLA'],
+    features: ['Weekly RSM & ACMA regulatory digest', 'TCP Code obligation tracker', 'Spam Act & Privacy Act alerts', 'Monthly compliance briefing (1hr)', 'Email support — 48hr SLA'],
     cta: 'Start free trial',
     href: '/contact',
   },
@@ -63,7 +66,7 @@ const monitorTiers = [
     name: 'Growth',
     price: '$1,500',
     description: 'Full compliance + spectrum for active licence holders.',
-    features: ['Everything in Starter', 'Spectrum licence expiry alerts', 'ACMA enforcement monitoring', 'CDR & data sovereignty updates', 'Fortnightly strategy call (1hr)', 'Priority support — 24hr SLA'],
+    features: ['Everything in Starter', 'Spectrum licence expiry alerts', 'RSM & ACMA enforcement monitoring', 'CDR & data sovereignty updates', 'Fortnightly strategy call (1hr)', 'Priority support — 24hr SLA'],
     cta: 'Start free trial',
     href: '/contact',
     featured: true,
@@ -72,7 +75,7 @@ const monitorTiers = [
     name: 'Compliance Pro',
     price: '$3,500',
     description: 'Fractional compliance officer. Named cover.',
-    features: ['Everything in Growth', 'Named compliance officer', 'Unlimited regulatory queries', 'Draft ACMA responses', 'Quarterly board report', 'Emergency escalation — same-day'],
+    features: ['Everything in Growth', 'Named compliance officer', 'Unlimited regulatory queries', 'Draft RSM & ACMA responses', 'Quarterly board report', 'Emergency escalation — same-day'],
     cta: 'Book a call',
     href: '/contact',
   },
@@ -134,7 +137,7 @@ export default function Services() {
             <span className="font-mono font-600 text-[4rem] text-sky-500/10 leading-none select-none">01</span>
             <div>
               <div className="label mb-1">SPECTRUM & RADIO</div>
-              <h2 className="font-display font-700 text-2xl text-slate-100">Spectrum Licensing</h2>
+              <h2 className="font-display font-700 text-2xl text-slate-100">Spectrum Licensing — RSM & ACMA</h2>
             </div>
           </div>
           <div style={{ border: '1px solid rgba(14,165,233,0.08)', borderRadius: '3px' }}>
@@ -172,13 +175,13 @@ export default function Services() {
           </div>
         </section>
 
-        {/* 03 Data */}
+        {/* 03 Systems Thinking */}
         <section id="data" className="scroll-mt-24">
           <div className="flex items-baseline gap-4 mb-8">
             <span className="font-mono font-600 text-[4rem] text-sky-500/10 leading-none select-none">03</span>
             <div>
-              <div className="label mb-1">DATA & ANALYTICS</div>
-              <h2 className="font-display font-700 text-2xl text-slate-100">Data & Analytics</h2>
+              <div className="label mb-1">SYSTEMS THINKING</div>
+              <h2 className="font-display font-700 text-2xl text-slate-100">Systems Thinking & Data</h2>
             </div>
           </div>
           <div style={{ border: '1px solid rgba(14,165,233,0.08)', borderRadius: '3px' }}>

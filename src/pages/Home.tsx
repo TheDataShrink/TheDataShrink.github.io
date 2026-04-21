@@ -13,7 +13,7 @@ const pillars = [
     icon: <Radio className="w-4 h-4" />,
     tag: 'SPECTRUM & RADIO',
     title: 'Spectrum Licensing',
-    desc: 'ACMA Accredited Person legally authorised to certify FAC and IIC applications. Licence management, audits, RF design.',
+    desc: 'NZ ARE #176 and ACMA Accredited Person. RSM licence management, ARE endorsements, FAC/IIC certificates, RF design.',
     price: 'from $500',
     href: '/services#spectrum',
   },
@@ -21,15 +21,15 @@ const pillars = [
     icon: <Shield className="w-4 h-4" />,
     tag: 'COMPLIANCE',
     title: 'Regulatory Compliance',
-    desc: 'ACMA, TCP Code, Spam Act, Privacy Act, CDR obligations. Fractional compliance officer cover from $2,500/month.',
+    desc: 'RSM, ACMA, TCP Code, Spam Act, Privacy Act, CDR obligations. Fractional compliance officer cover from $2,500/month.',
     price: 'from $1,500',
     href: '/services#compliance',
   },
   {
     icon: <BarChart3 className="w-4 h-4" />,
-    tag: 'DATA & AI',
-    title: 'Data & Automation',
-    desc: 'Warehouses, ETL pipelines, Power BI, R/Python analytics. AI automation retainers from $100/month.',
+    tag: 'SYSTEMS THINKING',
+    title: 'Systems Thinking & Data',
+    desc: 'EDA patterns, interactive viz (D3 + React), R/Python pipelines, Power BI. Build systems that compound — not one-off reports.',
     price: 'from $100',
     href: '/services#data',
   },
@@ -41,7 +41,7 @@ const tiers = [
     price: '$500',
     description: 'Core regulatory monitoring for small operators.',
     features: [
-      'Weekly ACMA regulatory digest',
+      'Weekly RSM & ACMA regulatory digest',
       'TCP Code obligation tracker',
       'Spam Act & Privacy Act alerts',
       'Monthly compliance briefing (1hr)',
@@ -57,7 +57,7 @@ const tiers = [
     features: [
       'Everything in Starter',
       'Spectrum licence expiry alerts',
-      'ACMA enforcement monitoring',
+      'RSM & ACMA enforcement monitoring',
       'CDR & data sovereignty updates',
       'Fortnightly strategy call (1hr)',
       'Priority support — 24hr SLA',
@@ -74,7 +74,7 @@ const tiers = [
       'Everything in Growth',
       'Named compliance officer',
       'Unlimited regulatory queries',
-      'Draft ACMA responses',
+      'Draft RSM & ACMA responses',
       'Quarterly board report',
       'Emergency escalation — same-day',
     ],
@@ -84,13 +84,14 @@ const tiers = [
 ]
 
 const credentials = [
-  'ACMA Accredited Person',
   'NZ ARE #176',
+  'MBIE RSM',
+  'ACMA Accredited Person',
   '20 Years RF & Data',
-  'UniSC BI Manager',
+  'Systems Thinking',
   'SEFF Spectrum Platform',
-  'MBIE Radio Spectrum Mgmt',
-  'Spark NZ Spectrum',
+  'D3 + React Training',
+  'TidyTuesday Analytics',
   'AU · NZ · Pacific',
 ]
 
@@ -104,14 +105,14 @@ export default function Home() {
             {/* Left */}
             <div className="animate-in">
               <p className="label mb-6">
-                ACMA ACCREDITED PERSON &nbsp;·&nbsp; NZ ARE #176 &nbsp;·&nbsp; 20 YEARS RF &amp; DATA
+                NZ ARE #176 &nbsp;·&nbsp; MBIE RSM &nbsp;·&nbsp; ACMA ACCREDITED PERSON &nbsp;·&nbsp; 20 YEARS RF &amp; DATA
               </p>
               <h1 className="font-display font-800 text-4xl md:text-5xl lg:text-[3.25rem] text-slate-100 leading-[1.1] mb-6">
-                Spectrum compliance and data automation for AU/NZ telecom operators.
+                Spectrum licensing, systems thinking, and data for AU/NZ operators.
               </h1>
               <p className="text-slate-400 font-body text-lg leading-relaxed mb-10 max-w-lg">
                 Expert regulatory coverage without the cost of a full-time compliance team.
-                Spectrum licences. Privacy Act. ACMA obligations.
+                RSM licences. ACMA obligations. Data systems that compound over time.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact" className="btn-primary">
@@ -132,31 +133,31 @@ export default function Home() {
                 <span className="ml-2 text-[0.65rem] text-slate-600 tracking-wider">COMPLIANCE-STATUS.sh</span>
               </div>
               <div className="p-5 space-y-1.5 text-[0.78rem] leading-relaxed">
-                <p className="text-sky-400">{'>'} ACMA COMPLIANCE STATUS</p>
+                <p className="text-sky-400">{'>'} RSM · ACMA SPECTRUM STATUS</p>
                 <p className="text-slate-600">{'─'.repeat(34)}</p>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">TCP Code</span>
-                  <span className="text-emerald-400">✓ COMPLIANT</span>
+                  <span className="text-slate-400">RSM Licences (NZ)</span>
+                  <span className="text-emerald-400">✓ 9 ACTIVE</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Spam Act</span>
-                  <span className="text-emerald-400">✓ COMPLIANT</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Privacy Act</span>
-                  <span className="text-amber-400">⚠ REVIEW DUE</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Spectrum Lic.</span>
+                  <span className="text-slate-400">ACMA Licences (AU)</span>
                   <span className="text-emerald-400">✓ 14 ACTIVE</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-400">ARE Certified</span>
                   <span className="text-emerald-400">✓ ARE #176</span>
                 </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-400">TCP Code</span>
+                  <span className="text-emerald-400">✓ COMPLIANT</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Privacy Act</span>
+                  <span className="text-amber-400">⚠ REVIEW DUE</span>
+                </div>
                 <p className="text-slate-600">{'─'.repeat(34)}</p>
                 <p className="text-slate-600 text-[0.72rem]">
-                  LAST SCAN: 2026-03-22 09:41 AEST{' '}
+                  LAST SCAN: 2026-04-21 09:41 NZST{' '}
                   <span className="cursor" />
                 </p>
               </div>
