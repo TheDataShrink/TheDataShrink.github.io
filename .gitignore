@@ -1,3 +1,10 @@
 node_modules
 dist
 .DS_Store
+
+# local tooling / artifacts (not for public repo)
+*.tsbuildinfo
+.agents/
+skills-lock.json
+ai_training.md
+AI Engineering.pdf

@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react'
 const navLinks = [
   { label: 'Services', href: '/services' },
   { label: 'Diagnostic', href: '/diagnostic' },
+  { label: 'Episodes', href: '/episodes' },
   { label: 'Community', href: '/community' },
   { label: 'Resources', href: '/resources' },
   { label: 'About', href: '/about' },
@@ -74,6 +75,10 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
+            <Link to="/episodes" onClick={() => setOpen(false)}
+              className="block py-2.5 text-sm text-slate-400 hover:text-slate-100 font-body border-b border-white/5 transition-colors">
+              Episodes
+            </Link>
             <Link to="/about" onClick={() => setOpen(false)}
               className="block py-2.5 text-sm text-slate-400 hover:text-slate-100 font-body border-b border-white/5 transition-colors">
               About

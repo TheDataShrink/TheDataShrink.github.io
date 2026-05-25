@@ -195,6 +195,81 @@
   .delay-2 { animation-delay: 0.2s; opacity: 0; }
   .delay-3 { animation-delay: 0.3s; opacity: 0; }
   .delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+  /* Episode prose — long-form reading rhythm */
+  .prose-episode { color: #cbd5e1; font-size: 1.0625rem; line-height: 1.75; }
+  .prose-episode h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; color: #f1f5f9;
+    font-size: 1.875rem; line-height: 1.2;
+    margin: 2.5rem 0 1rem;
+  }
+  .prose-episode h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; color: #f1f5f9;
+    font-size: 1.5rem; line-height: 1.25;
+    margin: 2.5rem 0 1rem; padding-top: 1.5rem;
+    border-top: 1px solid rgba(14,165,233,0.08);
+  }
+  .prose-episode h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600; color: #e2e8f0;
+    font-size: 1.2rem; line-height: 1.3;
+    margin: 2rem 0 0.75rem;
+  }
+  .prose-episode h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600; color: #cbd5e1;
+    font-size: 1rem;
+    margin: 1.5rem 0 0.5rem;
+  }
+  .prose-episode p { margin: 0 0 1.25rem; }
+  .prose-episode strong { color: #f1f5f9; font-weight: 600; }
+  .prose-episode em { color: #e2e8f0; }
+  .prose-episode a { color: #38bdf8; text-decoration: underline; text-decoration-color: rgba(56,189,248,0.3); text-underline-offset: 2px; }
+  .prose-episode a:hover { text-decoration-color: #38bdf8; }
+  .prose-episode ul, .prose-episode ol { margin: 0 0 1.25rem 1.5rem; }
+  .prose-episode ul { list-style: disc; }
+  .prose-episode ol { list-style: decimal; }
+  .prose-episode li { margin: 0.4rem 0; }
+  .prose-episode li > p { margin: 0; }
+  .prose-episode blockquote {
+    border-left: 2px solid rgba(14,165,233,0.5);
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    margin: 1.5rem 0;
+    color: #94a3b8;
+    font-style: italic;
+  }
+  .prose-episode hr {
+    border: 0;
+    border-top: 1px solid rgba(14,165,233,0.12);
+    margin: 2.5rem 0;
+  }
+  .prose-episode code:not(pre code) {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    background: rgba(14,165,233,0.08);
+    color: #7dd3fc;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    border: 1px solid rgba(14,165,233,0.15);
+  }
+  .prose-episode pre { margin: 1.5rem 0; }
+  .prose-episode pre code {
+    font-family: 'JetBrains Mono', monospace;
+    background: transparent !important;
+    padding: 0 !important;
+    border: 0;
+  }
+  .prose-episode table {
+    width: 100%; border-collapse: collapse;
+    margin: 1.5rem 0; font-size: 0.95rem;
+  }
+  .prose-episode th, .prose-episode td {
+    border: 1px solid rgba(14,165,233,0.1);
+    padding: 0.5rem 0.75rem; text-align: left;
+  }
+  .prose-episode th { background: rgba(14,165,233,0.05); color: #f1f5f9; font-weight: 600; }
 }
 
 /* Cursor blink */
