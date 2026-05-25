@@ -117,6 +117,16 @@ date dimension, customer dimension, or organisational hierarchy).
 
 ---
 
+### The Reflection
+
+The packaged flagship offer: a fixed-scope, sovereign diagnostic and capability
+uplift that delivers a plain-English map of a customer's Power BI estate
+(produced inside their boundary) plus enablement to maintain it. The
+commercial expression of the "reflection before optimisation" wedge. See
+[docs/product/the-reflection.md](docs/product/the-reflection.md).
+
+---
+
 ## Strategic Positioning
 
 Microsoft provides:

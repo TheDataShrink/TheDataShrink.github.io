@@ -13,6 +13,11 @@ Lead with architecture reflection, not optimisation. Earn trust by
 demonstrating understanding before introducing critique. See
 [ADR 0002](../adr/0002-reflection-before-optimisation.md).
 
+The packaged offer is **The Reflection** — a fixed-scope sovereign diagnostic
+and capability uplift. See [the product definition](../product/the-reflection.md),
+the [delivery workflow](../services/discovery-workflow.md), and the
+[pitch rehearsal](../product/pitch-rehearsal.md).
+
 Scope:
 
 - PBIP metadata ingestion (metadata only — no data) — [req 001](../requirements/001-pbip-integration.md)
@@ -68,7 +73,9 @@ build toward it; listed here so scope stays visible rather than sprawling.
 | Agent skill standard | `docs/agents/skill-standard.md` | V2 |
 | Multi-agent orchestration | `docs/agents/orchestration-engine.md` | V3 |
 | Architecture health scoring | `docs/scoring/architecture-health-model.md` | V2 |
-| Discovery-as-a-Service workflow | `docs/services/discovery-workflow.md` | V1 |
+| ~~Discovery-as-a-Service workflow~~ ✅ | `docs/services/discovery-workflow.md` | V1 |
+| ~~The Reflection product definition~~ ✅ | `docs/product/the-reflection.md` | V1 |
+| ~~Pitch rehearsal script~~ ✅ | `docs/product/pitch-rehearsal.md` | V1 |
 | Enablement / training framework | `docs/training/enablement-framework.md` | V3 |
 | Sovereign AI architecture | `docs/deployment/sovereign-ai.md` | V1 |
 | Synthetic data safety policy | `docs/security/synthetic-data-policy.md` | V1 |
