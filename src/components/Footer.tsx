@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import { Mail, Linkedin, Twitter } from 'lucide-react'
 
 const serviceLinks = [
-  ['Spectrum & Radio', '/services#spectrum'],
-  ['Compliance & Governance', '/services#compliance'],
-  ['Systems Thinking', '/services#data'],
-  ['AI Automation', '/services#automation'],
-  ['Compliance Monitor', '/services#subscription'],
+  ['The Platform', '/platform'],
+  ['Discovery Scan', '/diagnostic'],
+  ['Spectrum & RSM', '/spectrum#spectrum'],
+  ['Compliance & Governance', '/spectrum#compliance'],
+  ['Systems Thinking', '/spectrum#data'],
 ]
 
 const contactLinks = [
@@ -28,8 +28,8 @@ export default function Footer() {
               <span className="font-display font-700 text-sm text-slate-200">TheDataShrink<span className="text-slate-600 font-400">™</span></span>
             </div>
             <p className="text-sm text-slate-600 font-body leading-relaxed max-w-xs mb-5">
-              Spectrum · Compliance · Systems Thinking · AI Automation<br />
-              for NZ telecom operators.
+              Sovereign, agent-driven Power BI optimisation.<br />
+              Spectrum, RSM &amp; data consulting in the background.
             </p>
             <div className="flex gap-3">
               <a href="https://www.linkedin.com/in/stoianandreimircea/" target="_blank" rel="noreferrer"
@@ -49,7 +49,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <div className="label mb-4">Services</div>
+            <div className="label mb-4">Explore</div>
             <ul className="space-y-2">
               {serviceLinks.map(([label, href]) => (
                 <li key={href}>

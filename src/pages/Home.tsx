@@ -1,97 +1,30 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Radio, Shield, BarChart3 } from 'lucide-react'
-import TierCard from '@/components/TierCard'
+import { ArrowRight, GitBranch, Gauge, ShieldCheck, Sparkles } from 'lucide-react'
 
-const penalties = [
-  { amount: '$12,000,420', company: 'Optus', reason: 'Triple-0 network outage — emergency call failure' },
-  { amount: '$7,500,000', company: 'CBA', reason: 'Spam Act — 65 million unsolicited messages' },
-  { amount: '$3,004,800', company: 'Telstra', reason: 'TCP Code — misleading vulnerable consumers' },
+const debts = [
+  { metric: 'semantic drift', detail: 'the same business term, three different definitions across reports' },
+  { metric: 'duplicated logic', detail: 'measures and transformations rebuilt instead of reused' },
+  { metric: 'raw-layer querying', detail: 'reports hitting source tables with no governed model between' },
+  { metric: 'shadow IT', detail: 'spreadsheets and manual steps holding the estate together' },
 ]
 
-const pillars = [
-  {
-    icon: <Radio className="w-4 h-4" />,
-    tag: 'SPECTRUM & RADIO',
-    title: 'Spectrum Licensing',
-    desc: 'NZ ARE #176. RSM licence management, ARE endorsements, frequency coordination, RF network design.',
-    price: 'from $500',
-    href: '/services#spectrum',
-  },
-  {
-    icon: <Shield className="w-4 h-4" />,
-    tag: 'COMPLIANCE',
-    title: 'Regulatory Compliance',
-    desc: 'RSM, Telecommunications Act, Privacy Act, Spam Act obligations. Fractional compliance officer from $2,500/month.',
-    price: 'from $1,500',
-    href: '/services#compliance',
-  },
-  {
-    icon: <BarChart3 className="w-4 h-4" />,
-    tag: 'SYSTEMS THINKING',
-    title: 'Systems Thinking & Data',
-    desc: 'Enterprise architecture, cloud data platforms (Azure Synapse, Databricks, Snowflake), EDA patterns, D3 + React viz.',
-    price: 'from $150/hr',
-    href: '/services#data',
-  },
-]
-
-const tiers = [
-  {
-    name: 'Starter',
-    price: '$500',
-    description: 'Core regulatory monitoring for small operators.',
-    features: [
-      'Weekly RSM regulatory digest',
-      'Telecommunications Act obligation tracker',
-      'Privacy Act & Spam Act alerts',
-      'Monthly compliance briefing (1hr)',
-      'Email support — 48hr SLA',
-    ],
-    cta: 'Start free trial',
-    href: '/contact',
-  },
-  {
-    name: 'Growth',
-    price: '$1,500',
-    description: 'Full compliance + spectrum monitoring for active licence holders.',
-    features: [
-      'Everything in Starter',
-      'Spectrum licence expiry alerts',
-      'RSM enforcement monitoring',
-      'Data sovereignty updates',
-      'Fortnightly strategy call (1hr)',
-      'Priority support — 24hr SLA',
-    ],
-    cta: 'Start free trial',
-    href: '/contact',
-    featured: true,
-  },
-  {
-    name: 'Compliance Pro',
-    price: '$3,500',
-    description: 'Fractional compliance officer. Named cover. Full regulatory posture.',
-    features: [
-      'Everything in Growth',
-      'Named compliance officer',
-      'Unlimited regulatory queries',
-      'Draft RSM responses',
-      'Quarterly board report',
-      'Emergency escalation — same-day',
-    ],
-    cta: 'Book a call',
-    href: '/contact',
-  },
+const agents = [
+  { icon: <GitBranch className="w-4 h-4" />, name: 'Lineage', desc: 'report → source, every dependency' },
+  { icon: <Gauge className="w-4 h-4" />, name: 'Performance', desc: 'heavy models, bad DAX, wasted cardinality' },
+  { icon: <ShieldCheck className="w-4 h-4" />, name: 'Governance', desc: 'shadow IT, drift, ungoverned transforms' },
+  { icon: <Sparkles className="w-4 h-4" />, name: 'Optimisation', desc: 'SQL views, aggregates, curated assets' },
 ]
 
 const credentials = [
-  'NZ ARE #176',
-  'MBIE RSM',
-  'Enterprise Architect',
-  '20 Years RF & Data',
-  'Systems Thinking',
-  'SEFF Spectrum Platform',
-  'D3 + React Training',
-  'TidyTuesday Analytics',
+  'Agentic Power BI',
+  'PBIP · TMDL',
+  'Sovereign AI',
+  'Knowledge Graphs',
+  'Semantic Modelling',
+  'Microsoft Fabric',
+  'DAX Optimisation',
+  'Medallion Architecture',
+  'Human-in-the-Loop',
   'NZ · Pacific',
 ]
 
@@ -105,21 +38,26 @@ export default function Home() {
             {/* Left */}
             <div className="animate-in">
               <p className="label mb-6">
-                NZ ARE #176 &nbsp;·&nbsp; MBIE RSM &nbsp;·&nbsp; ENTERPRISE ARCHITECT &nbsp;·&nbsp; 20 YEARS RF &amp; DATA
+                AGENT-DRIVEN POWER BI OPTIMISATION &nbsp;·&nbsp; SOVEREIGN &nbsp;·&nbsp; HUMAN-GOVERNED
               </p>
               <h1 className="font-display font-800 text-4xl md:text-5xl lg:text-[3.25rem] text-slate-100 leading-[1.1] mb-6">
-                Spectrum licensing, systems thinking, and data for NZ operators.
+                Your dashboards are telling you where the architecture is broken.
               </h1>
-              <p className="text-slate-400 font-body text-lg leading-relaxed mb-10 max-w-lg">
-                Expert regulatory coverage without the cost of a full-time team.
-                RSM licences. Privacy Act. Data systems that compound over time.
+              <p className="text-slate-400 font-body text-lg leading-relaxed mb-6 max-w-lg">
+                The Data Shrink is a sovereign agent system that reads your Power BI estate —
+                reports, semantic models, lineage, queries — and finds the technical debt
+                upstream. It recommends the fix. You approve it.
+              </p>
+              <p className="text-slate-500 font-body text-sm leading-relaxed mb-10 max-w-lg">
+                Runs inside your firewall. Zero data leakage. Nothing reaches production
+                without human review.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link to="/contact" className="btn-primary">
-                  Book a free call <ArrowRight className="w-4 h-4" />
+                <Link to="/platform" className="btn-primary">
+                  Explore the platform <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link to="/services" className="btn-ghost">
-                  View services <ArrowRight className="w-3.5 h-3.5" />
+                <Link to="/diagnostic" className="btn-ghost">
+                  Run a discovery scan <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
@@ -130,34 +68,38 @@ export default function Home() {
                 <div className="terminal-dot bg-red-500/70" />
                 <div className="terminal-dot bg-amber-500/70" />
                 <div className="terminal-dot bg-emerald-500/70" />
-                <span className="ml-2 text-[0.65rem] text-slate-600 tracking-wider">RSM-STATUS.sh</span>
+                <span className="ml-2 text-[0.65rem] text-slate-600 tracking-wider">discovery-scan.sh</span>
               </div>
               <div className="p-5 space-y-1.5 text-[0.78rem] leading-relaxed">
-                <p className="text-sky-400">{'>'} RSM SPECTRUM STATUS</p>
+                <p className="text-sky-400">{'>'} SCANNING PBIP ESTATE</p>
                 <p className="text-slate-600">{'─'.repeat(34)}</p>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">RSM Licences</span>
-                  <span className="text-emerald-400">✓ 9 ACTIVE</span>
+                  <span className="text-slate-400">Reports parsed</span>
+                  <span className="text-emerald-400">✓ 142</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">ARE Certified</span>
-                  <span className="text-emerald-400">✓ ARE #176</span>
+                  <span className="text-slate-400">Semantic models</span>
+                  <span className="text-emerald-400">✓ 28</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Telecom Act</span>
-                  <span className="text-emerald-400">✓ COMPLIANT</span>
+                  <span className="text-slate-400">Duplicate measures</span>
+                  <span className="text-amber-400">⚠ 61 found</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Privacy Act NZ</span>
-                  <span className="text-emerald-400">✓ COMPLIANT</span>
+                  <span className="text-slate-400">DirectQuery misuse</span>
+                  <span className="text-amber-400">⚠ 9 models</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Data Platform</span>
-                  <span className="text-emerald-400">✓ OPERATIONAL</span>
+                  <span className="text-slate-400">Lineage gaps</span>
+                  <span className="text-amber-400">⚠ 17 fragile</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Data egress</span>
+                  <span className="text-emerald-400">✓ 0 bytes</span>
                 </div>
                 <p className="text-slate-600">{'─'.repeat(34)}</p>
                 <p className="text-slate-600 text-[0.72rem]">
-                  LAST SCAN: 2026-04-21 09:41 NZST{' '}
+                  RUNNING LOCAL · SOVEREIGN MODE{' '}
                   <span className="cursor" />
                 </p>
               </div>
@@ -166,73 +108,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Penalties */}
+      {/* The debt */}
       <section className="py-24 bg-[#04080f]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="rule mb-12" />
-          <div className="label mb-10">ENFORCEMENT REALITY — 2024</div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
-            {penalties.map((p) => (
-              <div key={p.company}>
-                <div className="font-mono font-700 text-4xl text-amber-400 mb-2 tracking-tight">{p.amount}</div>
-                <div className="text-sm font-display font-600 text-slate-300 mb-1">{p.company}</div>
-                <p className="text-sm text-slate-600 font-body leading-relaxed">{p.reason}</p>
+          <div className="label mb-3">WHAT WE FIND</div>
+          <h2 className="font-display font-800 text-3xl text-slate-100 mb-2 max-w-2xl">
+            The dashboard is rarely the problem.
+          </h2>
+          <p className="text-slate-500 font-body text-sm mb-12 max-w-xl">
+            Power BI is the customer-facing truth layer — it exposes the inefficiencies that
+            originate upstream, in poorly structured data assets.
+          </p>
+          <div style={{ borderTop: '1px solid rgba(14,165,233,0.07)' }}>
+            {debts.map((d) => (
+              <div
+                key={d.metric}
+                className="flex items-baseline gap-6 py-5"
+                style={{ borderBottom: '1px solid rgba(14,165,233,0.07)' }}
+              >
+                <span className="font-mono text-sm text-amber-400 w-44 flex-shrink-0">{d.metric}</span>
+                <p className="text-sm text-slate-500 font-body">{d.detail}</p>
               </div>
             ))}
           </div>
-          <p className="text-xs font-mono text-slate-700">Source: Enforcement registers 2024 · Figures are AUD</p>
         </div>
       </section>
 
-      {/* Service pillars */}
+      {/* Agents preview */}
       <section className="py-24 bg-grid">
         <div className="max-w-6xl mx-auto px-6">
           <div className="rule mb-12" />
-          <div className="label mb-10">WHAT WE DO</div>
-          <div style={{ borderTop: '1px solid rgba(14,165,233,0.07)' }}>
-            {pillars.map((p) => (
-              <Link
-                key={p.title}
-                to={p.href}
-                className="flex items-center gap-6 py-5 group transition-colors hover:bg-sky-500/5"
-                style={{ borderBottom: '1px solid rgba(14,165,233,0.07)' }}
-              >
-                <div className="w-8 h-8 rounded-sm bg-sky-500/10 border border-sky-500/15 flex items-center justify-center text-sky-500 flex-shrink-0">
-                  {p.icon}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-baseline gap-3 mb-1">
-                    <span className="font-display font-700 text-slate-200 group-hover:text-slate-100 transition-colors">
-                      {p.title}
-                    </span>
-                    <span className="label text-[0.6rem] hidden sm:block">{p.tag}</span>
-                  </div>
-                  <p className="text-sm text-slate-600 font-body">{p.desc}</p>
-                </div>
-                <div className="flex items-center gap-4 flex-shrink-0">
-                  <span className="data-value text-sm">{p.price}</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-700 group-hover:text-sky-500 group-hover:translate-x-1 transition-all" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="py-24 bg-[#04080f]">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="rule mb-12" />
-          <div className="label mb-3">COMPLIANCE MONITOR</div>
+          <div className="label mb-3">THE AGENTS</div>
           <h2 className="font-display font-800 text-3xl text-slate-100 mb-2">
-            Always-on regulatory intelligence.
+            Specialists that share one knowledge graph.
           </h2>
-          <p className="text-slate-500 font-body text-sm mb-10">30-day free trial. Cancel any time. No lock-in.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {tiers.map((t) => (
-              <TierCard key={t.name} {...t} />
+          <p className="text-slate-500 font-body text-sm mb-10 max-w-xl">
+            Each reads the same map of your estate. Six in all — here are four.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+            {agents.map((a) => (
+              <div key={a.name} className="card rounded-sm p-5">
+                <div className="w-8 h-8 rounded-sm bg-sky-500/10 border border-sky-500/15 flex items-center justify-center text-sky-400 mb-4">
+                  {a.icon}
+                </div>
+                <h3 className="font-display font-700 text-slate-100 mb-1">{a.name} Agent</h3>
+                <p className="text-sm text-slate-500 font-body leading-relaxed">{a.desc}</p>
+              </div>
             ))}
           </div>
+          <Link to="/platform" className="btn-outline">
+            See all six + how it works <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </section>
 
@@ -251,15 +178,22 @@ export default function Home() {
       <section className="py-16 bg-[#04080f]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="rule mb-12" />
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-10">
             <div>
               <h2 className="font-display font-700 text-2xl text-slate-100 mb-1">Ready to talk?</h2>
-              <p className="text-slate-500 font-body text-sm">30 minutes. Free. No pitch. No obligation.</p>
+              <p className="text-slate-500 font-body text-sm">30 minutes. Free. No pitch. We&rsquo;ll scope a discovery scan.</p>
             </div>
             <Link to="/contact" className="btn-primary flex-shrink-0">
               Book a free discovery call <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+          <p className="text-xs text-slate-600 font-body">
+            Still need NZ spectrum, RSM licensing, or compliance? That&rsquo;s the{' '}
+            <Link to="/spectrum" className="text-sky-400 hover:text-sky-300 underline underline-offset-2">
+              regulatory consulting arm
+            </Link>{' '}
+            — quanta pricing and all.
+          </p>
         </div>
       </section>
     </>

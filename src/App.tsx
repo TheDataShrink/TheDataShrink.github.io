@@ -1,9 +1,10 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Home from '@/pages/Home'
-import Services from '@/pages/Services'
+import Platform from '@/pages/Platform'
+import Spectrum from '@/pages/Spectrum'
 import About from '@/pages/About'
 import Contact from '@/pages/Contact'
 import Diagnostic from '@/pages/Diagnostic'
@@ -26,7 +27,9 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/platform" element={<Platform />} />
+          <Route path="/spectrum" element={<Spectrum />} />
+          <Route path="/services" element={<Navigate to="/platform" replace />} />
           <Route path="/diagnostic" element={<Diagnostic />} />
           <Route path="/community" element={<Community />} />
           <Route path="/episodes" element={<Episodes />} />

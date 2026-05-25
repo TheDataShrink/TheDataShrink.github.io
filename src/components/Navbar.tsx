@@ -3,21 +3,22 @@ import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Services', href: '/services' },
+  { label: 'Platform', href: '/platform' },
   { label: 'Diagnostic', href: '/diagnostic' },
   { label: 'Episodes', href: '/episodes' },
   { label: 'Community', href: '/community' },
-  { label: 'Resources', href: '/resources' },
+  { label: 'Spectrum & RSM', href: '/spectrum' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
 
 const serviceLinks = [
-  { label: 'Spectrum & Radio', href: '/services#spectrum' },
-  { label: 'Compliance & Governance', href: '/services#compliance' },
-  { label: 'Systems Thinking', href: '/services#data' },
-  { label: 'AI Automation', href: '/services#automation' },
-  { label: 'Compliance Monitor', href: '/services#subscription' },
+  { label: 'The Platform', href: '/platform' },
+  { label: 'Discovery Scan', href: '/diagnostic' },
+  { label: 'Spectrum & RSM', href: '/spectrum#spectrum' },
+  { label: 'Compliance & Governance', href: '/spectrum#compliance' },
+  { label: 'Systems Thinking', href: '/spectrum#data' },
+  { label: 'Resources', href: '/resources' },
 ]
 
 export default function Navbar() {

@@ -203,7 +203,7 @@ export default function Community() {
                 The Data Shrink&trade; consulting practice &mdash; AU/NZ telecom operators, spectrum licensing, governance, BI &amp; data.
               </p>
             </div>
-            <Link to="/services" className="btn-outline flex-shrink-0">
+            <Link to="/spectrum" className="btn-outline flex-shrink-0">
               View consulting services <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>

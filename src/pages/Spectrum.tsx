@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ArrowLeft } from 'lucide-react'
 import ServiceCard from '@/components/ServiceCard'
 import TierCard from '@/components/TierCard'
 import QuantaPricing from '@/components/QuantaPricing'
@@ -80,7 +80,7 @@ const monitorTiers = [
   },
 ]
 
-export default function Services() {
+export default function Spectrum() {
   const [active, setActive] = useState('spectrum')
 
   useEffect(() => {
@@ -99,10 +99,18 @@ export default function Services() {
     <>
       <section className="pt-[52px] pb-0 bg-[#04080f]">
         <div className="max-w-6xl mx-auto px-6 pt-16 pb-0">
-          <div className="label mb-4">SERVICES & PRICING</div>
+          <Link to="/platform" className="nav-link inline-flex items-center gap-1.5 mb-6">
+            <ArrowLeft className="w-3.5 h-3.5" /> Back to the platform
+          </Link>
+          <div className="label mb-4">SPECTRUM · RSM · REGULATORY</div>
           <h1 className="font-display font-800 text-4xl text-slate-100 mb-3">
-            Straightforward pricing. No surprises.
+            The regulatory &amp; data consulting arm.
           </h1>
+          <p className="text-slate-500 font-body text-sm max-w-xl mb-4">
+            The other half of TheDataShrink: hands-on NZ spectrum, RSM licensing,
+            compliance, and data engineering — by a former MBIE auditor and NZ ARE&nbsp;#176.
+            The agent platform grew out of this work; this is where it still lives.
+          </p>
           <p className="text-slate-500 font-body text-sm max-w-lg mb-12">
             Fixed-fee engagements wherever possible. Retainers are month-to-month. All prices NZD exclusive of GST.
           </p>
