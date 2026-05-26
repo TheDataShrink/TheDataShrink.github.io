@@ -76,6 +76,11 @@ build toward it; listed here so scope stays visible rather than sprawling.
 | ~~Discovery-as-a-Service workflow~~ ✅ | `docs/services/discovery-workflow.md` | V1 |
 | ~~The Reflection product definition~~ ✅ | `docs/product/the-reflection.md` | V1 |
 | ~~Pitch rehearsal script~~ ✅ | `docs/product/pitch-rehearsal.md` | V1 |
+| ~~Product thesis (open method, paid engine)~~ ✅ | `docs/product/product-thesis.md` | V1 |
+| ~~Product ladder (Method → Reflection → Engine)~~ ✅ | `docs/product/product-ladder.md` | V1 |
+| ~~Modular visual intelligence~~ ✅ | `docs/concepts/modular-visual-intelligence.md` | V3 |
+| ~~Applied episode series plan~~ ✅ | `docs/product/applied-series.md` | V1 |
+| Custom visual library (build) | `docs/requirements/006-custom-visual-library.md` | V3 |
 | Enablement / training framework | `docs/training/enablement-framework.md` | V3 |
 | Sovereign AI architecture | `docs/deployment/sovereign-ai.md` | V1 |
 | Synthetic data safety policy | `docs/security/synthetic-data-policy.md` | V1 |

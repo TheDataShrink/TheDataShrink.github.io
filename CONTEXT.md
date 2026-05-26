@@ -127,6 +127,27 @@ commercial expression of the "reflection before optimisation" wedge. See
 
 ---
 
+### The Engine
+
+The recurring, compounding product: sovereign access to the continuously
+improving reflection/optimisation system plus the acceleration cadence. The
+"magic we keep" — operationalised, getting sharper across every estate. The
+method is open; the Engine is paid. See
+[docs/product/product-thesis.md](docs/product/product-thesis.md).
+
+---
+
+### Modular Visual Intelligence
+
+A customer-shaped library of custom Power BI visuals that consume the governed
+data layer and bake in standards, governance, and brand identity. Reports are
+*assembled* from these modules rather than hand-built, so identity and
+knowledge are guarded by construction. The team shifts from building singular
+reports to curating collective intelligence. See
+[docs/concepts/modular-visual-intelligence.md](docs/concepts/modular-visual-intelligence.md).
+
+---
+
 ## Strategic Positioning
 
 Microsoft provides:
