@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Governed KPI Card — the contract, live</title>
+<style>
+  body { font: 13px/1.5 ui-sans-serif, system-ui, sans-serif; background: #0b1220; color: #e2e8f0; margin: 0; padding: 18px; }
+  h1 { font-weight: 600; font-size: 1.15rem; margin: 0 0 2px; }
+  p.sub { color: #94a3b8; margin: 0 0 16px; font-size: 12px; }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+  .controls button { font: 12px ui-sans-serif, system-ui, sans-serif; background: #0f172a; color: #cbd5e1; border: 1px solid #1e293b; border-radius: 6px; padding: 7px 11px; cursor: pointer; }
+  .controls button:hover { border-color: #38bdf8; }
+  .controls button.active { background: #38bdf8; color: #0b1220; border-color: #38bdf8; font-weight: 600; }
+
+  /* the card visual itself */
+  .tds-kpi { width: 320px; min-height: 150px; background: #0f172a; border: 1px solid #1e293b; border-radius: 10px; padding: 22px; box-sizing: border-box; }
+  .tds-value { font-size: 2.6rem; font-weight: 700; color: #f1f5f9; font-variant-numeric: tabular-nums; line-height: 1; }
+  .tds-label { color: #94a3b8; margin-top: 6px; font-size: 13px; }
+  .tds-provenance { display: flex; align-items: center; gap: 6px; margin-top: 18px; font-size: 11px; color: #64748b; font-family: ui-monospace, monospace; }
+  .tds-dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 0 3px rgba(16,185,129,.15); }
+  .tds-warn-flag { display: inline-block; font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: .12em; color: #0b1220; background: #f59e0b; padding: 3px 7px; border-radius: 4px; font-weight: 700; }
+  .tds-warn-msg { margin-top: 12px; color: #e2e8f0; font-size: 13px; }
+  .tds-warn-msg code { color: #f59e0b; background: rgba(245,158,11,.1); padding: 1px 5px; border-radius: 3px; }
+  .tds-warn-hint { margin-top: 10px; color: #94a3b8; font-size: 12px; }
+  .tds-kpi.warn { border-color: rgba(245,158,11,.4); background: rgba(245,158,11,.05); }
+</style>
+</head>
+<body>
+<h1>Governed KPI Card — the contract, live</h1>
+<p class="sub">Same card, three inputs from the synthetic estate. Only a certified measure renders a number. Click to swap the bound measure.</p>
+<div class="controls" id="controls"></div>
+<div class="tds-kpi" id="card"></div>
+<script>
+// Three candidate bindings from the Awatea estate — same "Total Patients" intent.
+const MEASURES = [
+  { key:"flow", label:"Total Patients", value:48213, certified:true,  source:"Patient Flow Model.Total Patients" },
+  { key:"fin",  label:"Total Patients", value:51097, certified:false, source:"Finance Model.Total Patients" },
+  { key:"wf",   label:"Patient Count",  value:46880, certified:false, source:"Workforce Model.Patient Count" }
+];
+
+const card = document.getElementById("card");
+function esc(s){ return s.replace(/[&<>"]/g, c=>({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c])); }
+
+function render(m){
+  if (m.certified){
+    card.className = "tds-kpi";
+    card.innerHTML =
+      '<div class="tds-value">'+m.value.toLocaleString("en-NZ")+'</div>'+
+      '<div class="tds-label">'+esc(m.label)+'</div>'+
+      '<div class="tds-provenance"><span class="tds-dot"></span>'+esc(m.source)+'</div>';
+  } else {
+    card.className = "tds-kpi warn";
+    card.innerHTML =
+      '<div class="tds-warn-flag">UNGOVERNED SOURCE</div>'+
+      '<div class="tds-warn-msg"><b>'+esc(m.label)+'</b> is driven by <code>'+esc(m.source)+'</code>, which is not a certified semantic measure.</div>'+
+      '<div class="tds-warn-hint">Point this card at a certified measure, or certify the source model.</div>';
+  }
+}
+
+const controls = document.getElementById("controls");
+MEASURES.forEach((m,i)=>{
+  const b=document.createElement("button");
+  b.textContent = m.source + (m.certified ? "  ✓" : "  ⚠");
+  b.onclick = ()=>{ [...controls.children].forEach(c=>c.classList.remove("active")); b.classList.add("active"); render(m); };
+  if(i===0) b.classList.add("active");
+  controls.appendChild(b);
+});
+render(MEASURES[0]);
+</script>
+</body>
+</html>

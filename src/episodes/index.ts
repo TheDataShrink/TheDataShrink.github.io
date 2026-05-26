@@ -238,6 +238,30 @@ const POWERBI_EPISODES: EpisodeSeed[] = [
     readingMinutes: 16,
     source: 'requirements/003-lineage-agent.md · concepts/analytics-entropy.md',
   },
+  {
+    slug: 'what-good-looks-like-here',
+    number: 3,
+    title: 'What "good" looks like here',
+    hook: 'Turn everything the map and the blast radius made visible into this estate’s own definition of good — a capability baseline with a number to improve. This is what finally earns the word optimisation.',
+    date: '2026-05-26',
+    primaryLanguage: 'd3',
+    languages: ['d3', 'json'],
+    tags: ['analytics-entropy', 'baseline', 'governance'],
+    readingMinutes: 17,
+    source: 'concepts/analytics-entropy.md · the-reflection.md (Capability Baseline)',
+  },
+  {
+    slug: 'the-first-custom-visual',
+    number: 4,
+    title: 'The first custom visual',
+    hook: 'Stop hand-building reports. Build one custom visual as a contract on the gold layer — it refuses uncertified inputs and shows provenance by construction. The first brick of the library.',
+    date: '2026-05-26',
+    primaryLanguage: 'typescript',
+    languages: ['typescript', 'd3'],
+    tags: ['modular-visual-intelligence', 'custom-visual', 'governance'],
+    readingMinutes: 19,
+    source: 'concepts/modular-visual-intelligence.md',
+  },
 ]
 
 /** One catalog per series, each tagged with its series id. */
