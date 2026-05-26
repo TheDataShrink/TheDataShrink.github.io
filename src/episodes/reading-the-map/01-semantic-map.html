@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Awatea Regional Health — semantic topology</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+  body { font: 13px/1.5 ui-sans-serif, system-ui, sans-serif; background: #0b1220; color: #e2e8f0; margin: 0; padding: 18px; }
+  h1 { font-weight: 600; font-size: 1.15rem; margin: 0 0 2px; }
+  p.sub { color: #94a3b8; margin: 0 0 12px; font-size: 12px; }
+  svg { width: 100%; height: 520px; background: #0f172a; border-radius: 8px; display: block; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0 0; font-size: 12px; color: #cbd5e1; }
+  .legend div { display: flex; align-items: center; gap: 6px; }
+  .swatch { width: 12px; height: 12px; border-radius: 3px; }
+  .node text { fill: #e2e8f0; font-size: 11px; pointer-events: none; }
+  .node circle { cursor: grab; }
+  .link { stroke: #334155; stroke-width: 1.2; }
+  .link.shadow { stroke: #f59e0b; stroke-dasharray: 4 3; stroke-width: 1.6; }
+  .link.direct-queries { stroke: #ef4444; stroke-width: 1.8; }
+  #tip { position: fixed; pointer-events: none; background: #020617; border: 1px solid #1e293b; border-radius: 6px; padding: 8px 10px; font-size: 12px; max-width: 280px; color: #e2e8f0; opacity: 0; transition: opacity .1s; }
+  #tip b { color: #38bdf8; }
+</style>
+</head>
+<body>
+<h1>Awatea Regional Health — semantic topology</h1>
+<p class="sub">Reports → models → measures → sources → gateways, built from metadata only. Drag nodes. Amber = shadow IT; red = gold-layer bypass.</p>
+<svg id="g"></svg>
+<div class="legend"></div>
+<div id="tip"></div>
+<script>
+const DATA = {
+  nodes: [
+    { id: "rpt-exec", type: "report", name: "Executive Performance", certified: true },
+    { id: "rpt-ed", type: "report", name: "ED Wait Times", certified: true },
+    { id: "rpt-workforce", type: "report", name: "Workforce & Roster", certified: false },
+    { id: "rpt-finance", type: "report", name: "Finance Monthly", certified: false },
+    { id: "rpt-immun", type: "report", name: "Immunisation Coverage", certified: false },
+    { id: "model-flow", type: "model", name: "Patient Flow Model", info: "certified · 1.8 GB · 22 tables" },
+    { id: "model-finance", type: "model", name: "Finance Model", info: "not certified · 0.9 GB · 31 tables" },
+    { id: "model-workforce", type: "model", name: "Workforce Model", info: "not certified · 2.1 GB · 40 tables · 73 min refresh" },
+    { id: "model-immun", type: "model", name: "Immunisation (ad-hoc)", info: "not certified · 0.26 GB · 9 tables" },
+    { id: "m-tp-flow", type: "measure", name: "Total Patients", info: "DISTINCTCOUNT(Encounter[NHI])" },
+    { id: "m-tp-fin", type: "measure", name: "Total Patients", info: "COUNTROWS(Admissions)" },
+    { id: "m-tp-wf", type: "measure", name: "Patient Count", info: "SUM(Activity[PatientLoad])" },
+    { id: "src-edw", type: "source", name: "EDW (SQL Warehouse)" },
+    { id: "src-bedxlsx", type: "shadow", name: "Bed_Capacity_Manual.xlsx", info: "SharePoint · hand-maintained weekly" },
+    { id: "src-rostercsv", type: "shadow", name: "roster_export.csv", info: "shared drive · manual export" },
+    { id: "src-nir", type: "source", name: "NIR Immunisation Feed" },
+    { id: "gw-prod", type: "gateway", name: "GW-PROD-01" },
+    { id: "job-flow", type: "refresh", name: "Flow · 6am daily" },
+    { id: "job-finance", type: "refresh", name: "Finance · hourly" },
+    { id: "job-workforce", type: "refresh", name: "Workforce · 5am daily" }
+  ],
+  links: [
+    ["rpt-exec","model-flow"],["rpt-exec","model-finance"],["rpt-ed","model-flow"],
+    ["rpt-workforce","model-workforce"],["rpt-finance","model-finance"],["rpt-immun","model-immun"],
+    ["m-tp-flow","model-flow","defined-in"],["m-tp-fin","model-finance","defined-in"],["m-tp-wf","model-workforce","defined-in"],
+    ["model-flow","src-edw"],["model-finance","src-edw","direct-queries"],["model-workforce","src-edw"],
+    ["model-workforce","src-rostercsv","shadow"],["model-workforce","src-bedxlsx","shadow"],["model-finance","src-bedxlsx","shadow"],
+    ["model-immun","src-nir"],
+    ["src-edw","gw-prod"],["src-rostercsv","gw-prod"],["src-bedxlsx","gw-prod"],
+    ["model-flow","job-flow"],["model-finance","job-finance"],["model-workforce","job-workforce"]
+  ]
+};
+
+const COLOR = { report:"#38bdf8", model:"#a78bfa", measure:"#34d399", source:"#64748b", shadow:"#f59e0b", gateway:"#e2e8f0", refresh:"#475569" };
+const R = { report:11, model:13, measure:7, source:9, shadow:9, gateway:8, refresh:6 };
+
+const svg = d3.select("#g"), tip = d3.select("#tip");
+const W = svg.node().clientWidth, H = 520;
+const links = DATA.links.map(([s,t,rel]) => ({ source:s, target:t, rel: rel||"uses" }));
+const nodes = DATA.nodes;
+
+const sim = d3.forceSimulation(nodes)
+  .force("link", d3.forceLink(links).id(d=>d.id).distance(l => l.rel==="defined-in"?28:90).strength(0.6))
+  .force("charge", d3.forceManyBody().strength(-340))
+  .force("center", d3.forceCenter(W/2, H/2))
+  .force("collide", d3.forceCollide().radius(d=>R[d.type]+10));
+
+const link = svg.append("g").selectAll("line").data(links).join("line")
+  .attr("class", d => "link " + d.rel);
+
+const node = svg.append("g").selectAll("g").data(nodes).join("g").attr("class","node")
+  .call(d3.drag()
+    .on("start",(e,d)=>{ if(!e.active) sim.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+    .on("drag",(e,d)=>{ d.fx=e.x; d.fy=e.y; })
+    .on("end",(e,d)=>{ if(!e.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }));
+
+node.append("circle")
+  .attr("r", d=>R[d.type])
+  .attr("fill", d=>COLOR[d.type])
+  .attr("stroke", d=> d.certified ? "#10b981" : (d.type==="shadow"?"#f59e0b":"#0b1220"))
+  .attr("stroke-width", d=> d.certified ? 2.5 : 1.5);
+
+node.append("text").attr("x", d=>R[d.type]+4).attr("y", 4)
+  .text(d=> d.type==="measure" ? "" : d.name);
+
+node.on("mousemove", (e,d) => {
+  tip.style("opacity",1).style("left",(e.clientX+14)+"px").style("top",(e.clientY+14)+"px")
+    .html("<b>"+d.name+"</b><br>"+d.type+(d.info?("<br>"+d.info):""));
+}).on("mouseleave", ()=>tip.style("opacity",0));
+
+sim.on("tick", () => {
+  link.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+  node.attr("transform", d=>`translate(${d.x},${d.y})`);
+});
+
+const legend = d3.select(".legend");
+[["report","Report"],["model","Semantic model"],["measure","Measure (drift)"],["source","Source"],["shadow","Shadow IT"],["gateway","Gateway"],["refresh","Refresh job"]]
+  .forEach(([k,label]) => {
+    const d = legend.append("div");
+    d.append("span").attr("class","swatch").style("background",COLOR[k]);
+    d.append("span").text(label);
+  });
+legend.append("div").html('<span class="swatch" style="background:#10b981"></span><span>green ring = certified</span>');
+</script>
+</body>
+</html>

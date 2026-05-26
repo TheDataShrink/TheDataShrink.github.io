@@ -38,6 +38,8 @@ Unlike infrastructure observability, semantic observability focuses on:
 - report behaviour
 - governance maturity
 
+_Avoid_: "monitoring" (implies infra metrics), "BI auditing", "data observability" (the data-engineering category, not ours), "optimisation platform" (that's the outcome, not the practice).
+
 ---
 
 ### Shadow IT
@@ -108,6 +110,10 @@ The process of visualising and explaining an enterprise analytics ecosystem
 *before* attempting optimisation or governance analysis. Reflection precedes
 critique. Trust precedes optimisation.
 
+_Avoid_: "discovery scan", "audit", "assessment", "health check" — all imply
+judgement-first, which inverts the wedge. Reflection honours what they built
+before it critiques anything.
+
 ---
 
 ### Semantic Anchor
@@ -124,6 +130,9 @@ uplift that delivers a plain-English map of a customer's Power BI estate
 (produced inside their boundary) plus enablement to maintain it. The
 commercial expression of the "reflection before optimisation" wedge. See
 [docs/product/the-reflection.md](docs/product/the-reflection.md).
+
+_Avoid_: "discovery scan", "the diagnostic", "the report", "the audit" — The
+Reflection is the named, fixed-scope offer; lesser nouns dilute it.
 
 ---
 

@@ -14,9 +14,19 @@ export interface CodeFile {
   language: Language
 }
 
+/** A content track. Episodes belong to exactly one series. */
+export interface Series {
+  id: string                   // stable slug, e.g. 'building-an-agent'
+  title: string
+  tagline: string              // one line under the series title on the index
+  description: string          // longer blurb for the series header
+  order: number                // display order on the index (lower = first)
+}
+
 export interface EpisodeMeta {
   slug: string
   number: number
+  series: string               // Series.id this episode belongs to
   title: string
   hook: string                 // one-sentence summary for the index card
   date: string                 // ISO date

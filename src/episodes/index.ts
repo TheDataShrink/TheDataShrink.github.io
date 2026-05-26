@@ -7,7 +7,32 @@
  * folder, drop in prose.md and code, append one entry here.
  */
 
-import type { CodeFile, Episode, EpisodeMeta, Language } from './types'
+import type { CodeFile, Episode, EpisodeMeta, Language, Series } from './types'
+
+/** Content tracks. Order controls how they stack on the /episodes index. */
+export const SERIES: Series[] = [
+  {
+    id: 'reflecting-an-estate',
+    title: 'Reflecting a Real Power BI Estate',
+    tagline: 'The applied track — the Data Shrink method, end to end, on one estate.',
+    description:
+      'Take a Power BI estate and walk it through the whole method: reflection before optimisation. ' +
+      'Build the semantic map, surface the dependencies hiding in plain sight, define what good looks like ' +
+      'here, then assemble reports from a governed, branded visual library. Built on a synthetic estate so ' +
+      'nothing sensitive moves — the same synthetic-data start the engagement uses.',
+    order: 0,
+  },
+  {
+    id: 'building-an-agent',
+    title: 'Building an Agent from Scratch',
+    tagline: 'The foundations track — from one model call to a production-shaped agent.',
+    description:
+      'A father’s notes to his children on how they would build an AI agent from nothing. Twelve episodes ' +
+      'that go from a single language-model call to a working, evaluated, production-shaped agent. Each adds ' +
+      'one capability to the agent built in the previous one; the code accretes, nothing is thrown away.',
+    order: 1,
+  },
+]
 
 const PROSE = import.meta.glob('./*/prose.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>
 const CODE = import.meta.glob('./*/*.{py,sql,ts,js,R,r,html,json}', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>
@@ -24,7 +49,10 @@ function detectLanguage(filename: string): Language {
   return 'python'
 }
 
-const CATALOG: EpisodeMeta[] = [
+type EpisodeSeed = Omit<EpisodeMeta, 'series'>
+
+/** "Building an Agent from Scratch" — the foundations track. */
+const AGENT_EPISODES: EpisodeSeed[] = [
   {
     slug: '00-what-is-an-agent',
     number: 0,
@@ -172,6 +200,40 @@ const CATALOG: EpisodeMeta[] = [
   },
 ]
 
+/** "Reflecting a Real Power BI Estate" — the applied track. */
+const POWERBI_EPISODES: EpisodeSeed[] = [
+  {
+    slug: 'estate-as-we-found-it',
+    number: 0,
+    title: 'The estate as we found it',
+    hook: 'Reflection before optimisation. Open by honouring the real, evolved system — what they built, and why it looks the way it does — before a single recommendation.',
+    date: '2026-05-26',
+    primaryLanguage: 'd3',
+    languages: ['d3', 'json'],
+    tags: ['reflection', 'method', 'trust'],
+    readingMinutes: 14,
+    source: 'CONTEXT.md · concepts/architecture-reflection.md',
+  },
+  {
+    slug: 'reading-the-map',
+    number: 1,
+    title: 'Reading the map',
+    hook: 'Build the semantic topology of the real estate from metadata alone — reports → datasets → models → sources → gateways — and learn to read it out loud.',
+    date: '2026-05-26',
+    primaryLanguage: 'd3',
+    languages: ['d3', 'json'],
+    tags: ['reflection', 'semantic-observability', 'lineage'],
+    readingMinutes: 18,
+    source: 'skills/generate-architecture-visuals · concepts/semantic-observability.md',
+  },
+]
+
+/** One catalog per series, each tagged with its series id. */
+const CATALOG: EpisodeMeta[] = [
+  ...POWERBI_EPISODES.map((m) => ({ ...m, series: 'reflecting-an-estate' })),
+  ...AGENT_EPISODES.map((m) => ({ ...m, series: 'building-an-agent' })),
+]
+
 function loadCode(slug: string): CodeFile[] {
   const prefix = `./${slug}/`
   return Object.entries(CODE)
@@ -193,10 +255,24 @@ export const episodes: Episode[] = CATALOG.map((meta) => {
 export const episodeBySlug = (slug: string): Episode | undefined =>
   episodes.find((e) => e.slug === slug)
 
+/** Episodes in one series, in episode-number order. */
+export const episodesInSeries = (seriesId: string): Episode[] =>
+  episodes.filter((e) => e.series === seriesId).sort((a, b) => a.number - b.number)
+
+/** Series in display order, paired with their episodes. */
+export const seriesWithEpisodes = (): { series: Series; episodes: Episode[] }[] =>
+  [...SERIES]
+    .sort((a, b) => a.order - b.order)
+    .map((series) => ({ series, episodes: episodesInSeries(series.id) }))
+    .filter((s) => s.episodes.length > 0)
+
+/** Prev/next scoped to the episode's own series. */
 export const adjacentEpisodes = (slug: string): { prev?: Episode; next?: Episode } => {
-  const i = episodes.findIndex((e) => e.slug === slug)
-  if (i < 0) return {}
-  return { prev: episodes[i - 1], next: episodes[i + 1] }
+  const current = episodeBySlug(slug)
+  if (!current) return {}
+  const within = episodesInSeries(current.series)
+  const i = within.findIndex((e) => e.slug === slug)
+  return { prev: within[i - 1], next: within[i + 1] }
 }
 
-export type { Episode, EpisodeMeta, CodeFile, Language } from './types'
+export type { Episode, EpisodeMeta, CodeFile, Language, Series } from './types'

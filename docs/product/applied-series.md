@@ -69,5 +69,16 @@ With those, Episodes 0–2 can be built against the real estate immediately, and
 
 ## Status
 
-Plan only. No episode content generated yet — deliberately, so it is built on a
-real PBIP rather than invented. Episodes are scaffolded once the example lands.
+- **2026-05-26**: Built on a **synthetic estate** (Awatea Regional Health) rather
+  than waiting for a real PBIP — consistent with the synthetic-data start the
+  engagement itself uses. The estate is honest: semantic drift (three "Total
+  Patients" definitions), shadow IT (a load-bearing SharePoint Excel), and
+  gold-layer erosion (Finance direct-querying bronze). See
+  `src/episodes/estate-as-we-found-it/estate.json`.
+- **Episodes 0–1 written.** Ep 0 *The estate as we found it* (reflection,
+  prose only) and Ep 1 *Reading the map* (interactive D3 semantic topology over
+  the synthetic estate). Multi-series support added to the episode engine so this
+  track coexists with "Building an Agent from Scratch".
+- **Episodes 2–7 pending.** When an anonymised real PBIP lands, the estate-specific
+  episodes (lineage, custom visuals, the library) can be rebuilt against it; the
+  synthetic estate stands in until then.

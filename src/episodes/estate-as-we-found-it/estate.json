@@ -1,0 +1,66 @@
+{
+  "_comment": "Synthetic Power BI estate for the applied series. Metadata only — no business rows. Modelled on a regional health authority: honest entropy (semantic drift, shadow IT, gold-layer erosion) so the method has something real to reflect. Nothing here is a real organisation.",
+  "estate": "Awatea Regional Health — Reporting Estate (synthetic)",
+  "generated": "2026-05-26",
+  "nodes": [
+    { "id": "rpt-exec",        "type": "report",   "name": "Executive Performance",     "owner": "Strategy & Planning", "certified": true },
+    { "id": "rpt-ed",          "type": "report",   "name": "ED Wait Times",             "owner": "Operations",          "certified": true },
+    { "id": "rpt-workforce",   "type": "report",   "name": "Workforce & Roster",        "owner": "People & Culture",    "certified": false },
+    { "id": "rpt-finance",     "type": "report",   "name": "Finance Monthly",           "owner": "Finance",             "certified": false },
+    { "id": "rpt-immun",       "type": "report",   "name": "Immunisation Coverage",     "owner": "Public Health",       "certified": false },
+
+    { "id": "model-flow",      "type": "model",    "name": "Patient Flow Model",        "certified": true,  "sizeMB": 1840, "tables": 22 },
+    { "id": "model-finance",   "type": "model",    "name": "Finance Model",             "certified": false, "sizeMB": 940,  "tables": 31 },
+    { "id": "model-workforce", "type": "model",    "name": "Workforce Model",           "certified": false, "sizeMB": 2110, "tables": 40 },
+    { "id": "model-immun",     "type": "model",    "name": "Immunisation (ad-hoc)",     "certified": false, "sizeMB": 260,  "tables": 9 },
+
+    { "id": "m-totalpts-flow",     "type": "measure", "name": "Total Patients",        "model": "model-flow",      "definition": "DISTINCTCOUNT(Encounter[NHI])" },
+    { "id": "m-totalpts-finance",  "type": "measure", "name": "Total Patients",        "model": "model-finance",   "definition": "COUNTROWS(Admissions)" },
+    { "id": "m-totalpts-workforce","type": "measure", "name": "Patient Count",         "model": "model-workforce", "definition": "SUM(Activity[PatientLoad])" },
+
+    { "id": "src-edw",         "type": "source",   "name": "EDW (SQL Warehouse)",       "layer": "bronze/gold" },
+    { "id": "src-bedxlsx",     "type": "shadow",   "name": "Bed_Capacity_Manual.xlsx",  "location": "SharePoint", "refreshedBy": "a roster coordinator, by hand, weekly" },
+    { "id": "src-rostercsv",   "type": "shadow",   "name": "roster_export.csv",         "location": "a shared drive", "refreshedBy": "exported from the rostering system manually" },
+    { "id": "src-nir",         "type": "source",   "name": "NIR Immunisation Feed",     "layer": "api" },
+
+    { "id": "gw-prod",         "type": "gateway",  "name": "GW-PROD-01",                "host": "on-prem VM" },
+
+    { "id": "job-flow",        "type": "refresh",  "name": "Patient Flow · 6am daily",   "schedule": "daily 06:00", "lastDurationMin": 41 },
+    { "id": "job-finance",     "type": "refresh",  "name": "Finance · hourly",           "schedule": "hourly",      "lastDurationMin": 28 },
+    { "id": "job-workforce",   "type": "refresh",  "name": "Workforce · 5am daily",      "schedule": "daily 05:00", "lastDurationMin": 73 }
+  ],
+  "edges": [
+    { "source": "rpt-exec",      "target": "model-flow",      "rel": "uses" },
+    { "source": "rpt-exec",      "target": "model-finance",   "rel": "uses" },
+    { "source": "rpt-ed",        "target": "model-flow",      "rel": "uses" },
+    { "source": "rpt-workforce", "target": "model-workforce", "rel": "uses" },
+    { "source": "rpt-finance",   "target": "model-finance",   "rel": "uses" },
+    { "source": "rpt-immun",     "target": "model-immun",     "rel": "uses" },
+
+    { "source": "m-totalpts-flow",      "target": "model-flow",      "rel": "defined-in" },
+    { "source": "m-totalpts-finance",   "target": "model-finance",   "rel": "defined-in" },
+    { "source": "m-totalpts-workforce", "target": "model-workforce", "rel": "defined-in" },
+
+    { "source": "model-flow",      "target": "src-edw",       "rel": "refreshes-from" },
+    { "source": "model-finance",   "target": "src-edw",       "rel": "direct-queries", "note": "hits EDW bronze tables directly — bypasses the gold layer" },
+    { "source": "model-workforce", "target": "src-edw",       "rel": "refreshes-from" },
+    { "source": "model-workforce", "target": "src-rostercsv", "rel": "refreshes-from" },
+    { "source": "model-workforce", "target": "src-bedxlsx",   "rel": "refreshes-from" },
+    { "source": "model-finance",   "target": "src-bedxlsx",   "rel": "refreshes-from" },
+    { "source": "model-immun",     "target": "src-nir",       "rel": "refreshes-from" },
+
+    { "source": "src-edw",       "target": "gw-prod", "rel": "through-gateway" },
+    { "source": "src-rostercsv", "target": "gw-prod", "rel": "through-gateway" },
+    { "source": "src-bedxlsx",   "target": "gw-prod", "rel": "through-gateway" },
+
+    { "source": "model-flow",      "target": "job-flow",      "rel": "refreshed-by" },
+    { "source": "model-finance",   "target": "job-finance",   "rel": "refreshed-by" },
+    { "source": "model-workforce", "target": "job-workforce", "rel": "refreshed-by" }
+  ],
+  "observations": [
+    "Total Patients is defined three different ways across three models (distinct NHI, row count, summed load). Same words on three executive reports, three different numbers.",
+    "Bed_Capacity_Manual.xlsx on SharePoint is load-bearing for two models — including Finance Monthly. A hand-maintained spreadsheet sits on the critical path.",
+    "Finance Model direct-queries EDW bronze tables, bypassing the curated gold layer the Patient Flow Model uses.",
+    "Workforce Model is the largest (2.1 GB, 40 tables) and slowest to refresh (73 min), and it is not certified."
+  ]
+}
