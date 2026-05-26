@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Clock } from 'lucide-react'
+import { ArrowRight, Clock, Play } from 'lucide-react'
 import { seriesWithEpisodes } from '@/episodes'
 import type { Language } from '@/episodes/types'
 
@@ -104,6 +104,14 @@ export default function Episodes() {
                         <div className="flex items-center gap-1.5">
                           {ep.languages.map((l) => <LangPill key={l} lang={l} />)}
                         </div>
+                        {ep.video && (
+                          <>
+                            <span>·</span>
+                            <span className="inline-flex items-center gap-1 text-sky-400/80 font-mono text-[10px] uppercase tracking-wider">
+                              <Play className="w-2.5 h-2.5" fill="currentColor" /> video
+                            </span>
+                          </>
+                        )}
                       </div>
                     </div>
                     <ArrowRight className="w-5 h-5 text-slate-600 group-hover:text-sky-400 transition-colors mt-2 flex-shrink-0" />

@@ -226,6 +226,18 @@ const POWERBI_EPISODES: EpisodeSeed[] = [
     readingMinutes: 18,
     source: 'skills/generate-architecture-visuals · concepts/semantic-observability.md',
   },
+  {
+    slug: 'dependencies-in-plain-sight',
+    number: 2,
+    title: 'The dependencies hiding in plain sight',
+    hook: 'Trace lineage upward from the sources nobody documented. The spreadsheet on SharePoint turns out to be load-bearing for a board report — here is its blast radius.',
+    date: '2026-05-26',
+    primaryLanguage: 'd3',
+    languages: ['d3', 'json'],
+    tags: ['lineage', 'shadow-it', 'risk'],
+    readingMinutes: 16,
+    source: 'requirements/003-lineage-agent.md · concepts/analytics-entropy.md',
+  },
 ]
 
 /** One catalog per series, each tagged with its series id. */

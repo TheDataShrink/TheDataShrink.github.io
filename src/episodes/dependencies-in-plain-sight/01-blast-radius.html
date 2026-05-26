@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Blast radius — what breaks if this source is wrong</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+  body { font: 13px/1.5 ui-sans-serif, system-ui, sans-serif; background: #0b1220; color: #e2e8f0; margin: 0; padding: 18px; }
+  h1 { font-weight: 600; font-size: 1.15rem; margin: 0 0 2px; }
+  p.sub { color: #94a3b8; margin: 0 0 12px; font-size: 12px; }
+  .pick { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  .pick button { font: 12px ui-sans-serif, system-ui, sans-serif; background: #0f172a; color: #cbd5e1; border: 1px solid #1e293b; border-radius: 6px; padding: 6px 10px; cursor: pointer; }
+  .pick button:hover { border-color: #38bdf8; }
+  .pick button.active { background: #f59e0b; color: #0b1220; border-color: #f59e0b; font-weight: 600; }
+  svg { width: 100%; height: 440px; background: #0f172a; border-radius: 8px; display: block; }
+  .lane-label { fill: #475569; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+  .node text { fill: #e2e8f0; font-size: 11px; pointer-events: none; }
+  .link { stroke: #1e293b; stroke-width: 1.2; fill: none; }
+  .link.hot { stroke: #f59e0b; stroke-width: 2.2; }
+  .dim { opacity: 0.18; }
+  #verdict { margin-top: 12px; font-size: 13px; color: #cbd5e1; min-height: 20px; }
+  #verdict b { color: #f59e0b; }
+</style>
+</head>
+<body>
+<h1>Blast radius — what breaks if this source is wrong?</h1>
+<p class="sub">Pick a source. The map highlights everything downstream of it — the reports a stakeholder would see go wrong. Lineage traced from metadata only.</p>
+<div class="pick" id="pick"></div>
+<svg id="g"></svg>
+<div id="verdict"></div>
+<script>
+const NODES = [
+  { id:"src-bedxlsx", lane:0, name:"Bed_Capacity_Manual.xlsx", shadow:true },
+  { id:"src-rostercsv", lane:0, name:"roster_export.csv", shadow:true },
+  { id:"src-edw", lane:0, name:"EDW (warehouse)" },
+  { id:"src-nir", lane:0, name:"NIR feed" },
+  { id:"model-flow", lane:1, name:"Patient Flow Model" },
+  { id:"model-finance", lane:1, name:"Finance Model" },
+  { id:"model-workforce", lane:1, name:"Workforce Model" },
+  { id:"model-immun", lane:1, name:"Immunisation (ad-hoc)" },
+  { id:"rpt-exec", lane:2, name:"Executive Performance", report:true },
+  { id:"rpt-ed", lane:2, name:"ED Wait Times", report:true },
+  { id:"rpt-finance", lane:2, name:"Finance Monthly", report:true },
+  { id:"rpt-workforce", lane:2, name:"Workforce & Roster", report:true },
+  { id:"rpt-immun", lane:2, name:"Immunisation Coverage", report:true }
+];
+// directed: source -> model -> report (downstream)
+const EDGES = [
+  ["src-edw","model-flow"],["src-edw","model-finance"],["src-edw","model-workforce"],
+  ["src-bedxlsx","model-finance"],["src-bedxlsx","model-workforce"],
+  ["src-rostercsv","model-workforce"],["src-nir","model-immun"],
+  ["model-flow","rpt-exec"],["model-flow","rpt-ed"],
+  ["model-finance","rpt-exec"],["model-finance","rpt-finance"],
+  ["model-workforce","rpt-workforce"],["model-immun","rpt-immun"]
+];
+const LANES = ["Source","Semantic model","Report"];
+const adj = {}; EDGES.forEach(([s,t]) => (adj[s]=adj[s]||[]).push(t));
+function downstream(start){
+  const seen=new Set(), stack=[start];
+  while(stack.length){ const n=stack.pop(); (adj[n]||[]).forEach(m=>{ if(!seen.has(m)){ seen.add(m); stack.push(m);} }); }
+  return seen;
+}
+
+const svg=d3.select("#g"), W=svg.node().clientWidth, H=440, padX=130;
+const laneX=[padX, W/2, W-padX];
+const byLane=[[],[],[]]; NODES.forEach(n=>byLane[n.lane].push(n));
+byLane.forEach((arr,li)=> arr.forEach((n,i)=>{ n.x=laneX[li]; n.y=60+i*((H-100)/Math.max(1,arr.length-1||1)); if(arr.length===1)n.y=H/2; }));
+const pos={}; NODES.forEach(n=>pos[n.id]=n);
+
+svg.selectAll(".lane-label").data(LANES).join("text").attr("class","lane-label")
+  .attr("x",(d,i)=>laneX[i]).attr("y",28).attr("text-anchor","middle").text(d=>d);
+
+const linkG=svg.append("g"), nodeG=svg.append("g");
+const line=d3.line().curve(d3.curveBumpX);
+const links=linkG.selectAll("path").data(EDGES).join("path").attr("class","link")
+  .attr("d",([s,t])=>line([[pos[s].x+8,pos[s].y],[pos[t].x-8,pos[t].y]]));
+
+const node=nodeG.selectAll("g").data(NODES).join("g").attr("class","node").attr("transform",d=>`translate(${d.x},${d.y})`);
+node.append("circle").attr("r",d=>d.report?9:d.shadow?9:7)
+  .attr("fill",d=>d.report?"#38bdf8":d.shadow?"#f59e0b":d.lane===1?"#a78bfa":"#64748b")
+  .attr("stroke","#0b1220").attr("stroke-width",1.5);
+node.append("text").attr("x",d=>d.lane===2?14:(d.lane===0?-14:12)).attr("y",4)
+  .attr("text-anchor",d=>d.lane===0?"end":"start").text(d=>d.name);
+
+const verdict=d3.select("#verdict");
+function highlight(srcId){
+  const hot=downstream(srcId); hot.add(srcId);
+  node.classed("dim",d=>!hot.has(d.id));
+  links.classed("hot",([s,t])=>hot.has(s)&&hot.has(t)).classed("dim",([s,t])=>!(hot.has(s)&&hot.has(t)));
+  const reports=NODES.filter(n=>n.report&&hot.has(n.id)).map(n=>n.name);
+  const src=pos[srcId];
+  verdict.html(`If <b>${src.name}</b> is wrong, <b>${reports.length}</b> report(s) are wrong: ${reports.join(", ")}.` +
+    (src.shadow?` &nbsp;This source is <b>shadow IT</b> — maintained by hand, outside governed architecture.`:""));
+}
+
+const pick=d3.select("#pick");
+NODES.filter(n=>n.lane===0).forEach(n=>{
+  pick.append("button").attr("data-id",n.id).text(n.name).on("click",function(){
+    pick.selectAll("button").classed("active",false); d3.select(this).classed("active",true); highlight(n.id);
+  });
+});
+// default: the load-bearing spreadsheet
+pick.select('button[data-id="src-bedxlsx"]').classed("active",true);
+highlight("src-bedxlsx");
+</script>
+</body>
+</html>

@@ -23,6 +23,13 @@ export interface Series {
   order: number                // display order on the index (lower = first)
 }
 
+/** Optional video companion for an episode. Drop in an id when the screencast exists. */
+export interface EpisodeVideo {
+  provider: 'youtube'          // only youtube for now; extend when needed
+  id: string                   // the video id, e.g. 'dQw4w9WgXcQ'
+  durationMin?: number         // shown in the meta line
+}
+
 export interface EpisodeMeta {
   slug: string
   number: number
@@ -36,6 +43,7 @@ export interface EpisodeMeta {
   readingMinutes: number       // estimated read time for the prose
   source: string               // "Huyen Ch 5, p220–235" etc.
   optional?: boolean
+  video?: EpisodeVideo         // present once a video companion is published
 }
 
 export interface Episode extends EpisodeMeta {
