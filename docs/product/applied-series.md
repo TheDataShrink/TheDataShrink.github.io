@@ -75,13 +75,17 @@ With those, Episodes 0–2 can be built against the real estate immediately, and
   Patients" definitions), shadow IT (a load-bearing SharePoint Excel), and
   gold-layer erosion (Finance direct-querying bronze). See
   `src/episodes/estate-as-we-found-it/estate.json`.
-- **Episodes 0–4 written** on the synthetic estate:
+- **All 8 episodes written** on the synthetic estate:
   - Ep 0 *The estate as we found it* — reflection (prose)
   - Ep 1 *Reading the map* — D3 semantic topology
   - Ep 2 *The dependencies hiding in plain sight* — D3 blast-radius lineage
   - Ep 3 *What "good" looks like here* — D3 capability baseline (the hinge)
   - Ep 4 *The first custom visual* — pbiviz Governed KPI Card + live demo
+  - Ep 5 *The library* — TS registry + governed-module gallery
+  - Ep 6 *The agent rebuilds the report* — TS assembler → emitted PBIP report.json
+  - Ep 7 *The development wheel* — D3 baseline climbing over quarters
   Multi-series engine + per-episode video pairing also in place.
-- **Episodes 5–7 pending** (The library · The agent rebuilds the report · The
-  development wheel). Buildable on the synthetic estate; the estate-specific ones
-  can be rebuilt against a real anonymised PBIP when one lands.
+- **Reflection arc** = Ep 0–2; **the hinge** = Ep 3; **Engine arc** = Ep 4–7.
+  The split mirrors the product ladder exactly.
+- **Next:** rebuild the estate-specific episodes (1, 2, 4–6) against a real
+  anonymised PBIP when one lands; record the video companions.

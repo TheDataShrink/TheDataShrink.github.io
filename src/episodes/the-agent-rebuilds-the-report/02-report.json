@@ -1,0 +1,42 @@
+{
+  "_comment": "What assemble(EXEC_BRIEF) emits — a .pbip report definition Power BI opens directly. No visual was dragged by hand; the Engine wrote this file from the brief + the library registry. Note every binding is a certified measure, and provenance records that the engine assembled it certified-only.",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition",
+  "name": "Executive Patient Flow",
+  "sections": [
+    {
+      "name": "Page1",
+      "displayName": "Executive Patient Flow",
+      "visualContainers": [
+        {
+          "id": "vc0",
+          "module": "tds.kpiCard",
+          "layout": { "x": 0, "y": 0, "w": 3, "h": 2 },
+          "bindings": { "value": "Patient Flow Model.Total Patients" }
+        },
+        {
+          "id": "vc1",
+          "module": "tds.kpiCard",
+          "layout": { "x": 3, "y": 0, "w": 3, "h": 2 },
+          "bindings": { "value": "Patient Flow Model.Occupancy %" }
+        },
+        {
+          "id": "vc2",
+          "module": "tds.trend",
+          "layout": { "x": 6, "y": 0, "w": 6, "h": 3 },
+          "bindings": { "value": "Patient Flow Model.ED Median Wait", "time": "Date.Date" }
+        },
+        {
+          "id": "vc3",
+          "module": "tds.governedTable",
+          "layout": { "x": 0, "y": 3, "w": 6, "h": 4 },
+          "bindings": { "rows": "Facility.Name", "measures": "Patient Flow Model.Total Patients" }
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "assembledBy": "tds-engine",
+    "library": ["tds.kpiCard", "tds.trend", "tds.variance", "tds.governedTable"],
+    "certifiedOnly": true
+  }
+}

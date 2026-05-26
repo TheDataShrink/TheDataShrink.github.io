@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Awatea visual library</title>
+<style>
+  body { font: 13px/1.5 Inter, ui-sans-serif, system-ui, sans-serif; background: #0b1220; color: #e2e8f0; margin: 0; padding: 18px; }
+  h1 { font-weight: 600; font-size: 1.15rem; margin: 0 0 2px; }
+  p.sub { color: #94a3b8; margin: 0 0 16px; font-size: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+  .brick { background: #0f172a; border: 1px solid #1e293b; border-radius: 10px; padding: 16px; }
+  .brick .nm { font-weight: 600; color: #f1f5f9; }
+  .brick .id { font-family: ui-monospace, monospace; font-size: 10px; color: #0ea5e9; margin-bottom: 12px; }
+  .brick .contract { color: #94a3b8; font-size: 12px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #1e293b; }
+  .badge { display: inline-block; font-family: ui-monospace, monospace; font-size: 9px; letter-spacing: .1em; color: #10b981; border: 1px solid rgba(16,185,129,.4); border-radius: 3px; padding: 1px 5px; margin-left: 6px; }
+
+  /* mini previews */
+  .pv-kpi .v { font-size: 1.8rem; font-weight: 700; color: #f1f5f9; }
+  .pv-kpi .l { color: #64748b; font-size: 11px; }
+  .pv-bars { display: flex; align-items: flex-end; gap: 4px; height: 48px; }
+  .pv-bars i { flex: 1; background: #0ea5e9; border-radius: 2px 2px 0 0; }
+  .pv-var { display: flex; align-items: center; gap: 8px; }
+  .pv-var .delta { color: #10b981; font-weight: 700; }
+  .pv-tbl { font-size: 11px; color: #cbd5e1; }
+  .pv-tbl div { display: flex; justify-content: space-between; padding: 2px 0; border-bottom: 1px solid #1e293b; }
+</style>
+</head>
+<body>
+<h1>The Awatea visual library</h1>
+<p class="sub">Four governed modules, one brand, shared tokens. Reports are assembled from these — not hand-built. Every module carries a contract.</p>
+<div class="grid" id="grid"></div>
+<script>
+const LIBRARY = [
+  { id:"tds.kpiCard", name:"Governed KPI Card", contract:"Headline number must be a certified measure; provenance always shown.",
+    preview:'<div class="pv-kpi"><div class="v">48,213</div><div class="l">Total Patients</div></div>' },
+  { id:"tds.trend", name:"Trend", contract:"Time axis must be a conformed date dimension.",
+    preview:'<div class="pv-bars">'+[12,18,15,22,19,26,24,30].map(h=>'<i style="height:'+(h*1.6)+'px"></i>').join('')+'</div>' },
+  { id:"tds.variance", name:"Variance vs Target", contract:"Shared units; colour follows brand good/bad.",
+    preview:'<div class="pv-var"><span class="v" style="font-size:1.5rem;font-weight:700;color:#f1f5f9">94%</span><span class="delta">▲ +6 vs target</span></div>' },
+  { id:"tds.governedTable", name:"Governed Table", contract:"Columns are certified measures only; dimensions conformed.",
+    preview:'<div class="pv-tbl"><div><span>ED</span><span>4,120</span></div><div><span>Wards</span><span>9,880</span></div><div><span>Clinics</span><span>34,213</span></div></div>' }
+];
+const grid=document.getElementById("grid");
+LIBRARY.forEach(m=>{
+  const el=document.createElement("div"); el.className="brick";
+  el.innerHTML='<div class="nm">'+m.name+'<span class="badge">GOVERNED</span></div>'+
+    '<div class="id">'+m.id+'</div>'+m.preview+
+    '<div class="contract">'+m.contract+'</div>';
+  grid.appendChild(el);
+});
+</script>
+</body>
+</html>
