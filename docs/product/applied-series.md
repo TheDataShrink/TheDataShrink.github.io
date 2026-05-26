@@ -69,23 +69,25 @@ With those, Episodes 0–2 can be built against the real estate immediately, and
 
 ## Status
 
-- **2026-05-26**: Built on a **synthetic estate** (Awatea Regional Health) rather
-  than waiting for a real PBIP — consistent with the synthetic-data start the
-  engagement itself uses. The estate is honest: semantic drift (three "Total
-  Patients" definitions), shadow IT (a load-bearing SharePoint Excel), and
-  gold-layer erosion (Finance direct-querying bronze). See
-  `src/episodes/estate-as-we-found-it/estate.json`.
-- **All 8 episodes written** on the synthetic estate:
+- **2026-05-26 (re-grounded)**: switched from the synthetic Awatea estate to the
+  real **hospital-ER** domain from `power-bi-template` (see
+  [template-repo.md](../strategy/template-repo.md)). Estate is "Northvale ED" — a
+  stand-in hospital, but real `ER_Data` fields, KPIs, DAX, branding, and
+  validation rules. Entropy = violations of the repo's `validation_rules`
+  (patient count not DISTINCTCOUNT, DateTime joins + no calendar, hard-coded SLA,
+  Patient Details without RLS). See `src/episodes/estate-as-we-found-it/estate.json`.
+- **All 8 episodes written**, re-grounded on the real artefacts:
   - Ep 0 *The estate as we found it* — reflection (prose)
-  - Ep 1 *Reading the map* — D3 semantic topology
+  - Ep 1 *Reading the map* — D3 semantic topology of Northvale ED
   - Ep 2 *The dependencies hiding in plain sight* — D3 blast-radius lineage
-  - Ep 3 *What "good" looks like here* — D3 capability baseline (the hinge)
-  - Ep 4 *The first custom visual* — pbiviz Governed KPI Card + live demo
-  - Ep 5 *The library* — TS registry + governed-module gallery
-  - Ep 6 *The agent rebuilds the report* — TS assembler → emitted PBIP report.json
-  - Ep 7 *The development wheel* — D3 baseline climbing over quarters
+  - Ep 3 *What "good" looks like here* — D3 baseline; axes = real validation rules
+  - Ep 4 *The first custom visual* — the real seffMonthlyVarianceWaterfall + demo
+  - Ep 5 *The library* — real module JSON schema + governed-module gallery
+  - Ep 6 *The agent rebuilds the report* — real Python module_generator + YAML config
+  - Ep 7 *The development wheel* — D3 baseline climbing, severity-first sequence
   Multi-series engine + per-episode video pairing also in place.
 - **Reflection arc** = Ep 0–2; **the hinge** = Ep 3; **Engine arc** = Ep 4–7.
   The split mirrors the product ladder exactly.
-- **Next:** rebuild the estate-specific episodes (1, 2, 4–6) against a real
-  anonymised PBIP when one lands; record the video companions.
+- **Next:** point episode code at the *actual* repo files (or vendor them), and
+  record the video companions. Episode code today is a faithful sketch; the repo
+  is the source of truth.

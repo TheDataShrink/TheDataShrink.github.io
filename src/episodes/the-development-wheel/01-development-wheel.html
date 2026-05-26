@@ -26,12 +26,12 @@
 <div id="note">Hover a quarter.</div>
 <script>
 const DATA = [
-  { q:"Now",  v:1.4, note:"Baseline established. Shadow-IT exposure and reuse on the floor." },
-  { q:"Q1",   v:1.9, note:"Bed-capacity spreadsheet replaced by a governed dimension. Shadow-IT exposure off the floor — the board report no longer depends on a hand-edited file." },
-  { q:"Q2",   v:2.4, note:"'Total Patients' unified into one certified measure. Semantic governance climbs; the three-definitions problem is gone." },
-  { q:"Q3",   v:2.8, note:"Visual library adopted across Finance and Operations. Reuse/conformance rises as reports are assembled, not hand-built." },
-  { q:"Q4",   v:3.1, note:"Workforce model rebuilt on the gold layer; 73-min refresh down to 11. Performance posture climbs; model certified." },
-  { q:"Q5",   v:3.4, note:"Engine cadence steady. New reports ship governed by default; drift no longer reappears between reviews." }
+  { q:"Now",  v:1.5, note:"Baseline established. HIPAA RLS gap, patient-count drift, and the date model on the floor." },
+  { q:"Q1",   v:2.0, note:"Patient Details RLS configured and audited — the HIPAA-critical gap closed first, because its rule was severity:critical." },
+  { q:"Q2",   v:2.5, note:"'Number of Patients' unified to one certified DISTINCTCOUNT measure; the COUNT and COUNTROWS versions retired. Three reports corrected at once." },
+  { q:"Q3",   v:2.9, note:"Calendar table added and DateTime joins removed — time intelligence is trustworthy. SLA threshold parameterised, not hard-coded." },
+  { q:"Q4",   v:3.2, note:"Exec Summary rebuilt on the SQL gold layer; 47-min hourly refresh down to 9. Model certified; gold-layer bypass gone." },
+  { q:"Q5",   v:3.5, note:"Engine cadence steady. New ED reports ship governed by default; drift no longer reappears between reviews." }
 ];
 const TARGET = 3.0;
 

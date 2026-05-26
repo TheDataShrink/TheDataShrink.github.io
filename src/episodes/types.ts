@@ -6,7 +6,7 @@
  * ./index.ts loads everything via Vite's import.meta.glob.
  */
 
-export type Language = 'python' | 'sql' | 'r' | 'typescript' | 'javascript' | 'html' | 'json' | 'd3'
+export type Language = 'python' | 'sql' | 'r' | 'typescript' | 'javascript' | 'html' | 'json' | 'yaml' | 'd3'
 
 export interface CodeFile {
   filename: string

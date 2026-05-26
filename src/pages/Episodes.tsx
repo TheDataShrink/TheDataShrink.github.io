@@ -11,6 +11,7 @@ const LANG_COLOR: Record<Language, string> = {
   javascript: 'bg-amber-500/10 text-amber-300 border-amber-500/30',
   html:       'bg-orange-500/10 text-orange-300 border-orange-500/30',
   json:       'bg-slate-500/10 text-slate-300 border-slate-500/30',
+  yaml:       'bg-rose-500/10 text-rose-300 border-rose-500/30',
   d3:         'bg-emerald-500/10 text-emerald-300 border-emerald-500/30',
 }
 

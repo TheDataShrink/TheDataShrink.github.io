@@ -1,56 +1,47 @@
 # The agent rebuilds the report
 
-Everything so far was a person doing careful work. Reflection was us, reading a map aloud. The baseline was us, scoring axes. Even the library — governed, branded, machine-readable — still needed a skilled author to assemble a report from it.
+Everything so far was a person doing careful work. Reflection was us, reading a map aloud. The baseline was us, scoring axes against the rules. Even the library — governed, branded, machine-readable — still needed a skilled author to assemble a report from it.
 
-This episode the author leaves the room. A brief goes in; a finished, governed Power BI report comes out; no human drags a single visual. This is the line between *a method* and *an Engine*, and it's worth being precise about why it's now possible — because for most of Power BI's history, it wasn't.
+This episode the author leaves the room. A **config** goes in; governed Power BI modules come out; no human drags a single visual. This is the line between *a method* and *an Engine*, and it's worth being precise about why it's now possible — because for most of Power BI's history, it wasn't.
 
 ## Why this couldn't be done with `.pbix`
 
-A `.pbix` file is a compressed binary blob. An agent can't read it, can't write it, can't reason about it. For fifteen years, "build me a report" meant a person clicking — because the report *was* a binary artefact only the Power BI client could author.
+A `.pbix` file is a compressed binary blob. A script can't read it, write it, or reason about it. For years, "build me a report" meant a person clicking.
 
-`.pbip` changed the substrate. A Power BI Project saves the work as an open folder of plain text — a `<name>.SemanticModel/` folder (model metadata as **TMDL**) and a `<name>.Report/` folder (the report definition, **PBIR**: `definition.pbir` + `report.json`). The `.pbip` file at the root is just a *pointer* to the report folder; you can open the report straight from `definition.pbir`. The report layer and the model are decoupled, both human- and machine-readable.
+`.pbip` changed the substrate. A Power BI Project saves the work as open text — a `SemanticModel/` folder (model metadata as **TMDL**) and a `Report/` folder (**PBIR**). The moment the artefacts became text, generating them became something a program is good at.
 
-> The shift from `.pbix` to `.pbip` is the wedge — not the headline. It's the enabler: code-first analytics, parallel assembly, and closed-loop CI/CD that compiles and validates.
-
-**Now the honest part, because a sovereign buyer will check.** PBIP is in *preview*, and the two layers are not equally ready. The **semantic model is the supported programmatic surface today** — you can read and write its TMDL via the Tabular Object Model or by editing the text directly; generating measures, tables, and relationships is fully sanctioned. The **report layer is the frontier**: PBIR makes `report.json` text, which is what *enables* code-first assembly, but its schema is undocumented and editing it outside Power BI Desktop isn't supported during preview.
-
-So the truthful version of this episode is: the assembler below shows the *shape* of code-first report assembly — the direction `.pbip` opens up — and the way you ship it safely today is to **let Power BI Desktop and Fabric validate the output** rather than treating `report.json` as a stable public contract. The fully-production-ready Engine work, right now, is on the model layer where the [entropy](../concepts/analytics-entropy.md) lives anyway. (Full notes: [`docs/strategy/pbip-facts.md`](../../docs/strategy/pbip-facts.md).)
+**The honest part, because a sovereign buyer will check.** PBIP is in *preview*, and the layers aren't equally ready. The **semantic model (TMDL) is the supported programmatic surface today** — generate measures, tables, relationships via the Tabular Object Model or TMDL text. The **report layer (PBIR) is the frontier**: its `report.json` schema is undocumented and external editing isn't supported during preview. So the engine's safest, production-ready work is on the model and on *module definitions*; report output is validated through Power BI Desktop / Fabric rather than treated as a stable contract. (Full notes: [`docs/strategy/pbip-facts.md`](../../docs/strategy/pbip-facts.md).)
 
 ## The orchestration, end to end
 
-The shape, from brief to file:
+The real flow lives in the template's `pbip_automation_orchestrator.py`. Its shape:
 
 ```
-brief  →  orchestrator (plan)  →  bind measures  →  lay out  →  report.json
+config.yaml → analyze → validate (gate) → generate modules → migrate DAX/M → SQL gold → validate
 ```
 
-1. **The brief.** "An executive patient-flow summary." A planner resolves that intent to module ids from the library — two KPI cards, a trend, a governed table. (In the demo the brief arrives pre-resolved; resolving natural language to modules is the orchestrator's job.)
-2. **Bind measures.** Each module's registry entry declares what it needs. The assembler binds measures to those roles — and runs them through the same gate Episode 4's card used.
-3. **Lay out.** Greedy placement on a 12-column grid using each module's declared `minSize`. No pixel math; the registry already said how big each brick wants to be.
-4. **Emit.** Write the report definition into the `.Report` folder — `report.json` beside its `definition.pbir`.
-
-The output is the second file in this episode. It's illustrative of the PBIR `report.json` shape — `sections` → `visualContainers`, each naming a module, a grid `layout`, and its `bindings` — not a byte-for-byte spec, because (as above) that schema is undocumented in preview. The point isn't the exact keys; it's that the report is now a *file an agent composes from the registry*, and that Power BI Desktop / Fabric are what validate it before it ships.
+1. **The config is the brief.** `hospital_er.yaml` — the second file here — declares the project, the brand, the KPIs with their aggregations, and the validation rules. "Build the ED dashboards" is a YAML file, not a sentence someone types.
+2. **Analyze.** `pbip_project_analyzer.py` reads the existing PBIP structure — the same reflection from Episodes 1–2, done in code.
+3. **Validate — the gate.** Before generating anything, the config is checked against its own `validation_rules`. This is the piece to dwell on.
+4. **Generate.** `module_generator.py` (first file) emits governed modules — the KPI strip, the gauge, the slicers — binding the required certified measures, in brand.
+5. **Migrate.** The orchestrator also plans a DAX/M → **SQL gold layer** migration — pushing business logic down into a governed layer instead of leaving it scattered in models. (This is the cure for the gold-layer erosion the map showed in Episode 1.)
 
 ## The contract didn't relax — it moved earlier
 
-Look at `assertGoverned` in the assembler. Before any module is placed, every `certifiedMeasure` input is checked against the estate's certified set. Bind an uncertified measure and the assembler **throws** — the report is never written.
+Look at `validate()` in `module_generator.py`. Before any module is generated, every KPI is checked against its `aggregation_must_be` rule, and the date config against `no_datetime_joins` / `require_calendar`. Give it a config where patient count is `COUNT`, and it **raises** — nothing is generated.
 
-This is exactly Episode 4's rule, but moved upstream. There, an uncertified measure rendered a warning *at view time*, on a card a human had already placed. Here, it's caught *at assembly time*, before a pixel exists. The Engine literally **cannot emit a drifting report.** The three "Total Patients" problem from Episode 1 isn't mitigated by review — it's structurally unreachable, because the only measures the assembler will bind are the certified ones, and the report carries `"certifiedOnly": true` in its provenance to prove it.
+This is exactly Episode 4's idea, but moved all the way upstream. There, an off-brand encoding was impossible *at design time* in one visual. Here, an entire estate's worth of drift is caught *at generate time*, before a single file is written. The Engine literally **cannot generate a drifting report**, because the only configs it will build from are ones that satisfy the rules the baseline scored.
 
-Notice how the whole series converges here. Reflection found the certification gaps. The baseline scored them and made `certified` a real flag. The library encoded it into each module's contract. And now the assembler enforces that contract at the moment of creation. Five episodes, one thread: *the metadata about what's trustworthy, propagated all the way to the act of building.*
+Notice how the whole series converges here. Reflection found the certification gaps and the `COUNT` drift. The baseline scored them against real rules. The library encoded those rules into module contracts. And now the generator enforces them at the moment of creation. Six episodes, one thread: *the metadata about what's trustworthy, propagated all the way to the act of building.*
 
 ## Why this is the product, not a parlour trick
 
-A skeptic says: "fine, it generates a report — so does Copilot." The difference is what it generates *from*. A generic generator produces a plausible report from a prompt. This produces a **governed** report from a brief, because every brick it can reach is a contract and every measure it can bind is certified. It can only build right.
-
-That's the moat made concrete. The open method — reflection, baseline, the idea of governed modules — anyone can learn. The Engine is the operationalised version: the orchestration, the registry, the assembler, the gate, running on every estate and getting sharper each time. A team could build their own. Most won't, for the same reason they don't machine their own car: they want the capability now, improving every quarter, without owning the R&D.
+A skeptic says: "fine, it generates a report — so does Copilot." The difference is what it generates *from*. A generic generator produces a plausible report from a prompt. This produces a **governed** report from a config, because every module it can emit is a contract, every measure it binds is certified, and the gate rejects any config that breaks a rule. It can only build right — and the template's numbers back it: **85% less visual-creation time, 3–5× faster delivery.**
 
 > **The Engine** — the recurring, compounding product: sovereign access to the continuously improving reflection/assembly system. The method is open; the Engine is paid.
 
 ## One thing left
 
-We now have an Engine that reflects an estate, scores it, and rebuilds its reports — governed, branded, certified — from a brief. Run once, that's an impressive demo.
+We now have an Engine that reflects an estate, scores it against real rules, and generates governed modules from a config. Run once, that's an impressive demo.
 
-But a reflection is a *moment*. An estate keeps evolving the day after you leave: new reports, new measures, new spreadsheets quietly wired in. A one-time Engine run is a photograph of a thing that's still moving.
-
-The last episode is about turning the photograph into a *film* — the cadence that keeps the baseline number climbing, and the cross-estate intelligence that makes the Engine worth more next quarter than it is today. The development wheel.
+But a reflection is a *moment*. An estate keeps evolving the day after you leave: new reports, new measures, a fresh spreadsheet quietly wired in. A one-time run is a photograph of a thing that's still moving. The last episode turns the photograph into a film — the cadence that keeps the baseline climbing, and the cross-estate intelligence that makes the Engine worth more next quarter than today. The development wheel.

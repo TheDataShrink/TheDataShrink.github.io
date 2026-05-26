@@ -44,18 +44,23 @@ Read 2026-05-26.
 | Ep 6 TS assembler → report.json | Python `module_generator` + `pbip_automation_orchestrator` |
 | Ep 7 "85% faster" claims | `MODULAR_SYSTEM_BENEFITS.md` (85% time cut, 3-5x delivery, 95% fewer brand violations) |
 
-## Where the series currently diverges (and should be reconciled)
+## Reconciled (2026-05-26)
 
-1. **Estate**: synthetic Awatea vs the repo's hospital-ER config. Note the *same*
-   insight in both — patient count must be DISTINCTCOUNT — so they're compatible.
-2. **Custom visual (Ep 4)**: invented "Governed KPI Card" vs the real variance
-   waterfall. The governance *idea* is sound; the artefact differs.
-3. **Module schema (Ep 5)**: clean `tds.kpiCard` registry vs real
-   `module.config.objects`. Ours is a teaching simplification.
-4. **Assembler (Ep 6)**: TypeScript vs the real Python orchestrator + YAML config.
-5. **Gold-layer migration**: the real orchestrator does DAX/M → SQL Gold Layer
-   migration; the series mentions gold-layer erosion but not the migration step.
+The series was re-grounded on the real repo. State now:
 
-**Honesty rule going forward** (mirrors the repo's own): don't let the blog claim
-artefacts or numbers that the real repo doesn't have. When the series and the repo
-disagree, the repo is the source of truth.
+1. **Estate**: switched from synthetic Awatea to the hospital-ER domain
+   (`config/examples/hospital_er.yaml`). Episodes use "Northvale ED" — a stand-in
+   hospital, but real `ER_Data` fields, KPIs, DAX, branding (#0066CC), and
+   validation rules. Entropy = violations of the repo's `validation_rules`.
+2. **Custom visual (Ep 4)**: now the real `seffMonthlyVarianceWaterfall` (IBCS
+   variance, theme-coloured by meaning), not the invented KPI card.
+3. **Module schema (Ep 5)**: now the real `module.config` shape (KPI strip with the
+   five real ER KPIs); gallery shows the real modules.
+4. **Assembler (Ep 6)**: now the real Python `module_generator` + `hospital_er.yaml`,
+   with the validation gate mirroring the repo's rules.
+5. **Gold-layer migration**: Ep 6 + Ep 7 now name the DAX/M → SQL gold-layer step.
+
+**Honesty rule** (mirrors the repo's own): don't let the blog claim artefacts or
+numbers the real repo doesn't have. When the series and the repo disagree, the repo
+is the source of truth. Remaining episode code is a *faithful sketch* of the real
+files — the repo always wins.

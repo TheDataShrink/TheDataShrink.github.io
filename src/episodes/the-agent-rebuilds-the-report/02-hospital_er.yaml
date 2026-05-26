@@ -1,0 +1,57 @@
+# config/examples/hospital_er.yaml (excerpt) — the brief the engine reads.
+# This is real: the config that drives module generation in
+# spectrumefficiencylimited/power-bi-template. The validation: blocks are the
+# contract the generator's gate enforces (and the axes Episode 3 scored).
+
+project:
+  name: "Hospital ER Analytics"
+  domain: "healthcare"
+  description: "Optimize ER operations through patient volume, wait times, and operational analytics"
+
+branding:
+  primary_color: "#0066CC"      # Medical blue — flows into every generated module
+  accent_color: "#28A745"
+  alert_color: "#DC3545"
+
+date:
+  fact_date_field: "Patient Admission Date"
+  calendar_table: "required"
+  validation:
+    no_datetime_joins: true
+    require_calendar: true
+    reason: "Healthcare analytics require proper date/time modeling for accurate temporal analysis"
+
+kpis:
+  - field: "Patient ID"
+    display_name: "Number of Patients"
+    aggregation: "DISTINCTCOUNT"
+    format: "#,0"
+    validation:
+      aggregation_must_be: "DISTINCTCOUNT"
+      reason: "Patient count must use DISTINCTCOUNT to avoid duplicate counting"
+
+  - field: "SLA_Compliance"
+    display_name: "% Seen < 30 min"
+    aggregation: "PERCENTAGE"
+    format: "0.0%"
+
+# DAX the engine generates — measures, not hand-typed:
+dax_patterns:
+  patient_count: |
+    Number of Patients := DISTINCTCOUNT ( 'ER_Data'[Patient ID] )
+  sla_compliance: |
+    % Seen Within 30 Min :=
+    DIVIDE (
+        CALCULATE ( COUNTROWS ( 'ER_Data' ), 'ER_Data'[Patient Wait Time] <= 30 ),
+        COUNTROWS ( 'ER_Data' )
+    )
+
+validation_rules:
+  - rule_type: "measure_validation"
+    check: "patient_count_distinct"
+    message: "Patient counts must use DISTINCTCOUNT aggregation"
+    severity: "error"
+  - rule_type: "hipaa_compliance"
+    check: "patient_details_security"
+    message: "Patient Details dashboard requires proper RLS and audit logging"
+    severity: "critical"
