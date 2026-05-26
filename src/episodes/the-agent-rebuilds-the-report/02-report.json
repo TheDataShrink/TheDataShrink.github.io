@@ -1,5 +1,5 @@
 {
-  "_comment": "What assemble(EXEC_BRIEF) emits — a .pbip report definition Power BI opens directly. No visual was dragged by hand; the Engine wrote this file from the brief + the library registry. Note every binding is a certified measure, and provenance records that the engine assembled it certified-only.",
+  "_comment": "Illustrative of what assemble(EXEC_BRIEF) emits. In a real PBIP this lives in the <name>.Report/ folder as report.json beside definition.pbir (PBIR format). The exact report.json schema is UNDOCUMENTED and external editing is unsupported during PBIP preview — so treat this as the shape of code-first assembly, validated through Power BI Desktop/Fabric, not a byte-for-byte contract. The point: no visual dragged by hand; every binding is a certified measure; provenance records certified-only assembly. See docs/strategy/pbip-facts.md.",
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition",
   "name": "Executive Patient Flow",
   "sections": [

@@ -8,11 +8,13 @@ This episode the author leaves the room. A brief goes in; a finished, governed P
 
 A `.pbix` file is a compressed binary blob. An agent can't read it, can't write it, can't reason about it. For fifteen years, "build me a report" meant a person clicking — because the report *was* a binary artefact only the Power BI client could author.
 
-`.pbip` changed the substrate. A Power BI Project saves the report as an open folder of JSON and TMDL — text. The report layer and the semantic model are decoupled, both human- and machine-readable. The moment the report became text, writing one became something an LLM is *good at*: it's just emitting structured JSON against a schema.
+`.pbip` changed the substrate. A Power BI Project saves the work as an open folder of plain text — a `<name>.SemanticModel/` folder (model metadata as **TMDL**) and a `<name>.Report/` folder (the report definition, **PBIR**: `definition.pbir` + `report.json`). The `.pbip` file at the root is just a *pointer* to the report folder; you can open the report straight from `definition.pbir`. The report layer and the model are decoupled, both human- and machine-readable.
 
 > The shift from `.pbix` to `.pbip` is the wedge — not the headline. It's the enabler: code-first analytics, parallel assembly, and closed-loop CI/CD that compiles and validates.
 
-So the agent doesn't "drive the UI." It writes a file. Everything in this episode is just *generating `report.json` correctly* — and "correctly" is where the previous five episodes get paid back.
+**Now the honest part, because a sovereign buyer will check.** PBIP is in *preview*, and the two layers are not equally ready. The **semantic model is the supported programmatic surface today** — you can read and write its TMDL via the Tabular Object Model or by editing the text directly; generating measures, tables, and relationships is fully sanctioned. The **report layer is the frontier**: PBIR makes `report.json` text, which is what *enables* code-first assembly, but its schema is undocumented and editing it outside Power BI Desktop isn't supported during preview.
+
+So the truthful version of this episode is: the assembler below shows the *shape* of code-first report assembly — the direction `.pbip` opens up — and the way you ship it safely today is to **let Power BI Desktop and Fabric validate the output** rather than treating `report.json` as a stable public contract. The fully-production-ready Engine work, right now, is on the model layer where the [entropy](../concepts/analytics-entropy.md) lives anyway. (Full notes: [`docs/strategy/pbip-facts.md`](../../docs/strategy/pbip-facts.md).)
 
 ## The orchestration, end to end
 
@@ -25,9 +27,9 @@ brief  →  orchestrator (plan)  →  bind measures  →  lay out  →  report.j
 1. **The brief.** "An executive patient-flow summary." A planner resolves that intent to module ids from the library — two KPI cards, a trend, a governed table. (In the demo the brief arrives pre-resolved; resolving natural language to modules is the orchestrator's job.)
 2. **Bind measures.** Each module's registry entry declares what it needs. The assembler binds measures to those roles — and runs them through the same gate Episode 4's card used.
 3. **Lay out.** Greedy placement on a 12-column grid using each module's declared `minSize`. No pixel math; the registry already said how big each brick wants to be.
-4. **Emit.** Write `report.json` — a real PBIP report definition Power BI opens directly.
+4. **Emit.** Write the report definition into the `.Report` folder — `report.json` beside its `definition.pbir`.
 
-The output is the second file in this episode. It's not a mock. It's the shape Power BI reads: `sections` → `visualContainers`, each naming a module, a grid `layout`, and its `bindings`.
+The output is the second file in this episode. It's illustrative of the PBIR `report.json` shape — `sections` → `visualContainers`, each naming a module, a grid `layout`, and its `bindings` — not a byte-for-byte spec, because (as above) that schema is undocumented in preview. The point isn't the exact keys; it's that the report is now a *file an agent composes from the registry*, and that Power BI Desktop / Fabric are what validate it before it ships.
 
 ## The contract didn't relax — it moved earlier
 

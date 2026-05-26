@@ -157,6 +157,37 @@ reports to curating collective intelligence. See
 
 ---
 
+### PBIP (Power BI Project)
+
+The plain-text, folder-based save format for Power BI Desktop work: a
+`<name>.SemanticModel/` folder, a `<name>.Report/` folder, a `.gitignore`, and
+an optional `<name>.pbip` pointer file. The shift from the `.pbix` binary to
+PBIP is what makes Power BI legible to agents and Git. **Currently in preview** —
+say so when leaning on it. Full notes: [docs/strategy/pbip-facts.md](docs/strategy/pbip-facts.md).
+
+_Avoid_: calling `.pbip` "the file that holds the report" — it's a *pointer* to
+the report folder and is optional. Don't imply the whole format is GA.
+
+### TMDL (Tabular Model Definition Language)
+
+The plain-text format for a PBIP **semantic model** definition. This is the
+**supported** programmatic surface today — read/write via the Tabular Object
+Model (TOM) or by editing TMDL text. Where governed, agent-driven model change
+is production-ready now.
+
+_Avoid_: "model.bim" (the older JSON serialisation, not what PBIP writes).
+
+### PBIR (Power BI Enhanced Report format)
+
+The plain-text format for a PBIP **report** definition (`definition.pbir` +
+`report.json`). It makes the report layer text — which *enables* code-first
+assembly — but the `report.json` schema is **undocumented and unsupported for
+external editing during preview**. The report layer is the frontier, not yet a
+stable contract; validate report output through Power BI Desktop / Fabric.
+
+_Avoid_: claiming agents can freely author `report.json` today — they can author
+the **model** (TMDL); the report layer is emerging. See [[project-pivot-agentic-powerbi]].
+
 ## Strategic Positioning
 
 Microsoft provides:
