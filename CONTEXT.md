@@ -146,6 +146,33 @@ method is open; the Engine is paid. See
 
 ---
 
+### Engine Runtime
+
+The technical layer that *is* the Engine in operation: a sovereign MCP
+**aggregator server** that exposes the Data Shrink intelligence (reflection,
+baseline scoring, governed generation) as tools to the customer's host, and is
+itself a **client** of Microsoft's *local* MCP server, to which it delegates
+low-level model writes. Server to the host, client to Microsoft.
+
+_Avoid_: "a replacement for Microsoft's servers" (we aggregate on top, not
+instead), "the bot". Distinguish from **The Engine**, the *commercial* product;
+the Engine Runtime is its mechanism. See
+[docs/strategy/mcp-continuation.md](docs/strategy/mcp-continuation.md).
+
+---
+
+### Microsoft MCP servers
+
+The two Power BI servers the Engine Runtime consumes: the **remote** server
+(queries semantic models, Copilot-generated DAX, Fabric-hosted) and the **local**
+server (authors models — TMDL, measures, relationships; runs on your machine).
+Both are Microsoft's, both in preview.
+
+_Avoid_: conflating "remote" (query, cloud-hosted) with "local" (authoring, on
+your machine) — they have different sovereignty profiles.
+
+---
+
 ### Modular Visual Intelligence
 
 A customer-shaped library of custom Power BI visuals that consume the governed

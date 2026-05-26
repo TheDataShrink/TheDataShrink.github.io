@@ -8,3 +8,6 @@ dist
 skills-lock.json
 ai_training.md
 AI Engineering.pdf
+
+# local agent skills (tooling, not for the public repo)
+.claude/skills/
