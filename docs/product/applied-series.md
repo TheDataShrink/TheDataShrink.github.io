@@ -75,10 +75,13 @@ With those, Episodes 0–2 can be built against the real estate immediately, and
   Patients" definitions), shadow IT (a load-bearing SharePoint Excel), and
   gold-layer erosion (Finance direct-querying bronze). See
   `src/episodes/estate-as-we-found-it/estate.json`.
-- **Episodes 0–1 written.** Ep 0 *The estate as we found it* (reflection,
-  prose only) and Ep 1 *Reading the map* (interactive D3 semantic topology over
-  the synthetic estate). Multi-series support added to the episode engine so this
-  track coexists with "Building an Agent from Scratch".
-- **Episodes 2–7 pending.** When an anonymised real PBIP lands, the estate-specific
-  episodes (lineage, custom visuals, the library) can be rebuilt against it; the
-  synthetic estate stands in until then.
+- **Episodes 0–4 written** on the synthetic estate:
+  - Ep 0 *The estate as we found it* — reflection (prose)
+  - Ep 1 *Reading the map* — D3 semantic topology
+  - Ep 2 *The dependencies hiding in plain sight* — D3 blast-radius lineage
+  - Ep 3 *What "good" looks like here* — D3 capability baseline (the hinge)
+  - Ep 4 *The first custom visual* — pbiviz Governed KPI Card + live demo
+  Multi-series engine + per-episode video pairing also in place.
+- **Episodes 5–7 pending** (The library · The agent rebuilds the report · The
+  development wheel). Buildable on the synthetic estate; the estate-specific ones
+  can be rebuilt against a real anonymised PBIP when one lands.
