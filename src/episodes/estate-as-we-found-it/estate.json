@@ -1,66 +1,70 @@
 {
-  "_comment": "Synthetic Power BI estate for the applied series. Metadata only — no business rows. Modelled on a regional health authority: honest entropy (semantic drift, shadow IT, gold-layer erosion) so the method has something real to reflect. Nothing here is a real organisation.",
-  "estate": "Awatea Regional Health — Reporting Estate (synthetic)",
+  "_comment": "Power BI estate for the applied series. Metadata only — no patient rows. The DOMAIN, fields, KPIs, DAX, branding, and validation rules are the real ones from spectrumefficiencylimited/power-bi-template (config/examples/hospital_er.yaml). This models the *before* state: an evolved ER reporting estate whose entropy is, concretely, the things that repo's validation_rules guard against (patient count not DISTINCTCOUNT, DateTime used in joins, no calendar table, hard-coded SLA, Patient Details without RLS). Northvale is a stand-in hospital; nothing here is a real organisation.",
+  "estate": "Northvale Hospital — Emergency Department reporting (synthetic, real ER pattern)",
+  "factTable": "ER_Data",
   "generated": "2026-05-26",
+  "brand": { "primary": "#0066CC", "accent": "#28A745", "alert": "#DC3545", "warn": "#FFC107" },
   "nodes": [
-    { "id": "rpt-exec",        "type": "report",   "name": "Executive Performance",     "owner": "Strategy & Planning", "certified": true },
-    { "id": "rpt-ed",          "type": "report",   "name": "ED Wait Times",             "owner": "Operations",          "certified": true },
-    { "id": "rpt-workforce",   "type": "report",   "name": "Workforce & Roster",        "owner": "People & Culture",    "certified": false },
-    { "id": "rpt-finance",     "type": "report",   "name": "Finance Monthly",           "owner": "Finance",             "certified": false },
-    { "id": "rpt-immun",       "type": "report",   "name": "Immunisation Coverage",     "owner": "Public Health",       "certified": false },
+    { "id": "rpt-monthly", "type": "report", "name": "ER Executive Monthly", "owner": "ED Operations", "certified": false },
+    { "id": "rpt-sla",     "type": "report", "name": "Wait Times & SLA",     "owner": "Quality & Safety", "certified": false },
+    { "id": "rpt-demo",    "type": "report", "name": "Demographics",         "owner": "Planning", "certified": true },
+    { "id": "rpt-details", "type": "report", "name": "Patient Details",      "owner": "ED Operations", "certified": false, "rls": false, "hipaa": true },
+    { "id": "rpt-capacity","type": "report", "name": "Capacity & Peak Hours","owner": "ED Operations", "certified": false },
 
-    { "id": "model-flow",      "type": "model",    "name": "Patient Flow Model",        "certified": true,  "sizeMB": 1840, "tables": 22 },
-    { "id": "model-finance",   "type": "model",    "name": "Finance Model",             "certified": false, "sizeMB": 940,  "tables": 31 },
-    { "id": "model-workforce", "type": "model",    "name": "Workforce Model",           "certified": false, "sizeMB": 2110, "tables": 40 },
-    { "id": "model-immun",     "type": "model",    "name": "Immunisation (ad-hoc)",     "certified": false, "sizeMB": 260,  "tables": 9 },
+    { "id": "model-er",   "type": "model", "name": "ER Reporting Model",   "certified": true,  "sizeMB": 720,  "tables": 14 },
+    { "id": "model-sla",  "type": "model", "name": "SLA Tracker (ad-hoc)", "certified": false, "sizeMB": 410,  "tables": 19 },
+    { "id": "model-exec", "type": "model", "name": "Exec Summary (ad-hoc)","certified": false, "sizeMB": 1280, "tables": 26 },
 
-    { "id": "m-totalpts-flow",     "type": "measure", "name": "Total Patients",        "model": "model-flow",      "definition": "DISTINCTCOUNT(Encounter[NHI])" },
-    { "id": "m-totalpts-finance",  "type": "measure", "name": "Total Patients",        "model": "model-finance",   "definition": "COUNTROWS(Admissions)" },
-    { "id": "m-totalpts-workforce","type": "measure", "name": "Patient Count",         "model": "model-workforce", "definition": "SUM(Activity[PatientLoad])" },
+    { "id": "m-pat-er",   "type": "measure", "name": "Number of Patients", "model": "model-er",   "definition": "DISTINCTCOUNT('ER_Data'[Patient ID])", "correct": true },
+    { "id": "m-pat-exec", "type": "measure", "name": "Number of Patients", "model": "model-exec", "definition": "COUNT('ER_Data'[Patient ID])", "correct": false },
+    { "id": "m-pat-sla",  "type": "measure", "name": "Patient Volume",     "model": "model-sla",  "definition": "COUNTROWS('ER_Data')", "correct": false },
+    { "id": "m-sla",      "type": "measure", "name": "% Seen < 30 min",    "model": "model-sla",  "definition": "DIVIDE(CALCULATE(COUNTROWS('ER_Data'), 'ER_Data'[Patient Wait Time] <= 30), COUNTROWS('ER_Data'))", "note": "30 and the 85% target are hard-coded in three visuals" },
 
-    { "id": "src-edw",         "type": "source",   "name": "EDW (SQL Warehouse)",       "layer": "bronze/gold" },
-    { "id": "src-bedxlsx",     "type": "shadow",   "name": "Bed_Capacity_Manual.xlsx",  "location": "SharePoint", "refreshedBy": "a roster coordinator, by hand, weekly" },
-    { "id": "src-rostercsv",   "type": "shadow",   "name": "roster_export.csv",         "location": "a shared drive", "refreshedBy": "exported from the rostering system manually" },
-    { "id": "src-nir",         "type": "source",   "name": "NIR Immunisation Feed",     "layer": "api" },
+    { "id": "src-pas",      "type": "source", "name": "PAS — Patient Admin System (SQL)", "layer": "source" },
+    { "id": "src-triage",   "type": "shadow", "name": "Triage_Capacity.xlsx", "location": "SharePoint", "refreshedBy": "a charge nurse, by hand, each shift" },
+    { "id": "src-survey",   "type": "shadow", "name": "satisfaction_survey.csv", "location": "a shared drive", "refreshedBy": "exported from the survey tool manually" },
 
-    { "id": "gw-prod",         "type": "gateway",  "name": "GW-PROD-01",                "host": "on-prem VM" },
+    { "id": "issue-datetime", "type": "issue", "name": "DateTime used as join key", "note": "Patient Admission DateTime joins fact to a derived table; there is no calendar table, so time intelligence is unreliable." },
 
-    { "id": "job-flow",        "type": "refresh",  "name": "Patient Flow · 6am daily",   "schedule": "daily 06:00", "lastDurationMin": 41 },
-    { "id": "job-finance",     "type": "refresh",  "name": "Finance · hourly",           "schedule": "hourly",      "lastDurationMin": 28 },
-    { "id": "job-workforce",   "type": "refresh",  "name": "Workforce · 5am daily",      "schedule": "daily 05:00", "lastDurationMin": 73 }
+    { "id": "gw-prod", "type": "gateway", "name": "GW-PROD-ED", "host": "on-prem VM" },
+
+    { "id": "job-er",   "type": "refresh", "name": "ER Reporting · 5am daily", "schedule": "daily 05:00", "lastDurationMin": 18 },
+    { "id": "job-exec", "type": "refresh", "name": "Exec Summary · hourly",    "schedule": "hourly",      "lastDurationMin": 47 }
   ],
   "edges": [
-    { "source": "rpt-exec",      "target": "model-flow",      "rel": "uses" },
-    { "source": "rpt-exec",      "target": "model-finance",   "rel": "uses" },
-    { "source": "rpt-ed",        "target": "model-flow",      "rel": "uses" },
-    { "source": "rpt-workforce", "target": "model-workforce", "rel": "uses" },
-    { "source": "rpt-finance",   "target": "model-finance",   "rel": "uses" },
-    { "source": "rpt-immun",     "target": "model-immun",     "rel": "uses" },
+    { "source": "rpt-monthly",  "target": "model-exec", "rel": "uses" },
+    { "source": "rpt-monthly",  "target": "model-er",   "rel": "uses" },
+    { "source": "rpt-sla",      "target": "model-sla",  "rel": "uses" },
+    { "source": "rpt-demo",     "target": "model-er",   "rel": "uses" },
+    { "source": "rpt-details",  "target": "model-er",   "rel": "uses" },
+    { "source": "rpt-capacity", "target": "model-sla",  "rel": "uses" },
 
-    { "source": "m-totalpts-flow",      "target": "model-flow",      "rel": "defined-in" },
-    { "source": "m-totalpts-finance",   "target": "model-finance",   "rel": "defined-in" },
-    { "source": "m-totalpts-workforce", "target": "model-workforce", "rel": "defined-in" },
+    { "source": "m-pat-er",   "target": "model-er",   "rel": "defined-in" },
+    { "source": "m-pat-exec", "target": "model-exec", "rel": "defined-in" },
+    { "source": "m-pat-sla",  "target": "model-sla",  "rel": "defined-in" },
+    { "source": "m-sla",      "target": "model-sla",  "rel": "defined-in" },
 
-    { "source": "model-flow",      "target": "src-edw",       "rel": "refreshes-from" },
-    { "source": "model-finance",   "target": "src-edw",       "rel": "direct-queries", "note": "hits EDW bronze tables directly — bypasses the gold layer" },
-    { "source": "model-workforce", "target": "src-edw",       "rel": "refreshes-from" },
-    { "source": "model-workforce", "target": "src-rostercsv", "rel": "refreshes-from" },
-    { "source": "model-workforce", "target": "src-bedxlsx",   "rel": "refreshes-from" },
-    { "source": "model-finance",   "target": "src-bedxlsx",   "rel": "refreshes-from" },
-    { "source": "model-immun",     "target": "src-nir",       "rel": "refreshes-from" },
+    { "source": "model-er",   "target": "src-pas",    "rel": "refreshes-from" },
+    { "source": "model-exec", "target": "src-pas",    "rel": "direct-queries", "note": "queries PAS operational tables directly; no governed model between" },
+    { "source": "model-sla",  "target": "src-pas",    "rel": "refreshes-from" },
+    { "source": "model-er",   "target": "src-survey", "rel": "refreshes-from" },
+    { "source": "model-sla",  "target": "src-triage", "rel": "refreshes-from" },
+    { "source": "model-exec", "target": "src-triage", "rel": "refreshes-from" },
+    { "source": "model-exec", "target": "issue-datetime", "rel": "afflicted-by" },
 
-    { "source": "src-edw",       "target": "gw-prod", "rel": "through-gateway" },
-    { "source": "src-rostercsv", "target": "gw-prod", "rel": "through-gateway" },
-    { "source": "src-bedxlsx",   "target": "gw-prod", "rel": "through-gateway" },
+    { "source": "src-pas",    "target": "gw-prod", "rel": "through-gateway" },
+    { "source": "src-triage", "target": "gw-prod", "rel": "through-gateway" },
+    { "source": "src-survey", "target": "gw-prod", "rel": "through-gateway" },
 
-    { "source": "model-flow",      "target": "job-flow",      "rel": "refreshed-by" },
-    { "source": "model-finance",   "target": "job-finance",   "rel": "refreshed-by" },
-    { "source": "model-workforce", "target": "job-workforce", "rel": "refreshed-by" }
+    { "source": "model-er",   "target": "job-er",   "rel": "refreshed-by" },
+    { "source": "model-exec", "target": "job-exec", "rel": "refreshed-by" }
   ],
   "observations": [
-    "Total Patients is defined three different ways across three models (distinct NHI, row count, summed load). Same words on three executive reports, three different numbers.",
-    "Bed_Capacity_Manual.xlsx on SharePoint is load-bearing for two models — including Finance Monthly. A hand-maintained spreadsheet sits on the critical path.",
-    "Finance Model direct-queries EDW bronze tables, bypassing the curated gold layer the Patient Flow Model uses.",
-    "Workforce Model is the largest (2.1 GB, 40 tables) and slowest to refresh (73 min), and it is not certified."
+    "'Number of Patients' is defined three ways across three models — DISTINCTCOUNT (correct, ER Reporting Model), COUNT, and COUNTROWS. The repo's own rule is explicit: patient count must be DISTINCTCOUNT to avoid duplicate counting. The Executive Monthly report is wired to the COUNT version.",
+    "Exec Summary joins on Patient Admission DateTime and has no calendar table — violating no_datetime_joins and require_calendar. Time intelligence (month-over-month, same-period-last-year) is therefore unreliable.",
+    "The 30-minute SLA threshold and the 85% target are hard-coded inside three visuals instead of being parameterised.",
+    "Patient Details exposes row-level patient data with no RLS configured — a HIPAA-critical gap.",
+    "Triage_Capacity.xlsx on SharePoint, updated by a charge nurse each shift, is load-bearing for the Capacity report.",
+    "Exec Summary is the largest model (1.28 GB, 26 tables), refreshes hourly in 47 min, and is uncertified."
   ]
 }

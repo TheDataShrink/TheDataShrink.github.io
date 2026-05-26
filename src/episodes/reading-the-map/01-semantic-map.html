@@ -3,83 +3,83 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Awatea Regional Health — semantic topology</title>
+<title>Northvale ED — semantic topology</title>
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <style>
   body { font: 13px/1.5 ui-sans-serif, system-ui, sans-serif; background: #0b1220; color: #e2e8f0; margin: 0; padding: 18px; }
   h1 { font-weight: 600; font-size: 1.15rem; margin: 0 0 2px; }
   p.sub { color: #94a3b8; margin: 0 0 12px; font-size: 12px; }
-  svg { width: 100%; height: 520px; background: #0f172a; border-radius: 8px; display: block; }
+  svg { width: 100%; height: 540px; background: #0f172a; border-radius: 8px; display: block; }
   .legend { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0 0; font-size: 12px; color: #cbd5e1; }
   .legend div { display: flex; align-items: center; gap: 6px; }
   .swatch { width: 12px; height: 12px; border-radius: 3px; }
   .node text { fill: #e2e8f0; font-size: 11px; pointer-events: none; }
   .node circle { cursor: grab; }
   .link { stroke: #334155; stroke-width: 1.2; }
-  .link.shadow { stroke: #f59e0b; stroke-dasharray: 4 3; stroke-width: 1.6; }
-  .link.direct-queries { stroke: #ef4444; stroke-width: 1.8; }
-  #tip { position: fixed; pointer-events: none; background: #020617; border: 1px solid #1e293b; border-radius: 6px; padding: 8px 10px; font-size: 12px; max-width: 280px; color: #e2e8f0; opacity: 0; transition: opacity .1s; }
-  #tip b { color: #38bdf8; }
+  .link.shadow { stroke: #FFC107; stroke-dasharray: 4 3; stroke-width: 1.6; }
+  .link.direct-queries { stroke: #DC3545; stroke-width: 1.8; }
+  .link.afflicted-by { stroke: #DC3545; stroke-dasharray: 2 2; }
+  #tip { position: fixed; pointer-events: none; background: #020617; border: 1px solid #1e293b; border-radius: 6px; padding: 8px 10px; font-size: 12px; max-width: 300px; color: #e2e8f0; opacity: 0; transition: opacity .1s; }
+  #tip b { color: #0066CC; }
 </style>
 </head>
 <body>
-<h1>Awatea Regional Health — semantic topology</h1>
-<p class="sub">Reports → models → measures → sources → gateways, built from metadata only. Drag nodes. Amber = shadow IT; red = gold-layer bypass.</p>
+<h1>Northvale ED — semantic topology</h1>
+<p class="sub">Reports → models → measures → sources, built from metadata only. Drag nodes. Amber = shadow IT; red solid = gold-layer bypass; red dotted = a modelling fault.</p>
 <svg id="g"></svg>
 <div class="legend"></div>
 <div id="tip"></div>
 <script>
 const DATA = {
   nodes: [
-    { id: "rpt-exec", type: "report", name: "Executive Performance", certified: true },
-    { id: "rpt-ed", type: "report", name: "ED Wait Times", certified: true },
-    { id: "rpt-workforce", type: "report", name: "Workforce & Roster", certified: false },
-    { id: "rpt-finance", type: "report", name: "Finance Monthly", certified: false },
-    { id: "rpt-immun", type: "report", name: "Immunisation Coverage", certified: false },
-    { id: "model-flow", type: "model", name: "Patient Flow Model", info: "certified · 1.8 GB · 22 tables" },
-    { id: "model-finance", type: "model", name: "Finance Model", info: "not certified · 0.9 GB · 31 tables" },
-    { id: "model-workforce", type: "model", name: "Workforce Model", info: "not certified · 2.1 GB · 40 tables · 73 min refresh" },
-    { id: "model-immun", type: "model", name: "Immunisation (ad-hoc)", info: "not certified · 0.26 GB · 9 tables" },
-    { id: "m-tp-flow", type: "measure", name: "Total Patients", info: "DISTINCTCOUNT(Encounter[NHI])" },
-    { id: "m-tp-fin", type: "measure", name: "Total Patients", info: "COUNTROWS(Admissions)" },
-    { id: "m-tp-wf", type: "measure", name: "Patient Count", info: "SUM(Activity[PatientLoad])" },
-    { id: "src-edw", type: "source", name: "EDW (SQL Warehouse)" },
-    { id: "src-bedxlsx", type: "shadow", name: "Bed_Capacity_Manual.xlsx", info: "SharePoint · hand-maintained weekly" },
-    { id: "src-rostercsv", type: "shadow", name: "roster_export.csv", info: "shared drive · manual export" },
-    { id: "src-nir", type: "source", name: "NIR Immunisation Feed" },
-    { id: "gw-prod", type: "gateway", name: "GW-PROD-01" },
-    { id: "job-flow", type: "refresh", name: "Flow · 6am daily" },
-    { id: "job-finance", type: "refresh", name: "Finance · hourly" },
-    { id: "job-workforce", type: "refresh", name: "Workforce · 5am daily" }
+    { id:"rpt-monthly", type:"report", name:"ER Executive Monthly", certified:false },
+    { id:"rpt-sla", type:"report", name:"Wait Times & SLA", certified:false },
+    { id:"rpt-demo", type:"report", name:"Demographics", certified:true },
+    { id:"rpt-details", type:"report", name:"Patient Details", certified:false, info:"row-level patient data · NO RLS · HIPAA risk" },
+    { id:"rpt-capacity", type:"report", name:"Capacity & Peak Hours", certified:false },
+    { id:"model-er", type:"model", name:"ER Reporting Model", info:"certified · 0.72 GB · 14 tables" },
+    { id:"model-sla", type:"model", name:"SLA Tracker (ad-hoc)", info:"not certified · 0.41 GB · hard-coded 30-min SLA" },
+    { id:"model-exec", type:"model", name:"Exec Summary (ad-hoc)", info:"not certified · 1.28 GB · 26 tables · 47-min refresh" },
+    { id:"m-pat-er", type:"measure", name:"Number of Patients", info:"DISTINCTCOUNT(Patient ID) — correct" },
+    { id:"m-pat-exec", type:"measure", name:"Number of Patients", info:"COUNT(Patient ID) — overstates demand" },
+    { id:"m-pat-sla", type:"measure", name:"Patient Volume", info:"COUNTROWS(ER_Data) — counts visits, not patients" },
+    { id:"m-sla", type:"measure", name:"% Seen < 30 min", info:"30 + 85% target hard-coded in 3 visuals" },
+    { id:"src-pas", type:"source", name:"PAS — Patient Admin System" },
+    { id:"src-triage", type:"shadow", name:"Triage_Capacity.xlsx", info:"SharePoint · updated by a charge nurse each shift" },
+    { id:"src-survey", type:"shadow", name:"satisfaction_survey.csv", info:"shared drive · manual export" },
+    { id:"issue-datetime", type:"issue", name:"DateTime join · no calendar", info:"violates no_datetime_joins + require_calendar" },
+    { id:"gw-prod", type:"gateway", name:"GW-PROD-ED" },
+    { id:"job-er", type:"refresh", name:"ER · 5am daily" },
+    { id:"job-exec", type:"refresh", name:"Exec · hourly (47 min)" }
   ],
   links: [
-    ["rpt-exec","model-flow"],["rpt-exec","model-finance"],["rpt-ed","model-flow"],
-    ["rpt-workforce","model-workforce"],["rpt-finance","model-finance"],["rpt-immun","model-immun"],
-    ["m-tp-flow","model-flow","defined-in"],["m-tp-fin","model-finance","defined-in"],["m-tp-wf","model-workforce","defined-in"],
-    ["model-flow","src-edw"],["model-finance","src-edw","direct-queries"],["model-workforce","src-edw"],
-    ["model-workforce","src-rostercsv","shadow"],["model-workforce","src-bedxlsx","shadow"],["model-finance","src-bedxlsx","shadow"],
-    ["model-immun","src-nir"],
-    ["src-edw","gw-prod"],["src-rostercsv","gw-prod"],["src-bedxlsx","gw-prod"],
-    ["model-flow","job-flow"],["model-finance","job-finance"],["model-workforce","job-workforce"]
+    ["rpt-monthly","model-exec"],["rpt-monthly","model-er"],["rpt-sla","model-sla"],
+    ["rpt-demo","model-er"],["rpt-details","model-er"],["rpt-capacity","model-sla"],
+    ["m-pat-er","model-er","defined-in"],["m-pat-exec","model-exec","defined-in"],
+    ["m-pat-sla","model-sla","defined-in"],["m-sla","model-sla","defined-in"],
+    ["model-er","src-pas"],["model-exec","src-pas","direct-queries"],["model-sla","src-pas"],
+    ["model-er","src-survey"],["model-sla","src-triage","shadow"],["model-exec","src-triage","shadow"],
+    ["model-exec","issue-datetime","afflicted-by"],
+    ["src-pas","gw-prod"],["src-triage","gw-prod"],["src-survey","gw-prod"],
+    ["model-er","job-er"],["model-exec","job-exec"]
   ]
 };
 
-const COLOR = { report:"#38bdf8", model:"#a78bfa", measure:"#34d399", source:"#64748b", shadow:"#f59e0b", gateway:"#e2e8f0", refresh:"#475569" };
-const R = { report:11, model:13, measure:7, source:9, shadow:9, gateway:8, refresh:6 };
+const COLOR = { report:"#0066CC", model:"#7c9fd1", measure:"#28A745", source:"#64748b", shadow:"#FFC107", gateway:"#e2e8f0", refresh:"#475569", issue:"#DC3545" };
+const R = { report:11, model:13, measure:7, source:9, shadow:9, gateway:8, refresh:6, issue:8 };
 
 const svg = d3.select("#g"), tip = d3.select("#tip");
-const W = svg.node().clientWidth, H = 520;
+const W = svg.node().clientWidth, H = 540;
 const links = DATA.links.map(([s,t,rel]) => ({ source:s, target:t, rel: rel||"uses" }));
 const nodes = DATA.nodes;
 
 const sim = d3.forceSimulation(nodes)
-  .force("link", d3.forceLink(links).id(d=>d.id).distance(l => l.rel==="defined-in"?28:90).strength(0.6))
-  .force("charge", d3.forceManyBody().strength(-340))
+  .force("link", d3.forceLink(links).id(d=>d.id).distance(l => l.rel==="defined-in"?28:92).strength(0.55))
+  .force("charge", d3.forceManyBody().strength(-330))
   .force("center", d3.forceCenter(W/2, H/2))
   .force("collide", d3.forceCollide().radius(d=>R[d.type]+10));
 
-const link = svg.append("g").selectAll("line").data(links).join("line")
-  .attr("class", d => "link " + d.rel);
+const link = svg.append("g").selectAll("line").data(links).join("line").attr("class", d => "link " + d.rel);
 
 const node = svg.append("g").selectAll("g").data(nodes).join("g").attr("class","node")
   .call(d3.drag()
@@ -90,7 +90,7 @@ const node = svg.append("g").selectAll("g").data(nodes).join("g").attr("class","
 node.append("circle")
   .attr("r", d=>R[d.type])
   .attr("fill", d=>COLOR[d.type])
-  .attr("stroke", d=> d.certified ? "#10b981" : (d.type==="shadow"?"#f59e0b":"#0b1220"))
+  .attr("stroke", d=> d.certified ? "#28A745" : (d.type==="shadow"?"#FFC107":(d.type==="issue"?"#DC3545":"#0b1220")))
   .attr("stroke-width", d=> d.certified ? 2.5 : 1.5);
 
 node.append("text").attr("x", d=>R[d.type]+4).attr("y", 4)
@@ -107,13 +107,13 @@ sim.on("tick", () => {
 });
 
 const legend = d3.select(".legend");
-[["report","Report"],["model","Semantic model"],["measure","Measure (drift)"],["source","Source"],["shadow","Shadow IT"],["gateway","Gateway"],["refresh","Refresh job"]]
+[["report","Report"],["model","Semantic model"],["measure","Measure (drift)"],["source","Source"],["shadow","Shadow IT"],["issue","Modelling fault"],["gateway","Gateway"]]
   .forEach(([k,label]) => {
     const d = legend.append("div");
     d.append("span").attr("class","swatch").style("background",COLOR[k]);
     d.append("span").text(label);
   });
-legend.append("div").html('<span class="swatch" style="background:#10b981"></span><span>green ring = certified</span>');
+legend.append("div").html('<span class="swatch" style="background:#28A745"></span><span>green ring = certified</span>');
 </script>
 </body>
 </html>
