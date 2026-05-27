@@ -11,6 +11,7 @@ const HLJS_NAME: Record<Language, string> = {
   javascript: 'javascript',
   html: 'xml',
   json: 'json',
+  yaml: 'yaml',
   d3: 'xml',
 }
 

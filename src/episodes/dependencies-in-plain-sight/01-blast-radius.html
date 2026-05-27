@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Blast radius — what breaks if this source is wrong</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+  body { font: 13px/1.5 ui-sans-serif, system-ui, sans-serif; background: #0b1220; color: #e2e8f0; margin: 0; padding: 18px; }
+  h1 { font-weight: 600; font-size: 1.15rem; margin: 0 0 2px; }
+  p.sub { color: #94a3b8; margin: 0 0 12px; font-size: 12px; }
+  .pick { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  .pick button { font: 12px ui-sans-serif, system-ui, sans-serif; background: #0f172a; color: #cbd5e1; border: 1px solid #1e293b; border-radius: 6px; padding: 6px 10px; cursor: pointer; }
+  .pick button:hover { border-color: #0066CC; }
+  .pick button.active { background: #FFC107; color: #0b1220; border-color: #FFC107; font-weight: 600; }
+  svg { width: 100%; height: 420px; background: #0f172a; border-radius: 8px; display: block; }
+  .lane-label { fill: #475569; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+  .node text { fill: #e2e8f0; font-size: 11px; pointer-events: none; }
+  .link { stroke: #1e293b; stroke-width: 1.2; fill: none; }
+  .link.hot { stroke: #FFC107; stroke-width: 2.2; }
+  .dim { opacity: 0.18; }
+  #verdict { margin-top: 12px; font-size: 13px; color: #cbd5e1; min-height: 20px; }
+  #verdict b { color: #FFC107; }
+</style>
+</head>
+<body>
+<h1>Blast radius — what breaks if this source is wrong?</h1>
+<p class="sub">Pick a source. The map highlights everything downstream — the reports a clinician or manager would see go wrong. Lineage traced from metadata only.</p>
+<div class="pick" id="pick"></div>
+<svg id="g"></svg>
+<div id="verdict"></div>
+<script>
+const NODES = [
+  { id:"src-triage", lane:0, name:"Triage_Capacity.xlsx", shadow:true },
+  { id:"src-survey", lane:0, name:"satisfaction_survey.csv", shadow:true },
+  { id:"src-pas", lane:0, name:"PAS (patient admin)" },
+  { id:"model-er", lane:1, name:"ER Reporting Model" },
+  { id:"model-sla", lane:1, name:"SLA Tracker" },
+  { id:"model-exec", lane:1, name:"Exec Summary" },
+  { id:"rpt-monthly", lane:2, name:"ER Executive Monthly", report:true },
+  { id:"rpt-sla", lane:2, name:"Wait Times & SLA", report:true },
+  { id:"rpt-demo", lane:2, name:"Demographics", report:true },
+  { id:"rpt-details", lane:2, name:"Patient Details", report:true },
+  { id:"rpt-capacity", lane:2, name:"Capacity & Peak Hours", report:true }
+];
+const EDGES = [
+  ["src-pas","model-er"],["src-pas","model-sla"],["src-pas","model-exec"],
+  ["src-triage","model-sla"],["src-triage","model-exec"],
+  ["src-survey","model-er"],
+  ["model-er","rpt-demo"],["model-er","rpt-details"],["model-er","rpt-monthly"],
+  ["model-sla","rpt-sla"],["model-sla","rpt-capacity"],
+  ["model-exec","rpt-monthly"]
+];
+const LANES = ["Source","Semantic model","Report"];
+const adj = {}; EDGES.forEach(([s,t]) => (adj[s]=adj[s]||[]).push(t));
+function downstream(start){
+  const seen=new Set(), stack=[start];
+  while(stack.length){ const n=stack.pop(); (adj[n]||[]).forEach(m=>{ if(!seen.has(m)){ seen.add(m); stack.push(m);} }); }
+  return seen;
+}
+
+const svg=d3.select("#g"), W=svg.node().clientWidth, H=420, padX=130;
+const laneX=[padX, W/2, W-padX];
+const byLane=[[],[],[]]; NODES.forEach(n=>byLane[n.lane].push(n));
+byLane.forEach((arr,li)=> arr.forEach((n,i)=>{ n.x=laneX[li]; n.y=50+i*((H-90)/Math.max(1,arr.length-1||1)); if(arr.length===1)n.y=H/2; }));
+const pos={}; NODES.forEach(n=>pos[n.id]=n);
+
+svg.selectAll(".lane-label").data(LANES).join("text").attr("class","lane-label")
+  .attr("x",(d,i)=>laneX[i]).attr("y",26).attr("text-anchor","middle").text(d=>d);
+
+const linkG=svg.append("g"), nodeG=svg.append("g");
+const line=d3.line().curve(d3.curveBumpX);
+const links=linkG.selectAll("path").data(EDGES).join("path").attr("class","link")
+  .attr("d",([s,t])=>line([[pos[s].x+8,pos[s].y],[pos[t].x-8,pos[t].y]]));
+
+const node=nodeG.selectAll("g").data(NODES).join("g").attr("class","node").attr("transform",d=>`translate(${d.x},${d.y})`);
+node.append("circle").attr("r",d=>d.report?9:d.shadow?9:7)
+  .attr("fill",d=>d.report?"#0066CC":d.shadow?"#FFC107":d.lane===1?"#7c9fd1":"#64748b")
+  .attr("stroke","#0b1220").attr("stroke-width",1.5);
+node.append("text").attr("x",d=>d.lane===2?14:(d.lane===0?-14:12)).attr("y",4)
+  .attr("text-anchor",d=>d.lane===0?"end":"start").text(d=>d.name);
+
+const verdict=d3.select("#verdict");
+function highlight(srcId){
+  const hot=downstream(srcId); hot.add(srcId);
+  node.classed("dim",d=>!hot.has(d.id));
+  links.classed("hot",([s,t])=>hot.has(s)&&hot.has(t)).classed("dim",([s,t])=>!(hot.has(s)&&hot.has(t)));
+  const reports=NODES.filter(n=>n.report&&hot.has(n.id)).map(n=>n.name);
+  const src=pos[srcId];
+  verdict.html(`If <b>${src.name}</b> is wrong, <b>${reports.length}</b> report(s) are wrong: ${reports.join(", ")}.` +
+    (src.shadow?` &nbsp;This source is <b>shadow IT</b> — maintained by hand, outside governed architecture.`:""));
+}
+
+const pick=d3.select("#pick");
+NODES.filter(n=>n.lane===0).forEach(n=>{
+  pick.append("button").attr("data-id",n.id).text(n.name).on("click",function(){
+    pick.selectAll("button").classed("active",false); d3.select(this).classed("active",true); highlight(n.id);
+  });
+});
+pick.select('button[data-id="src-triage"]').classed("active",true);
+highlight("src-triage");
+</script>
+</body>
+</html>

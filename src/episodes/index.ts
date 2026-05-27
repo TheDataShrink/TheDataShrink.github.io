@@ -7,10 +7,35 @@
  * folder, drop in prose.md and code, append one entry here.
  */
 
-import type { CodeFile, Episode, EpisodeMeta, Language } from './types'
+import type { CodeFile, Episode, EpisodeMeta, Language, Series } from './types'
+
+/** Content tracks. Order controls how they stack on the /episodes index. */
+export const SERIES: Series[] = [
+  {
+    id: 'reflecting-an-estate',
+    title: 'Reflecting a Real Power BI Estate',
+    tagline: 'The applied track — the Data Shrink method, end to end, on one estate.',
+    description:
+      'Take a Power BI estate and walk it through the whole method: reflection before optimisation. ' +
+      'Build the semantic map, surface the dependencies hiding in plain sight, define what good looks like ' +
+      'here, then assemble reports from a governed, branded visual library. Built on a synthetic estate so ' +
+      'nothing sensitive moves — the same synthetic-data start the engagement uses.',
+    order: 0,
+  },
+  {
+    id: 'building-an-agent',
+    title: 'Building an Agent from Scratch',
+    tagline: 'The foundations track — from one model call to a production-shaped agent.',
+    description:
+      'A father’s notes to his children on how they would build an AI agent from nothing. Twelve episodes ' +
+      'that go from a single language-model call to a working, evaluated, production-shaped agent. Each adds ' +
+      'one capability to the agent built in the previous one; the code accretes, nothing is thrown away.',
+    order: 1,
+  },
+]
 
 const PROSE = import.meta.glob('./*/prose.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>
-const CODE = import.meta.glob('./*/*.{py,sql,ts,js,R,r,html,json}', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>
+const CODE = import.meta.glob('./*/*.{py,sql,ts,js,R,r,html,json,yaml,yml}', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>
 
 function detectLanguage(filename: string): Language {
   const ext = filename.split('.').pop()?.toLowerCase() ?? ''
@@ -21,10 +46,14 @@ function detectLanguage(filename: string): Language {
   if (ext === 'js') return 'javascript'
   if (ext === 'html') return 'html'
   if (ext === 'json') return 'json'
+  if (ext === 'yaml' || ext === 'yml') return 'yaml'
   return 'python'
 }
 
-const CATALOG: EpisodeMeta[] = [
+type EpisodeSeed = Omit<EpisodeMeta, 'series'>
+
+/** "Building an Agent from Scratch" — the foundations track. */
+const AGENT_EPISODES: EpisodeSeed[] = [
   {
     slug: '00-what-is-an-agent',
     number: 0,
@@ -172,6 +201,112 @@ const CATALOG: EpisodeMeta[] = [
   },
 ]
 
+/** "Reflecting a Real Power BI Estate" — the applied track. */
+const POWERBI_EPISODES: EpisodeSeed[] = [
+  {
+    slug: 'estate-as-we-found-it',
+    number: 0,
+    title: 'The estate as we found it',
+    hook: 'Reflection before optimisation. Open by honouring the real, evolved system — what they built, and why it looks the way it does — before a single recommendation.',
+    date: '2026-05-26',
+    primaryLanguage: 'd3',
+    languages: ['d3', 'json'],
+    tags: ['reflection', 'method', 'trust'],
+    readingMinutes: 14,
+    source: 'CONTEXT.md · concepts/architecture-reflection.md',
+  },
+  {
+    slug: 'reading-the-map',
+    number: 1,
+    title: 'Reading the map',
+    hook: 'Build the semantic topology of the real estate from metadata alone — reports → datasets → models → sources → gateways — and learn to read it out loud.',
+    date: '2026-05-26',
+    primaryLanguage: 'd3',
+    languages: ['d3', 'json'],
+    tags: ['reflection', 'semantic-observability', 'lineage'],
+    readingMinutes: 18,
+    source: 'skills/generate-architecture-visuals · concepts/semantic-observability.md',
+  },
+  {
+    slug: 'dependencies-in-plain-sight',
+    number: 2,
+    title: 'The dependencies hiding in plain sight',
+    hook: 'Trace lineage upward from the sources nobody documented. The spreadsheet on SharePoint turns out to be load-bearing for a board report — here is its blast radius.',
+    date: '2026-05-26',
+    primaryLanguage: 'd3',
+    languages: ['d3', 'json'],
+    tags: ['lineage', 'shadow-it', 'risk'],
+    readingMinutes: 16,
+    source: 'requirements/003-lineage-agent.md · concepts/analytics-entropy.md',
+  },
+  {
+    slug: 'what-good-looks-like-here',
+    number: 3,
+    title: 'What "good" looks like here',
+    hook: 'Turn everything the map and the blast radius made visible into this estate’s own definition of good — a capability baseline with a number to improve. This is what finally earns the word optimisation.',
+    date: '2026-05-26',
+    primaryLanguage: 'd3',
+    languages: ['d3', 'json'],
+    tags: ['analytics-entropy', 'baseline', 'governance'],
+    readingMinutes: 17,
+    source: 'concepts/analytics-entropy.md · the-reflection.md (Capability Baseline)',
+  },
+  {
+    slug: 'the-first-custom-visual',
+    number: 4,
+    title: 'The first custom visual',
+    hook: 'Stop hand-building reports. The real seffMonthlyVarianceWaterfall as a contract — variance coloured by meaning, brand baked from the theme, drift impossible by construction. The first brick of the library.',
+    date: '2026-05-26',
+    primaryLanguage: 'typescript',
+    languages: ['typescript', 'd3'],
+    tags: ['modular-visual-intelligence', 'custom-visual', 'ibcs'],
+    readingMinutes: 19,
+    source: 'power-bi-template custom-visuals/seffMonthlyVarianceWaterfall',
+  },
+  {
+    slug: 'the-library',
+    number: 5,
+    title: 'The library',
+    hook: 'One brick is a trick; a set is a product. The real modules/ library — KPI strip, gauge, heatmap, slicers — with a JSON schema machine-readable enough that a report can be generated instead of hand-built.',
+    date: '2026-05-26',
+    primaryLanguage: 'json',
+    languages: ['json', 'd3'],
+    tags: ['modular-visual-intelligence', 'library', 'modules'],
+    readingMinutes: 17,
+    source: 'power-bi-template modules/ · MODULAR_SYSTEM_BENEFITS.md',
+  },
+  {
+    slug: 'the-agent-rebuilds-the-report',
+    number: 6,
+    title: 'The agent rebuilds the report',
+    hook: 'A YAML config in, governed modules out — generated by the real Python orchestrator, gated by the estate’s own validation rules. The Engine doing what the method used to do by hand.',
+    date: '2026-05-26',
+    primaryLanguage: 'python',
+    languages: ['python', 'yaml'],
+    tags: ['agent', 'pbip', 'automation', 'engine'],
+    readingMinutes: 20,
+    source: 'power-bi-template modules/scripts · strategy/pbip-facts.md',
+  },
+  {
+    slug: 'the-development-wheel',
+    number: 7,
+    title: 'The development wheel',
+    hook: 'Reflection is a moment; the wheel is forever. Cadence, compounding cross-estate intelligence, and the baseline number climbing quarter over quarter — the part a single team cannot bootstrap alone.',
+    date: '2026-05-26',
+    primaryLanguage: 'd3',
+    languages: ['d3'],
+    tags: ['cadence', 'compounding', 'flywheel'],
+    readingMinutes: 16,
+    source: 'product-thesis.md · product-ladder.md',
+  },
+]
+
+/** One catalog per series, each tagged with its series id. */
+const CATALOG: EpisodeMeta[] = [
+  ...POWERBI_EPISODES.map((m) => ({ ...m, series: 'reflecting-an-estate' })),
+  ...AGENT_EPISODES.map((m) => ({ ...m, series: 'building-an-agent' })),
+]
+
 function loadCode(slug: string): CodeFile[] {
   const prefix = `./${slug}/`
   return Object.entries(CODE)
@@ -193,10 +328,24 @@ export const episodes: Episode[] = CATALOG.map((meta) => {
 export const episodeBySlug = (slug: string): Episode | undefined =>
   episodes.find((e) => e.slug === slug)
 
+/** Episodes in one series, in episode-number order. */
+export const episodesInSeries = (seriesId: string): Episode[] =>
+  episodes.filter((e) => e.series === seriesId).sort((a, b) => a.number - b.number)
+
+/** Series in display order, paired with their episodes. */
+export const seriesWithEpisodes = (): { series: Series; episodes: Episode[] }[] =>
+  [...SERIES]
+    .sort((a, b) => a.order - b.order)
+    .map((series) => ({ series, episodes: episodesInSeries(series.id) }))
+    .filter((s) => s.episodes.length > 0)
+
+/** Prev/next scoped to the episode's own series. */
 export const adjacentEpisodes = (slug: string): { prev?: Episode; next?: Episode } => {
-  const i = episodes.findIndex((e) => e.slug === slug)
-  if (i < 0) return {}
-  return { prev: episodes[i - 1], next: episodes[i + 1] }
+  const current = episodeBySlug(slug)
+  if (!current) return {}
+  const within = episodesInSeries(current.series)
+  const i = within.findIndex((e) => e.slug === slug)
+  return { prev: within[i - 1], next: within[i + 1] }
 }
 
-export type { Episode, EpisodeMeta, CodeFile, Language } from './types'
+export type { Episode, EpisodeMeta, CodeFile, Language, Series } from './types'

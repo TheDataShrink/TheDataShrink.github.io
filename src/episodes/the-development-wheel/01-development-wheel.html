@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The development wheel — the baseline climbing</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+  body { font: 13px/1.5 Inter, ui-sans-serif, system-ui, sans-serif; background: #0b1220; color: #e2e8f0; margin: 0; padding: 18px; }
+  h1 { font-weight: 600; font-size: 1.15rem; margin: 0 0 2px; }
+  p.sub { color: #94a3b8; margin: 0 0 12px; font-size: 12px; }
+  svg { width: 100%; height: 380px; background: #0f172a; border-radius: 8px; display: block; }
+  .axis text { fill: #64748b; font-size: 11px; }
+  .axis path, .axis line { stroke: #1e293b; }
+  .grid line { stroke: #16213a; }
+  .dot { fill: #0ea5e9; stroke: #0b1220; stroke-width: 2; cursor: pointer; }
+  .target { stroke: #10b981; stroke-dasharray: 5 4; }
+  #note { margin-top: 10px; font-size: 13px; color: #cbd5e1; min-height: 38px; }
+  #note b { color: #0ea5e9; }
+</style>
+</head>
+<body>
+<h1>The development wheel — the baseline climbing</h1>
+<p class="sub">The capability baseline from Episode 3, quarter over quarter. Hover a point to see what that turn of the wheel shipped. Green line = the agreed target.</p>
+<svg id="g"></svg>
+<div id="note">Hover a quarter.</div>
+<script>
+const DATA = [
+  { q:"Now",  v:1.5, note:"Baseline established. HIPAA RLS gap, patient-count drift, and the date model on the floor." },
+  { q:"Q1",   v:2.0, note:"Patient Details RLS configured and audited — the HIPAA-critical gap closed first, because its rule was severity:critical." },
+  { q:"Q2",   v:2.5, note:"'Number of Patients' unified to one certified DISTINCTCOUNT measure; the COUNT and COUNTROWS versions retired. Three reports corrected at once." },
+  { q:"Q3",   v:2.9, note:"Calendar table added and DateTime joins removed — time intelligence is trustworthy. SLA threshold parameterised, not hard-coded." },
+  { q:"Q4",   v:3.2, note:"Exec Summary rebuilt on the SQL gold layer; 47-min hourly refresh down to 9. Model certified; gold-layer bypass gone." },
+  { q:"Q5",   v:3.5, note:"Engine cadence steady. New ED reports ship governed by default; drift no longer reappears between reviews." }
+];
+const TARGET = 3.0;
+
+const svg=d3.select("#g"), W=svg.node().clientWidth, H=380, m={t:20,r:20,b:34,l:34};
+const x=d3.scalePoint().domain(DATA.map(d=>d.q)).range([m.l, W-m.r]).padding(0.5);
+const y=d3.scaleLinear().domain([1,5]).range([H-m.b, m.t]);
+
+svg.append("g").attr("class","grid").selectAll("line").data(y.ticks(5)).join("line")
+  .attr("x1",m.l).attr("x2",W-m.r).attr("y1",y).attr("y2",y);
+
+svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-m.b})`).call(d3.axisBottom(x));
+svg.append("g").attr("class","axis").attr("transform",`translate(${m.l},0)`).call(d3.axisLeft(y).ticks(5));
+
+// target line
+svg.append("line").attr("class","target").attr("x1",m.l).attr("x2",W-m.r).attr("y1",y(TARGET)).attr("y2",y(TARGET));
+svg.append("text").attr("x",W-m.r).attr("y",y(TARGET)-6).attr("text-anchor","end").attr("fill","#10b981").attr("font-size",11).text("target 3.0");
+
+const line=d3.line().x(d=>x(d.q)).y(d=>y(d.v)).curve(d3.curveMonotoneX);
+const path=svg.append("path").datum(DATA).attr("fill","none").attr("stroke","#0ea5e9").attr("stroke-width",2.5).attr("d",line);
+const L=path.node().getTotalLength();
+path.attr("stroke-dasharray",L).attr("stroke-dashoffset",L).transition().duration(1100).attr("stroke-dashoffset",0);
+
+const note=d3.select("#note");
+svg.append("g").selectAll("circle").data(DATA).join("circle").attr("class","dot")
+  .attr("cx",d=>x(d.q)).attr("cy",d=>y(d.v)).attr("r",5)
+  .on("mouseover",(e,d)=>note.html(`<b>${d.q} — baseline ${d.v.toFixed(1)}</b><br>${d.note}`))
+  .append("title").text(d=>d.q);
+</script>
+</body>
+</html>

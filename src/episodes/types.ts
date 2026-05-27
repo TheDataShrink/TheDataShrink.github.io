@@ -6,7 +6,7 @@
  * ./index.ts loads everything via Vite's import.meta.glob.
  */
 
-export type Language = 'python' | 'sql' | 'r' | 'typescript' | 'javascript' | 'html' | 'json' | 'd3'
+export type Language = 'python' | 'sql' | 'r' | 'typescript' | 'javascript' | 'html' | 'json' | 'yaml' | 'd3'
 
 export interface CodeFile {
   filename: string
@@ -14,9 +14,26 @@ export interface CodeFile {
   language: Language
 }
 
+/** A content track. Episodes belong to exactly one series. */
+export interface Series {
+  id: string                   // stable slug, e.g. 'building-an-agent'
+  title: string
+  tagline: string              // one line under the series title on the index
+  description: string          // longer blurb for the series header
+  order: number                // display order on the index (lower = first)
+}
+
+/** Optional video companion for an episode. Drop in an id when the screencast exists. */
+export interface EpisodeVideo {
+  provider: 'youtube'          // only youtube for now; extend when needed
+  id: string                   // the video id, e.g. 'dQw4w9WgXcQ'
+  durationMin?: number         // shown in the meta line
+}
+
 export interface EpisodeMeta {
   slug: string
   number: number
+  series: string               // Series.id this episode belongs to
   title: string
   hook: string                 // one-sentence summary for the index card
   date: string                 // ISO date
@@ -26,6 +43,7 @@ export interface EpisodeMeta {
   readingMinutes: number       // estimated read time for the prose
   source: string               // "Huyen Ch 5, p220–235" etc.
   optional?: boolean
+  video?: EpisodeVideo         // present once a video companion is published
 }
 
 export interface Episode extends EpisodeMeta {

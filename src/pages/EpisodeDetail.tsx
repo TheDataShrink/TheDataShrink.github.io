@@ -1,8 +1,9 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, Clock } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Clock, Play } from 'lucide-react'
 import { adjacentEpisodes, episodeBySlug } from '@/episodes'
 import Markdown from '@/components/Markdown'
 import CodeBlock from '@/components/CodeBlock'
+import VideoEmbed from '@/components/VideoEmbed'
 
 export default function EpisodeDetail() {
   const { slug = '' } = useParams<{ slug: string }>()
@@ -36,6 +37,14 @@ export default function EpisodeDetail() {
             <span className="inline-flex items-center gap-1">
               <Clock className="w-3 h-3" /> {episode.readingMinutes} min read
             </span>
+            {episode.video?.durationMin && (
+              <>
+                <span>·</span>
+                <span className="inline-flex items-center gap-1 text-sky-400/80">
+                  <Play className="w-3 h-3" fill="currentColor" /> {episode.video.durationMin} min watch
+                </span>
+              </>
+            )}
             <span>·</span>
             <span className="font-mono">{episode.date}</span>
             <span>·</span>
@@ -46,6 +55,11 @@ export default function EpisodeDetail() {
 
       {/* Prose */}
       <article className="max-w-3xl mx-auto px-6 py-12">
+        {/* Video companion — paired with every episode */}
+        <div className="mb-12">
+          <VideoEmbed video={episode.video} title={episode.title} />
+        </div>
+
         <Markdown source={episode.prose} />
 
         {/* Interactive visualizations (D3 / standalone HTML) */}

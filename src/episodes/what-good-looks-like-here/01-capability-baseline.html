@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Capability baseline — Northvale ED</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+  body { font: 13px/1.5 ui-sans-serif, system-ui, sans-serif; background: #0b1220; color: #e2e8f0; margin: 0; padding: 18px; }
+  h1 { font-weight: 600; font-size: 1.15rem; margin: 0 0 2px; }
+  p.sub { color: #94a3b8; margin: 0 0 14px; font-size: 12px; }
+  .score { display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; }
+  .score .n { font-size: 2.4rem; font-weight: 700; color: #FFC107; font-variant-numeric: tabular-nums; }
+  .score .d { color: #64748b; font-size: 1rem; }
+  .axis-row { margin: 0 0 14px; }
+  .axis-head { display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .axis-name { color: #e2e8f0; font-weight: 600; }
+  .axis-val { font-variant-numeric: tabular-nums; color: #94a3b8; }
+  .track { background: #1e293b; border-radius: 5px; height: 10px; overflow: hidden; }
+  .fill { height: 100%; border-radius: 5px; transition: width .6s ease; }
+  .why { color: #64748b; font-size: 12px; margin-top: 4px; }
+  .rule { color: #475569; font-size: 11px; font-family: ui-monospace, monospace; margin-top: 2px; }
+</style>
+</head>
+<body>
+<h1>Capability baseline — Northvale ED (synthetic, real ER pattern)</h1>
+<p class="sub">Five axes, each 0–5, scored from the reflection. Each maps to a validation rule in the real power-bi-template. A number the team can show upward and improve.</p>
+<div class="score"><span class="n" id="overall">–</span><span class="d">/ 5.0 overall capability</span></div>
+<div id="axes"></div>
+<script>
+const AXES = [
+  { name:"Semantic governance", score:1.5,
+    why:"1 of 3 models certified; 'Number of Patients' defined three ways (DISTINCTCOUNT, COUNT, COUNTROWS).",
+    rule:"patient_count_distinct (error)" },
+  { name:"Time intelligence / date model", score:1.0,
+    why:"Exec Summary joins on DateTime with no calendar table — month-over-month numbers are unreliable.",
+    rule:"no_datetime_joins + calendar_table_required (error)" },
+  { name:"Reuse / conformance", score:1.5,
+    why:"No shared dimensions or measures; the 30-min SLA and 85% target are hard-coded across three visuals.",
+    rule:"no_hardcoded_sla (warning)" },
+  { name:"Performance posture", score:2.5,
+    why:"ER Reporting Model is tidy; Exec Summary is 1.28 GB / 47-min hourly refresh and uncertified.",
+    rule:"—" },
+  { name:"Compliance & shadow-IT", score:1.0,
+    why:"Patient Details exposes row-level data with no RLS (HIPAA); a hand-kept SharePoint file is load-bearing.",
+    rule:"patient_details_security (critical)" }
+];
+const color = d3.scaleLinear().domain([0,2.5,5]).range(["#DC3545","#FFC107","#28A745"]);
+const root = d3.select("#axes");
+AXES.forEach(a=>{
+  const row=root.append("div").attr("class","axis-row");
+  const head=row.append("div").attr("class","axis-head");
+  head.append("span").attr("class","axis-name").text(a.name);
+  head.append("span").attr("class","axis-val").text(a.score.toFixed(1)+" / 5");
+  const track=row.append("div").attr("class","track");
+  track.append("div").attr("class","fill").style("background",color(a.score)).style("width","0%")
+    .transition().duration(700).style("width",(a.score/5*100)+"%");
+  row.append("div").attr("class","why").text(a.why);
+  row.append("div").attr("class","rule").text(a.rule==="—"?"":"validation rule → "+a.rule);
+});
+const overall = d3.mean(AXES, a=>a.score);
+const o=d3.select("#overall");
+o.transition().duration(700).tween("t",()=>{ const i=d3.interpolate(0,overall); return t=>o.text(i(t).toFixed(1)); });
+o.style("color",color(overall));
+</script>
+</body>
+</html>
