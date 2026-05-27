@@ -1,111 +1,53 @@
-# The Data Shrink
+# The Data Shrink — Website
 
-The Data Shrink is a sovereign AI-powered analytics optimisation platform focused on Microsoft Power BI ecosystems.
+The public marketing and education site for The Data Shrink, built with Vite +
+React + TypeScript + Tailwind and deployed to GitHub Pages at
+[thedatashrink.com](https://www.thedatashrink.com/).
 
-The platform analyses:
+This repository is **the front-end only**. The product foundation and the
+engine live in their own repositories (see [Related repositories](#related-repositories)).
 
-- PBIP projects
-- Semantic models
-- DAX
-- Data lineage
-- Gateway dependencies
-- Report structures
-- Refresh patterns
-- Governance maturity
+## Develop
 
-The goal is to uncover hidden technical debt, optimise semantic models, reduce report latency, and improve enterprise analytics governance.
-
----
-
-## Core Principles
-
-- Sovereign deployment
-- Human-in-the-loop governance
-- Metadata-first architecture
-- Knowledge graph reasoning
-- Agent-driven discovery
-- Explainable optimisation
-- Enterprise-ready deployment
-
----
-
-## Key Capabilities
-
-- Semantic model analysis
-- Power BI lineage mapping
-- Dependency detection
-- Knowledge graph generation
-- Governance scoring
-- SQL optimisation recommendations
-- Shadow IT detection
-- PBIP observability
-- Performance remediation workflows
-
----
-
-## Architecture Overview
-
-```text
-PBIP / Power BI / Synapse / SQL / SharePoint
-                ↓
-        Metadata Extraction Layer
-                ↓
-         Knowledge Graph Engine
-                ↓
-          Agent Runtime Layer
-                ↓
-      Recommendation Engine
-                ↓
-      Human Governance Review
-                ↓
-     Controlled Enterprise Rollout
+```bash
+npm install
+npm run dev        # local dev server
+npm run build      # tsc -b && vite build → ./dist
+npm run preview    # preview the production build
 ```
 
----
-
-## Deployment Model
-
-The platform supports:
-
-- Local Docker deployment
-- VM-based deployment
-- Air-gapped environments
-- Sovereign enterprise environments
-
-No customer data leaves the customer boundary.
-
----
-
-## Current Focus
-
-Version 1 focuses on:
-
-- Identifying why Power BI environments become slow
-- Detecting hidden dependencies
-- Identifying semantic model misuse
-- Discovering shadow Excel and SharePoint dependencies
-- Recommending governed remediation paths
-
----
-
-## Repository Layout
+## Structure
 
 ```text
-/docs
-  /adr             Architecture Decision Records
-  /agents          Agent runtime and orchestration design
-  /concepts        Foundational IP (semantic observability, entropy, reflection)
-  /governance      Human-in-the-loop and governance design
-  /requirements    Numbered, buildable requirement specs
-  /roadmap         Staged product decomposition (V1 → V3)
-  /strategy        Market timing and positioning
-/skills            Composable, MCP-style agent skills
+src/
+  pages/        route components (Home, Platform, Episodes, Diagnostic, …)
+  components/   shared UI (Navbar, Footer, Markdown, CodeBlock, VideoEmbed, …)
+  episodes/     the episode series content + multi-series catalogue
+  diagnostic/   the interactive diagnostic flow
+index.html      app entry
+CNAME           custom domain (www.thedatashrink.com)
+.github/workflows/deploy.yml   GitHub Pages deploy
 ```
 
-See [CONTEXT.md](CONTEXT.md) for the shared domain language and
-[CLAUDE.md](CLAUDE.md) for the engineering operating model.
+## Episode series
 
-> Note: this repository also contains the public marketing site
-> (`src/`, a Vite + React + Tailwind app deployed to GitHub Pages). The
-> `/docs` and `/skills` trees are the product foundation; the site is the
-> public-facing surface.
+The site hosts long-form episode series under `src/episodes/`. Each episode is a
+folder with a `prose.md` and colocated code/artefact files, registered via the
+catalogue in `src/episodes/index.ts`. See
+[EPISODES-SERIES.md](EPISODES-SERIES.md) for the original "Building an Agent
+from Scratch" plan.
+
+## Deployment
+
+`deploy.yml` builds and publishes to GitHub Pages on every push to `main`.
+Work happens on feature branches; merging to `main` ships the site.
+
+> GitHub Pages requires the repository to be public **or** the account to be on
+> a paid plan (Pro/Team/Enterprise) while private.
+
+## Related repositories
+
+- **Product / Method** — the docs, concepts, skills, requirements, and ADRs
+  (the open "method" layer). _Separate repository._
+- **Engine** — the analyzer, generator, validator, and MCP server (the
+  proprietary "engine" layer): `spectrumefficiencylimited/power-bi-template`.
