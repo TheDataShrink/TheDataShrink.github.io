@@ -5,6 +5,11 @@ dist
 # local tooling / artifacts (not for public repo)
 *.tsbuildinfo
 .agents/
+.claude/
 skills-lock.json
 ai_training.md
 AI Engineering.pdf
+
+# private working directory — strategy, scripts, production, brand
+# MUST stay out of public repo. tracked separately in its own git.
+TheDataShrink-stockpile/

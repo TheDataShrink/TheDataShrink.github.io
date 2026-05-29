@@ -18,7 +18,7 @@ That sounds modest. It is the most important thing you will do in the whole enga
 
 Everything in this series runs against a Power BI estate for a hospital emergency department — **Northvale ED**. It's a stand-in hospital, but it is *not* a toy: the fact table (`ER_Data`), the fields, the measures, the DAX, the branding, and — crucially — the rules for what "good" looks like are the real ones from the [Spectrum Efficiency `power-bi-template`](https://github.com/spectrumefficiencylimited/power-bi-template). We model the estate; we don't invent the standards.
 
-That matters for a reason that is itself part of the method. The Data Shrink reads **metadata only** — the structure of the estate, never the patient rows inside it — and a real engagement starts on synthetic or de-identified data precisely so the first proof requires access to nothing sensitive. In healthcare, where every row is HIPAA-relevant, that isn't a nicety; it's the only way the door opens at all.
+That matters for a reason that is itself part of the method. The Data Shrink reads **metadata only** — the structure of the estate, never the patient rows inside it. That is a deliberate design constraint, not a limitation: a governance tool that can read the data it governs becomes, itself, the largest piece of shadow IT in the building. By staying above the row level, the tool can be trusted everywhere the data cannot follow. A real engagement starts on synthetic or de-identified data for the same reason — so the first proof requires access to nothing sensitive. In healthcare, where every row is HIPAA-relevant, that isn't a nicety; it's the only way the door opens at all.
 
 ## Meet the estate
 
@@ -28,7 +28,7 @@ The estate is deliberately honest. It has the entropy a real one has:
 - **Three semantic models**: a tidy, certified *ER Reporting Model*; an *SLA Tracker* and an *Exec Summary* that grew up ad-hoc. The Exec Summary is the biggest (1.28 GB, 26 tables), refreshes hourly, and nobody has certified it.
 - **A patient admin system** (PAS), plus two pieces of shadow IT: `Triage_Capacity.xlsx` on SharePoint, updated by a charge nurse each shift, and `satisfaction_survey.csv` on a shared drive.
 
-The full estate — every node and edge — is in [`estate.json`](#) below. In the next episode we turn it into a map you can read at a glance. For now, just sit with the shape of it.
+The full estate — every node and edge — ships alongside this episode as `estate.json`. In the next episode we turn it into a map you can read at a glance. For now, just sit with the shape of it.
 
 ## What reflection is *looking* for
 
