@@ -1,6 +1,6 @@
 # Reading the map
 
-Last episode we sat with the *shape* of the Northvale ED estate and refused to grade it. This episode we make it legible. We take the metadata — `estate.json` from Episode 0 — and turn it into a single picture you can put on a screen in front of the people who built it and **read out loud.**
+Last episode we sat with the *shape* of the Northvale ED estate and refused to grade it. This episode we make it legible. We take the metadata — `estate.json` from [Episode 0](/episodes/estate-as-we-found-it) — and turn it into a single picture you can put on a screen in front of the people who built it and **read out loud.**
 
 That last part matters. The deliverable of reflection isn't the picture. It's the *narration*. A map nobody can read is just a prettier version of the confusion you started with.
 

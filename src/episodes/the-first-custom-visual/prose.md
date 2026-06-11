@@ -10,7 +10,7 @@ The brick we'll use is real: [`seffMonthlyVarianceWaterfall`](https://github.com
 
 ## Why reports drift in the first place
 
-Go back to Episode 1's drift: the same "Number of Patients" counted three ways. *How* did that happen? Not malice. An author needed a patients number, opened the model they had, found *a* measure that looked right, and dropped it on a chart. The chart did its job perfectly — it rendered whatever number it was handed, in whatever colour the author clicked. It had no opinion about whether the number was governed or whether the colour meant anything.
+Go back to [Episode 1](/episodes/reading-the-map)'s drift: the same "Number of Patients" counted three ways. *How* did that happen? Not malice. An author needed a patients number, opened the model they had, found *a* measure that looked right, and dropped it on a chart. The chart did its job perfectly — it rendered whatever number it was handed, in whatever colour the author clicked. It had no opinion about whether the number was governed or whether the colour meant anything.
 
 That's the root cause. **A stock visual is a willing accomplice.** It renders a certified measure and a hand-rolled one with identical confidence, and it lets an author paint a regression in cheerful green because green was one click away. Governance and brand live in a wiki nobody reads, so they don't live anywhere.
 
@@ -27,13 +27,13 @@ Play with the demo. Two things to notice:
 - Every bar's colour is computed from the *variance*, not chosen. Volume up vs last year → the brand's green; down → the brand's red. The author can't override it.
 - Toggle to **"Avg Wait Time (up = bad)"**. The visual flips polarity — now a *rise* is unfavourable and goes red — because "good" is a property of the metric, declared once, not a colour the author remembers to invert. This is exactly the trap a stock chart walks into: someone copies the patient-volume chart for wait time and forgets that up is now bad. The brick can't make that mistake.
 
-An author trying to recreate Episode 1's chaos — off-brand colours, a regression painted green — *cannot*. Those choices aren't exposed. They're baked.
+An author trying to recreate [Episode 1](/episodes/reading-the-map)'s chaos — off-brand colours, a regression painted green — *cannot*. Those choices aren't exposed. They're baked.
 
 ## How it knows
 
 The mechanism is unremarkable, which is the point. Look at the visual's `capabilities.json`: three data roles (`category`, `actual`, `previousYear`) and an `objects.theme` that exposes only the brand palette — `positiveStrongColor`, `negativeStrongColor`, `neutralColor`, a reference-line colour. There is deliberately *no* "bar colour" property for the author to set. The visual computes variance in `parse()` and resolves the fill from the theme by meaning. Brand and correctness aren't reviewed in; they're the only options the visual offers.
 
-Tie this back: bind the `actual` role to the certified `DISTINCTCOUNT` patient measure from Episode 3, and you have a variance chart that is governed *and* on-brand *and* IBCS-correct — by construction, in one drag.
+Tie this back: bind the `actual` role to the certified `DISTINCTCOUNT` patient measure from [Episode 3](/episodes/what-good-looks-like-here), and you have a variance chart that is governed *and* on-brand *and* IBCS-correct — by construction, in one drag.
 
 ## One brick is a demo. The library is the product.
 

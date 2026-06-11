@@ -10,7 +10,7 @@ I want you to hear me on this: the version of an agent you ship on
 day one is the version everyone will remember if you don't improve
 it. And the only way to improve it, after the launch, is to listen
 to what people actually do with it. Not what they say in surveys.
-Not what your eval harness from Episode 6 says (though that's
+Not what your eval harness from [Episode 6](/episodes/06-evaluation) says (though that's
 necessary too). What they *do.*
 
 A father's lesson, hard-won: **the day you stop being curious about
@@ -150,7 +150,7 @@ The pipeline:
    real bug), or convert it to a different kind of issue (this
    exposes a missing feature, or a tool change).
 5. Promoted items get labelled with the expected behavior and added
-   to the fixture set used by the eval harness from Episode 6.
+   to the fixture set used by the eval harness from [Episode 6](/episodes/06-evaluation).
 6. The next prompt or model change is required to pass the new
    fixtures before it can ship.
 
@@ -224,11 +224,11 @@ a weekly digest sent to the team:
 
 - New fixtures added to the eval set this week (with source links).
 - Regressions: fixtures that previously passed and now fail.
-- Top failure buckets (Episode 7 taxonomy) and their trends.
+- Top failure buckets ([Episode 7](/episodes/07-failure-modes) taxonomy) and their trends.
 - Top user-reported issues from explicit feedback (themes, not
   individual events).
-- Cost trend (Episode 8).
-- The four signals (Episode 9): latency, traffic, errors, cost.
+- Cost trend ([Episode 8](/episodes/08-cheap-and-fast)).
+- The four signals ([Episode 9](/episodes/09-guardrails-gateway-observability)): latency, traffic, errors, cost.
 
 Sent at the same time every week. Read by the whole team. Acted on
 within two weeks of the issue surfacing. This is how an agent
@@ -269,14 +269,14 @@ What's still missing:
 
 - For a small fraction of teams: at some point, **finetuning** the
   underlying model on your domain. Almost everyone reaches for this
-  too early. The optional Episode 11 is the test for when it's
+  too early. The optional [Episode 11](/episodes/11-when-finetuning-earns-its-keep) is the test for when it's
   actually time.
 
 ---
 
 ## Where we go next
 
-Episode 11 is optional, and that's not me hedging — it's literally
+[Episode 11](/episodes/11-when-finetuning-earns-its-keep) is optional, and that's not me hedging — it's literally
 optional for most readers. We'll cover when finetuning earns its
 keep (and the four conditions to verify before you start), why
 dataset quality is the real blocker, and what minimal LoRA finetune

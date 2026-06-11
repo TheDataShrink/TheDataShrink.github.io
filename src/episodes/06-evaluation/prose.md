@@ -197,7 +197,7 @@ def run_eval(agent: Callable, fixtures: list[Fixture], scorers: list[Callable]) 
 The shape that matters:
 
 - **The agent is a function.** It takes typed inputs, returns a typed
-  output. Same shape as Episode 1's `plan_trip(req)`. If your real
+  output. Same shape as [Episode 1](/episodes/01-just-a-prompt)'s `plan_trip(req)`. If your real
   agent isn't a function (it's a server, it's stateful), wrap it in a
   thin function for evaluation.
 - **The scorer is a function.** It takes a fixture and an output and
@@ -420,7 +420,7 @@ things to actually fix.
 
 ## Where we go next
 
-Episode 7 takes the failures the evaluation surfaces and sorts them
+[Episode 7](/episodes/07-failure-modes) takes the failures the evaluation surfaces and sorts them
 into a small taxonomy: the five shapes of agent failure that account
 for most of what goes wrong. You'll find that "the agent is bad" is
 almost never the right diagnosis. There are five real diagnoses, and

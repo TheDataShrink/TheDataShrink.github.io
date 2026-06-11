@@ -276,7 +276,7 @@ After applying this episode's techniques:
 
 Per-conversation cost: about **$0.04**. An order of magnitude.
 
-Quality (measured with Episode 6's harness): essentially unchanged.
+Quality (measured with [Episode 6](/episodes/06-evaluation)'s harness): essentially unchanged.
 A little better on simple queries because the cheap model is more
 decisive; a little worse on the edge cases where the cheap model
 was tried first and the smart model had to be asked to retry —
@@ -303,16 +303,16 @@ What's still missing:
 - **Guardrails and a gateway** in front of all this — the production
   infrastructure that catches prompt injection, enforces rate
   limits, and gives you a single chokepoint for logging.
-  Episode 9.
+  [Episode 9](/episodes/09-guardrails-gateway-observability).
 - **A real feedback loop** from users. The eval harness from
-  Episode 6 only knows what you fed it. Episode 10 adds the loop
+  [Episode 6](/episodes/06-evaluation) only knows what you fed it. [Episode 10](/episodes/10-feedback-loop) adds the loop
   that closes itself.
 
 ---
 
 ## Where we go next
 
-Episode 9 wraps the agent in the things production demands: input
+[Episode 9](/episodes/09-guardrails-gateway-observability) wraps the agent in the things production demands: input
 validation, output safety filtering, a model gateway, and the
 observability that turns a black box into a system you can debug at
 3am when the customer says *"it just did the thing."*

@@ -61,8 +61,8 @@ agent feel like it knows you, instead of meeting you for the first
 time every Monday.
 
 This episode is mostly about types 3 and 4 — the persistent kinds.
-Type 1 we've used since Episode 1. Type 2 will show up implicitly when
-we build the planner in Episode 5.
+Type 1 we've used since [Episode 1](/episodes/01-just-a-prompt). Type 2 will show up implicitly when
+we build the planner in [Episode 5](/episodes/05-the-planning-loop).
 
 ---
 
@@ -101,7 +101,7 @@ here's the shape I trust:
    fall out of the window, the summary absorbs them. The summary lives
    in the system prompt or as a special early message.
 3. **A fact store**, in Postgres with vector search (the same setup
-   from Episode 3, reused). Specific facts about the user get
+   from [Episode 3](/episodes/03-rag-from-first-principles), reused). Specific facts about the user get
    *extracted* from conversations and stored as discrete records.
    These are looked up at the start of each turn and the relevant ones
    are injected into the prompt.
@@ -126,7 +126,7 @@ where most systems get it wrong. We'll get to it.
 
 ## Schema
 
-We're extending the schema from Episode 3.
+We're extending the schema from [Episode 3](/episodes/03-rag-from-first-principles).
 
 ```sql
 -- 03-memory.sql
@@ -354,15 +354,15 @@ What's still missing:
 
 - **A real planner.** Right now the agent reacts: each turn picks one
   action. For multi-step jobs that benefits from laying out a plan
-  first and replanning when reality interferes. Episode 5.
+  first and replanning when reality interferes. [Episode 5](/episodes/05-the-planning-loop).
 - **Honest evaluation of the memory.** Are the right facts being
-  retrieved? Are extracted facts accurate? That's Episode 6.
+  retrieved? Are extracted facts accurate? That's [Episode 6](/episodes/06-evaluation).
 
 ---
 
 ## Where we go next
 
-Episode 5 is the centerpiece of the build arc: the **planning loop.**
+[Episode 5](/episodes/05-the-planning-loop) is the centerpiece of the build arc: the **planning loop.**
 We take everything from Episodes 1–4 — the prompted call, the tools,
 the retrieval, the memory — and wrap them in the ReAct loop that lets
 the agent decide, on its own, what to do next, observe the result,

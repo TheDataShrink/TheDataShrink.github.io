@@ -184,9 +184,9 @@ That's the whole picture. Everything in the rest of this series is one of
 these boxes getting more interesting.
 
 - **Look** is where *memory* and *context* live (Episodes 3 and 4).
-- **Decide** is where *planning* lives (Episode 5). It's also where the
-  language model itself lives (Episode 1).
-- **Act** is where *tools* live (Episode 2). Tools are the agent's hands.
+- **Decide** is where *planning* lives ([Episode 5](/episodes/05-the-planning-loop)). It's also where the
+  language model itself lives ([Episode 1](/episodes/01-just-a-prompt)).
+- **Act** is where *tools* live ([Episode 2](/episodes/02-give-it-hands)). Tools are the agent's hands.
 - **Observe** is where *evaluation* and *feedback* live (Episodes 6 and
   10). Without honest observation, the loop is blind, and a blind loop is
   what people mean when they say "the agent went crazy."
@@ -278,10 +278,10 @@ them.
 
 ## Where we go next
 
-In Episode 1, we'll build the smallest version of the **decide** box — a
+In [Episode 1](/episodes/01-just-a-prompt), we'll build the smallest version of the **decide** box — a
 single language-model call, with a prompt that's actually thought about.
 No loop yet, no tools, no memory. Just the model and a good question.
-You'll be surprised how far that gets you. Then in Episode 2 we'll give
+You'll be surprised how far that gets you. Then in [Episode 2](/episodes/02-give-it-hands) we'll give
 it hands.
 
 I love you both. Let's go.

@@ -18,7 +18,7 @@ You could put visuals in a folder and call it a library. It wouldn't be one. Thr
 - **Day × Hour Heatmap** → *DISTINCTCOUNT of patients; sequential scale.*
 - **Month-Year Slicer** → *bound to the Calendar table, never a raw DateTime column.*
 
-Read those again against Episode 3's baseline. Every failing axis has a brick whose contract *is* the fix. The patient-count drift, the hard-coded SLA, the missing calendar — each is now something the library refuses to let happen.
+Read those again against [Episode 3](/episodes/what-good-looks-like-here)'s baseline. Every failing axis has a brick whose contract *is* the fix. The patient-count drift, the hard-coded SLA, the missing calendar — each is now something the library refuses to let happen.
 
 **A schema — the API.** Open `01-kpi-strip.module.json`. It's the real module shape: `module.name`, `type`, `category`, `dependencies` (`ER_Data`, `Calendar`), `measures_required`, and a `config` with the cards and their contracts. It renders nothing. Its job is to *declare what the module is and needs*, in a form something else can read.
 
@@ -40,6 +40,6 @@ That's no longer report-building. It's **curating collective intelligence** — 
 
 ## Still a tool a person uses — for one more episode
 
-Be precise about where we are. We have a governed, branded, machine-readable library. A skilled author can now assemble safe reports faster, and the reports they make can't drift the way Episode 1's did.
+Be precise about where we are. We have a governed, branded, machine-readable library. A skilled author can now assemble safe reports faster, and the reports they make can't drift the way [Episode 1](/episodes/reading-the-map)'s did.
 
 But it's still a person doing the assembling. The library made the work *safe and fast*; it didn't make it *repeatable without them*. That last step — turning "a careful person assembles from the library" into "the engine generates from a config" — is the next episode, and it's the moment the method stops being something you do and becomes something that runs.

@@ -10,7 +10,7 @@ When you were small and you didn't know something, you asked. You'd ask
 me, your mother, your grandmother, the librarian. The asking was the
 thing. Not knowing was fine; *pretending to know* was the problem.
 
-The language model in Episode 1 has a different relationship with not
+The language model in [Episode 1](/episodes/01-just-a-prompt) has a different relationship with not
 knowing. It has read most of the internet up to some cutoff date. That's
 a lot. It often sounds like it knows everything. But:
 
@@ -306,7 +306,7 @@ measure.** A father's principle applied to vector math.
 ## Wiring it into the agent
 
 Now we expose retrieval to the model as a tool, the same way we
-exposed `get_weather` in Episode 2.
+exposed `get_weather` in [Episode 2](/episodes/02-give-it-hands).
 
 ```python
 SEARCH_NOTES_TOOL = {
@@ -352,7 +352,7 @@ I want to be honest about the limits.
   *"Summarize everything we've ever discussed about Iceland"* — across
   fifty notes — strains the pattern. You'll get a summary, but it
   will favor the chunks that happened to score highest, not the most
-  important chunks. Multi-hop reasoning needs more (Episode 5's
+  important chunks. Multi-hop reasoning needs more ([Episode 5](/episodes/05-the-planning-loop)'s
   planner helps here).
 - **Tables and structured data** want SQL, not vectors. If your
   question is *"how much did we spend on hotels last year"*, RAG over
@@ -376,7 +376,7 @@ overkill. The skill is knowing which.
 
 Your agent can:
 
-- Call tools when it needs to act in the world (Episode 2).
+- Call tools when it needs to act in the world ([Episode 2](/episodes/02-give-it-hands)).
 - Search a corpus of your documents when it needs information outside
   its training data (this episode).
 - Cite where its information came from, in the form of chunk ids you
@@ -387,18 +387,18 @@ What's still missing:
 - **Memory across sessions.** Each conversation is amnesia. RAG over
   your notes is close, but it's not the same as the agent
   *remembering* what you said two turns ago in a long conversation.
-  Episode 4.
+  [Episode 4](/episodes/04-memory).
 - **A planner.** Right now the model decides what to do reactively,
   one tool call at a time. For multi-step jobs that benefits from
-  laying out a plan first. Episode 5.
+  laying out a plan first. [Episode 5](/episodes/05-the-planning-loop).
 - **Honest agent-level evaluation.** Retrieval has recall@k. The
-  end-to-end agent needs more. Episode 6.
+  end-to-end agent needs more. [Episode 6](/episodes/06-evaluation).
 
 ---
 
 ## Where we go next
 
-Episode 4 is memory. Specifically: how to give the agent enough of a
+[Episode 4](/episodes/04-memory) is memory. Specifically: how to give the agent enough of a
 "who I'm talking to and what we've discussed" that conversations feel
 continuous, without exploding the token budget or making things up.
 We'll mix in-conversation summarization with a small vector store of

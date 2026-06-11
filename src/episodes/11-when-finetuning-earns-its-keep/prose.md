@@ -30,8 +30,8 @@ are true. Not three. All four.
 ### 1. You've hit a quality ceiling with prompting
 
 You've iterated on prompts. You've used the best available model.
-You've added retrieval (Episode 3), memory (Episode 4), and the
-planner (Episode 5). Your eval harness (Episode 6) shows you're
+You've added retrieval ([Episode 3](/episodes/03-rag-from-first-principles)), memory ([Episode 4](/episodes/04-memory)), and the
+planner ([Episode 5](/episodes/05-the-planning-loop)). Your eval harness ([Episode 6](/episodes/06-evaluation)) shows you're
 plateauing — the same fixtures keep failing, and no prompt change
 moves the needle.
 
@@ -55,7 +55,7 @@ dataset to fix it. The pattern is the spec.
 The lower bound is *a few hundred high-quality examples,* the upper
 bound depends on the technique. Real, in-distribution data — from
 production usage, from your domain experts, from the eval fixture
-set you've been accumulating since Episode 10.
+set you've been accumulating since [Episode 10](/episodes/10-feedback-loop).
 
 If you're tempted to generate the training data with another model,
 think carefully. Synthetic data can work, but a finetune on synthetic
@@ -92,7 +92,7 @@ Before any training, write down:
 - The budget for the experiment (dollars and time).
 - The rollback plan.
 
-This document is the equivalent of the eval rubric from Episode 6.
+This document is the equivalent of the eval rubric from [Episode 6](/episodes/06-evaluation).
 It's the difference between a finetune you can justify and a
 finetune that just makes everyone feel busy.
 
@@ -248,9 +248,9 @@ solve your problem without the training step.
 
 ## Evaluating the finetune honestly
 
-After training, run your full eval harness from Episode 6. Compare
+After training, run your full eval harness from [Episode 6](/episodes/06-evaluation). Compare
 to the baseline. Apply the bootstrap confidence intervals from
-Episode 6's `03-significance.R` to confirm the improvement is real.
+[Episode 6](/episodes/06-evaluation)'s `03-significance.R` to confirm the improvement is real.
 
 Specifically check:
 
@@ -264,7 +264,7 @@ Specifically check:
   finetune can end up slower or larger than the base.
 - **Behavior on adversarial inputs** hasn't worsened. Finetuning on
   helpful examples can erode safety training. Re-run your
-  guardrail tests (Episode 9).
+  guardrail tests ([Episode 9](/episodes/09-guardrails-gateway-observability)).
 
 If any of these fail, you don't ship. You go back to the data or
 to the training config. *"Almost"* doesn't deploy.
@@ -292,18 +292,18 @@ it is the exception.
 
 This is the last episode of the build arc. The series went:
 
-- **Episode 0:** what an agent is.
-- **Episode 1:** the prompted baseline.
-- **Episode 2:** tools — giving it hands.
-- **Episode 3:** RAG — giving it knowledge.
-- **Episode 4:** memory — letting it remember.
-- **Episode 5:** the planning loop — letting it decide.
-- **Episode 6:** evaluation — knowing if it works.
-- **Episode 7:** failure modes — knowing how it breaks.
-- **Episode 8:** cost discipline — making it cheap enough.
-- **Episode 9:** guardrails, gateway, observability — wrapping it
+- **[Episode 0](/episodes/00-what-is-an-agent):** what an agent is.
+- **[Episode 1](/episodes/01-just-a-prompt):** the prompted baseline.
+- **[Episode 2](/episodes/02-give-it-hands):** tools — giving it hands.
+- **[Episode 3](/episodes/03-rag-from-first-principles):** RAG — giving it knowledge.
+- **[Episode 4](/episodes/04-memory):** memory — letting it remember.
+- **[Episode 5](/episodes/05-the-planning-loop):** the planning loop — letting it decide.
+- **[Episode 6](/episodes/06-evaluation):** evaluation — knowing if it works.
+- **[Episode 7](/episodes/07-failure-modes):** failure modes — knowing how it breaks.
+- **[Episode 8](/episodes/08-cheap-and-fast):** cost discipline — making it cheap enough.
+- **[Episode 9](/episodes/09-guardrails-gateway-observability):** guardrails, gateway, observability — wrapping it
   in production.
-- **Episode 10:** the feedback loop — getting better over time.
+- **[Episode 10](/episodes/10-feedback-loop):** the feedback loop — getting better over time.
 - **Episode 11 (this one):** finetuning, when warranted.
 
 Through-line: from a single API call to a full feedback-driven

@@ -14,7 +14,7 @@ Five axes. Each scored 0–5, from the reflection — metadata only, no new data
 
 The scorecard above is doing three jobs at once.
 
-**It's honest without being cruel.** Every score has a *why* and a *rule*. "Semantic governance: 1.5 — 'Number of Patients' defined three ways → `patient_count_distinct` (error)." That's not a new accusation. It's the drift from Episode 1, given a coordinate and a rule reference. They've already seen it. The number just totals it.
+**It's honest without being cruel.** Every score has a *why* and a *rule*. "Semantic governance: 1.5 — 'Number of Patients' defined three ways → `patient_count_distinct` (error)." That's not a new accusation. It's the drift from [Episode 1](/episodes/reading-the-map), given a coordinate and a rule reference. They've already seen it. The number just totals it.
 
 **It's a baseline, not a verdict.** The word is deliberate. A verdict is a judgement you pass on someone; a baseline is a starting line you measure *progress* from. "1.5 overall" isn't "you're failing" — it's "this is where the wheel starts, and in two quarters you'll show your executive a bigger number." Reframing the same score from judgement to trajectory is the difference between a defensive room and a motivated one.
 

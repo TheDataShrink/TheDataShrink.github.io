@@ -53,7 +53,7 @@ or a question that's genuinely ambiguous and the agent guessed.
 explicit (*"if the user's request conflicts with their stated
 preferences, ask before proceeding"*). Add an upfront
 clarification step for ambiguous inputs. Improve the planner's
-context window with retrieval (Episode 3) and memory (Episode 4).
+context window with retrieval ([Episode 3](/episodes/03-rag-from-first-principles)) and memory ([Episode 4](/episodes/04-memory)).
 
 *Fixes that don't work:* retraining the model. Adding more tools.
 Switching frameworks. The plan was wrong; none of those address
@@ -68,7 +68,7 @@ right approach with a tool that's broken or misused.
 or returned something the model couldn't interpret. The next step
 either ignores the result or invents one.
 
-*Often caused by:* sloppy tool schemas (Episode 2), parameters that
+*Often caused by:* sloppy tool schemas ([Episode 2](/episodes/02-give-it-hands)), parameters that
 require the model to invent values, tools that silently return `[]`
 on error, or tools whose semantics differ from their names.
 
@@ -117,7 +117,7 @@ the fact embedding.
 *Fixes that work:* dedicated tests for memory recall (the user
 states X at turn 3; check that X influences a decision at turn 8).
 Tune the summary prompt to preserve specifics. Tune retrieval for
-the fact store with the same recall@k discipline as Episode 3.
+the fact store with the same recall@k discipline as [Episode 3](/episodes/03-rag-from-first-principles).
 
 *Fixes that don't work:* increasing the context window size.
 Sometimes helps, often masks the underlying issue.
@@ -135,7 +135,7 @@ tools to "verify" what it already knows. Or one that quits with
 system prompt that incentivizes continued effort over decisive
 answers, or replanning logic that's too eager to replan.
 
-*Fixes that work:* the budget discipline from Episode 5 (every
+*Fixes that work:* the budget discipline from [Episode 5](/episodes/05-the-planning-loop) (every
 loop, hard caps). Explicit stopping criteria in the system prompt:
 *"Stop and answer when you have enough information for a useful
 response."* For premature stops: a prompt that gives the model
@@ -246,17 +246,17 @@ The agent now has:
 What's still missing:
 
 - **Cost discipline.** Even a working, well-evaluated agent can be
-  too expensive to ship. Episode 8.
+  too expensive to ship. [Episode 8](/episodes/08-cheap-and-fast).
 - **Production-shape guardrails and observability.** What sits
-  around the agent in real deployments. Episode 9.
+  around the agent in real deployments. [Episode 9](/episodes/09-guardrails-gateway-observability).
 - **A feedback loop with users.** How the agent gets better after
-  it ships. Episode 10.
+  it ships. [Episode 10](/episodes/10-feedback-loop).
 
 ---
 
 ## Where we go next
 
-Episode 8 is about making the agent cheap and fast. Right now our
+[Episode 8](/episodes/08-cheap-and-fast) is about making the agent cheap and fast. Right now our
 agent makes many model calls per user request, hits the most
 capable model for everything, and re-does work it's already done.
 Each of those is a cost lever. Pulling them right turns a $0.40

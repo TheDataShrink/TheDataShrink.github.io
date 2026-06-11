@@ -63,7 +63,7 @@ defense.
 
 **Out-of-scope detection.** Your trip planner doesn't need to handle
 *"write me a sonnet about Marx."* A quick classifier (the cheap model
-from Episode 8 works) can flag inputs that don't match your domain
+from [Episode 8](/episodes/08-cheap-and-fast) works) can flag inputs that don't match your domain
 and return a polite *"that's outside what I can help with"* response.
 
 **PII redaction (optional).** If you're sending user messages to a
@@ -126,7 +126,7 @@ What it owns:
 
 - **Provider credentials.** API keys live in the gateway. No service
   has direct keys. Rotating keys is a one-place change.
-- **Routing.** Episode 8's cheap-vs-smart logic lives here, not in
+- **Routing.** [Episode 8](/episodes/08-cheap-and-fast)'s cheap-vs-smart logic lives here, not in
   each agent.
 - **Rate limiting.** Per user, per service, per provider. Prevents
   one runaway loop from exhausting the org-wide quota.
@@ -197,7 +197,7 @@ have start/end times, attributes, and a parent.
 
 This is the *thing* you'll look at when something is broken.
 **Without a trace, you can't debug an agent.** The trace from
-Episode 5 — thought, action, observation per step — formalized as
+[Episode 5](/episodes/05-the-planning-loop) — thought, action, observation per step — formalized as
 spans, exportable to a standard format (OpenTelemetry), viewable in
 a standard tool (Jaeger, Tempo, Honeycomb, Datadog).
 
@@ -232,7 +232,7 @@ Aggregates of what's happening across all runs:
 - Error rate.
 - Tool call frequency.
 - Cache hit rate.
-- Eval-fixture pass rate (Episode 6, run on a schedule, recorded).
+- Eval-fixture pass rate ([Episode 6](/episodes/06-evaluation), run on a schedule, recorded).
 
 These don't tell you what went wrong in a specific case — that's
 what traces are for. They tell you *whether something is going wrong
@@ -246,7 +246,7 @@ Borrowed from Google's SRE practice and adapted:
 - **Latency.** Are users waiting too long?
 - **Traffic.** How much work is the system doing?
 - **Errors.** How often does the agent fail (any failure mode from
-  Episode 7)?
+  [Episode 7](/episodes/07-failure-modes))?
 - **Cost.** How much is the system spending?
 
 A dashboard with these four signals, broken down per service, is
@@ -322,13 +322,13 @@ What's still missing:
 
 - **A feedback loop with actual users.** All the infrastructure in
   this episode tells you when something *broke.* It doesn't tell
-  you whether users are getting value. Episode 10 closes that loop.
+  you whether users are getting value. [Episode 10](/episodes/10-feedback-loop) closes that loop.
 
 ---
 
 ## Where we go next
 
-Episode 10 is the loop that closes the loop. You have an agent that
+[Episode 10](/episodes/10-feedback-loop) is the loop that closes the loop. You have an agent that
 works, that's measured, that's cheap, that's safe. Now you put it
 in front of users and learn from what they actually do with it.
 We'll cover conversational feedback (thumbs, edits, regenerations),

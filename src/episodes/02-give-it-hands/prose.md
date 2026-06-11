@@ -12,7 +12,7 @@ because you said the words. Someone has to fill a pot, light a burner,
 salt the water, watch the clock, drain the strainer, melt the butter, find
 the parmesan. Without hands, your wanting just stays inside you.
 
-The model we built in Episode 1 has thoughts. It can produce a five-day
+The model we built in [Episode 1](/episodes/01-just-a-prompt) has thoughts. It can produce a five-day
 Tokyo itinerary that reads like a careful travel agent wrote it. What it
 cannot do is *check the actual weather in Tokyo this week*, or *see whether
 the flight it just suggested is still available*, or *book anything*.
@@ -23,7 +23,7 @@ the discipline of letting a language model use them is called **function
 calling**. It's the smallest change that turns "a chatbot" into something
 people are willing to call an agent.
 
-It's also the place where the love-versus-fear posture from Episode 0
+It's also the place where the love-versus-fear posture from [Episode 0](/episodes/00-what-is-an-agent)
 shows up most concretely in code. When you give a model tools, you're
 deciding *what it's allowed to touch in the world.* You can do that
 generously (love: a set of small, orthogonal tools, each well-named,
@@ -77,7 +77,7 @@ When the model decides it has answered the question fully, it replies
 with plain text instead of a tool use, and the loop stops.
 
 That loop, repeated, is most of what people mean when they say "agent."
-Episode 5 will make it explicit. For now we'll do exactly one trip
+[Episode 5](/episodes/05-the-planning-loop) will make it explicit. For now we'll do exactly one trip
 through it, by hand, so you can see every part.
 
 ---
@@ -426,13 +426,13 @@ What you still don't have:
 
 - **Knowledge from outside the model's training data.** The model can
   ask for the weather, but it can't search your company wiki or your
-  database. That's Episode 3 — retrieval.
+  database. That's [Episode 3](/episodes/03-rag-from-first-principles) — retrieval.
 - **Memory across sessions.** Every conversation starts from zero.
-  Episode 4.
+  [Episode 4](/episodes/04-memory).
 - **A planning step.** Right now the model picks tools reactively, one
-  at a time. Sometimes you want it to lay out a plan first. Episode 5.
+  at a time. Sometimes you want it to lay out a plan first. [Episode 5](/episodes/05-the-planning-loop).
 - **Honest evaluation.** Same caveat as last time. Smoke tests catch
-  obvious breaks, not subtle regressions. Episode 6.
+  obvious breaks, not subtle regressions. [Episode 6](/episodes/06-evaluation).
 
 A father's pacing reminder: **don't add the next capability until the
 current one is solid.** If your tool-using agent occasionally calls the
@@ -443,7 +443,7 @@ planner on top. The planner will just plan with the wrong tool faster.
 
 ## Where we go next
 
-In Episode 3 we teach the agent to read. Specifically: to look things
+In [Episode 3](/episodes/03-rag-from-first-principles) we teach the agent to read. Specifically: to look things
 up in a body of knowledge that isn't in its training data — your
 documents, your database, your tickets, your past conversations. We'll
 build a small retrieval system from scratch using Postgres and

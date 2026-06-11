@@ -24,13 +24,13 @@ config.yaml → analyze → validate (gate) → generate modules → migrate DAX
 2. **Analyze.** `pbip_project_analyzer.py` reads the existing PBIP structure — the same reflection from Episodes 1–2, done in code.
 3. **Validate — the gate.** Before generating anything, the config is checked against its own `validation_rules`. This is the piece to dwell on.
 4. **Generate.** `module_generator.py` (first file) emits governed modules — the KPI strip, the gauge, the slicers — binding the required certified measures, in brand.
-5. **Migrate.** The orchestrator also plans a DAX/M → **SQL gold layer** migration — pushing business logic down into a governed layer instead of leaving it scattered in models. (This is the cure for the gold-layer erosion the map showed in Episode 1.)
+5. **Migrate.** The orchestrator also plans a DAX/M → **SQL gold layer** migration — pushing business logic down into a governed layer instead of leaving it scattered in models. (This is the cure for the gold-layer erosion the map showed in [Episode 1](/episodes/reading-the-map).)
 
 ## The contract didn't relax — it moved earlier
 
 Look at `validate()` in `module_generator.py`. Before any module is generated, every KPI is checked against its `aggregation_must_be` rule, and the date config against `no_datetime_joins` / `require_calendar`. Give it a config where patient count is `COUNT`, and it **raises** — nothing is generated.
 
-This is exactly Episode 4's idea, but moved all the way upstream. There, an off-brand encoding was impossible *at design time* in one visual. Here, an entire estate's worth of drift is caught *at generate time*, before a single file is written. The Engine literally **cannot generate a drifting report**, because the only configs it will build from are ones that satisfy the rules the baseline scored.
+This is exactly [Episode 4](/episodes/the-first-custom-visual)'s idea, but moved all the way upstream. There, an off-brand encoding was impossible *at design time* in one visual. Here, an entire estate's worth of drift is caught *at generate time*, before a single file is written. The Engine literally **cannot generate a drifting report**, because the only configs it will build from are ones that satisfy the rules the baseline scored.
 
 Notice how the whole series converges here. Reflection found the certification gaps and the `COUNT` drift. The baseline scored them against real rules. The library encoded those rules into module contracts. And now the generator enforces them at the moment of creation. Six episodes, one thread: *the metadata about what's trustworthy, propagated all the way to the act of building.*
 

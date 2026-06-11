@@ -34,7 +34,7 @@ back to you.
 That's why we need a loop. A loop is **a chain that decides what
 its next step is at runtime, based on what just happened.** It is
 literally the difference between *narrating to* the world and *talking
-with* it. Same fork as Episode 0, in code.
+with* it. Same fork as [Episode 0](/episodes/00-what-is-an-agent), in code.
 
 ---
 
@@ -53,7 +53,7 @@ idea fits on a postcard:
 That's the whole pattern. Thought, action, observation, repeat. The
 "thought" is the part that's new compared to plain tool use: the model
 *reasons out loud* before it acts. That out-loud reasoning, weirdly,
-makes its actions much better — same effect as Episode 1's "give it
+makes its actions much better — same effect as [Episode 1](/episodes/01-just-a-prompt)'s "give it
 room to think," but applied to every loop iteration.
 
 Modern providers have made this almost transparent. When you use
@@ -72,7 +72,7 @@ contradicts your plan).
 
 ## ReAct in thirty lines
 
-We already built this in Episode 2. Here it is again, cleaner, with
+We already built this in [Episode 2](/episodes/02-give-it-hands). Here it is again, cleaner, with
 the thought-action-observation cycle made explicit.
 
 ```python
@@ -113,7 +113,7 @@ def react(question: str, tools, fns, max_steps: int = 8) -> str:
     raise StopBudget(f"reached {max_steps} steps without finishing")
 ```
 
-The structural difference from Episode 2 is the `log()` calls. They
+The structural difference from [Episode 2](/episodes/02-give-it-hands) is the `log()` calls. They
 print the trace of *what the model thought, what it did, what it
 saw.* This trace is the single most useful debugging artifact in
 agent work. Save it. Look at it. Most "the agent did something weird"
@@ -308,12 +308,12 @@ and trust evaporates.
 
 ## Putting it all together
 
-The full agent now has all four boxes from Episode 0:
+The full agent now has all four boxes from [Episode 0](/episodes/00-what-is-an-agent):
 
 - **Look** — context, memory, retrieval (Episodes 3, 4).
-- **Decide** — the prompt and the model (Episode 1), now wrapped in a
+- **Decide** — the prompt and the model ([Episode 1](/episodes/01-just-a-prompt)), now wrapped in a
   planner that lays out steps (this episode).
-- **Act** — tools (Episode 2), now executed in parallel where the plan
+- **Act** — tools ([Episode 2](/episodes/02-give-it-hands)), now executed in parallel where the plan
   allows.
 - **Observe** — tool results flowing back into the loop, with explicit
   replanning when they contradict the plan (this episode).
@@ -356,12 +356,12 @@ The agent now:
 What's still missing:
 
 - **Honest evaluation.** Does it actually work, on average, on the
-  cases that matter? You don't know yet. That's Episode 6, the most
+  cases that matter? You don't know yet. That's [Episode 6](/episodes/06-evaluation), the most
   important episode in the series.
 - **Failure-mode awareness.** When it goes wrong, *how* does it go
-  wrong, and which of those are addressable? Episode 7.
+  wrong, and which of those are addressable? [Episode 7](/episodes/07-failure-modes).
 - **Cost discipline.** This agent is now expensive. Making it cheap
-  enough to ship is Episode 8.
+  enough to ship is [Episode 8](/episodes/08-cheap-and-fast).
 
 ---
 
@@ -382,7 +382,7 @@ A father's bias: **own the loop.** Everything else can be borrowed.
 
 ## Where we go next
 
-Episode 6 is evaluation. This is the episode that separates real
+[Episode 6](/episodes/06-evaluation) is evaluation. This is the episode that separates real
 practitioners from people who built one demo and stopped. We will
 build an evaluation harness that can tell you, with confidence
 intervals, whether the change you just made to your agent helped or

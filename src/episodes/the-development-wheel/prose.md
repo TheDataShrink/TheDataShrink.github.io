@@ -18,10 +18,10 @@ The only thing that beats a rate is another rate. You don't defeat gradual degra
 
 ## The number has to climb
 
-Episode 3 gave the estate a baseline: 1.5 out of 5. The whole point of a number was that it could *move*. The chart above is that number across quarters — and notice it's not a story about a tool. It's a story about *sequence*, the one the baseline set, severity-first:
+[Episode 3](/episodes/what-good-looks-like-here) gave the estate a baseline: 1.5 out of 5. The whole point of a number was that it could *move*. The chart above is that number across quarters — and notice it's not a story about a tool. It's a story about *sequence*, the one the baseline set, severity-first:
 
 - **Q1 — the HIPAA gap closes.** Patient Details gets row-level security and audit logging. We led with this because its rule was `severity: critical` — its failure mode was a notifiable privacy breach, not a wrong chart.
-- **Q2 — semantic governance.** "Number of Patients" collapses to one certified `DISTINCTCOUNT` measure; the `COUNT` and `COUNTROWS` versions are retired. Three reports corrected at once; the Episode 1 drift is gone, not patched.
+- **Q2 — semantic governance.** "Number of Patients" collapses to one certified `DISTINCTCOUNT` measure; the `COUNT` and `COUNTROWS` versions are retired. Three reports corrected at once; the [Episode 1](/episodes/reading-the-map) drift is gone, not patched.
 - **Q3 — time intelligence.** A calendar table goes in, the DateTime joins come out, and the SLA threshold becomes a parameter. Month-over-month numbers can finally be trusted.
 - **Q4 — performance and the gold layer.** The Exec Summary, rebuilt on the SQL gold layer, drops from a 47-minute hourly refresh to nine. The model gets certified; the direct-query bypass is gone.
 - **Q5 — cadence.** New ED reports ship governed *by default*. Drift no longer reappears between reviews, because the Engine is the thing building the reports.
