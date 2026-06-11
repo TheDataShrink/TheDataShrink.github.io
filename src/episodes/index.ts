@@ -32,6 +32,18 @@ export const SERIES: Series[] = [
       'one capability to the agent built in the previous one; the code accretes, nothing is thrown away.',
     order: 1,
   },
+  {
+    id: 'the-engine-gets-a-socket',
+    title: 'The Engine Gets a Socket',
+    tagline: 'The product track — the Engine becomes an MCP server any agent can call.',
+    description:
+      'The applied track ended with an Engine that rebuilds reports from governed modules — driven by our ' +
+      'scripts, on our machine. This series wraps it in the Model Context Protocol so any AI agent gets the ' +
+      'same governed hands over a Power BI estate. Six episodes, built in trust order: read, index, write ' +
+      'behind a gate, own the layers Microsoft doesn’t, then try to make it lie. Every artifact is a real ' +
+      'output of the server against a 19-project test estate — nothing constructed.',
+    order: 2,
+  },
 ]
 
 const PROSE = import.meta.glob('./*/prose.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>
@@ -301,10 +313,87 @@ const POWERBI_EPISODES: EpisodeSeed[] = [
   },
 ]
 
+/** "The Engine Gets a Socket" — the product track (datashrink-mcp-pbip). */
+const MCP_EPISODES: EpisodeSeed[] = [
+  {
+    slug: 'the-layer-nobody-owns',
+    number: 1,
+    title: 'The layer nobody owns',
+    hook: 'Microsoft ships two Power BI MCP servers. Neither touches the layer the organisation actually experiences — and that gap is the product.',
+    date: '2026-06-11',
+    primaryLanguage: 'json',
+    languages: [],
+    tags: ['mcp', 'strategy', 'pbip'],
+    readingMinutes: 7,
+    source: 'datashrink_pbip v0.2.0 design notes · Microsoft MCP server docs',
+  },
+  {
+    slug: 'a-server-that-only-reads',
+    number: 2,
+    title: 'A server that only reads',
+    hook: 'The first version cannot write — not "doesn’t," cannot. That constraint is why it sold.',
+    date: '2026-06-11',
+    primaryLanguage: 'json',
+    languages: ['json'],
+    tags: ['mcp', 'read-only', 'governance', 'trust'],
+    readingMinutes: 7,
+    source: 'datashrink_pbip v0.2.0 · live scan of the 19-project estate',
+  },
+  {
+    slug: 'a-registry-of-decisions',
+    number: 3,
+    title: 'A registry of decisions',
+    hook: 'The least interesting-sounding episode contains the idea the write path stands on: store the intent, not the snapshot.',
+    date: '2026-06-11',
+    primaryLanguage: 'json',
+    languages: ['json'],
+    tags: ['mcp', 'components', 'binding-contract'],
+    readingMinutes: 7,
+    source: 'datashrink_pbip v0.2.0 · the multi-year waterfall module contract',
+  },
+  {
+    slug: 'the-write-path',
+    number: 4,
+    title: 'The write path',
+    hook: 'Keep, inside a server that edits files, the property that made the read-only server safe: the worst case is nothing happens.',
+    date: '2026-06-11',
+    primaryLanguage: 'json',
+    languages: ['json'],
+    tags: ['mcp', 'two-phase-write', 'validation', 'safety'],
+    readingMinutes: 7,
+    source: 'datashrink_pbip v0.2.0 · captured dry-run and blocked commit',
+  },
+  {
+    slug: 'the-layer-microsoft-cannot-touch',
+    number: 5,
+    title: 'The layer Microsoft cannot touch',
+    hook: 'Modeling MCP explicitly stops above Power Query. That is where the spreadsheets hide — 71 hard-coded paths across one real estate.',
+    date: '2026-06-11',
+    primaryLanguage: 'json',
+    languages: ['json'],
+    tags: ['mcp', 'power-query', 'm-lint', 'lineage'],
+    readingMinutes: 7,
+    source: 'datashrink_pbip v0.2.0 · unedited M-lint run across 19 projects',
+  },
+  {
+    slug: 'proving-it-real',
+    number: 6,
+    title: 'Proving it real',
+    hook: 'An AI agent tested the server that gives AI agents hands: 14 protocol checks, one deliberate lie refused, and Power BI Desktop rendering the result.',
+    date: '2026-06-11',
+    primaryLanguage: 'python',
+    languages: ['python'],
+    tags: ['mcp', 'testing', 'protocol', 'evidence'],
+    readingMinutes: 8,
+    source: 'datashrink_pbip v0.2.0 · the 14-check stdio harness, live session 2026-06-11',
+  },
+]
+
 /** One catalog per series, each tagged with its series id. */
 const CATALOG: EpisodeMeta[] = [
   ...POWERBI_EPISODES.map((m) => ({ ...m, series: 'reflecting-an-estate' })),
   ...AGENT_EPISODES.map((m) => ({ ...m, series: 'building-an-agent' })),
+  ...MCP_EPISODES.map((m) => ({ ...m, series: 'the-engine-gets-a-socket' })),
 ]
 
 function loadCode(slug: string): CodeFile[] {

@@ -1,0 +1,175 @@
+{
+  "name": "Annual Comparative income statement",
+  "pages": [
+    {
+      "id": "934619f7c08505330c88",
+      "display_name": "Overview"
+    },
+    {
+      "id": "c7f3efb36601c26c2950",
+      "display_name": "Detailed comparison"
+    },
+    {
+      "id": "190e3cc2df241f3c1c21",
+      "display_name": "Multi-Year view"
+    },
+    {
+      "id": "3283176057b205aec845",
+      "display_name": "Income statement"
+    },
+    {
+      "id": "5f3c1d2e9a4b6c7d8e01",
+      "display_name": "SEFF Income Statement"
+    },
+    {
+      "id": "6a7e5c4b3d2f1a0b9c88",
+      "display_name": "SEFF Overview"
+    },
+    {
+      "id": "195ad565c9ae200e6187",
+      "display_name": "Consolidated financials"
+    },
+    {
+      "id": "50980eefac7dc0c72a8a",
+      "display_name": "Consolidated financials 2"
+    },
+    {
+      "id": "448a4b2aa30eda6d9192",
+      "display_name": "Trends"
+    },
+    {
+      "id": "721d59c89cd39d87ec5b",
+      "display_name": "Tooltip_by Region"
+    },
+    {
+      "id": "mcptestpage0001",
+      "display_name": "MCP TEST"
+    }
+  ],
+  "tables": [
+    {
+      "name": "AccountHierarchy",
+      "columns": [
+        {
+          "name": "ID",
+          "data_type": "int64",
+          "hidden": true
+        },
+        {
+          "name": "Account ID",
+          "data_type": "int64",
+          "hidden": true
+        },
+        {
+          "name": "Account",
+          "data_type": "string",
+          "hidden": false
+        },
+        {
+          "name": "PC L1 ID",
+          "data_type": "int64",
+          "hidden": true
+        }
+      ],
+      "measures": []
+    },
+    {
+      "name": "PnL",
+      "columns": [
+        {
+          "name": "Year",
+          "data_type": "int64",
+          "hidden": false
+        },
+        {
+          "name": "Value",
+          "data_type": "double",
+          "hidden": true
+        },
+        {
+          "name": "AccountHierarchy.ID",
+          "data_type": "int64",
+          "hidden": true
+        },
+        {
+          "name": "Regions.ID Region",
+          "data_type": "int64",
+          "hidden": true
+        }
+      ],
+      "measures": []
+    },
+    {
+      "name": "Regions",
+      "columns": [
+        {
+          "name": "Region",
+          "data_type": "string",
+          "hidden": false
+        },
+        {
+          "name": "ID Region",
+          "data_type": "int64",
+          "hidden": true
+        }
+      ],
+      "measures": []
+    },
+    {
+      "name": "∑ Key Measures",
+      "columns": [
+        {
+          "name": "Column1",
+          "data_type": "string",
+          "hidden": true
+        }
+      ],
+      "measures": [
+        {
+          "name": "AC",
+          "dax": "CALCULATE(sum(PnL[Value]),PnL[Year]=SELECTEDVALUE(PnL[Year]))"
+        },
+        {
+          "name": "PY",
+          "dax": "VAR SelectedYear = SELECTEDVALUE(PnL[Year])\nVAR PrevYear = SelectedYear - 1\nRETURN\nCALCULATE(\nSUM(PnL[Value]),\nPnL[Year] = PrevYear\n)"
+        },
+        {
+          "name": "Selected Account",
+          "dax": "SELECTEDVALUE(AccountHierarchy[Account])"
+        },
+        {
+          "name": "Selected Region",
+          "dax": "SELECTEDVALUE(Regions[Region])"
+        },
+        {
+          "name": "Selected Year",
+          "dax": "SELECTEDVALUE(PnL[Year])"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "name": "AutoDetected_f4681423-c4a6-4265-84c4-2147524cfc40",
+      "from_table": "PnL",
+      "from_column": "AccountHierarchy.ID",
+      "to_table": "AccountHierarchy",
+      "to_column": "ID",
+      "from_cardinality": "many",
+      "to_cardinality": "one",
+      "cross_filter": "single",
+      "active": true
+    },
+    {
+      "name": "AutoDetected_5bad84b5-d615-429c-af2f-3e7021116445",
+      "from_table": "PnL",
+      "from_column": "Regions.ID Region",
+      "to_table": "Regions",
+      "to_column": "ID Region",
+      "from_cardinality": "many",
+      "to_cardinality": "one",
+      "cross_filter": "single",
+      "active": true
+    }
+  ]
+}

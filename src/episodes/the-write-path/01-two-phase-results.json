@@ -1,0 +1,148 @@
+{
+  "dry_run_insert": {
+    "action": "visual.insert",
+    "ok": true,
+    "committed": false,
+    "dry_run": true,
+    "validation": [],
+    "writes": [
+      {
+        "path": "C:\\estates\\demo\\Annual Comparative income statement\\Annual Comparative income statement.Report\\definition\\pages\\934619f7c08505330c88\\visuals\\92c23a2ea96748279e20\\visual.json",
+        "action": "created",
+        "backup": null
+      }
+    ],
+    "preview": {
+      "visual_id": "92c23a2ea96748279e20",
+      "page_id": "934619f7c08505330c88",
+      "visual": {
+        "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+        "name": "92c23a2ea96748279e20",
+        "position": {
+          "x": 100,
+          "y": 100,
+          "z": 0,
+          "width": 280,
+          "height": 140,
+          "tabOrder": 0
+        },
+        "visual": {
+          "visualType": "card",
+          "query": {
+            "queryState": {
+              "Values": {
+                "projections": [
+                  {
+                    "field": {
+                      "Measure": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "∑ Key Measures"
+                          }
+                        },
+                        "Property": "AC"
+                      }
+                    },
+                    "queryRef": "∑ Key Measures.AC",
+                    "nativeQueryRef": "AC"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "blocked_commit_even_with_write_true": {
+    "action": "component.stamp",
+    "ok": false,
+    "committed": false,
+    "dry_run": false,
+    "validation": [
+      {
+        "level": "error",
+        "code": "unbound_slot",
+        "message": "Required binding slot 'Category (Year)' was not provided."
+      },
+      {
+        "level": "error",
+        "code": "unbound_slot",
+        "message": "Required binding slot 'Values (AC)' was not provided."
+      },
+      {
+        "level": "error",
+        "code": "unbound_slot",
+        "message": "Required binding slot 'PreviousYear (PY)' was not provided."
+      },
+      {
+        "level": "error",
+        "code": "unbound_slot",
+        "message": "Required binding slot 'Group (PC Level 1)' was not provided."
+      },
+      {
+        "level": "warning",
+        "code": "extra_binding",
+        "message": "Binding 'Values' is not a declared slot of this component."
+      }
+    ],
+    "writes": [
+      {
+        "path": "C:\\estates\\demo\\Annual Comparative income statement\\Annual Comparative income statement.Report\\definition\\pages\\934619f7c08505330c88\\visuals\\81b2505cac734755b933\\visual.json",
+        "action": "created",
+        "backup": null
+      }
+    ],
+    "preview": {
+      "component": "zbi-chart-multiyear-account",
+      "visual_id": "81b2505cac734755b933",
+      "page_id": "934619f7c08505330c88",
+      "declared_slots": [
+        "Category (Year)",
+        "Values (AC)",
+        "PreviousYear (PY)",
+        "Group (PC Level 1)"
+      ],
+      "resolved_bindings": {
+        "Values": "∑ Key Measures[AC]"
+      },
+      "visual": {
+        "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+        "name": "81b2505cac734755b933",
+        "position": {
+          "x": 770,
+          "y": 67,
+          "z": 2000,
+          "width": 509,
+          "height": 652,
+          "tabOrder": 0
+        },
+        "visual": {
+          "visualType": "waterfall0221D8FBE40445C1A4E598AA8EF8B506",
+          "query": {
+            "queryState": {
+              "Values": {
+                "projections": [
+                  {
+                    "field": {
+                      "Measure": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "∑ Key Measures"
+                          }
+                        },
+                        "Property": "AC"
+                      }
+                    },
+                    "queryRef": "∑ Key Measures.AC",
+                    "nativeQueryRef": "AC"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
