@@ -387,6 +387,18 @@ const MCP_EPISODES: EpisodeSeed[] = [
     readingMinutes: 8,
     source: 'datashrink_pbip v0.2.0 · the 14-check stdio harness, live session 2026-06-11',
   },
+  {
+    slug: 'first-contact',
+    number: 7,
+    title: 'First contact',
+    hook: 'The server’s first real user had zero MCP experience — drove all 24 tools through a real client, and found three bugs that three levels of expert testing missed.',
+    date: '2026-06-11',
+    primaryLanguage: 'json',
+    languages: ['json'],
+    tags: ['mcp', 'onboarding', 'inspector', 'real-use'],
+    readingMinutes: 8,
+    source: 'datashrink_pbip v0.2.0 · native client session + Inspector walkthrough + 15-phase acceptance run, 2026-06-11',
+  },
 ]
 
 /** One catalog per series, each tagged with its series id. */

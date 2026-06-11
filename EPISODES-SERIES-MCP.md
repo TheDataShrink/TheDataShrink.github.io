@@ -1,6 +1,6 @@
 # Series: The Engine Gets a Socket — Building the Data Shrink MCP Server
 
-A 6-episode arc on building `datashrink-mcp-pbip`: an MCP server that gives any AI
+A 7-episode arc on building `datashrink-mcp-pbip`: an MCP server that gives any AI
 agent governed hands over a Power BI estate. Continuation of the applied track
 (Northvale ED / "the agent rebuilds the report" / "the development wheel") — the
 method became an Engine; this series makes the Engine a product any agent can call.
@@ -60,6 +60,14 @@ doc `building-mcp.md`, and the live testing session of 2026-06-11.
 - **Hook:** An AI agent tested the server that gives AI agents hands.
 - **Sections:** three levels of proof — (1) the wire: a real MCP stdio client, 14/14 checks, incl. two harness-side bugs as evidence of why protocol testing matters; (2) trying to make it lie: the deliberate wrong-slot `write=True` stamp refused with zero bytes written, then the correct stamp committed (the gate witnessed from both sides); (3) the renderer: Power BI Desktop loads the server-authored page/visuals; the engagement loop (propose → review → commit → render → diff); the roadmap coda (multi-tenant remote, M auto-patching, schema-shim tests).
 - **Artifact:** `01-smoke_mcp_client.py` — the actual 14-check protocol harness.
+
+## Episode 7 — First contact
+
+- **Slug:** `first-contact`
+- **Hook:** The server's first real user had zero MCP experience — and found three bugs three levels of expert testing missed.
+- **Sections:** the fourth rung of the proof ladder (a beginner, not an expert); the Inspector walkthrough structured around the owner's actual questions (masked env vars, config blobs, "how do we auth?", empty resources/prompts, the three empty-path failures); the workshop-vs-car reframe; the native 24/24 sweep against never-touched projects (generality evidence); the three real-use bugs (TMDL fenced-DAX parse, missing tool annotations → wrong Destructive badge, SDK version leak); the paper trail (15-phase acceptance run, 6/6 deliberate-failure tests, the 5-insertion git diff, the honest 78/100 readiness score); the curriculum coda — the journey became the beginner's tutorial that ships with the server.
+- **Artifact:** `01-native-session-results.json` — the session record: 8 capability checks, 24/24, the three bugs.
+- **Source material (private repo, not linked):** `TUTORIAL.md`, `ONBOARDING-VALIDATION.md`, the native Claude Code session of 2026-06-11.
 
 ---
 
