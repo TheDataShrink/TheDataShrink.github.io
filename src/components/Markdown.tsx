@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Marked } from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/github-dark.css'
@@ -35,6 +36,7 @@ function escapeHtml(s: string): string {
 
 export default function Markdown({ source }: { source: string }) {
   const ref = useRef<HTMLDivElement>(null)
+  const navigate = useNavigate()
   const html = useMemo(() => marked.parse(source) as string, [source])
 
   // re-run highlight on any code blocks that slipped through unhighlighted
@@ -50,6 +52,15 @@ export default function Markdown({ source }: { source: string }) {
     <div
       ref={ref}
       className="prose-episode"
+      onClick={(e) => {
+        const a = (e.target as HTMLElement).closest('a')
+        const href = a?.getAttribute('href')
+        if (href?.startsWith('/')) {
+          e.preventDefault()
+          navigate(href)
+          window.scrollTo(0, 0)
+        }
+      }}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   )

@@ -1,5 +1,7 @@
 # The write path
 
+> **Previously** — The server [reads estates](/episodes/a-server-that-only-reads) and [indexes the component library](/episodes/a-registry-of-decisions). Each component carries a **binding contract**: its data slots written as human-readable model references (`∑ Key Measures[AC]`, `PnL.Year`) with the reasoning attached, resolved against the live model scan instead of copied as literal JSON. Phase one promised the read-only server could not touch report definitions. This episode it learns to — without giving up what made that promise valuable.
+
 Phase one swore the server couldn't write. This episode it learns to — and the entire design problem is preserving, *inside* a server that edits files, the property that made the read-only version trustworthy: the worst case of any interaction is nothing happens.
 
 The tools themselves read like a report author's verbs: `pbip.visual.insert`, `pbip.visual.update`, `pbip.visual.delete`, `pbip.report.create_page`, `pbip.report.delete_page`, and the headline — `pbip.component.stamp`, which takes a component from the registry, a target page, and a binding map, and puts a governed visual onto a real report. Every one of them shares a single discipline.
@@ -31,7 +33,7 @@ In the second half, `component.stamp` is called on the waterfall component with 
 ]
 ```
 
-`write=True`, and **zero bytes written** — the response even lists the writes it *planned*, so the caller can see exactly what was refused. The contract from last episode is doing its job at the only moment that matters: the moment of creation. This is the agent-rebuilds-the-report gate again — *the Engine cannot generate a drifting report* — re-implemented at the protocol boundary, where the caller is no longer our own orchestrator but any agent anyone connects.
+`write=True`, and **zero bytes written** — the response even lists the writes it *planned*, so the caller can see exactly what was refused. The contract from last episode is doing its job at the only moment that matters: the moment of creation. This is [the agent-rebuilds-the-report gate](/episodes/the-agent-rebuilds-the-report) again — *the Engine cannot generate a drifting report* — re-implemented at the protocol boundary, where the caller is no longer our own orchestrator but any agent anyone connects.
 
 > **Two-phase authoring** — stage → validate → commit, dry-run by default, validation able to veto an explicit write. The property it buys: an agent's worst mistake is a refused plan, never a broken report.
 
@@ -39,11 +41,11 @@ In the second half, `component.stamp` is called on the waterfall component with 
 
 It's worth saying precisely what `component.stamp` does when the bindings *are* right, because "applies a template" undersells it. The component stores no report-specific JSON — only the visual type and the contract. Stamp **builds** a fresh `visual.json`: it parses each binding (`∑ Key Measures[AC]` → measure `AC` on table `∑ Key Measures`; `PnL.Year` → column), resolves each against the scanned model — that resolution *is* the validation — and emits the PBIR projection structure from scratch, schema-stamped, positioned, named. The same builder backs plain `visual.insert` for visuals that don't come from the library.
 
-The honesty note from the agent series still applies: PBIR is the frontier layer, its schema in preview. Building minimal, well-formed structures from a small vocabulary we control — rather than mutating arbitrary JSON we don't — is the conservative bet, and the final judge of correctness is Power BI Desktop itself. We'll put that judge on the bench, formally, two episodes from now.
+The honesty note from [the rebuild episode](/episodes/the-agent-rebuilds-the-report) still applies: PBIR is the frontier layer, its schema in preview. Building minimal, well-formed structures from a small vocabulary we control — rather than mutating arbitrary JSON we don't — is the conservative bet, and the final judge of correctness is Power BI Desktop itself. We'll put that judge on the bench, formally, two episodes from now.
 
 ## What the estate feels
 
-Step back to the method. Reflection saw the estate; the baseline scored it; the library encoded *good*; the registry indexed it. The write path is where all of that **touches the estate back** — and the touch inherits every constraint upstream of it. A visual stamped through this path is in brand because the component is, correctly bound because the contract demanded it, and reviewable because it arrived as a diffable text change with a backup beside it.
+Step back to the method. [Reflection](/episodes/estate-as-we-found-it) saw the estate; [the baseline](/episodes/what-good-looks-like-here) scored it; [the library](/episodes/the-library) encoded *good*; [the registry](/episodes/a-registry-of-decisions) indexed it. The write path is where all of that **touches the estate back** — and the touch inherits every constraint upstream of it. A visual stamped through this path is in brand because the component is, correctly bound because the contract demanded it, and reviewable because it arrived as a diffable text change with a backup beside it.
 
 Optimisation, finally — and it took four episodes of earned trust to get here, which is the point.
 

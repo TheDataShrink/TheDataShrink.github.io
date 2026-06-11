@@ -1,8 +1,10 @@
 # The layer Microsoft cannot touch
 
+> **Previously** — The server now [reads](/episodes/a-server-that-only-reads), [indexes components](/episodes/a-registry-of-decisions), and [writes behind a two-phase gate](/episodes/the-write-path). One layer remains untouched: **Power Query**, the layer *beneath* the model — queries written in a language called **M** that fetch and shape the data before it ever reaches a table. In the applied track, [the dependencies episode](/episodes/dependencies-in-plain-sight) traced an estate's undocumented sources by hand and found `Triage_Capacity.xlsx`, a spreadsheet a Northvale charge nurse updated between patients, quietly load-bearing for a board report.
+
 Microsoft's Modeling MCP is explicit about its boundary: it edits the semantic model — tables, measures, relationships — and it does not touch **Power Query**. The M expressions that actually *fetch and shape the data*, the layer every model stands on, sit outside its writ. Outside Remote MCP's too.
 
-Which should sound familiar. The applied track had a name for what accumulates in layers nobody watches, and an episode about where it hides: the dependency that isn't absent, just untraced. In Northvale it was a spreadsheet a charge nurse updated between patients. In the M layer, it's a file path.
+Which should sound familiar. The applied track had a name for what accumulates in layers nobody watches, and [an episode about where it hides](/episodes/dependencies-in-plain-sight): the dependency that isn't absent, just untraced. In Northvale it was a spreadsheet a charge nurse updated between patients. In the M layer, it's a file path.
 
 ## Two small tools
 
@@ -18,7 +20,7 @@ Modest tooling. Then we pointed it at our own workshop.
 
 The colocated `01-m-lint-portfolio.json` is the unedited output of `m.lint` across all nineteen projects of the test estate. The totals: **71 hard-coded paths and 77 local-file dependencies. Two projects clean, of nineteen.**
 
-Read one finding the way the blast-radius episode taught:
+Read one finding the way [the blast-radius episode](/episodes/dependencies-in-plain-sight) taught:
 
 > `AccountHierarchy.AccountHierarchy: hard-coded absolute/UNC path in the M query — this breaks on refresh from another machine.`
 
@@ -26,7 +28,7 @@ The account hierarchy — the table that gives the P&L its *structure* — loads
 
 > **Shadow IT** — unmanaged business logic or data dependencies introduced outside governed architecture. SharePoint files, local CSVs, unmanaged dimensions — *and the M queries that wire them in.*
 
-Here is the link worth pausing on. The estate map found `Triage_Capacity.xlsx` because we modelled the estate's sources by hand. The M lint finds the same *class* of dependency — the local file on the critical path — automatically, from the query text, across an entire portfolio, in seconds. The dependencies-in-plain-sight episode asked, of every source: *if this is wrong, who finds out, and how late?* `m.lint` is that question, running as a tool. Seventy-seven local-file dependencies is seventy-seven blast radii nobody had drawn.
+Here is the link worth pausing on. [The estate map](/episodes/reading-the-map) found `Triage_Capacity.xlsx` because we modelled the estate's sources by hand. The M lint finds the same *class* of dependency — the local file on the critical path — automatically, from the query text, across an entire portfolio, in seconds. [The dependencies-in-plain-sight episode](/episodes/dependencies-in-plain-sight) asked, of every source: *if this is wrong, who finds out, and how late?* `m.lint` is that question, running as a tool. Seventy-seven local-file dependencies is seventy-seven blast radii nobody had drawn.
 
 And the honest disclosure: this is our own demo estate. Nineteen projects built by people who write episodes about governance, and seventeen of them carry the finding. That's not embarrassing; that's the *point*. Entropy isn't a discipline failure — it's the default state of any estate that grows. Which is exactly why detection has to be a standing tool rather than a one-time cleanup.
 
@@ -34,7 +36,7 @@ And the honest disclosure: this is our own demo estate. Nineteen projects built 
 
 The episode's second half is smaller but rhymes. `pbip.theme.read` reports a project's theme configuration; `pbip.theme.apply` registers a theme JSON as the report's custom theme — through the same two-phase gate as every other write, dry-run by default, backup on overwrite.
 
-The first-custom-visual episode made the case that brand violations should be *impossible at design time*, not caught in review. A governed theme, applied as a validated, diffable write, is that idea at report scope: the palette and typography arrive as one reviewed change, not forty manual visual-by-visual touch-ups that each might drift. The component library guarantees the modules are in brand; the theme guarantees the canvas under them is.
+[The first-custom-visual episode](/episodes/the-first-custom-visual) made the case that brand violations should be *impossible at design time*, not caught in review. A governed theme, applied as a validated, diffable write, is that idea at report scope: the palette and typography arrive as one reviewed change, not forty manual visual-by-visual touch-ups that each might drift. The component library guarantees the modules are in brand; the theme guarantees the canvas under them is.
 
 ## The surface is complete
 

@@ -1,6 +1,8 @@
 # The layer nobody owns
 
-The Engine, as we left it, is a private miracle. It reflects an estate, scores it against real rules, and generates governed modules from a config — but only if the config arrives through *our* scripts, on *our* machine, driven by *our* hands. The agent series gave one agent hands. This series is about giving **every** agent the same hands, over a standard socket.
+> **Previously** — In [the applied track](/episodes/estate-as-we-found-it) we walked a Power BI **estate** (an organisation's full collection of reports, semantic models, and data sources) through the Data Shrink method: *reflect first, then optimise*. Its case study is **Northvale ED**, a synthetic hospital emergency department. That track ended with [**the Engine**](/episodes/the-agent-rebuilds-the-report) — a Python pipeline that generates governed, on-brand report modules from a YAML config. In parallel, [the agent series](/episodes/00-what-is-an-agent) built an AI agent from scratch. Those three names are all you need to start here.
+
+The Engine, as we left it, is a private miracle. It reflects an estate, scores it against real rules, and generates governed modules from a config — but only if the config arrives through *our* scripts, on *our* machine, driven by *our* hands. The agent series [gave one agent hands](/episodes/02-give-it-hands). This series is about giving **every** agent the same hands, over a standard socket.
 
 That socket is the **Model Context Protocol** — MCP. An MCP server is a small program that advertises typed tools; any AI client that speaks the protocol (Claude, Copilot, an IDE) can discover those tools and call them. The agent doesn't get smarter. It gets *capable*: the difference between an analyst who knows your standards and an analyst who knows your standards *and is allowed in the building*.
 
@@ -12,19 +14,19 @@ Microsoft ships two Power BI MCP servers, and they are good at what they do:
 
 | Layer | Owner |
 | --- | --- |
-| Semantic-model editing — tables, measures, relationships, RLS | Microsoft **Modeling MCP**, connected to the live Desktop model |
-| Model querying — DAX, schema exploration | Microsoft **Remote MCP**, Fabric-hosted |
+| Semantic-model editing — tables, measures, relationships, row-level security | Microsoft **Modeling MCP**, connected to the live Desktop model |
+| Model querying — DAX (Power BI's formula language), schema exploration | Microsoft **Remote MCP**, Fabric-hosted |
 | Report and visual authoring, components, theming, Power Query, governance, documentation | **nobody** |
 
 Sit with the third row. The model layer — the part with the official Tabular Object Model, decades of tooling, a supported programmatic surface — is owned twice over. The **report layer** — the part the organisation actually *experiences*, the pages and visuals and brands, plus the Power Query that feeds everything and the governance that makes any of it trustworthy — is unowned.
 
-This is not an oversight to gloat about. It's the same asymmetry the whole method rests on: tooling gravitates to the layers with clean APIs, and the entropy accumulates in the layers without them. The drift we found in Northvale ED lived in measures *as consumed by reports*. The shadow IT lived in *queries*. The off-brand visuals lived in *pages*. The unowned layer is where the method earns its keep — so the unowned layer is what the server must own.
+This is not an oversight to gloat about. It's the same asymmetry the whole method rests on: tooling gravitates to the layers with clean APIs, and the entropy accumulates in the layers without them. The drift we found in [Northvale ED](/episodes/estate-as-we-found-it) lived in measures *as consumed by reports*. The [shadow IT](/episodes/dependencies-in-plain-sight) lived in *queries*. The off-brand visuals lived in *pages*. The unowned layer is where the method earns its keep — so the unowned layer is what the server must own.
 
 **Rebuild nothing Microsoft ships. Own everything Microsoft doesn't.** That single sentence is the product strategy, and it has a name in the code: when a request needs a measure created or a relationship changed, our server *delegates* — it tells the agent to use Modeling MCP. Complement, never compete. A server that re-implements the model layer is a maintenance treadmill; a server that owns the report layer is a moat.
 
 ## Why this is buildable at all
 
-One more inheritance from the agent-rebuilds-the-report episode, because it's load-bearing: none of this works against `.pbix`. A `.pbix` is a binary blob; a program can't reason about it. **PBIP** changed the substrate — a Power BI project saved as open text, TMDL for the model, PBIR JSON for the report. The moment the estate became files, it became something a server can scan, diff, validate, and edit.
+One more inheritance from [the agent-rebuilds-the-report episode](/episodes/the-agent-rebuilds-the-report), because it's load-bearing: none of this works against `.pbix`. A `.pbix` is a binary blob; a program can't reason about it. **PBIP** changed the substrate — a Power BI project saved as open text: **TMDL**, a readable text language, for the model; **PBIR**, plain JSON files, for the report's pages and visuals. The moment the estate became files, it became something a server can scan, diff, validate, and edit.
 
 That gives us the design invariants the whole series will keep returning to:
 

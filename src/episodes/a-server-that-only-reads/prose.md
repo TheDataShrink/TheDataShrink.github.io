@@ -1,18 +1,20 @@
 # A server that only reads
 
+> **Previously** — [Episode 1](/episodes/the-layer-nobody-owns) drew the map: Microsoft's two Power BI MCP servers own the semantic-model layer; the report layer, Power Query, and governance are unowned — and that's what `datashrink-mcp-pbip` will own, working directly on PBIP text files. **Northvale ED** is the [applied track](/episodes/estate-as-we-found-it)'s case study: the synthetic hospital estate where the method was first walked end to end.
+
 The first version of the server cannot write. Not "doesn't write yet, pending a flag" — *cannot*. There is no code path from any tool to the disk. This is the single most important design decision in the whole build, and it was made for the same reason reflection precedes critique in an engagement: **trust precedes optimisation, and for software, safety precedes trust.**
 
 Think about what you're asking a client to do when they install an MCP server: *let an AI agent loose on the files that produce the board pack.* If the first version can edit those files, the security review takes a quarter and the answer is probably no. If the first version is provably read-only — every tool side-effect-free, every output a markdown report or a JSON structure — the conversation is the same one that opened the Northvale engagement: "we read the *shape* of your reporting, never the rows, and we can't change anything." That sentence gets you in the building.
 
 ## Reflection, done by tools
 
-What does a read-only server *do*? Exactly what Episodes 1–3 of the applied track did by hand. It reflects.
+What does a read-only server *do*? Exactly what [Episodes 1–3 of the applied track](/episodes/reading-the-map) did by hand. It reflects.
 
 - `pbip.project.list` — walk a root folder, find every PBIP project. The estate census.
 - `pbip.project.inventory` — one project, fully structured: pages, visuals, tables, sources.
-- `pbip.semantic_model.describe` — the deep read. This is where the engineering lives: a real **TMDL parser** that recovers column data types and hidden flags, every measure's DAX expression, the relationships, the culture settings. The colocated `01-inventory-excerpt.json` is its actual output against the comparative income statement project — ten pages, four tables, the five `∑ Key Measures` with their DAX intact.
+- `pbip.semantic_model.describe` — the deep read. This is where the engineering lives: a real parser for **TMDL** (the text format PBIP stores the model in) that recovers column data types and hidden flags, every measure's DAX expression — its formula — the relationships, the culture settings. The colocated `01-inventory-excerpt.json` is its actual output against the comparative income statement project — eleven pages, four tables, the five `∑ Key Measures` with their DAX intact.
 - `pbip.report.list_pages` — display order, names, dimensions. The consumption layer, listed in the order the user meets it.
-- `pbip.portfolio.audit` — every project under a root, cross-tabulated into one matrix. The whole-estate view from the map episode, as a tool call.
+- `pbip.portfolio.audit` — every project under a root, cross-tabulated into one matrix. The whole-estate view from [the map episode](/episodes/reading-the-map), as a tool call.
 
 And the documentation generators, because reflection's deliverable was always the *narration*: `pbip.docs.knowledge_register` writes the Knowledge Register, `pbip.docs.prompt_pack` writes the prompt pack, `pbip.docs.semantic_model` auto-fills the model documentation from the live scan, `pbip.docs.scaffold` lays down the canonical thirteen-document suite from the template. The documents a consultant assembles in week one, emitted in seconds, and *always current* because they're regenerated from the files rather than maintained by hand.
 
@@ -32,6 +34,6 @@ The lesson generalises beyond Power BI: **ship the version that can't hurt anyon
 
 ## What reading can't do
 
-But the method doesn't stop at seeing, and neither can the server. The applied track had a library episode — governed, branded, machine-readable modules, each one a decision about what *good* looks like, encoded so it can't drift. Right now those modules sit in a `modules/` folder as JSON files, legible to humans and invisible to agents.
+But the method doesn't stop at seeing, and neither can the server. The applied track had [a library episode](/episodes/the-library) — governed, branded, machine-readable modules, each one a decision about what *good* looks like, encoded so it can't drift. Right now those modules sit in a `modules/` folder as JSON files, legible to humans and invisible to agents.
 
 Next episode we give the library an index: the component registry — and meet the deceptively simple idea that makes the whole write path possible, the **binding contract**.

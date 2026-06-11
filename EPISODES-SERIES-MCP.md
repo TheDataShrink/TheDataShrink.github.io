@@ -94,9 +94,14 @@ doc `building-mcp.md`, and the live testing session of 2026-06-11.
   `npm run build` passes; artifacts verified free of local paths. Working title
   "The Engine Gets a Socket" used on the index — still open to a plainer title
   (one string in `SERIES` to change).
-- **Pending**: Desktop screenshot for Ep 6; final title pass; commit + publish
-  (all six episode folders, the registry edit, and this file are untracked —
-  deliberately left uncommitted for owner review).
+- **2026-06-11 (accessibility pass)**: Owner feedback "cryptic" addressed — every
+  episode now opens with a linked **Previously** box grounding the Engine /
+  Northvale ED / the method; all named cross-references are real links to
+  `/episodes/<slug>` (16 targets, validated); jargon (estate, TMDL, PBIR, DAX,
+  M, RLS) defined at first use; Ep 2 page-count error fixed (ten → eleven).
+  Infra: internal prose links route via react-router; build now emits
+  `dist/404.html` so deep links to episodes work on GitHub Pages.
+- **Pending**: Desktop screenshot for Ep 6; final title pass.
 
 ## Files written
 

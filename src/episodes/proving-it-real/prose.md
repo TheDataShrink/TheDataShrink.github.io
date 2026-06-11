@@ -1,6 +1,8 @@
 # Proving it real
 
-Every episode so far ends with a claim: the parser parses, the registry resolves, the gate holds. This episode we stop claiming. The evaluation episode of the agent series said the quiet part: *most agent demos pass on a handful of inputs and fail in production — eval is the difference.* The same is true of agent tooling. A unit-tested MCP server is a server whose functions work; whether the *product* works is a different question, answerable only over the real protocol, against the real estate, ending at the real renderer.
+> **Previously** — Five episodes built the surface: [a read layer](/episodes/a-server-that-only-reads), [a component registry](/episodes/a-registry-of-decisions), [a write path behind a two-phase gate](/episodes/the-write-path), and [Power Query lint plus governed theming](/episodes/the-layer-microsoft-cannot-touch). Every claim shipped with a real artifact. This episode tests the whole thing the way a stranger would: over the actual protocol, adversarially, ending in Power BI Desktop.
+
+Every episode so far ends with a claim: the parser parses, the registry resolves, the gate holds. This episode we stop claiming. [The evaluation episode of the agent series](/episodes/06-evaluation) said the quiet part: *most agent demos pass on a handful of inputs and fail in production — eval is the difference.* The same is true of agent tooling. A unit-tested MCP server is a server whose functions work; whether the *product* works is a different question, answerable only over the real protocol, against the real estate, ending at the real renderer.
 
 So the test rig is the product's own pitch, turned on itself: **an AI agent tested the server that gives AI agents hands.**
 
@@ -14,7 +16,7 @@ The colocated `01-smoke_mcp_client.py` is the harness: a real MCP client that la
 
 ## Level two: trying to make it lie
 
-The write-path episode promised that validation can veto an explicit `write=True`. A promise like that gets tested by betrayal, so the next test stamped the waterfall component onto a real page with `write=True` — and deliberately wrong binding slots.
+[The write-path episode](/episodes/the-write-path) promised that validation can veto an explicit `write=True`. A promise like that gets tested by betrayal, so the next test stamped the waterfall component onto a real page with `write=True` — and deliberately wrong binding slots.
 
 The server refused. Four `unbound_slot` errors, `committed: false` — and then the part that matters: we checked the *filesystem*, not the response. The visuals folder was untouched. **Zero bytes had been written on a call that explicitly requested writing.** The response even listed the writes it had planned and declined to make. Then the same stamp with the contract's real slots — `Category (Year)` → `PnL.Year`, `Values (AC)` → `∑ Key Measures[AC]`, `PreviousYear (PY)`, `Group (PC Level 1)` — and a complete, schema-stamped waterfall visual appeared on disk, all four projections resolved, next to a `.bak` of the page list it amended.
 
@@ -30,6 +32,6 @@ The loop a real engagement will run is exactly the loop we ran: agent proposes (
 
 ## The wheel, again
 
-The development-wheel episode argued that a reflection is a photograph of a moving thing — the value is in the cadence. The same holds one level up: this server is *itself* a photograph. PBIR's preview schema will drift. Microsoft's servers will grow. The roadmap already knows its next turns — multi-tenant remote delivery with real authentication so the server can be *sold* rather than installed, M auto-patching to fix the hundred and forty-eight findings rather than just count them, schema-shim tests against Microsoft's preview drift.
+[The development-wheel episode](/episodes/the-development-wheel) argued that a reflection is a photograph of a moving thing — the value is in the cadence. The same holds one level up: this server is *itself* a photograph. PBIR's preview schema will drift. Microsoft's servers will grow. The roadmap already knows its next turns — multi-tenant remote delivery with real authentication so the server can be *sold* rather than installed, M auto-patching to fix the hundred and forty-eight findings rather than just count them, schema-shim tests against Microsoft's preview drift.
 
 But the line this series set out to draw is drawn. The layer nobody owned has an owner; the owner has a protocol; the protocol has been tested by an agent, adversarially, down to the renderer. The method became an Engine; the Engine, a socket. What plugs into it next — that's the next series.
