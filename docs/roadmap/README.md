@@ -81,7 +81,7 @@ build toward it; listed here so scope stays visible rather than sprawling.
 | ~~Modular visual intelligence~~ ✅ | `docs/concepts/modular-visual-intelligence.md` | V3 |
 | ~~Applied episode series plan~~ ✅ | `docs/product/applied-series.md` | V1 |
 | Custom visual library (build) | `docs/requirements/006-custom-visual-library.md` | V3 |
-| Enablement / training framework | `docs/training/enablement-framework.md` | V3 |
+| ~~Enablement / training framework — The Data Shrink Accelerator (10 modules)~~ ✅ | `docs/training/enablement-framework.md` | V3 |
 | Sovereign AI architecture | `docs/deployment/sovereign-ai.md` | V1 |
 | Synthetic data safety policy | `docs/security/synthetic-data-policy.md` | V1 |
 | Case study / before-after template | `docs/examples/case-study-template.md` | V2 |
