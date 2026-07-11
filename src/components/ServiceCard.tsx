@@ -4,12 +4,12 @@ import { ChevronDown } from 'lucide-react'
 interface ServiceRowProps {
   title: string
   who: string
-  price: string
+  price?: string
   description: string
   index: number
 }
 
-export default function ServiceCard({ title, who, price, description, index }: ServiceRowProps) {
+export default function ServiceCard({ title, who, description, index }: ServiceRowProps) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -28,7 +28,6 @@ export default function ServiceCard({ title, who, price, description, index }: S
           <span className="text-xs font-mono text-slate-600 hidden sm:block whitespace-nowrap">{who}</span>
         </div>
         <div className="flex items-center gap-4 flex-shrink-0">
-          <span className="data-value text-sm">{price}</span>
           <ChevronDown className={`w-3.5 h-3.5 text-slate-600 transition-transform ${open ? 'rotate-180' : ''}`} />
         </div>
       </div>

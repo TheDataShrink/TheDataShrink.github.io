@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 interface TierCardProps {
   name: string
-  price: string
+  price?: string
   period?: string
   description: string
   features: string[]
@@ -21,10 +21,12 @@ export default function TierCard({ name, price, period = '/mo', description, fea
 
       <div>
         <div className="label mb-2">{name}</div>
-        <div className="flex items-baseline gap-1.5">
-          <span className="font-display font-800 text-2xl text-slate-100">{price}</span>
-          <span className="text-xs font-mono text-slate-600">{period}</span>
-        </div>
+        {price && (
+          <div className="flex items-baseline gap-1.5">
+            <span className="font-display font-800 text-2xl text-slate-100">{price}</span>
+            <span className="text-xs font-mono text-slate-600">{period}</span>
+          </div>
+        )}
         <p className="text-xs text-slate-500 font-body mt-2 leading-relaxed">{description}</p>
       </div>
 
