@@ -14,48 +14,47 @@ const sections = [
 ]
 
 const spectrumServices = [
-  { title: 'ARE Endorsement Applications', who: 'NZ spectrum users', price: '$500–$1,500', description: 'RSM licence endorsements prepared and submitted by NZ ARE #176. Legally authorised sign-off from inside the system — I ran the ARE audit regime at MBIE before doing this commercially.' },
-  { title: 'RSM Licence Management', who: 'NZ operators with active licences', price: '$1,000–$3,000/mo', description: 'Monthly retainer covering RSM licence renewals, variations, expiry tracking, and proactive MBIE engagement. Built on the same system powering the SEFF Spectrum Platform (70K+ records).' },
-  { title: 'Spectrum Licence Audit', who: 'Operators with 10+ licences', price: '$2,500–$6,000 fixed', description: 'Full inventory of your RSM spectrum holdings. Identify at-risk licences, expiry dates, and compliance gaps before RSM does. Delivered as a prioritised action register.' },
-  { title: 'International Frequency Coordination', who: 'Satellite · Border region operators', price: '$3,000–$15,000', description: 'ITU coordination, RSM/MBIE submission management, and cross-border frequency clearance for NZ and Pacific operations.' },
-  { title: 'RF Network Design & Optimisation', who: 'Network teams · Integrators', price: 'from $250/hr', description: 'Propagation modelling, interference analysis, frequency planning, and link budget reviews for fixed and mobile networks. 15+ years field and regulatory experience.' },
+  { title: 'ARE Endorsement Applications', who: 'NZ spectrum users', description: 'RSM licence endorsements prepared and submitted by NZ ARE #176. Legally authorised sign-off from inside the system — I ran the ARE audit regime at MBIE before doing this commercially.' },
+  { title: 'RSM Licence Management', who: 'NZ operators with active licences', description: 'Ongoing retainer covering RSM licence renewals, variations, expiry tracking, and proactive MBIE engagement. Built on the same system powering the SEFF Spectrum Platform (70K+ records).' },
+  { title: 'Spectrum Licence Audit', who: 'Operators with 10+ licences', description: 'Full inventory of your RSM spectrum holdings. Identify at-risk licences, expiry dates, and compliance gaps before RSM does. Delivered as a prioritised action register.' },
+  { title: 'International Frequency Coordination', who: 'Satellite · Border region operators', description: 'ITU coordination, RSM/MBIE submission management, and cross-border frequency clearance for NZ and Pacific operations.' },
+  { title: 'RF Network Design & Optimisation', who: 'Network teams · Integrators', description: 'Propagation modelling, interference analysis, frequency planning, and link budget reviews for fixed and mobile networks. 15+ years field and regulatory experience.' },
 ]
 
 const complianceServices = [
-  { title: 'RSM Compliance Audit', who: 'NZ carriers · RSPs', price: '$3,000–$7,000', description: 'End-to-end review of your RSM obligations: licence conditions, record-keeping, and Radiocommunications Act compliance. Delivered with a prioritised remediation roadmap by a former MBIE auditor.' },
-  { title: 'Telecommunications Act (NZ) Review', who: 'RSPs · Resellers · MVNOs', price: '$2,500–$5,000', description: 'Gap analysis against NZ Telecommunications Act obligations, Commerce Commission requirements, and Telecommunications Development Levy. Includes remediation roadmap and board briefing.' },
-  { title: 'Privacy Act 2020 Assessment', who: 'Any data-holding operator', price: '$3,000–$7,000', description: 'NZ Privacy Act 2020 compliance review: information privacy principles, privacy impact assessments, breach notification obligations, and data flow mapping.' },
-  { title: 'Unsolicited Electronic Messages Review', who: 'Marketing-heavy operators', price: '$1,500–$3,000', description: 'Consent framework audit and policy documentation against the NZ Unsolicited Electronic Messages Act 2007.' },
-  { title: 'Data Governance Framework', who: 'Growth-stage operators', price: '$8,000–$25,000', description: 'Policies, standards, and data catalogue implementation. Microsoft Purview or open-source stack — your choice. Delivered in phases with ownership and stewardship built in.' },
-  { title: 'Data Sovereignty Review', who: 'GovTech · Defence suppliers', price: '$5,000–$15,000', description: 'Identify data residency risks, cloud provider obligations, and sovereignty controls for NZ government contracts and NZISM alignment.' },
-  { title: 'Fractional Compliance Officer', who: 'Operators without in-house compliance', price: '$2,500–$5,000/mo', description: 'Your named compliance officer on retainer. RSM liaison, board reporting, and regulatory horizon scanning. Month-to-month.' },
+  { title: 'RSM Compliance Audit', who: 'NZ carriers · RSPs', description: 'End-to-end review of your RSM obligations: licence conditions, record-keeping, and Radiocommunications Act compliance. Delivered with a prioritised remediation roadmap by a former MBIE auditor.' },
+  { title: 'Telecommunications Act (NZ) Review', who: 'RSPs · Resellers · MVNOs', description: 'Gap analysis against NZ Telecommunications Act obligations, Commerce Commission requirements, and Telecommunications Development Levy. Includes remediation roadmap and board briefing.' },
+  { title: 'Privacy Act 2020 Assessment', who: 'Any data-holding operator', description: 'NZ Privacy Act 2020 compliance review: information privacy principles, privacy impact assessments, breach notification obligations, and data flow mapping.' },
+  { title: 'Unsolicited Electronic Messages Review', who: 'Marketing-heavy operators', description: 'Consent framework audit and policy documentation against the NZ Unsolicited Electronic Messages Act 2007.' },
+  { title: 'Data Governance Framework', who: 'Growth-stage operators', description: 'Policies, standards, and data catalogue implementation. Microsoft Purview or open-source stack — your choice. Delivered in phases with ownership and stewardship built in.' },
+  { title: 'Data Sovereignty Review', who: 'GovTech · Defence suppliers', description: 'Identify data residency risks, cloud provider obligations, and sovereignty controls for NZ government contracts and NZISM alignment.' },
+  { title: 'Fractional Compliance Officer', who: 'Operators without in-house compliance', description: 'Your named compliance officer on retainer. RSM liaison, board reporting, and regulatory horizon scanning. Month-to-month.' },
 ]
 
 const dataServices = [
-  { title: 'Systems Thinking Engagement', who: 'Teams with complex data problems', price: 'from $3,500', description: 'Before building anything: map the system. Understand feedback loops, data flows, and where decisions actually get made. Delivered as a system map + intervention points report. TOGAF and COBIT-aligned.' },
-  { title: 'Enterprise Architecture', who: 'Organisations scaling data capability', price: 'from $5,000', description: 'Capability mapping, architecture roadmaps, governance operating models, and investment sequencing. TOGAF · COBIT · ITIL · NIST. Built and delivered in government and higher education contexts.' },
-  { title: 'Cloud Data Platform Build', who: 'Teams moving to modern lakehouse', price: 'from $12,000', description: 'Medallion architecture (bronze/silver/gold) on Azure Synapse, Databricks, or Snowflake. dbt transformation layers, lineage, automated testing, and governed Power BI semantic models on top.' },
-  { title: 'Analytical Pattern Library (R)', who: 'Research · Analytics teams', price: 'from $250/hr', description: 'Extract reusable EDA, modelling, and communication patterns from your domain. Built on 70+ TidyTuesday episodes — the same methodology applied to your data. Tidyverse · ggplot2 · Quarto.' },
-  { title: 'D3 + React Interactive Viz', who: 'Teams publishing data publicly', price: 'from $3,000', description: 'Custom interactive data visualisations built with D3.js and React. SVG, scales, tooltips, geo, force-directed graphs. From the training platform used to teach analysts web-first data storytelling.' },
-  { title: 'ETL / ELT Pipelines', who: 'Data engineering teams', price: 'from $250/hr', description: 'Python/R data pipelines with incremental load, error handling, and monitoring. OSS-first, cloud-optional. Azure Data Factory, dbt, or custom Python.' },
-  { title: 'Power BI Dashboards', who: 'Operations · Management', price: '$2,500–$8,000', description: 'Executive and operational dashboards. DAX modelling, row-level security, and embedded reporting on governed semantic models.' },
-  { title: 'Microsoft Purview', who: 'M365 operators', price: '$3,000–$10,000', description: 'Data catalogue, sensitivity labels, DLP policies, and audit trails for regulated data assets. NZ Privacy Act 2020 and NZISM alignment.' },
-  { title: 'R Training (TidyTuesday Method)', who: 'Analyst teams', price: '$1,500/day', description: 'Custom R workshops using real datasets and EDA-first workflows: tidyverse, ggplot2, R Markdown/Quarto. Learn by building, not by slides.' },
+  { title: 'Systems Thinking Engagement', who: 'Teams with complex data problems', description: 'Before building anything: map the system. Understand feedback loops, data flows, and where decisions actually get made. Delivered as a system map + intervention points report. TOGAF and COBIT-aligned.' },
+  { title: 'Enterprise Architecture', who: 'Organisations scaling data capability', description: 'Capability mapping, architecture roadmaps, governance operating models, and investment sequencing. TOGAF · COBIT · ITIL · NIST. Built and delivered in government and higher education contexts.' },
+  { title: 'Cloud Data Platform Build', who: 'Teams moving to modern lakehouse', description: 'Medallion architecture (bronze/silver/gold) on Azure Synapse, Databricks, or Snowflake. dbt transformation layers, lineage, automated testing, and governed Power BI semantic models on top.' },
+  { title: 'Analytical Pattern Library (R)', who: 'Research · Analytics teams', description: 'Extract reusable EDA, modelling, and communication patterns from your domain. Built on 70+ TidyTuesday episodes — the same methodology applied to your data. Tidyverse · ggplot2 · Quarto.' },
+  { title: 'D3 + React Interactive Viz', who: 'Teams publishing data publicly', description: 'Custom interactive data visualisations built with D3.js and React. SVG, scales, tooltips, geo, force-directed graphs. From the training platform used to teach analysts web-first data storytelling.' },
+  { title: 'ETL / ELT Pipelines', who: 'Data engineering teams', description: 'Python/R data pipelines with incremental load, error handling, and monitoring. OSS-first, cloud-optional. Azure Data Factory, dbt, or custom Python.' },
+  { title: 'Power BI Dashboards', who: 'Operations · Management', description: 'Executive and operational dashboards. DAX modelling, row-level security, and embedded reporting on governed semantic models.' },
+  { title: 'Microsoft Purview', who: 'M365 operators', description: 'Data catalogue, sensitivity labels, DLP policies, and audit trails for regulated data assets. NZ Privacy Act 2020 and NZISM alignment.' },
+  { title: 'R Training (TidyTuesday Method)', who: 'Analyst teams', description: 'Custom R workshops using real datasets and EDA-first workflows: tidyverse, ggplot2, R Markdown/Quarto. Learn by building, not by slides.' },
 ]
 
 const automationServices = [
-  { title: 'Starter Automation Retainer', who: 'Single process', price: '$150/mo', description: 'One automation deployed and running. Ideal for a single repetitive process: weekly reports, meeting summaries, or invoice extraction. Includes monthly maintenance.' },
-  { title: 'Growth Automation Retainer', who: '3 automations', price: '$300/mo', description: 'Three automations plus AI-augmented analysis. The most popular entry point for compliance-heavy operators. Includes fortnightly check-in and one new automation per quarter.' },
-  { title: 'Full Stack Retainer', who: 'Unlimited automations', price: '$600/mo', description: 'Full automation stack: reporting, comms, compliance, and document processing. Custom AI workflow design, weekly optimisation review, and same-day support.' },
-  { title: 'Weekly Compliance Report', who: 'Pre-built · 3-day setup', price: 'incl. Growth+', description: 'Input: RSM feed + licence DB. Output: PDF email to stakeholders. Saves 3hr/week.' },
-  { title: 'Meeting Notes & Actions', who: 'Pre-built · 3-day setup', price: 'incl. Growth+', description: 'Input: Audio recording / transcript. Output: Structured Markdown + action items. Saves 1hr/meeting.' },
-  { title: 'Regulatory Digest', who: 'Pre-built · 3-day setup', price: 'incl. Growth+', description: 'Input: RSM · MBIE · OPC feeds. Output: Prioritised briefing with impact flags. Saves 4hr/week.' },
+  { title: 'Starter Automation Retainer', who: 'Single process', description: 'One automation deployed and running. Ideal for a single repetitive process: weekly reports, meeting summaries, or invoice extraction. Includes monthly maintenance.' },
+  { title: 'Growth Automation Retainer', who: '3 automations', description: 'Three automations plus AI-augmented analysis. The most popular entry point for compliance-heavy operators. Includes fortnightly check-in and one new automation per quarter.' },
+  { title: 'Full Stack Retainer', who: 'Unlimited automations', description: 'Full automation stack: reporting, comms, compliance, and document processing. Custom AI workflow design, weekly optimisation review, and same-day support.' },
+  { title: 'Weekly Compliance Report', who: 'Pre-built · 3-day setup', description: 'Input: RSM feed + licence DB. Output: PDF email to stakeholders. Saves 3hr/week.' },
+  { title: 'Meeting Notes & Actions', who: 'Pre-built · 3-day setup', description: 'Input: Audio recording / transcript. Output: Structured Markdown + action items. Saves 1hr/meeting.' },
+  { title: 'Regulatory Digest', who: 'Pre-built · 3-day setup', description: 'Input: RSM · MBIE · OPC feeds. Output: Prioritised briefing with impact flags. Saves 4hr/week.' },
 ]
 
 const monitorTiers = [
   {
     name: 'Starter',
-    price: '$500',
     description: 'Core regulatory monitoring for small operators.',
     features: ['Weekly RSM regulatory digest', 'Telecommunications Act obligation tracker', 'Privacy Act & Spam Act alerts', 'Monthly compliance briefing (1hr)', 'Email support — 48hr SLA'],
     cta: 'Start free trial',
@@ -63,7 +62,6 @@ const monitorTiers = [
   },
   {
     name: 'Growth',
-    price: '$1,500',
     description: 'Full compliance + spectrum for active licence holders.',
     features: ['Everything in Starter', 'Spectrum licence expiry alerts', 'RSM enforcement monitoring', 'Data sovereignty updates', 'Fortnightly strategy call (1hr)', 'Priority support — 24hr SLA'],
     cta: 'Start free trial',
@@ -72,7 +70,6 @@ const monitorTiers = [
   },
   {
     name: 'Compliance Pro',
-    price: '$3,500',
     description: 'Fractional compliance officer. Named cover.',
     features: ['Everything in Growth', 'Named compliance officer', 'Unlimited regulatory queries', 'Draft RSM responses', 'Quarterly board report', 'Emergency escalation — same-day'],
     cta: 'Book a call',
@@ -112,7 +109,8 @@ export default function Spectrum() {
             The agent platform grew out of this work; this is where it still lives.
           </p>
           <p className="text-slate-500 font-body text-sm max-w-lg mb-12">
-            Fixed-fee engagements wherever possible. Retainers are month-to-month. All prices NZD exclusive of GST.
+            Everything below is scoped in quanta — billed by the work actually consumed, not by the hour
+            or a number quoted up front. Tell me the problem; I&apos;ll tell you the quanta.
           </p>
           <QuantaPricing />
         </div>
@@ -147,7 +145,6 @@ export default function Spectrum() {
             <div className="flex items-center gap-6 px-4 py-2.5 text-xs font-mono text-slate-700" style={{ borderBottom: '1px solid rgba(14,165,233,0.07)', background: 'rgba(255,255,255,0.01)' }}>
               <span className="flex-1">SERVICE</span>
               <span className="hidden sm:block w-48">WHO</span>
-              <span className="w-28 text-right">PRICE (NZD)</span>
               <span className="w-4" />
             </div>
             {spectrumServices.map((s, i) => (
@@ -168,7 +165,6 @@ export default function Spectrum() {
             <div className="flex items-center gap-6 px-4 py-2.5 text-xs font-mono text-slate-700" style={{ borderBottom: '1px solid rgba(14,165,233,0.07)', background: 'rgba(255,255,255,0.01)' }}>
               <span className="flex-1">SERVICE</span>
               <span className="hidden sm:block w-48">WHO</span>
-              <span className="w-28 text-right">PRICE (NZD)</span>
               <span className="w-4" />
             </div>
             {complianceServices.map((s, i) => (
@@ -189,7 +185,6 @@ export default function Spectrum() {
             <div className="flex items-center gap-6 px-4 py-2.5 text-xs font-mono text-slate-700" style={{ borderBottom: '1px solid rgba(14,165,233,0.07)', background: 'rgba(255,255,255,0.01)' }}>
               <span className="flex-1">SERVICE</span>
               <span className="hidden sm:block w-48">WHO</span>
-              <span className="w-28 text-right">PRICE (NZD)</span>
               <span className="w-4" />
             </div>
             {dataServices.map((s, i) => (
@@ -208,19 +203,18 @@ export default function Spectrum() {
           </div>
 
           <div className="card-amber rounded-sm p-5 mb-8 font-mono text-sm">
-            <span className="text-slate-600 line-through">$420/mo</span>
+            <span className="text-slate-600 line-through">3 hrs / week</span>
             <span className="text-slate-600 mx-3">→</span>
-            <span className="text-emerald-400 font-700">$150/mo</span>
+            <span className="text-emerald-400 font-700">0 hrs / week</span>
             <span className="text-slate-600 mx-3">=</span>
-            <span className="text-sky-400">$270/mo saved · forever.</span>
-            <span className="text-slate-600 ml-3 text-xs">3hr/week task at $35/hr → automated.</span>
+            <span className="text-sky-400">an afternoon back · every week · forever.</span>
+            <span className="text-slate-600 ml-3 text-xs">One repetitive task, automated once.</span>
           </div>
 
           <div style={{ border: '1px solid rgba(14,165,233,0.08)', borderRadius: '3px' }}>
             <div className="flex items-center gap-6 px-4 py-2.5 text-xs font-mono text-slate-700" style={{ borderBottom: '1px solid rgba(14,165,233,0.07)', background: 'rgba(255,255,255,0.01)' }}>
               <span className="flex-1">SERVICE</span>
               <span className="hidden sm:block w-48">WHO</span>
-              <span className="w-28 text-right">PRICE (NZD)</span>
               <span className="w-4" />
             </div>
             {automationServices.map((s, i) => (
