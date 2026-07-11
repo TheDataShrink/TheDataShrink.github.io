@@ -12,6 +12,7 @@ import Resources from '@/pages/Resources'
 import Community from '@/pages/Community'
 import Episodes from '@/pages/Episodes'
 import EpisodeDetail from '@/pages/EpisodeDetail'
+import Origin from '@/pages/Origin'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/episodes" element={<Episodes />} />
           <Route path="/episodes/:slug" element={<EpisodeDetail />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/origin" element={<Origin />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

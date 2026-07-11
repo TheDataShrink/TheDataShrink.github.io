@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Episodes', href: '/episodes' },
   { label: 'Community', href: '/community' },
   { label: 'Spectrum & RSM', href: '/spectrum' },
+  { label: 'Origin', href: '/origin' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -79,6 +80,10 @@ export default function Navbar() {
             <Link to="/episodes" onClick={() => setOpen(false)}
               className="block py-2.5 text-sm text-slate-400 hover:text-slate-100 font-body border-b border-white/5 transition-colors">
               Episodes
+            </Link>
+            <Link to="/origin" onClick={() => setOpen(false)}
+              className="block py-2.5 text-sm text-slate-400 hover:text-slate-100 font-body border-b border-white/5 transition-colors">
+              Origin
             </Link>
             <Link to="/about" onClick={() => setOpen(false)}
               className="block py-2.5 text-sm text-slate-400 hover:text-slate-100 font-body border-b border-white/5 transition-colors">
