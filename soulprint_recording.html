@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Recording "Soulprint Vol. 1" | TheDataShrink™ Studio Sessions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep-space: #100C1F;
+            --bg-glass-purple: rgba(155, 89, 182, 0.08);
+            --text-color: #D1CDE0;
+            --text-heading: #FFFFFF;
+            --primary-purple: #A060FF;
+            --accent-magenta: #F857A6;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --studio-green: #00FF88;
+            --waveform-blue: #00D4FF;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-deep-space);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Dynamic Studio Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                linear-gradient(315deg, rgba(160, 96, 255, 0.15), rgba(248, 87, 166, 0.1), rgba(16, 12, 31, 0.9));
+            background-size: 100% 100%, 100% 100%, 400% 400%;
+            animation: studioAmbient 20s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes studioAmbient {
+            0%, 100% { background-position: 0% 50%, 0% 50%, 0% 50%; }
+            33% { background-position: 30% 70%, 70% 30%, 50% 0%; }
+            66% { background-position: 70% 30%, 30% 70%, 100% 50%; }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(16, 12, 31, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-heading);
+            text-decoration: none;
+            background: linear-gradient(90deg, var(--primary-purple), var(--accent-magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-btn {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: var(--primary-purple);
+        }
+
+        /* Hero Section with Studio Aesthetic */
+        .studio-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .studio-console {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(0, 255, 136, 0.03) 50%, transparent 70%),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 212, 255, 0.05) 2px, rgba(0, 212, 255, 0.05) 4px);
+            animation: consoleGlow 15s ease-in-out infinite;
+        }
+
+        @keyframes consoleGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 800px;
+            padding: 40px;
+        }
+
+        .session-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--text-heading);
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--studio-green), var(--waveform-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titlePulse 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titlePulse {
+            0% { transform: scale(1); filter: brightness(1); }
+            100% { transform: scale(1.02); filter: brightness(1.2); }
+        }
+
+        .session-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .recording-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 255, 136, 0.2);
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: 1px solid var(--studio-green);
+            margin-bottom: 40px;
+            animation: statusBlink 2s ease-in-out infinite;
+        }
+
+        @keyframes statusBlink {
+            0%, 50% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.3); }
+            100% { box-shadow: 0 0 40px rgba(0, 255, 136, 0.6); }
+        }
+
+        .record-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--studio-green);
+            border-radius: 50%;
+            animation: recordPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes recordPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+
+        /* Studio Equipment Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .studio-section {
+            padding: 100px 0;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .equipment-card {
+            background: var(--bg-glass-purple);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .equipment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .equipment-card:hover::before {
+            left: 100%;
+        }
+
+        .equipment-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--studio-green);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .equipment-icon {
+            font-size: 2.5rem;
+            color: var(--studio-green);
+            margin-bottom: 20px;
+        }
+
+        .equipment-card h3 {
+            color: var(--text-heading);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        /* Waveform Visualization */
+        .waveform-section {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .waveform-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .waveform-bar {
+            width: 4px;
+            margin: 0 2px;
+            background: linear-gradient(to top, var(--waveform-blue), var(--studio-green));
+            border-radius: 2px;
+            animation: waveform 2s ease-in-out infinite;
+        }
+
+        @keyframes waveform {
+            0%, 100% { transform: scaleY(0.3); }
+            50% { transform: scaleY(1); }
+        }
+
+        /* Track Timeline */
+        .timeline-section {
+            padding: 80px 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary-purple), var(--accent-magenta));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: var(--bg-glass-purple);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            width: 45%;
+            position: relative;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            background: var(--studio-green);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+
+        /* Behind the Scenes Gallery */
+        .bts-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .bts-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .bts-item:hover {
+            transform: scale(1.05);
+        }
+
+        .bts-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(20%) hue-rotate(240deg) saturate(1.2);
+        }
+
+        .bts-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .bts-item:hover .bts-overlay {
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--studio-green), var(--waveform-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .session-title { font-size: 2.5rem; }
+            .timeline::before { left: 20px; }
+            .timeline-item { flex-direction: column !important; }
+            .timeline-content { width: 100%; margin-left: 40px; }
+            .timeline-dot { left: 20px; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">TheDataShrink™</a>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="studio-hero">
+        <div class="studio-console"></div>
+        <div class="hero-content">
+            <div class="recording-status">
+                <div class="record-dot"></div>
+                <span>RECORDING IN PROGRESS</span>
+            </div>
+            <h1 class="session-title">Soulprint Vol. 1</h1>
+            <p class="session-subtitle">Doctor Shrink in the studio crafting therapeutic beats</p>
+        </div>
+    </section>
+
+    <!-- Studio Equipment Section -->
+    <section class="studio-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Studio Setup</h2>
+                <p>The technological foundation where healing music is born</p>
+            </div>
+            
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <div class="equipment-icon"><i class="fas fa-microphone"></i></div>
+                    <h3>Neumann U87 Ai</h3>
+                    <p>Professional condenser microphone capturing every emotional nuance in Doctor Shrink's therapeutic vocals and spoken word segments.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon"><i class="fas fa-sliders-h"></i></div>
+                    <h3>Pro Tools HDX</h3>
+                    <p>Industry-standard DAW system processing the raw emotional data into polished therapeutic soundscapes with precision and clarity.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon"><i class="fas fa-volume-up"></i></div>
+                    <h3>Yamaha HS8 Monitors</h3>
+                    <p>Reference monitors ensuring every frequency of healing resonates perfectly, from deep therapeutic bass to crystalline high-end clarity.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon"><i class="fas fa-keyboard"></i></div>
+                    <h3>Native Instruments S88</h3>
+                    <p>88-key MIDI controller translating emotional data into melodic therapy, each key programmed with healing intentions.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI Integration Suite</h3>
+                    <p>Custom-built AI tools analyzing emotional patterns and suggesting harmonic structures that amplify the therapeutic impact of each track.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Biometric Feedback</h3>
+                    <p>Real-time monitoring of Doctor Shrink's emotional state during recording, ensuring authentic vulnerability translates into the final mix.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waveform Visualization -->
+    <section class="waveform-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Live Audio Analysis</h2>
+                <p>Real-time visualization of therapeutic frequencies during recording</p>
+            </div>
+            
+            <div class="waveform-container">
+                <!-- Generated dynamically by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Recording Timeline -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recording Timeline</h2>
+                <p>The creative journey from concept to completed therapeutic anthem</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-dot"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Pre-Production Analysis</h3>
+                        <p><strong>Day 1-3:</strong> AI analysis of Doctor Shrink's journal entries and therapeutic goals. Emotional mapping and frequency planning for maximum healing impact.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Beat Construction</h3>
+                        <p><strong>Day 4-7:</strong> Crafting the foundational rhythms using data-driven patterns that sync with healing brainwave frequencies and therapeutic breathing patterns.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Vocal Recording</h3>
+                        <p><strong>Day 8-12:</strong> Capturing authentic emotional delivery through multiple takes, each session monitored for genuine vulnerability and therapeutic authenticity.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Therapeutic Mixing</h3>
+                        <p><strong>Day 13-18:</strong> Precision mixing where every frequency is adjusted for maximum emotional impact, creating space for healing to occur in the listener's mind.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Final Mastering</h3>
+                        <p><strong>Day 19-21:</strong> Final polish ensuring the album translates healing energy across all playback systems, from intimate headphones to powerful sound systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Behind the Scenes Gallery -->
+    <section class="studio-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Behind the Scenes</h2>
+                <p>Intimate moments from the Soulprint Vol. 1 recording sessions</p>
+            </div>
+            
+            <div class="bts-gallery">
+                <div class="bts-item">
+                    <img src="https://via.placeholder.com/600x400/A060FF/FFFFFF?text=Vocal+Booth" alt="Doctor Shrink in vocal booth" class="bts-image">
+                    <div class="bts-overlay">
+                        <h4>Vocal Booth Sessions</h4>
+                        <p>Doctor Shrink laying down vulnerable tracks in the isolation booth</p>
+                    </div>
+                </div>
+                
+                <div class="bts-item">
+                    <img src="https://via.placeholder.com/600x400/00FF88/000000?text=Mixing+Console" alt="Mixing console during session" class="bts-image">
+                    <div class="bts-overlay">
+                        <h4>Mixing Console</h4>
+                        <p>Fine-tuning frequencies for therapeutic impact</p>
+                    </div>
+                </div>
+                
+                <div class="bts-item">
+                    <img src="https://via.placeholder.com/600x400/00D4FF/000000?text=AI+Analysis" alt="AI analysis screen" class="bts-image">
+                    <div class="bts-overlay">
+                        <h4>AI Emotional Analysis</h4>
+                        <p>Real-time emotional mapping during recording</p>
+                    </div>
+                </div>
+                
+                <div class="bts-item">
+                    <img src="https://via.placeholder.com/600x400/F857A6/FFFFFF?text=Creative+Break" alt="Creative break moment" class="bts-image">
+                    <div class="bts-overlay">
+                        <h4>Creative Breakthrough</h4>
+                        <p>The moment "Trauma to Triumph" came together</p>
+                    </div>
+                </div>
+                
+                <div class="bts-item">
+                    <img src="https://via.placeholder.com/600x400/A060FF/FFFFFF?text=Final+Listen" alt="Final playback session" class="bts-image">
+                    <div class="bts-overlay">
+                        <h4>Final Playback</h4>
+                        <p>First complete listen-through of the finished album</p>
+                    </div>
+                </div>
+                
+                <div class="bts-item">
+                    <img src="https://via.placeholder.com/600x400/00FF88/000000?text=Celebration" alt="Completion celebration" class="bts-image">
+                    <div class="bts-overlay">
+                        <h4>Mission Complete</h4>
+                        <p>Celebrating the birth of therapeutic music</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Generate dynamic waveform visualization
+        function createWaveform() {
+            const container = document.querySelector('.waveform-container');
+            const bars = 50;
+            
+            for (let i = 0; i < bars; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'waveform-bar';
+                bar.style.height = Math.random() * 150 + 30 + 'px';
+                bar.style.animationDelay = Math.random() * 2 + 's';
+                bar.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
+                container.appendChild(bar);
+            }
+        }
+
+        // Initialize waveform
+        createWaveform();
+
+        // Add subtle parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const consoles = document.querySelectorAll('.studio-console');
+            consoles.forEach(console => {
+                console.style.transform = `translateY(${scrolled * 0.3}px)`;
+            });
+        });
+
+        // Add click handlers for gallery items
+        document.querySelectorAll('.bts-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const title = this.querySelector('h4').textContent;
+                const description = this.querySelector('p').textContent;
+                
+                // Create modal
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 9999;
+                    cursor: pointer;
+                `;
+                
+                modal.innerHTML = `
+                    <div style="text-align: center; color: white; max-width: 600px; padding: 20px;">
+                        <h2 style="margin-bottom: 15px; color: var(--studio-green);">${title}</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.6;">${description}</p>
+                        <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">Click anywhere to close</p>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                
+                modal.addEventListener('click', () => {
+                    modal.remove();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
