@@ -12,3 +12,4 @@ renv/
 /_site/
 /raw_data/
 /data/
+**/*.quarto_ipynb
